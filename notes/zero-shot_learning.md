@@ -32,9 +32,8 @@
      2. The word vectors get implicitly grounded by the visual modality 
      3. They allows us to give prototypical instances for various words
 
-<center>
-<img src="~@source/../../images/zero-shot_learning/01_01.png" width="400rm" />
-</center>
+
+<div style="text-align:center"><img src="~@source/../../images/zero-shot_learning/01_01.png" width="400rm" /> </div>
 
 2. The model incorporates **novelty detection** which determines whether a new image is on the manifold of known categories
    * Why?) classifiers prefer to assign test images into classes for which they have seen training examples
