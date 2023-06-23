@@ -36,3 +36,12 @@
 <img src="~@source/../../images/zero-shot_learning/01_01.png" width="400rm" />
 </center>
 
+2. The model incorporates **novelty detection** which determines whether a new image is on the manifold of known categories
+   * Why?) classifiers prefer to assign test images into classes for which they have seen training examples
+   * How?)
+     * Rule
+       * If the image is of a known category, a standard classifier can be used.
+       * Otherwise, images are assigned to a class based on the likelihood of being an unseen category.
+     * Methodology
+       1. Prefers high accuracy for unseen classes
+       2. Prefers high accuracy for for seen classes
