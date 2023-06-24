@@ -51,14 +51,32 @@
 
 ## 2. Related Work
 
-#### Concept) One-Shot Learning
+### Concept) One-Shot Learning
 * Meaning) Seeks to learn a visual object class by using very few training examples
 * Description)
   * This paper's model is based on using **deep learning** techniques to learn low-level image features followed by a **probabilistic model** to **transfer knowledge** with the added advantage of needing **no training data** due to the cross-modal knowledge transfer from natural language.
 
-#### Concept) Knowledge and Visual Attribute Transfer
+### Concept) Knowledge and Visual Attribute Transfer
 * This model has distributional features of words learned from unsupervised, nonparallel corpora and can classify between categories that have thousands or zero training images.
 
-#### Concept) Domain Adaptation
+### Concept) Domain Adaptation
 * Useful in situations in which there is a lot of training data in one domain but little to none in another.
 * ex) In sentiment analysis one could train a classifier for movie reviews and then adapt from that domain to book reviews
+
+### Concept) Multimodal Embeddings
+* Meaning) A technique that relates information from multiple sources such
+as sound and video or images and text
+
+---
+
+## 3. Word and Image Representations
+### Concept) Distributional Approach
+* Used for capturing semantic similarity between words. 
+* Words are represented as vectors of distributional characteristics
+  * Most often their co-occurrences with words in context
+  * This representation is effective in NLP tasks such as...
+    * sense disambiguation
+    * thesaurus extraction
+    * cognitive modeling
+  * Use the model of Huang et al
+    * Unless otherwise mentioned, all word vectors are initialized with pre-trained d = 50-dimensional word vectors from the unsupervised model
