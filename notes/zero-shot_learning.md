@@ -30,7 +30,7 @@
    * Word vectors capture distributional similarities from a large, unsupervised text corpus.
      1. Learning an image mapping into this space 
      2. The word vectors get implicitly grounded by the visual modality 
-     3. They allows us to give prototypical instances for various words
+     3. They allows us to give prototypical instances for various words   
 
 
 <div style="text-align:center"><img src="~@source/../../images/zero-shot_learning/01_01.png" width="400rm" /> </div><br>
@@ -45,3 +45,20 @@
      * Methodology
        1. Prefers high accuracy for unseen classes
        2. Prefers high accuracy for for seen classes
+  
+
+---
+
+## 2. Related Work
+
+#### Concept) One-Shot Learning
+* Meaning) Seeks to learn a visual object class by using very few training examples
+* Description)
+  * This paper's model is based on using **deep learning** techniques to learn low-level image features followed by a **probabilistic model** to **transfer knowledge** with the added advantage of needing **no training data** due to the cross-modal knowledge transfer from natural language.
+
+#### Concept) Knowledge and Visual Attribute Transfer
+* This model has distributional features of words learned from unsupervised, nonparallel corpora and can classify between categories that have thousands or zero training images.
+
+#### Concept) Domain Adaptation
+* Useful in situations in which there is a lot of training data in one domain but little to none in another.
+* ex) In sentiment analysis one could train a classifier for movie reviews and then adapt from that domain to book reviews
