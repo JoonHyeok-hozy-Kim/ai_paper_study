@@ -93,5 +93,28 @@ as sound and video or images and text
   * $W$ : The set of word vectors in $R^d$
     * where $W = W_s \cup W_u$
   * All training images $x^{(i)} \in X_y$ of a seen class $y \in Y_s$ are mapped to the word vector $w_y$ corresponding to the class name.
-* Training
+* **Training**
   * Objective Function : $J(\Theta) = \sum_{y \in Y_s} \sum_{x^{(i)} \in X_y} {\Vert w_y - \theta^{(2)} f( \theta^{(1)} x^{(i)}) \Vert}^2$
+    * $\theta^{(1)} \in R^{h \times I}$
+    * $\theta^{(2)} \in R^{d \times h}$
+    * $f = tanh$
+    * $\Theta = (\theta^{(1)}, \theta^{(2)})$
+  * The cost function is trained with standard backpropagation and L-BFGS.
+* **Advantage** of projecting images into the word vector space
+  * Implicitly extend the semantics with a visual grounding
+  * It allows us to query the space
+    * ex) for prototypical visual instances of a word.
+* **Experiment**
+  * Settings
+    * The 50-dimensional semantic space with word vectors and images of both seen and unseen classes
+    * The unseen classes are **cat** and **truck**.
+    * The mapping from 50 to 2 dimensions was done with t-SNE.
+  * Result
+    ![image](@source/../../images/zero-shot_learning/04_01.png)
+  * Analysis
+    * Most classes are tightly clustered around their corresponding word vector.
+    * The **zero-shot classes** (cat and truck for this mapping) do not have close-by vectors.
+    * The images of the two zero-shot classes are close to semantically similar classes.
+  * Motivation
+    1. Detect images of unseen classes.
+    2. Classify them to the zero-shot word vectors.
