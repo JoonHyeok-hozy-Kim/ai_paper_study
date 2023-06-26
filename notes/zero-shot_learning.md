@@ -80,3 +80,18 @@ as sound and video or images and text
     * cognitive modeling
   * Use the model of Huang et al
     * Unless otherwise mentioned, all word vectors are initialized with pre-trained d = 50-dimensional word vectors from the unsupervised model
+
+---
+
+## 4. Projecting Images into Semantic Word Spaces
+### Goal) Learn semantic relationships and class membership of images
+* How?) 
+  * Project the image feature vectors into the d-dimensional, semantic word space $F$
+  * $Y$ : A set of classes $y$
+    * $Y_s$ : Seen classes, i.e., classes that have training data
+    * $Y_u$ : Unseen classes, i.e., zero-shot classes without any training data
+  * $W$ : The set of word vectors in $R^d$
+    * where $W = W_s \cup W_u$
+  * All training images $x^{(i)} \in X_y$ of a seen class $y \in Y_s$ are mapped to the word vector $w_y$ corresponding to the class name.
+* Training
+  * Objective Function : $J(\Theta) = \sum_{y \in Y_s} \sum_{x^{(i)} \in X_y} {\Vert w_y - \theta^{(2)} f( \theta^{(1)} x^{(i)}) \Vert}^2$
