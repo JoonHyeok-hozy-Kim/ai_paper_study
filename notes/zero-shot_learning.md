@@ -31,11 +31,7 @@
      1. Learning an image mapping into this space 
      2. The word vectors get implicitly grounded by the visual modality 
      3. They allows us to give prototypical instances for various words   
-
-
-<div style="text-align:center"><img src="~@source/../../images/zero-shot_learning/01_01.png" width="400rm" /> </div><br>
-
-
+     ![](~@source/../../images/zero-shot_learning/01_01.png)
 2. The model incorporates **novelty detection** which determines whether a new image is on the manifold of known categories
    * Why?) classifiers prefer to assign test images into classes for which they have seen training examples
    * How?)
@@ -110,7 +106,7 @@ as sound and video or images and text
     * The unseen classes are **cat** and **truck**.
     * The mapping from 50 to 2 dimensions was done with t-SNE.
   * Result
-    ![image](@source/../../images/zero-shot_learning/04_01.png)
+    ![image](~@source/../../images/zero-shot_learning/04_01.png)
   * Analysis
     * Most classes are tightly clustered around their corresponding word vector.
     * The **zero-shot classes** (cat and truck for this mapping) do not have close-by vectors.
