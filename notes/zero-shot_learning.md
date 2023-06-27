@@ -128,5 +128,4 @@ as sound and video or images and text
 * $F_s$ : the corresponding semantic vectors of $X_s$
 * $F_y$ : the semantic vectors of class $y$
 
-### The Model : 
-$p(y|x, X_s, F_s, W, \theta) = \sum\limits_{V \in \{s, u\}} {P(y|V, x, X_s, F_s, W, \theta) P(V|x, X_s, F_s, W, \theta)}$
+### The Model : $p(y|x, X_s, F_s, W, \theta) = \sum\limits_{V \in \{s, u\}} {P(y|V, x, X_s, F_s, W, \theta) P(V|x, X_s, F_s, W, \theta)}$
