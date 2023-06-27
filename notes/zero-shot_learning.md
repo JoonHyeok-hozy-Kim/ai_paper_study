@@ -129,7 +129,4 @@ as sound and video or images and text
 * $F_y$ : the semantic vectors of class $y$
 
 ### The Model : 
-$p(y|x, X_s, F_s, W, \theta) = \sum_{V \in \{s, u\}}^\infty {P(y|V, x, X_s, F_s, W, \theta) P(V|x, X_s, F_s, W, \theta)}$
-
-
-$\sum_a^b c$
+$p(y|x, X_s, F_s, W, \theta) = \sum\limits_{V \in \{s, u\}} {P(y|V, x, X_s, F_s, W, \theta) P(V|x, X_s, F_s, W, \theta)}$
