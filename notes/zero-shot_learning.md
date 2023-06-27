@@ -118,14 +118,17 @@ as sound and video or images and text
 ---
 
 ## 5. Zero-Shot Learning Model
-### Goal) Predict $p(y|x)$
+### Goal) Predict $p(y|x)$ and $f$
 * $p(y|x)$ : the conditional probability for both seen and unseen classes $y \in Y_s \cup Y_u$ given an image from the test set $x \in X_t$
-
-### How?)
 * $f \in F_t$ : the semantic vectors to which these images have been mapped to
+
+### Settings & Conditions)
 * $V \in \{s, u\}$ : a binary novelty random variable which indicate whether an image is in a seen or unseen class
 * $X_s$ : the set of all feature vectors for training images of seen classes
 * $F_s$ : the corresponding semantic vectors of $X_s$
 * $F_y$ : the semantic vectors of class $y$
 * $p(y|x, X_s, F_s, W, \theta) = \sum\limits_{V \in \{s, u\}} {P(y|V, x, X_s, F_s, W, \theta) P(V|x, X_s, F_s, W, \theta)}$
-  * Marginalizing out the novelty variable V allows us to first distinguish between seen and unseen classes
+  * Marginalizing out the novelty variable $V$ allows us to first distinguish between seen and unseen classes
+  * Each type of image can then be classified differently
+  * The seen image classifier can be a state of the art softmax classifier
+  * The unseen classifier can be a simple Gaussian discriminator
