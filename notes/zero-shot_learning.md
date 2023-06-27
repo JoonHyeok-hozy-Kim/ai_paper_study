@@ -114,3 +114,18 @@ as sound and video or images and text
   * Motivation
     1. Detect images of unseen classes.
     2. Classify them to the zero-shot word vectors.
+
+---
+
+## 5. Zero-Shot Learning Model
+### Goal) Predict $p(y|x)$
+* $p(y|x)$ : the conditional probability for both seen and unseen classes $y \in Y_s \cup Y_u$ given an image from the test set $x \in X_t$
+
+### How?)
+* $f \in F_t$ : the semantic vectors to which these images have been mapped to
+* $V \in \{s, u\}$ : a binary novelty random variable which indicate whether an image is in a seen or unseen class
+* $X_s$ : the set of all feature vectors for training images of seen classes
+* $F_s$ : the corresponding semantic vectors of $X_s$
+* $F_y$ : the semantic vectors of class $y$
+
+### The Model : $p(y|x, X_s, F_s, W, \theta) = \sum_{V \in \{s, u\}}^{} P(y|V, x, X_s, F_s, W, \theta) P(V|x, X_s, F_s, W, \theta)$
