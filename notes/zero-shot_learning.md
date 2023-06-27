@@ -127,5 +127,5 @@ as sound and video or images and text
 * $X_s$ : the set of all feature vectors for training images of seen classes
 * $F_s$ : the corresponding semantic vectors of $X_s$
 * $F_y$ : the semantic vectors of class $y$
-
-### The Model : $p(y|x, X_s, F_s, W, \theta) = \sum\limits_{V \in \{s, u\}} {P(y|V, x, X_s, F_s, W, \theta) P(V|x, X_s, F_s, W, \theta)}$
+* $p(y|x, X_s, F_s, W, \theta) = \sum\limits_{V \in \{s, u\}} {P(y|V, x, X_s, F_s, W, \theta) P(V|x, X_s, F_s, W, \theta)}$
+  * Marginalizing out the novelty variable V allows us to first distinguish between seen and unseen classes
