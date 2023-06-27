@@ -130,3 +130,6 @@ as sound and video or images and text
 
 ### The Model : 
 $p(y|x, X_s, F_s, W, \theta) = \sum_{V \in \{s, u\}}^\infty {P(y|V, x, X_s, F_s, W, \theta) P(V|x, X_s, F_s, W, \theta)}$
+
+
+$\sum_a^b c$
