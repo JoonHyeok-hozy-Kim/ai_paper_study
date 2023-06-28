@@ -169,4 +169,4 @@ as sound and video or images and text
 * Advantage)
   * We can obtain the conditional class probability using a weighted combination of classifiers for both seen and unseen classes.
   * This method is very conservative in its assignment of novelty and therefore preserves high accuracy for seen classes
-    * Why?) Figure shows that many unseen images are not technically outliers of the complete data manifold.
+    * Why?) [Figure](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/zero-shot_learning.md#result-and-analysis) shows that many unseen images are not technically outliers of the complete data manifold.
