@@ -170,3 +170,14 @@ as sound and video or images and text
   * We can obtain the conditional class probability using a weighted combination of classifiers for both seen and unseen classes.
   * This method is very conservative in its assignment of novelty and therefore preserves high accuracy for seen classes
     * Why?) [Figure](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/zero-shot_learning.md#result-and-analysis) shows that many unseen images are not technically outliers of the complete data manifold.
+* Modification
+  * Why needed?)
+    * We distinguish between training and test sets.
+    * We do not want to use the set of all test images since they would then not be considered outliers anymore.
+  * Settings
+    * $k = 20$ : the number of nearest neighbors that are considered to determine whether a point is an outlier
+    * $\lambda = 3$ : Can be roughly seen as a multiplier on the standard deviation
+      * The larger it is, the more a point has to deviate from the mean in order to be considered an outlier.
+    * For each point $f \in F_t$, define a context set $C(f) \subseteq F_s$ of k nearest neighbors in the training set of seen categories.
+    * Compute the probabilistic set distance pdist of each point $x$ to the points in $C(f)$.
+      * $pdist_\lambda(f, C(f)) = \lambda \sqrt{\sum_{q \in C(f)} {{d(f, q)}^2} \over |C(f)|}$
