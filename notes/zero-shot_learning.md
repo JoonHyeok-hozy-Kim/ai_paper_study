@@ -82,7 +82,7 @@ as sound and video or images and text
 ## 4. Projecting Images into Semantic Word Spaces
 ### Goal) Learn semantic relationships and class membership of images
 * How?) 
-  * Project the image feature vectors into the d-dimensional, semantic word space $F$
+  * Project the image feature vectors into the $d$-dimensional, semantic word space $F$
   * $Y$ : A set of classes $y$
     * $Y_s$ : Seen classes, i.e., classes that have training data
     * $Y_u$ : Unseen classes, i.e., zero-shot classes without any training data
@@ -105,7 +105,8 @@ as sound and video or images and text
     * The 50-dimensional semantic space with word vectors and images of both seen and unseen classes
     * The unseen classes are **cat** and **truck**.
     * The mapping from 50 to 2 dimensions was done with t-SNE.
-  * Result
+### Result and Analysis)
+  * Result)
     ![image](~@source/../../images/zero-shot_learning/04_01.png)
   * Analysis
     * Most classes are tightly clustered around their corresponding word vector.
@@ -132,3 +133,40 @@ as sound and video or images and text
   * Each type of image can then be classified differently
   * The seen image classifier can be a state of the art softmax classifier
   * The unseen classifier can be a simple Gaussian discriminator
+
+### 5.1 Strategies for Novelty Detection
+#### Concept) $P(V = u|x, X_s, F_s, W, \theta)$
+  * Meaning) the probability of an image being in an unseen class
+  * Prop)
+    * An image from an unseen class will not be very close to the existing training images but it will still be roughly in the same semantic region.
+      * ex) Cat images are closest to dogs even though they are not as close to the dog word vector as most dog images are
+    * We can use **outlier detection methods** to determine whether an image is in a seen or unseen class
+
+#### Strategy 1) Use simple thresholds on the marginals assigned to each image under isometric, class-specific Gaussians.
+* Idea)
+  * The mapped points of seen classes are used to obtain this marginal.
+  * Set certain threshold.
+  * If an image from the set has low score(marginal probability) than the threshold, consider it as an outlier!
+* How?)
+  * For each seen class $y \in Y_s$,
+  * Compute $P(x|X_y, w_y, F_y, \theta) = P(f|F_y, w_y) = \aleph(f|w_y, \Sigma_y)$
+    * $\Sigma_y$ : Covariance matrix of $y$
+* Assumptions)
+  * The Gaussian of each class is parameterized by the corresponding semantic word vector $w_y$ for its mean and a covariance matrix $\Sigma_y$ 
+    * $w_y$ and $\Sigma_y$ are estimated from all the mapped training points with that label.
+  * Restrict the Gaussians to be isometric to prevent overfitting.
+* Prop.)
+  * $P(V=u|f, X_s, W, \theta) := \mathbb{1} \{\forall y \in Y_s : P(f|F_y, w_y) < T_y\}$
+    * Meaning) For a new image $x$, the outlier detector then becomes the indicator function that is 1 if the marginal probability is below a certain threshold $T_y$ for all classes $y$.
+    * The thresholds are selected to make at least some fraction of the vectors from training images above threshold
+      * i.e.) To be classified as a seen class.
+    * Smaller thresholds result in fewer images being labeled as unseen.
+    * The main drawback of this method is that it does not give a real probability for an outlier.
+
+#### Strategy2) Obtain an actual outlier probability in an unsupervised way.
+* Source) 
+  * H. Kriegel, P. Kroger, E. Schubert, and A. Zimek. *LoOP: local Outlier Probabilities.*
+* Advantage)
+  * We can obtain the conditional class probability using a weighted combination of classifiers for both seen and unseen classes.
+  * This method is very conservative in its assignment of novelty and therefore preserves high accuracy for seen classes
+    * Why?) Figure shows that many unseen images are not technically outliers of the complete data manifold.
