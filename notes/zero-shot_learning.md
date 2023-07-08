@@ -193,6 +193,7 @@ as sound and video or images and text
         * Can be seen as a kind of std deviation of LOF in the training set of seen classes.
     * Define the Local Outlier Probability
       * $LoOP(f) = max \{ {0 , erf({{lof_\lambda (f)} \over {Z_\lambda (F_s)}})} \}$
+      * $\{$
         * where, $erf$ : Gaussian Error Function
       * Interpretation) 
         * $LoOP$ can be used to weigh the seen and unseen classifiers by the appropriate amount given our belief about the outlierness of a new test image.
