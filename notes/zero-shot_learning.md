@@ -184,4 +184,5 @@ as sound and video or images and text
         * where $d(f, q)$ : some distance function in the word space
         * Euclidean distance assumed.
     * Define the *local outlier factor*.
-      * LOF : $lof_\lambda (f) ={{pidst_\lambda (f, C(f))}\over{\mathbb{E}_{q \sim C(f)} [pdist_\lambda (f, C(q))]}} -1$
+      * LOF : $lof_\lambda (f) ={{pidst_\lambda (f, C(f))}\over{ \mathbb{E} _{q \sim C(f)} [pdist_\lambda (f, C(q))]}} -1$
+      * 
