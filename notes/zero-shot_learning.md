@@ -185,4 +185,4 @@ as sound and video or images and text
         * Euclidean distance assumed.
     * Define the *local outlier factor*.
       * LOF : $lof_\lambda (f) ={{pidst_\lambda (f, C(f))}\over{{\mathbb{E}}_{q \sim C(f)} [pdist_\lambda (f, C(q))]}} -1$
-      * LOF : $lof_\lambda (f) ={{pidst_\lambda (f, C(f))}\over{B}} -1$
+      * LOF : $lof_\lambda (f) ={{pidst_\lambda (f, C(f))}\over{{\mathbb{E}}}} -1$
