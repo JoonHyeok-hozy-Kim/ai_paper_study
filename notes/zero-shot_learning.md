@@ -184,5 +184,12 @@ as sound and video or images and text
         * where $d(f, q)$ : some distance function in the word space
         * Euclidean distance assumed.
     * Define the *local outlier factor*.
-      * LOF : $lof_\lambda (f) ={{pidst_\lambda (f, C(f))}\over{{\mathbb{E}}_{q \sim C(f)} [pdist_\lambda (f, C(q))]}} -1$
       * LOF : $lof_\lambda (f) ={{pidst_\lambda (f, C(f))}\over{{\mathbb{E}} _ {q \sim C(f)} [p_\lambda (f, C(q))] }} -1$
+        * Interpretation) Large LOF == Increasing outlierness.
+    * Define a Normalization Factor $Z$
+      * $Z_\lambda (F_s) = \lambda \sqrt{{\mathbb{E}} _ {q \sim F_s} [(lof(q))^2]}$
+      * Why needed?) Can be seen as a kind of std deviation of LOF in the training set of seen classes.
+    * Define the Local Outlier Probability
+      * $LoOP(f) = max\{0 , erf({{lof_\lambda (f)} \over {Z_\lambda (F_s)}})\}$
+        * where, $erf$ : Gaussian Error Function
+      * Interpretation) $LoOP$ can be used to weigh the seen and unseen classifiers by the appropriate amount given our belief about the outlierness of a new test image.
