@@ -100,12 +100,12 @@ as sound and video or images and text
   * Implicitly extend the semantics with a visual grounding
   * It allows us to query the space
     * ex) for prototypical visual instances of a word.
-* **Experiment**
+
+### Experiment
   * Settings
     * The 50-dimensional semantic space with word vectors and images of both seen and unseen classes
     * The unseen classes are **cat** and **truck**.
     * The mapping from 50 to 2 dimensions was done with t-SNE.
-### Result and Analysis)
   * Result)
     ![image](~@source/../../images/zero-shot_learning/04_01.png)
   * Analysis
@@ -165,7 +165,7 @@ as sound and video or images and text
 
 #### Strategy2) Obtain an actual outlier probability in an unsupervised way.
 * Source) 
-  * H. Kriegel, P. Kroger, E. Schubert, and A. Zimek. *LoOP: local Outlier Probabilities.*
+  * H. Kriegel, P. Kroger, E. Schubert, and A. Zimek. *LoOP: Local Outlier Probabilities.*
 * Advantage)
   * We can obtain the conditional class probability using a weighted combination of classifiers for both seen and unseen classes.
   * This method is very conservative in its assignment of novelty and therefore preserves high accuracy for seen classes
@@ -180,4 +180,8 @@ as sound and video or images and text
       * The larger it is, the more a point has to deviate from the mean in order to be considered an outlier.
     * For each point $f \in F_t$, define a context set $C(f) \subseteq F_s$ of k nearest neighbors in the training set of seen categories.
     * Compute the probabilistic set distance pdist of each point $x$ to the points in $C(f)$.
-      * $pdist_\lambda(f, C(f)) = \lambda \sqrt{\sum_{q \in C(f)} {{d(f, q)}^2} \over |C(f)|}$
+      * probabilistic set distance : $pdist_\lambda(f, C(f)) = \lambda \sqrt{\sum_{q \in C(f)} {{d(f, q)}^2} \over |C(f)|}$
+        * where $d(f, q)$ : some distance function in the word space
+        * Euclidean distance assumed.
+    * Define the *local outlier factor*.
+      * LOF : $lof_\lambda (f) ={{pidst_\lambda (f, C(f))}\over{\mathbb{E}_{q \sim C(f)} [pdist_\lambda (f, C(q))]}} -1$
