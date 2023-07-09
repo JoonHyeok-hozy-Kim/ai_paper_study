@@ -196,3 +196,67 @@ as sound and video or images and text
         * where, $erf$ : Gaussian Error Function
       * Interpretation) 
         * $LoOP$ can be used to weigh the seen and unseen classifiers by the appropriate amount given our belief about the outlierness of a new test image.
+
+
+### 5.2 Classification
+1. Case. 1) $V = s$ : the point is considered to be a known class
+   * Any probabilistic classifier for obtaining $P(y|V = s, x, X_s)$ can be used.
+   * This paper uses a softmax classifier on the original I-dimensional features.
+2. Case. 2) $V = u$ : unseen class case
+   * Assume an isometric Gaussian distribution around each of the novel class word vectors
+   * Assign classes based on their likelihood
+
+---
+
+## 6. Experiments
+### Settings
+* Dataset : CIFAR-10
+  * 10 classes
+  * 5000 (32 X 32 X 3 RGB) images
+* Feature vectors of images
+  * Obtained by using unsupervised feature extraction method
+  * a 12,800-dimensional feature vector for each image
+* Word Vector
+  * a set of 50-dimensional word vectors
+  * Huang dataset
+    * Correspond to each CIFAR Category
+* Note
+  * 10 classes are omitted and reserved for zero-shot analysis
+  * Remaining categories are used for training
+
+### Steps
+1. Analyze the classification performance for seen classes and unseen classes
+separately.
+2. Combine images from the two types of classes
+3. Discuss the trade-offs involved in our two unseen class detection strategies
+   * Threshold vs LOF
+4. The overall performance of the entire classification pipeline is summarized and compared to another popular approach by Lampert et al.
+5. Run a few additional experiments to assess quality and robustness of our model
+   
+
+### 6.1 Seen and Unseen Classes Separately
+* Goal 1) Seen Class Classification
+  * Evaluate the classification accuracy when presented only with images from classes that have been used in training
+    * Target : 8 classes 
+      * where 2 are reserved for the zero-shot learning
+  * How?)
+    * Train a softmax classifier to label one of 8 classes from CIFAR-10
+  * Result
+    * Achieved an accuracy of 82.5% on the set of classes excluding cat and truck
+    * Closely matches the SVM-based classification results in the original Coates and Ng paper that used all 10 classes.
+
+* Goal 2) Unseen Class Zero-shot Learning
+  * How?
+    * The classification is based on isometric Gaussians 
+      * Compare the distances between 
+        1. word vectors of unseen classes 
+        2. an image mapped into semantic space
+  * Result)
+    * The performance is good if there is at least one **seen class similar to the zero-shot class**
+      * ex 1) cat and truck are reserved.
+        * **Good** performance. Cat and Truck are similar to dog and car respectively!
+      * ex 2) cat and dog are reserved.
+        * **Bad** performance. No similar class in 8 seen classes.
+      * ex 3) car and truck are reserved.
+        * **Bad** performance. No similar class in 8 seen classes.
+      ![combinations](./../images/zero-shot_learning/06_01.png)
