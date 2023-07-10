@@ -246,7 +246,7 @@ separately.
     * Closely matches the SVM-based classification results in the original Coates and Ng paper that used all 10 classes.
 
 * Goal 2) Unseen Class Zero-shot Learning
-  * How?
+  * How?)
     * The classification is based on isometric Gaussians 
       * Compare the distances between 
         1. word vectors of unseen classes 
@@ -260,3 +260,45 @@ separately.
       * ex 3) car and truck are reserved.
         * **Bad** performance. No similar class in 8 seen classes.
       ![combinations](./../images/zero-shot_learning/06_01.png)
+
+
+### 6.2 Influence of Novelty Detectors on Average Accuracy
+* Goal) Determine the performance of the classifier for the overall dataset that includes **both seen and unseen images**
+* How?)
+  * Compare the performance when when each image is passed through either of the two novelty detectors.
+    1. [Gaussian model](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/zero-shot_learning.md#strategy-1-use-simple-thresholds-on-the-marginals-assigned-to-each-image-under-isometric-class-specific-gaussians)
+        * The image is passed through the softmax classifier for seen category images
+    2. [LoOP model](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/zero-shot_learning.md#strategy2-obtain-an-actual-outlier-probability-in-an-unsupervised-way)
+        * The image is assigned to the class of the nearest semantic word vector for unseen category images.
+* Result)
+  ![comparison](./../images/zero-shot_learning/06_02.png)
+  1. At the left extreme of the curve...
+     * All images are classified as belonging to an unseen category
+       * The Gaussian unseen image detector treats all of the images as unseen
+       * The LoOP model takes the probability threshold for an image being unseen to be 0
+     * We achieve the highest accuracies, at 90% for this zero-shot pair.
+  2. At the right extreme of the curve...
+     * All images are classified as belonging to a seen category
+     * The softmax classifier for seen images gives the best possible accuracy for these images
+  3. Between the extremes...
+     * The curves for unseen image accuracies and seen image accuracies fall and rise at different rates.
+       * Gaussian model
+         * Liberal in designating an image as belonging to an unseen category
+         * Treats more of the images as unseen
+         * Hence, high unseen class accuracies continue along the curve
+       * The LoOP model
+         * Tries to detect whether an image could be regarded as an outlier for each class
+         * Does not assign very high outlier probabilities to zero-shot images due to a large number of them being spread on inside the manifold of seen images
+         * Thus, the majority of images are treated as as seen
+           * High seen class accuracies continue along the curve
+         * Hence, the LoOP model can be used in scenarios where...
+           * Does not want to degrade the high performance on classes from the training set 
+           * But allow for the possibility of unseen classes
+  4. In the (c) Graph...
+     * Recall that most images in the test set belong to previously seen categories.
+     * Thus, the LoOP model, which is conservative in assigning the unseen label, gives better overall accuracies than the Gaussian model.
+     * In general, we can choose an acceptable threshold for seen class accuracy and achieve a corresponding unseen class accuracy.
+       * ex) At 70% seen class accuracy in the Gaussian model...
+         * unseen classes can be classified with accuracies of between 30% to 15%, depending on the class. 
+         * Random chance is 10%.
+   
