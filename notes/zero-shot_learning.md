@@ -317,8 +317,7 @@ separately.
      * Use it directly.
 
 * Result)
-  * Dash-lines in the graph below.
-    ![comparison](./../images/zero-shot_learning/06_02.png)
+  * Dash-lines in the [Graphs above]([./../images/zero-shot_learning/06_02.png](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/zero-shot_learning.md#62-influence-of-novelty-detectors-on-average-accuracy))
 
 
 ### 6.4 Comparison to attribute-based classification
@@ -334,8 +333,8 @@ separately.
     3. Use the trained classifiers to construct attribute labels for unseen classes.
     4. Use MAP prediction to determine the final output class.
 
-* Result)
-  ![table](../images/zero-shot_learning/06_04.png)
+* Result)   
+  ![table](../images/zero-shot_learning/06_04.png)   
   * In general, an advantage of our approach is the ability to adapt to a domain quickly
     * Difficult in the case of the attribute-based model
       * why?)
