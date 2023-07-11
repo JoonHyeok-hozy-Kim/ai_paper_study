@@ -305,5 +305,5 @@ separately.
 
 ### 6.3 Combining predictions for seen and unseen classes
 * Goal) 
-  * Perform the full Bayesian pipeline as defined by the equation below.
-    * [$LoOP(f) = max \\{ {0 , erf({{lof_\lambda (f)} \over {Z_\lambda (F_s)}})} \\}$](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/zero-shot_learning.md#strategy2-obtain-an-actual-outlier-probability-in-an-unsupervised-way)
+  * Perform the full Bayesian pipeline as defined by the [equation below](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/zero-shot_learning.md#strategy2-obtain-an-actual-outlier-probability-in-an-unsupervised-way).
+    * $LoOP(f) = max \\{ {0 , erf({{lof_\lambda (f)} \over {Z_\lambda (F_s)}})} \\}$
