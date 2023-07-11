@@ -336,3 +336,21 @@ separately.
 
 * Result)
   ![table](../images/zero-shot_learning/06_04.png)
+  * In general, an advantage of our approach is the ability to adapt to a domain quickly
+    * Difficult in the case of the attribute-based model
+      * why?)
+        * Appropriate attribute types need to be carefully picked
+
+
+### 6.5 Novelty Detection in original feature space
+* Goal)
+  * Calculation in the word space for the **Gaussian Model** in the original feature space
+* Observation)
+  * In the Mapped Space...
+    * Among 100 images assigned the highest probability of being an outlier, 12% of those images are false positives.
+  * In the Original Feature Space...
+    * The false positive rate increases to 78%.
+  * Why?)
+    * The mapping function gathers extra semantic information from the word vectors it is trained on
+    * Images are able to cluster better around these assumed Gaussian centroids.
+    * In the original space, there is no semantic information, and the Gaussian centroids need to be inferred from among the **images themselves**, which are not truly representative of the center of the image space for their classes.
