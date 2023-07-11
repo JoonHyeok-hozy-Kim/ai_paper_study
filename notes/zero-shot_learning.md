@@ -307,3 +307,32 @@ separately.
 * Goal) 
   * Perform the full Bayesian pipeline as defined by the [equation below](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/zero-shot_learning.md#strategy2-obtain-an-actual-outlier-probability-in-an-unsupervised-way).
     * $LoOP(f) = max \\{ {0 , erf({{lof_\lambda (f)} \over {Z_\lambda (F_s)}})} \\}$
+
+* How?)
+  1. Gaussian Model
+     * Tune a cutoff fraction for log probabilities beyond which images are classified as outliers.
+     * Assign probabilities 0 and 1 to either side of this threshold.
+  2. LoOP Model
+     * Recall that the LoOP model outputs a probability for the image instance being an outlier
+     * Use it directly.
+
+* Result)
+  * Dash-lines in the graph below.
+    ![comparison](./../images/zero-shot_learning/06_02.png)
+
+
+### 6.4 Comparison to attribute-based classification
+* Goal)
+  * Establish a context for comparing our model performance
+
+* How?)
+  * Run the attribute-based classification approach outlined by Lampert et al. 
+    1. Construct an attribute set of 25 attributes highlighting different aspects of the CIFAR-10 dataset
+       * Certain aspects dealing with animal-based attributes
+       * Others dealing with vehicle-based attributes
+    2. Train each binary attribute classifier separately
+    3. Use the trained classifiers to construct attribute labels for unseen classes.
+    4. Use MAP prediction to determine the final output class.
+
+* Result)
+  ![table](../images/zero-shot_learning/06_04.png)
