@@ -221,7 +221,7 @@ as sound and video or images and text
   * Huang dataset
     * Correspond to each CIFAR Category
 * Note
-  * 10 classes are omitted and reserved for zero-shot analysis
+  * 2 classes are omitted and reserved for zero-shot analysis
   * Remaining categories are used for training
 
 ### Steps
@@ -266,18 +266,18 @@ separately.
 * Goal) Determine the performance of the classifier for the overall dataset that includes **both seen and unseen images**
 * How?)
   * Compare the performance when when each image is passed through either of the two novelty detectors.
-    1. [Gaussian model](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/zero-shot_learning.md#strategy-1-use-simple-thresholds-on-the-marginals-assigned-to-each-image-under-isometric-class-specific-gaussians)
+    1. [Isometric, class specific Gaussian model](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/zero-shot_learning.md#strategy-1-use-simple-thresholds-on-the-marginals-assigned-to-each-image-under-isometric-class-specific-gaussians)
         * The image is passed through the softmax classifier for seen category images
     2. [LoOP model](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/zero-shot_learning.md#strategy2-obtain-an-actual-outlier-probability-in-an-unsupervised-way)
         * The image is assigned to the class of the nearest semantic word vector for unseen category images.
 * Result)
   ![comparison](./../images/zero-shot_learning/06_02.png)
-  1. At the left extreme of the curve...
+  1. At the LEFT extreme of the curve...
      * All images are classified as belonging to an unseen category
        * The Gaussian unseen image detector treats all of the images as unseen
        * The LoOP model takes the probability threshold for an image being unseen to be 0
      * We achieve the highest accuracies, at 90% for this zero-shot pair.
-  2. At the right extreme of the curve...
+  2. At the RIGHT extreme of the curve...
      * All images are classified as belonging to a seen category
      * The softmax classifier for seen images gives the best possible accuracy for these images
   3. Between the extremes...
@@ -294,11 +294,16 @@ separately.
          * Hence, the LoOP model can be used in scenarios where...
            * Does not want to degrade the high performance on classes from the training set 
            * But allow for the possibility of unseen classes
-  4. In the (c) Graph...
+  4. In the Graph (c)...
      * Recall that most images in the test set belong to previously seen categories.
      * Thus, the LoOP model, which is conservative in assigning the unseen label, gives better overall accuracies than the Gaussian model.
      * In general, we can choose an acceptable threshold for seen class accuracy and achieve a corresponding unseen class accuracy.
        * ex) At 70% seen class accuracy in the Gaussian model...
          * unseen classes can be classified with accuracies of between 30% to 15%, depending on the class. 
          * Random chance is 10%.
-   
+
+
+### 6.3 Combining predictions for seen and unseen classes
+* Goal) 
+  * Perform the full Bayesian pipeline as defined by the equation below.
+    * [$LoOP(f) = max \\{ {0 , erf({{lof_\lambda (f)} \over {Z_\lambda (F_s)}})} \\}$](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/zero-shot_learning.md#strategy2-obtain-an-actual-outlier-probability-in-an-unsupervised-way)
