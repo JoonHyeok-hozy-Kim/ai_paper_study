@@ -1,3 +1,5 @@
+* [Back to Main]()
+
 # Zero-shot learning through cross-modal transfer
 ### Richard Socher, Milind Ganjoo, Christopher D. Manning, Andrew Y. Ng
 * [Read Paper](https://file.notion.so/f/s/979ead36-2810-4500-93c7-9672bc249f12/5027-zero-shot-learning-through-cross-modal-transfer.pdf?id=248a03b3-531c-4cb5-96cd-1e0a88d08c19&table=block&spaceId=f4f04cc2-d7ba-4dd0-bec8-86c2393d0c27&expirationTimestamp=1687543511698&signature=E99oUS3_SO12-AgM4YdLDbNJQ9Xq8P40yiGThu11aNQ&downloadName=5027-zero-shot-learning-through-cross-modal-transfer.pdf)
@@ -317,7 +319,7 @@ separately.
      * Use it directly.
 
 * Result)
-  * Dash-lines in the [Graphs above]([./../images/zero-shot_learning/06_02.png](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/zero-shot_learning.md#62-influence-of-novelty-detectors-on-average-accuracy))
+  * Dash-lines in the [Graphs above](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/zero-shot_learning.md#62-influence-of-novelty-detectors-on-average-accuracy)
 
 
 ### 6.4 Comparison to attribute-based classification
@@ -353,3 +355,62 @@ separately.
     * The mapping function gathers extra semantic information from the word vectors it is trained on
     * Images are able to cluster better around these assumed Gaussian centroids.
     * In the original space, there is no semantic information, and the Gaussian centroids need to be inferred from among the **images themselves**, which are not truly representative of the center of the image space for their classes.
+
+
+### 6.6 Extension to CIFAR-100 and Analysis of Deep Semantic Mapping
+* Target) CIFAR-100
+  * Consists of 100 classes, with 500 32 × 32 × 3 RGB images in each class
+
+* How?)
+  * Remove 4 categories for which no vector representations were available in our vocabulary
+  * Combine the CIFAR-10 dataset to get a set of 106 classes
+  * Six zero-shot classes were chosen: ‘forest’, ‘lobster’, ‘orange’, ‘boy’, ‘truck’, and ‘cat’.
+  * Train a neural network to map the vectors into semantic space
+
+* Result)
+  * A peak non-zero-shot accuracy of 52.7%
+    * Almost near the baseline on 100 classes
+  * When all images are labeled as zero shot, the peak accuracy for the 6 unseen classes is 52.7%, where c
+    * Chance would be at 16.6%.
+
+* Analysis)
+  * The proximity of an image to its appropriate class vector is dependent on the quality of the mapping into semantic space.
+  * We hypothesize that in this scenario a two layer neural network as described in Sec. 4 will perform better than a single layer or linear mapping.    
+    ![NN](../images/zero-shot_learning/06_06.png)
+    * The zero-shot accuracy is 10% higher with a 2 layer neural net compared to a single layer with 42.2%.
+
+
+### 6.7 Zero-Shot Classes with Distractor Words
+* Goal)
+  * Recall that the goal of zero-shot learning is to make zero-shot images to be classified correctly when there are a large number of unseen categories to choose from.
+  * To evaluate such a setting with many possible but incorrect unseen classes we create a set of **distractor words**.
+  
+* How?)
+  * Compare the 2 scenarios.
+    1. Add random nouns to the semantic space
+    2. Add the k nearest neighbors of a word vector
+       * For the zero-shot class cat and truck, the nearest neighbors distractors include rabbit, kitten and mouse, among others.
+  * Evaluate classification accuracy with each new set
+
+* Result)
+  * Scenario 1)
+    * The accuracy does not change much if random distractor nouns are added.
+      * This shows that the semantic space is spanned well and our zero-shot learning model is quite **robust**.
+  * Scenario 2)
+    * Accuracy drops as an increasing number of semantically related nearest neighbors are added to the distractor set.
+      * Guessing why)
+        * At first, there are not enough related categories to accurately distinguish very similar categories.
+        * After a certain number, the effect of a new distractor word is small.
+      * Interpretation)
+        * This is consistent with our expectation that a certain number of closely-related semantic neighbors would distract the classifier
+        * However, beyond that limited set, other categories would be further away in semantic space and would not affect classification accuracy.
+
+---
+
+## 7. Conclusion
+* What we introduced)
+  * A novel model for jointly doing standard and zero-shot classification based on deep learned word and image representations
+  * Two key ideas
+     1. Using **semantic word vector** representations can help to transfer knowledge between modalities even when these representations are learned in an **unsupervised** way
+     2. The Bayesian framework that first differentiates novel unseen classes from points on the semantic manifold of trained classes can help to combine both zero-shot and seen classification into one framework.
+        * If the task was only to differentiate between various zero-shot classes we could obtain accuracies of up to 90% with a fully unsupervised model.
