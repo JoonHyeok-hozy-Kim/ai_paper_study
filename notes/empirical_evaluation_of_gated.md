@@ -1,4 +1,4 @@
-* [Back to Main](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/tree/main)
+* [Back to Main](../README.md)
 ---
 
 # Empirical Evaluation of Gated Recurrent Neural Networks on Sequence Modeling
@@ -10,4 +10,4 @@
 
 
 ---
-[Back to Main](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/tree/main)
+* [Back to Main](../README.md)
