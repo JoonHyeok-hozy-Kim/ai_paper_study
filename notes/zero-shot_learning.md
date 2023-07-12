@@ -1,4 +1,5 @@
-* [Back to Main]()
+* [Back to Main](../README.md)
+---
 
 # Zero-shot learning through cross-modal transfer
 ### Richard Socher, Milind Ganjoo, Christopher D. Manning, Andrew Y. Ng
@@ -414,3 +415,8 @@ separately.
      1. Using **semantic word vector** representations can help to transfer knowledge between modalities even when these representations are learned in an **unsupervised** way
      2. The Bayesian framework that first differentiates novel unseen classes from points on the semantic manifold of trained classes can help to combine both zero-shot and seen classification into one framework.
         * If the task was only to differentiate between various zero-shot classes we could obtain accuracies of up to 90% with a fully unsupervised model.
+
+
+
+---
+* [Back to Main](../README.md)
