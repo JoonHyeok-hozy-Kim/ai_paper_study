@@ -2,8 +2,11 @@
 
 # Statistics Revisited...
 
-### Chapters
-1. [Descriptive Statistics](./ch01/note.md)
+### Chapters and Topics
+|No.|Chapter|Topics|
+|:-:|:------|:-----|
+| 1 |[Descriptive Statistics](./ch01/note.md)||
+
 
 
 
