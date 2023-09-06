@@ -2,7 +2,7 @@
 * Punctuality as Priority
 
 ## Math Review
-* [Statistics]()
+* [Statistics](./math/statistics/main.md)
 * [Linear Algebra]()
 
 
