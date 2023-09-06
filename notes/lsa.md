@@ -19,7 +19,7 @@
 #### Sol.) Treating the **unreliability** of observed term-document association data as a **statistical problem**
   * Assumption) 
     * There is some underlying **latent semantic structure** in the data that is partially obscured by the **randomness of word choice** with respect to retrieval.
-  * Tool) 
+  * Tools Used) 
     1. **Statistics**
          * To estimate this latent structure
          * To get rid of the obscuring "noise."
@@ -45,7 +45,7 @@
 
 #### Concept) A Problem in current information retrieval methods 
 * (words that searchers use often) $\neq$ (words indexed by the information searchers seek)
-  * Two Sides in this issue
+  * 2 concepts in this issue
     1. Synonymy
        * Meaning)
          * There are many ways to refer to the same object.
@@ -59,7 +59,40 @@
        * Result)
          * The use of a term in a search query does not necessarily mean that a document containing or labeled by the same term is of interest.
          * Polysemy is one factor underlying **poor "precision."**
+  * 3 Factors that incurs current automatic indexing's failure
+    1. The way **index terms** are identified is incomplete.
+        * How?
+          * The terms used to describe or index a document typically **contain only a fraction** of the terms that users look it up under.
+        * Why it happens?
+          * The documents themselves do not contain all the terms users will apply
+          * Term selection procedures intentionally omit many of the terms in a document.
+        * Current Approach to the Problem)
+          * Intellectual or automatic **term expansion**
+            * e.g.) construction of a thesaurus
+            * Drawback) Some added terms may have different meaning from that intended (the polysemy effect) leading to rapid degradation of precision.
+    2. The lack of an adequate **automatic method** for dealing with polysemy.
+        * Common Approaches)
+          1. Use controlled vocabularies and human intermediaries to act as translators.
+             * Drawbacks
+               * Extremely expensive
+               * Not effective
+          2. Boolean intersection or coordination with other terms to disambiguate meaning.
+             * Limits
+               * Inability to think of appropriate limiting terms if they do exist
+               * Such terms may not occur in the documents or may not have been included in the indexing.
+    2. Failure to take redundancy into account.
+       * Why?)
+         * In current automatic indexing and retrieval systems, each word type is treated as **independent** of any other.
+           * e.g.) Boolean or coordination level searches
+         * Thus, matching (or not) both of two terms that almost always occur together is counted as heavily as matching two that are rarely found in the same document.
+           * i.e.) There is no weight in matching results
+       * Result)
+         * Failure to take redundancy into account
+         * Distortion of results to an unknown degree.
 
+
+---
+## 2. Rationale of the Latent Semantic Indexing (LSI) Method
 
 ---
 * [Back to Main](../README.md)
