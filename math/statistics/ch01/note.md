@@ -21,6 +21,7 @@ number of elements in it
 #### Def) Statistical Inference
 * An estimate, a prediction, a decision, or a generalization about the population based on information contained in a sample
 
+<br><br>
 
 ### 1.2.1 Types of Data
 
@@ -38,6 +39,8 @@ number of elements in it
   * Data collected on different elements or variables at the same point in time or for the same period of time
 * Def) Time-series Data
   * Data collected on the same element or the same variable at different points in time or for different periods of time
+
+<br><br>
 
 
 
