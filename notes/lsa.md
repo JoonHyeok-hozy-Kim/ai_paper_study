@@ -45,7 +45,7 @@
 
 #### Concept) A Problem in current information retrieval methods 
 * (words that searchers use often) $\neq$ (words indexed by the information searchers seek)
-  * 2 concepts in this issue
+  * Two concepts in this issue
     1. Synonymy
        * Meaning)
          * There are many ways to refer to the same object.
@@ -59,7 +59,7 @@
        * Result)
          * The use of a term in a search query does not necessarily mean that a document containing or labeled by the same term is of interest.
          * Polysemy is one factor underlying **poor "precision."**
-  * 3 Factors that incurs current automatic indexing's failure
+  * Three Factors that incurs current automatic indexing's failure
     1. The way **index terms** are identified is incomplete.
         * How?
           * The terms used to describe or index a document typically **contain only a fraction** of the terms that users look it up under.
