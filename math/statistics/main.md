@@ -1,6 +1,6 @@
 * [Back to AI Main](../../README.md)
 
-# Statistics Revisited...
+# Statistics revisited, following *Mathematical Statistics with Application*
 
 ### Chapters and Topics
 |No.|Chapter|Topics|

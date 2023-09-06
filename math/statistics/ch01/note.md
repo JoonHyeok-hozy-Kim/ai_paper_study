@@ -15,6 +15,29 @@ number of elements in it
 #### Def) Descriptive Statistics
 * The methods consisting mainly of organizing, summarizing, and presenting data in the form of tables, graphs, and charts
 
+#### Def) Inferential Statistics
+* The methods of drawing inferences and making decisions about the population using the sample
+
+#### Def) Statistical Inference
+* An estimate, a prediction, a decision, or a generalization about the population based on information contained in a sample
+
+
+### 1.2.1 Types of Data
+
+#### Concept) Quantitative vs Qualitative(Categorical) 
+* Def) Quantitative Data
+  * Observations measured on a numerical scale. 
+* Def) Categorical data(Qualitative)
+  * Nonnumerical data that can only be classified into one of the groups of categories
+  * Types)
+    1. Nominal Data : Data groups that do not have a specific order
+    2. Ordinal Data : Data groups that should be listed in a specific order
+
+#### Concept) Cross-sectional vs Time-series
+* Def) Cross-sectional Data
+  * Data collected on different elements or variables at the same point in time or for the same period of time
+* Def) Time-series Data
+  * Data collected on the same element or the same variable at different points in time or for different periods of time
 
 
 
