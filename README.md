@@ -1,3 +1,11 @@
+# AI Paper Study Records.
+* Punctuality as Priority
+
+## Math Review
+* [Statistics]()
+* [Linear Algebra]()
+
+
 |Title|Year|Description|Tag|Start Date|End Date|
 |:----|:--:|:----------|:--|:--------:|:------:|
 |[Indexing by latent semantic analysis](./notes/lsa.md)|1990|LSA|NLP|Sep 6, 2023|WIP|
