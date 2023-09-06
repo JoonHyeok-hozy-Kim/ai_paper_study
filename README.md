@@ -6,6 +6,7 @@
 * [Linear Algebra]()
 
 
+## Papers Covered
 |Title|Year|Description|Tag|Start Date|End Date|
 |:----|:--:|:----------|:--|:--------:|:------:|
 |[Indexing by latent semantic analysis](./notes/lsa.md)|1990|LSA|NLP|Sep 6, 2023|WIP|
