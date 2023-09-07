@@ -3,7 +3,7 @@
 
 # Zero-shot learning through cross-modal transfer
 #### Richard Socher, Milind Ganjoo, Christopher D. Manning, Andrew Y. Ng
-* [Read Paper](https://file.notion.so/f/s/979ead36-2810-4500-93c7-9672bc249f12/5027-zero-shot-learning-through-cross-modal-transfer.pdf?id=248a03b3-531c-4cb5-96cd-1e0a88d08c19&table=block&spaceId=f4f04cc2-d7ba-4dd0-bec8-86c2393d0c27&expirationTimestamp=1687543511698&signature=E99oUS3_SO12-AgM4YdLDbNJQ9Xq8P40yiGThu11aNQ&downloadName=5027-zero-shot-learning-through-cross-modal-transfer.pdf)
+* [Read Paper](../papers/230623%20zero-shot-learning-through-cross-modal-transfer.pdf)
 
 ---
 ## 0. Abstract
@@ -34,7 +34,7 @@
      1. Learning an image mapping into this space 
      2. The word vectors get implicitly grounded by the visual modality 
      3. They allows us to give prototypical instances for various words   
-     ![](~@source/../../images/zero-shot_learning/01_01.png)
+     ![](../images/001_zero-shot_learning/01_01.png)
 2. The model incorporates **novelty detection** which determines whether a new image is on the manifold of known categories
    * Why?) classifiers prefer to assign test images into classes for which they have seen training examples
    * How?)
@@ -110,7 +110,7 @@ as sound and video or images and text
     * The unseen classes are **cat** and **truck**.
     * The mapping from 50 to 2 dimensions was done with t-SNE.
   * Result)
-    ![image](~@source/../../images/zero-shot_learning/04_01.png)
+    ![image](../images/001_zero-shot_learning/04_01.png)
   * Analysis
     * Most classes are tightly clustered around their corresponding word vector.
     * The **zero-shot classes** (cat and truck for this mapping) do not have close-by vectors.
@@ -172,7 +172,7 @@ as sound and video or images and text
 * Advantage)
   * We can obtain the conditional class probability using a weighted combination of classifiers for both seen and unseen classes.
   * This method is very conservative in its assignment of novelty and therefore preserves high accuracy for seen classes
-    * Why?) [Figure](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/zero-shot_learning.md#result-and-analysis) shows that many unseen images are not technically outliers of the complete data manifold.
+    * Why?) [Figure](../images/001_zero-shot_learning/04_01.png) shows that many unseen images are not technically outliers of the complete data manifold.
 * Modification
   * Why needed?)
     * We distinguish between training and test sets.
@@ -262,19 +262,19 @@ separately.
         * **Bad** performance. No similar class in 8 seen classes.
       * ex 3) car and truck are reserved.
         * **Bad** performance. No similar class in 8 seen classes.
-      ![combinations](./../images/zero-shot_learning/06_01.png)
+      ![combinations](./../images/001_zero-shot_learning/06_01.png)
 
 
 ### 6.2 Influence of Novelty Detectors on Average Accuracy
 * Goal) Determine the performance of the classifier for the overall dataset that includes **both seen and unseen images**
 * How?)
   * Compare the performance when when each image is passed through either of the two novelty detectors.
-    1. [Isometric, class specific Gaussian model](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/zero-shot_learning.md#strategy-1-use-simple-thresholds-on-the-marginals-assigned-to-each-image-under-isometric-class-specific-gaussians)
+    1. [Isometric, class specific Gaussian model](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/001_zero-shot_learning.md#strategy-1-use-simple-thresholds-on-the-marginals-assigned-to-each-image-under-isometric-class-specific-gaussians)
         * The image is passed through the softmax classifier for seen category images
-    2. [LoOP model](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/zero-shot_learning.md#strategy2-obtain-an-actual-outlier-probability-in-an-unsupervised-way)
+    2. [LoOP model](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/001_zero-shot_learning.md#strategy2-obtain-an-actual-outlier-probability-in-an-unsupervised-way)
         * The image is assigned to the class of the nearest semantic word vector for unseen category images.
 * Result)
-  ![comparison](./../images/zero-shot_learning/06_02.png)
+  ![comparison](./../images/001_zero-shot_learning/06_02.png)
   1. At the LEFT extreme of the curve...
      * All images are classified as belonging to an unseen category
        * The Gaussian unseen image detector treats all of the images as unseen
@@ -308,7 +308,7 @@ separately.
 
 ### 6.3 Combining predictions for seen and unseen classes
 * Goal) 
-  * Perform the full Bayesian pipeline as defined by the [equation below](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/zero-shot_learning.md#strategy2-obtain-an-actual-outlier-probability-in-an-unsupervised-way).
+  * Perform the full Bayesian pipeline as defined by the [equation below](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/001_zero-shot_learning.md#strategy2-obtain-an-actual-outlier-probability-in-an-unsupervised-way).
     * $LoOP(f) = max \\{ {0 , erf({{lof_\lambda (f)} \over {Z_\lambda (F_s)}})} \\}$
 
 * How?)
@@ -320,7 +320,7 @@ separately.
      * Use it directly.
 
 * Result)
-  * Dash-lines in the [Graphs above](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/zero-shot_learning.md#62-influence-of-novelty-detectors-on-average-accuracy)
+  * Dash-lines in the [Graphs above](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/001_zero-shot_learning.md#62-influence-of-novelty-detectors-on-average-accuracy)
 
 
 ### 6.4 Comparison to attribute-based classification
@@ -337,7 +337,7 @@ separately.
     4. Use MAP prediction to determine the final output class.
 
 * Result)   
-  ![table](../images/zero-shot_learning/06_04.png)   
+  ![table](../images/001_zero-shot_learning/06_04.png)   
   * In general, an advantage of our approach is the ability to adapt to a domain quickly
     * Difficult in the case of the attribute-based model
       * why?)
@@ -377,7 +377,7 @@ separately.
 * Analysis)
   * The proximity of an image to its appropriate class vector is dependent on the quality of the mapping into semantic space.
   * We hypothesize that in this scenario a two layer neural network as described in Sec. 4 will perform better than a single layer or linear mapping.    
-    ![NN](../images/zero-shot_learning/06_06.png)
+    ![NN](../images/001_zero-shot_learning/06_06.png)
     * The zero-shot accuracy is 10% higher with a 2 layer neural net compared to a single layer with 42.2%.
 
 
