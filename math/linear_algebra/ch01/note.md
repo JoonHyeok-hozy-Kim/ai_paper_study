@@ -60,7 +60,7 @@ one column
 ![](./images/01_01_07.png)
 ![](./images/01_01_08.png)
 * Application) Velocity Vectors
-  ![]()
+  ![](./images/01_01_09.png)
 
 
 
