@@ -274,7 +274,7 @@ separately.
     2. [LoOP model](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/001_zero-shot_learning.md#strategy2-obtain-an-actual-outlier-probability-in-an-unsupervised-way)
         * The image is assigned to the class of the nearest semantic word vector for unseen category images.
 * Result)
-  ![comparison](./../images/001_zero-shot_learning/06_02.png)
+  ![comparison](../images/001_zero-shot_learning/06_02.png)
   1. At the LEFT extreme of the curve...
      * All images are classified as belonging to an unseen category
        * The Gaussian unseen image detector treats all of the images as unseen
@@ -320,7 +320,7 @@ separately.
      * Use it directly.
 
 * Result)
-  * Dash-lines in the [Graphs above](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/001_zero-shot_learning.md#62-influence-of-novelty-detectors-on-average-accuracy)
+  * Dash-lines in the [Graphs above](../images/001_zero-shot_learning/06_02.png)
 
 
 ### 6.4 Comparison to attribute-based classification
