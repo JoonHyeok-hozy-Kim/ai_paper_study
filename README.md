@@ -3,7 +3,7 @@
 
 ## Math Review
 * [Statistics](./math/statistics/main.md)
-* [Linear Algebra]()
+* [Linear Algebra](./math/linear_algebra/main.md)
 
 
 ## Papers Covered
