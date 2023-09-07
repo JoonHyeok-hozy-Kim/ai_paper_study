@@ -62,7 +62,17 @@ one column
 * Application) Velocity Vectors
   ![](./images/01_01_09.png)
 
+<br>
 
+#### Def) Vector Addition & Parallelogram Law
+![](./images/01_01_10.png)
+
+<br>
+
+#### Def) Vector Scalar Multiplication
+![](./images/01_01_11.png)
+
+<br>
 
 
 
