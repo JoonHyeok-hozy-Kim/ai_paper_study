@@ -19,8 +19,21 @@
 #### Def) Scalar Multiplication & Zero Matrix
 ![](./images/01_01_02.png)
 
+#### Theorem 1.1) Properties of Matrix Addition and Scalar Multiplication
+![](./images/01_01_03.png)
 
+#### Def) Matrix Transpose
+![](./images/01_01_04.png)
 
+#### Theorem 1.2) Properties of the Transpose
+![](./images/01_01_05.png)
+
+#### Def) Vector
+* Row Vector : A matrix that has exactly one row
+* Column Vector : A matrix that has exactly
+one column
+* Vector : Either a row vector or a column vector
+* Components : The entries of a vector
 
 
 <br><br>

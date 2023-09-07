@@ -5,7 +5,7 @@
 ### Chapters and Topics
 |No.|Chapter|Topics|
 |:-:|:------|:-----|
-| 1 |[Matrices, Vectors, and Systems of Linear Equations](./ch01/note.md)|matrices;vectors;linear equations;sets;linear independence;|
+| 1 |[Matrices, Vectors, and Systems of Linear Equations](./ch01/note.md)|matrices; vectors; linear equations; sets; linear independence; |
 
 
 
