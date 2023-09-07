@@ -59,6 +59,8 @@ one column
 #### Prop.) Geometry of Vectors
 ![](./images/01_01_07.png)
 ![](./images/01_01_08.png)
+* Application) Velocity Vectors
+  ![]()
 
 
 
