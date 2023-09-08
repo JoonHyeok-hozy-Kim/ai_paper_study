@@ -19,5 +19,5 @@
 
 ![](images/ex029.png)
 ![](images/ex029_1.png)
-### 25.
+### 29.
 
