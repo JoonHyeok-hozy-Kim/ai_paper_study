@@ -127,6 +127,28 @@ number of elements in it
   * Involve collection of some information from the whole sample and additional information either at the same time or later from subsamples of the whole sample. 
   * Basically a combination of the techniques presented earlier
 
+<br>
+
+### 1.3.1 Errors in Sample Data
+* Prop.)
+  * Sample observations are prone to various sources of error that may seriously affect the inferences about the population.
+* Classification
+  * Sampling Error
+    * Occur because the sample is not an exact representative of the population
+  * Nonsampling Error
+    * Occur in the collection, recording and processing of sample
+    * Due to the differences between the characteristics of the population and those of a sample from the population data
+
+<br>
+
+### 1.3.2 Sample Size
+* Concept) Sample Size Determination
+  * Points to consider
+    * Variation in the population 
+    * Population size
+    * Required reliability of the results
+      * i.e.) the amount of error that can be tolerated.
+
 
 
 
