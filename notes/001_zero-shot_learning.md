@@ -271,7 +271,7 @@ separately.
   * Compare the performance when when each image is passed through either of the two novelty detectors.
     1. [Isometric, class specific Gaussian model](#strategy-1-use-simple-thresholds-on-the-marginals-assigned-to-each-image-under-isometric-class-specific-gaussians)
         * The image is passed through the softmax classifier for seen category images
-    2. [LoOP model](https://github.com/JoonHyeok-hozy-Kim/ai_paper_study/blob/main/notes/001_zero-shot_learning.md#strategy2-obtain-an-actual-outlier-probability-in-an-unsupervised-way)
+    2. [LoOP model](#strategy2-obtain-an-actual-outlier-probability-in-an-unsupervised-way)
         * The image is assigned to the class of the nearest semantic word vector for unseen category images.
 * Result)
   ![comparison](../images/001_zero-shot_learning/06_02.png)
