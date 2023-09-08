@@ -21,7 +21,7 @@ number of elements in it
 #### Def) Statistical Inference
 * An estimate, a prediction, a decision, or a generalization about the population based on information contained in a sample
 
-<br><br>
+<br>
 
 ### 1.2.1 Types of Data
 
@@ -42,7 +42,21 @@ number of elements in it
 
 <br><br>
 
+## 1.3 Sampling Schemes
 
+* Concept) Census Study
+  * A study in which the entire population is included.
+  * It is usually not possible to obtain information on the entire population
+
+* Concept) Sample
+  * Props)
+    * Obtained by collecting information from only some members of the population
+    * A good sample must reflect all the characteristics (of importance) of the population.
+  * Types
+    * Representative Sample
+      * A sample that accurately reflects its population characteristics
+    * Biased Sample
+      * A sample that is not representative of the population characteristics
 
 
 * [Back to Statistics Main](../main.md)
