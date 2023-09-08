@@ -59,11 +59,11 @@ number of elements in it
       2. Biased Sample
          * A sample that is not representative of the population characteristics
     * Based on the way of sampling
-      1. [Simple Random Sampling]()
-      2. [Systemic Sampling]()
-      3. [Stratified Sampling]()
-      4. [Cluster Sampling (Area Sampling)]()
-      5. [Multiphase sampling]()
+      1. [Simple Random Sampling](#concept-simple-random-sample)
+      2. [Systemic Sampling](#concept-simple-random-sample)
+      3. [Stratified Sampling](#concept-stratified-sample)
+      4. [Cluster Sampling (Area Sampling)](#concept-cluster-sampling-area-sampling)
+      5. [Multiphase sampling](#concept-multiphase-sampling)
 
 #### Concept) Simple Random Sample
 * Def)
