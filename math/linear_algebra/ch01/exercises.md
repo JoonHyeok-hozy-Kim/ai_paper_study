@@ -3,21 +3,12 @@
 <br>
 
 ![](images/ex001.png)
-### 1.
-
-
-
+![](images/ex007.png)
 ![](images/ex013.png)
-### 13.
+![](images/ex019.png)
 
 
 
-![](images/ex025.png)
-### 25.
 
 
-
-![](images/ex029.png)
-![](images/ex029_1.png)
-### 29.
-
+* [Back to the note](./note.md)
