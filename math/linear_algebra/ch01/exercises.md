@@ -21,7 +21,29 @@
 
 ![](images/ex035.png)
 
+![](images/ex036.png)
 
+![](images/ex037.png)
+
+![](images/ex057.png)
+
+![](images/ex058.png)
+
+![](images/ex060.png)
+
+![](images/ex067.png)
+
+![](images/ex071.png)
+
+![](images/ex077.png)
+
+![](images/ex079.png)
+
+![](images/ex081.png)
+
+![](images/ex082.png)
+
+![](images/ex083.png)
 
 
 
