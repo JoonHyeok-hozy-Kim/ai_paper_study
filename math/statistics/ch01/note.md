@@ -154,9 +154,10 @@ number of elements in it
 ## 1.4 Graphical Representation of Data
 * Common Graphical displays
   * frequency table
-  * [Pie Chart]()
   * [Bar Graph](#concept-bar-graph)
   * [Pareto Chart](#concept-bar-graph)
+  * [Pie Chart]()
+  * [Stem-and-Leaf Plot]()
   * histogram
 
 #### Concept) Bar Graph
@@ -171,6 +172,14 @@ number of elements in it
 * Def) A circle divided into sectors that represent the percentages of a population or a sample that belongs to different categories is called a pie chart.
   ![](images/01_04_03.png)
 
+#### Concept) Stem-and-Leaf Plot
+* Def) Each data value is split into a **stem** and a **leaf**.
+  * **leaf** : usually the last digit of the number
+  * **stem** : Formed with the other digits to the left of the **leaf**
+  ![](images/01_04_04.png))
+* Advantages)
+  * A simple way of summarizing quantitative data and is well suited to computer applications
+  * Useful when data sets are relatively small
 
 
 
