@@ -149,6 +149,25 @@ number of elements in it
     * Required reliability of the results
       * i.e.) the amount of error that can be tolerated.
 
+<br><br>
+
+## 1.4 Graphical Representation of Data
+* Common Graphical displays
+  * frequency table
+  * pie chart
+  * [Bar Graph]()
+  * [Pareto Chart]()
+  * histogram
+
+#### Concept) Bar Graph
+* Def) A graph of bars whose heights represent the frequencies (or relative frequencies) of respective categories is called a bar graph
+  ![](images/01_04_01.png)
+  * Cf.) Pareto Chart
+    * A bar graph with the height of the bars proportional to the contribution of each factor. 
+    * The bars are displayed from the most numerous category to the least numerous category.
+    ![](images/01_04_02.png)
+
+
 
 
 
