@@ -154,9 +154,9 @@ number of elements in it
 ## 1.4 Graphical Representation of Data
 * Common Graphical displays
   * frequency table
-  * pie chart
-  * [Bar Graph]()
-  * [Pareto Chart]()
+  * [Pie Chart]()
+  * [Bar Graph](#concept-bar-graph)
+  * [Pareto Chart](#concept-bar-graph)
   * histogram
 
 #### Concept) Bar Graph
@@ -166,6 +166,10 @@ number of elements in it
     * A bar graph with the height of the bars proportional to the contribution of each factor. 
     * The bars are displayed from the most numerous category to the least numerous category.
     ![](images/01_04_02.png)
+
+#### Concept) Pie Chart
+* Def) A circle divided into sectors that represent the percentages of a population or a sample that belongs to different categories is called a pie chart.
+  ![](images/01_04_03.png)
 
 
 
