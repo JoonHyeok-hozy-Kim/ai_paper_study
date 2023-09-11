@@ -174,6 +174,7 @@ number of elements in it
 
 #### Concept) Pie Chart
 * Def) A circle divided into sectors that represent the percentages of a population or a sample that belongs to different categories is called a pie chart.   
+
 ![](images/01_04_03.png)
 
 <br>
@@ -210,6 +211,52 @@ number of elements in it
 * Prop)
   * The bars are drawn adjacent to each other without any gaps.
 
+<br><br>
+
+## 1.5 Numerical Representation of Data
+
+#### Concept) Sample Mean & Sample Variance & Sample Standard Deviation
+![](images/01_05_01.png)
+* Prop)
+  * Mean is greatly affected by the extreme values or outliers.
+    * cf) $100\alpha$% Trimmed Mean
+      * For $0\le\alpha\le1$...
+      * Order the data
+      * Discard the lowest 100α% and the highest 100α% of the data values. 
+      * Find the mean of the rest of the data values.
+  * Alternatives of Standard Deviation
+    * Interquartile Range(IQR)
+    * Average Deviation
+    * ![](images/01_05_04.png)
+
 <br>
+
+#### Theorem 1.5.1
+![](images/01_05_02.png)
+
+<br>
+
+#### Concept) Median & Upper/Lower Quartile
+* Def)
+  * Median : the middle number of the ordered data set
+    * If the data set has an even number of elements, then the median is the **average** of the middle two numbers
+  * Lower quartile : the middle number of the half of the data below the median
+  * Upper quartile is the middle number of the half of the data above the median
+    ![](image/../images/01_05_03.png)
+  * Interquartile Range (IQR) : The difference between the quartiles
+    * A Possible Outlier (mild outlier)
+      * Below $Q_1 - 1.5(IQR)$ 
+      * Above $Q3 + 1.5(IQR)$
+    *  IQR is unaffected by the positions of those observations in the smallest 25% or the largest 25% of the data.
+
+<br>
+
+#### Concept) Mode
+* Def) The most frequently occurring member of the data set
+  * If all the data values are different, then by definition, the data set has no mode.
+
+
+
+
 
 * [Back to Statistics Main](../main.md)
