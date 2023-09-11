@@ -174,8 +174,7 @@ number of elements in it
 
 #### Concept) Pie Chart
 * Def) A circle divided into sectors that represent the percentages of a population or a sample that belongs to different categories is called a pie chart.   
-
-![](images/01_04_03.png)
+* ![](images/01_04_03.png)
 
 <br>
 
