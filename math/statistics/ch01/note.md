@@ -182,7 +182,7 @@ number of elements in it
 * Def) Each data value is split into a **stem** and a **leaf**.
   * **leaf** : usually the last digit of the number
   * **stem** : Formed with the other digits to the left of the **leaf**   
-  ![](images/01_04_04.png))
+  ![](images/01_04_04.png)
 * Advantages)
   * A simple way of summarizing quantitative data and is well suited to computer applications
   * Useful when data sets are relatively small
@@ -213,6 +213,8 @@ number of elements in it
 <br><br>
 
 ## 1.5 Numerical Representation of Data
+* Situation
+  * Data in our own sample
 
 #### Concept) Sample Mean & Sample Variance & Sample Standard Deviation
 ![](images/01_05_01.png)
@@ -224,7 +226,7 @@ number of elements in it
       * Discard the lowest 100α% and the highest 100α% of the data values. 
       * Find the mean of the rest of the data values.
   * Alternatives of Standard Deviation
-    * Interquartile Range(IQR)
+    * [Interquartile Range(IQR)](#concept-median--upperlower-quartile)
     * Average Deviation
     * ![](images/01_05_04.png)
 
@@ -254,7 +256,16 @@ number of elements in it
 * Def) The most frequently occurring member of the data set
   * If all the data values are different, then by definition, the data set has no mode.
 
+<br><br>
 
+### 1.5.1 Numerical Measures for Grouped Data
+* Situation
+  * Data are grouped in the form of a frequency table.
+  * We do not have individual data values.
+
+<br>
+
+#### Concept) Mean
 
 
 
