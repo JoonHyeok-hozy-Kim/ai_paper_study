@@ -1,8 +1,6 @@
-* [Back to Linear Algebra Main](../main.md)
+* [Back to Linear Algebra Main](../../main.md)
 
-# Chapter 1. Matrices, Vectors, and Systems of Linear Equations
-
-## 1.1 MATRICES AND VECTORS
+# 1.1 MATRICES AND VECTORS
 
 #### Def) Matrix (plural, matrices)
 * A rectangular array of scalars. 
@@ -72,13 +70,10 @@ one column
 #### Def) Vector Scalar Multiplication
 ![](./images/01_01_11.png)
 
-<br><br>
-
-## [Exercises](exercises.md)
-
-<br><br>
+### [Exercises 1.1](./exercises/01.md)
 
 
 
 
-* [Back to Linear Algebra Main](../main.md)
+
+* [Back to Linear Algebra Main](../../main.md)
