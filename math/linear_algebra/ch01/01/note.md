@@ -70,7 +70,7 @@ one column
 #### Def) Vector Scalar Multiplication
 ![](./images/01_01_11.png)
 
-### [Exercises 1.1](./exercises/01.md)
+### [Exercises 1.1](./exercises.md)
 
 
 
