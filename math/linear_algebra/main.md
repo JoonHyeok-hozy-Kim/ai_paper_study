@@ -7,11 +7,8 @@
 |:-:|:------|:-----|
 | 1 |[Matrices, Vectors, and Systems of Linear Equations](./ch01/note.md)|matrices; vectors; linear equations; sets; linear independence; | -->
 
-1. Matrices, Vectors, and Systems of Linear Equations
-   1. [Matrices and Vectors](./ch01/01/note.md)
-   2. [Linear Combinations, Matrix–Vector Products, and Special Matrices](./ch01/02/note.md)
 
-<table>
+<!-- <table>
 <tr>
    <td width="2%" align="center">No.</td>
    <td width="20%">Chapter</td>
@@ -32,8 +29,11 @@
    <td><a href="./ch01/02/note.md">Linear Combinations, Matrix–Vector Products, and Special Matrices</a></td>
    <td>dd</td>
 </tr>
+</table> -->
 
-</table>
+1. Matrices, Vectors, and Systems of Linear Equations
+   1. [Matrices and Vectors](./ch01/01/note.md)
+   2. [Linear Combinations, Matrix–Vector Products, and Special Matrices](./ch01/02/note.md)
 
 
 
