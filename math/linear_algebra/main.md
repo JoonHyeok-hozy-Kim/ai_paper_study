@@ -13,9 +13,9 @@
 
 <table>
 <tr>
-   <td >No.</td>
+   <td width="5%" >No.</td>
    <td width="35%">Chapter</td>
-   <td >No.</td>
+   <td width="5%" >No.</td>
    <td width="35%">SubCh.</td>
    <td>Keywords</td>
 </tr>
