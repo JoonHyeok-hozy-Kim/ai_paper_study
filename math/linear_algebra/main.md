@@ -13,9 +13,9 @@
 
 <table>
 <tr>
-   <td width="3%" >No.</td>
+   <td width="2%" align="center">No.</td>
    <td width="20%">Chapter</td>
-   <td width="3%" >No.</td>
+   <td width="2%" align="center">No.</td>
    <td width="20%">SubCh.</td>
    <td>Keywords</td>
 </tr>
@@ -28,7 +28,7 @@
    <td>dd</td>
 </tr>
 <tr>
-   <td>2</td>
+   <td align="center">2</td>
    <td><a href="./ch01/02/note.md">Linear Combinations, Matrix–Vector Products, and Special Matrices</a></td>
    <td>dd</td>
 </tr>
