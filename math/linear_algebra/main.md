@@ -13,18 +13,23 @@
 
 <table>
 <tr>
+   <td >No.</td>
    <td width="35%">Chapter</td>
+   <td >No.</td>
    <td width="35%">SubCh.</td>
-   <td width="30%">Keywords</td>
+   <td>Keywords</td>
 </tr>
 
 <tr>
-   <td rowspan="2">1. Matrices, Vectors, and Systems of Linear Equations</td>
-   <td><a href="./ch01/01/note.md">1. Matrices and Vectors</a></td>
+   <td rowspan="2">1</td>
+   <td rowspan="2">Matrices, Vectors, and Systems of Linear Equations</td>
+   <td>1</td>
+   <td><a href="./ch01/01/note.md">Matrices and Vectors</a></td>
    <td>dd</td>
 </tr>
 <tr>
-   <td><a href="./ch01/02/note.md">2. Matrices and Vectors</a></td>
+   <td>2</td>
+   <td><a href="./ch01/02/note.md">Linear Combinations, Matrix–Vector Products, and Special Matrices</a></td>
    <td>dd</td>
 </tr>
 
