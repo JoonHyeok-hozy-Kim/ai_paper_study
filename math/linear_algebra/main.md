@@ -21,9 +21,9 @@
 </tr>
 
 <tr>
-   <td rowspan="2">1</td>
+   <td rowspan="2" align="center">1</td>
    <td rowspan="2">Matrices, Vectors, and Systems of Linear Equations</td>
-   <td>1</td>
+   <td align="center">1</td>
    <td><a href="./ch01/01/note.md">Matrices and Vectors</a></td>
    <td>dd</td>
 </tr>
