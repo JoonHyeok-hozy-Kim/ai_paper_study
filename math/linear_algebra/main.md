@@ -13,10 +13,10 @@
 
 <table>
 <tr>
-   <td width="5%" >No.</td>
-   <td width="35%">Chapter</td>
-   <td width="5%" >No.</td>
-   <td width="35%">SubCh.</td>
+   <td width="3%" >No.</td>
+   <td width="20%">Chapter</td>
+   <td width="3%" >No.</td>
+   <td width="20%">SubCh.</td>
    <td>Keywords</td>
 </tr>
 
