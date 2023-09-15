@@ -262,11 +262,51 @@ number of elements in it
 * Situation
   * Data are grouped in the form of a frequency table.
   * We do not have individual data values.
+* Note
+  * **Numerical Measures for Grouped Data** are only approximations to the actual values of the ungrouped data if they are available.
 
 <br>
 
-#### Concept) Mean
+#### Def) Grouped Data Mean & Sample Variance
+![](images/01_05_05.png)
+* Consider that exact value of each data point is not given.
+* All we have are the mid-values and the frequencies of each class.
+* [Example](images/01_05_06.png)
 
+<br>
+
+
+#### Def) Median for Grouped Data
+* Settings)
+  * $L$ : lower class limit of the interval that contains the median
+  * $n$ : total frequency
+  * $F_b$ : cumulative frequencies for all classes before the median class
+  * $f_m$ : frequency of the class interval containing the median
+  * $w$ : interval width of the interval that contains the median
+* Then, the median $M=L+{w \over f_m}(0.5n-F_b)$
+
+<br>
+
+#### Prop.) Standard Deviation and the Bell-Shaped Curve
+![](images/01_05_07.png)
+
+<br>
+
+<br><br>
+
+### 1.5.2 Box Plots
+#### Prop.)
+* Box Plots describes...
+  * the center
+  * the spread
+  * the extent and nature of any departure from symmetry
+  * identification of outliers
+  
+![](images/01_05_08.png)
+
+<br><br>
+
+[Exercises 1.5]()
 
 
 * [Back to Statistics Main](../main.md)
