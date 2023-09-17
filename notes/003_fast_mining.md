@@ -53,7 +53,7 @@
   2. Use the large item sets to generate the desired rules.
      * Algorithm
        * For every large item set $l$, find all non-empty subsets of $l$.
-       * For every such subset $a$, output a rule of the form $a\Rightarrow (l-a)$ if the ratio of support($l$) to support($a$) is at least [minconf]().
+       * For every such subset $a$, output a rule of the form $a\Rightarrow (l-a)$ if the ratio of support($l$) to support($a$) is at least [minconf](#the-problem-of-mining-association-rules).
 
 
 
