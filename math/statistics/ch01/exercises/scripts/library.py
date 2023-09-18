@@ -57,3 +57,25 @@ def grouped_data_stats(D):
     variance /= total_freq-1
 
     return mean, variance
+
+
+def get_group_median(D):
+    m_idx = 0
+    n = 0
+
+    for d in D:
+        n += d[2]
+    
+    f_b = 0
+    for i, d in enumerate(D):
+        if f_b + d[2] >= n//2:
+            m_idx = i
+            break
+        f_b += d[2]
+    
+    L = D[m_idx][0]
+    f_m = D[m_idx][2]
+    w = D[m_idx][1] - D[m_idx][0]
+    # print('L : {}, w : {}, n : {}, f_b : {}, f_m : {}'.format(L, w, n, f_b, f_m))
+
+    return L + w * (0.5*n - f_b) / f_m
