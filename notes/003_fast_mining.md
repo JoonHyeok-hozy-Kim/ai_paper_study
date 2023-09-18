@@ -77,11 +77,46 @@
 
 <br>
 
-#### Apriori and AprioriTid Algorithm
-* Distinctive Feature
+#### Preview) Apriori and AprioriTid Algorithm
+* Prop.)
   * Candidate itemsets are counted in a pass and in a way that those candidates are generated.
-    * Differ from [AIS and SETM()].
+  * **(AprioryTid only)** An encoding of the candidate itemsets used in the previous pass is employed for counting the support of candidate itemsets after the first pass.
+* Analysis)
+  * Distinctive Feature from from [AIS and SETM](#preivious-algorithms-for-discovering-large-itemsets)
+    * Generating and counting the itemsets are operated separately.
+    * Thus, unnecessarily generates and counts too many candidate itemsets.
+      * Why) 
+        * Perform recursive algorithm for every itemset that it generates
+        * Most of them turn out to be small, not large.
+  * Intuition)
+    * Any subset of a large itemset must be large.
+  * Implementation)
+    * Generate itemsets with $k$ items by joining itemsets with $k-1$ items.
+    * Delete those that contain any subset that is not large.
+  * Advantage)
+    * Much smaller number of candidate itemsets are generated.
 
+<br>
+
+#### Assumptions & Notations)
+* Items in each transaction are kept sorted in the lexicographic order.
+* The database $D$ is kept normalized and each database record is a **<TID, item>** pair.
+  * **TID** : The identifier of the corresponding transaction
+* size : the number of items in an itemset
+* $k$-itemset : an itemset of size $k$
+* $c[1] \cdot c[2] \cdot ... \cdot c[k]$ : items sorted lexicographically in a $k$-itemset.
+  * $c[1] \lt c[2] \lt ... \lt c[k]$ : Due to the lexicographic sorting
+* $m$-extension of $X$:
+  * $c=X\cdot Y$ and $Y$ is an $m$-itemset
+* A count field to store the support for an itemset   
+  * Initialized to zero when the itemset is first created.   
+
+![](../images/003_fast_mining/02_01_01.png)
+* $\bar{C_k}$ will be used for AprioriTid
+
+<br><br>
+
+### 2.1 Algorithm Apriori
 
 
 
