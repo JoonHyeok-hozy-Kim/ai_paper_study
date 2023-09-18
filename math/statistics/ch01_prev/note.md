@@ -306,7 +306,7 @@ number of elements in it
 
 <br><br>
 
-[Exercises 1.5]()
+[Exercises 1.5](./exercises/ex01_05.md)
 
 
 * [Back to Statistics Main](../main.md)
