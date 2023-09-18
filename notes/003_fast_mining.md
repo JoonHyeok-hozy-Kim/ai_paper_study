@@ -77,7 +77,7 @@
 
 <br>
 
-#### Preview) Apriori and AprioriTid Algorithm
+#### Preview) [Apriori](#21-algorithm-apriori) and [AprioriTid](#22-algorithm-aprioritid) Algorithm
 * Prop.)
   * Candidate itemsets are counted in a pass and in a way that those candidates are generated.
   * **(AprioryTid only)** An encoding of the candidate itemsets used in the previous pass is employed for counting the support of candidate itemsets after the first pass.
@@ -112,7 +112,7 @@
   * Initialized to zero when the itemset is first created.   
 
 ![](../images/003_fast_mining/02_01_01.png)
-* $\bar{C_k}$ will be used for AprioriTid
+* $\bar{C_k}$ will be used for [AprioriTid](#22-algorithm-aprioritid)
 
 <br><br>
 
