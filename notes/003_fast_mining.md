@@ -98,7 +98,7 @@
 
 <br>
 
-#### Assumptions & Notations)
+#### Assumptions & Notations
 * Items in each transaction are kept sorted in the lexicographic order.
 * The database $D$ is kept normalized and each database record is a **<TID, item>** pair.
   * **TID** : The identifier of the corresponding transaction
@@ -117,6 +117,16 @@
 <br><br>
 
 ### 2.1 Algorithm Apriori
+
+
+
+
+
+
+
+<br><br>
+
+### 2.2 Algorithm AprioriTid
 
 
 
