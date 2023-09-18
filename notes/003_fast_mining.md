@@ -55,6 +55,32 @@
        * For every large item set $l$, find all non-empty subsets of $l$.
        * For every such subset $a$, output a rule of the form $a\Rightarrow (l-a)$ if the ratio of support($l$) to support($a$) is at least [minconf](#the-problem-of-mining-association-rules).
 
+<br><br>
+
+## 2. Discovering Large Itemsets
+#### Preivious Algorithms for Discovering Large Itemsets
+* Algorithms
+  * AIS
+  * SETM
+* Props.)
+  * Make multiple passes over the data
+    * First Pass
+      * Count the support of individual items.
+      * Determine which of them are [large (having minium support)](#11-problem-decomposition-and-paper-organization) .
+    * Subsequent Passes
+      * Start with a seed of itemsets found to be large in the previous pass.
+      * Generate candidate itemset, a potentially large itemset, from that seed.
+      * Count the actual support for these candidate itemsets during the pass over the data
+      * Determine which candidate itemsets are actually large.
+        * If a large one exists, it becomes the seed for the next pass
+    * Continue until no new large itemset is found.
+
+<br>
+
+#### Apriori and AprioriTid Algorithm
+* Distinctive Feature
+  * Candidate itemsets are counted in a pass and in a way that those candidates are generated.
+    * Differ from [AIS and SETM()].
 
 
 
