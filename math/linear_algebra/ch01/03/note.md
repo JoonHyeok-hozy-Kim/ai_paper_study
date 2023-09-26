@@ -63,7 +63,7 @@ $\begin{array}{c} x \end{array}$
 
 trial3   
 
-$\begin{pmatrix}a & b\\ c & d\end{pmatrix}$
+$`\begin{pmatrix}a & b\\ c & d\end{pmatrix}`$
 
 
 #### Def.) Elementary Row Operations
