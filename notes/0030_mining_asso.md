@@ -77,6 +77,41 @@ The number of transactions in $T$ that support a rule.
 * Def.) The **support** for a rule 
   * The fraction of transactions in $T$ that satisfy the union of items in the consequent and antecedent of the rule.
 * Note) support $\ne$ [confidence](#concept-confidence-factor-c)
+  * **confidence** is a measure of the rule’s strength
+  * **support** corresponds to statistical significance
+    * cf.) We are usually interested only in rules with **support** above some minimum threshold for business reasons.
+
+
+### 2.1 Problem Decomposition
+The problem of rule mining can
+be decomposed into two subproblems:
+1. Generate all **large itemsets**. 
+   * Terms)
+     * **large itemsets** : combinations of items that have fractional transaction support above **minsupports**
+       * **minsupport** : a certain threshold for support
+     * **small itemsets** : all other combinations that do not meet the threshold
+   * cf.) [Syntactic constraints](#concept-syntactic-constraints) further constrain the admissible combinations.
+     * i.e.) We can focus on a certain consequent $I_x$ and antecedent $I_y$.
+2. For a large itemset $Y=I_1I_2\dots I_k\space (k\ge2)$, generate all rules that use items from the set $\{I_1, I_2, \dots , I_k\}$.
+   * The antecedents of these rules : $X$
+     * $X\subset Y$
+     * $X$ has $k-1$ items.
+   * The consequents of these rules : $Y-X$
+   * A rule : $X\Rightarrow I_j\space |\space c\space$, where $X=I_1I_2\dots I_{j-1}I_{j+1}\dots I_k$
+     * How to generate?)
+       1. Take the support of $Y$ and divide it by the support of $X$.
+       2. If the ratio is greater than $c$ then the rule is satisfied with the confidence factor $c$; otherwise it is not.
+     * Props.)
+       * If the itemset $Y$ is large, then every subset of $Y$ will also be large.
+       * All rules derived from $Y$ must satisfy the support constraint because $Y$ satisfies the support constraint and $Y$ is the union of items in the consequent and antecedent of every such rule.
+
+
+<br><br>
+
+
+## 3. Discovering Large Itemsets
+
+
 
 
 ---
