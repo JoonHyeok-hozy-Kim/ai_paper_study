@@ -38,7 +38,7 @@ called equivalent.
 <br>
 
 #### Def.) Coefficient Matrix & Augmented Matrix
-For a linear system 
+For a linear system $Ax = b$, 
 $`\left\lbrace 
   \begin{array}{ccc} 
     a_{11}x_1+a_{12}x_2+ & \dots & +a_{1n}x_n=b_1 \\\
@@ -51,7 +51,7 @@ $`\left\lbrace
 * **Coefficient Matrix** $A$ is $`\left[ \begin{array}{cccc} a_{11} & a_{12} & \dots & a_{1n} \\\ a_{21} & a_{22} & \dots & a_{2n} \\\ \vdots & \vdots & \ddots & \vdots \\\ a_{m1} & a_{m2} & \dots & a_{mn} \end{array}\right]`$
 * **Augmented Matrix** $`\begin{bmatrix}A & b\end{bmatrix}`$ is $`\left[ \begin{array}{ccccc} a_{11} & a_{12} & \dots & a_{1n} & b_1 \\\ a_{21} & a_{22} & \dots & a_{2n} & b_2 \\\ \vdots & \vdots & \ddots & \vdots & \vdots \\\ a_{m1} & a_{m2} & \dots & a_{mn} & b_m \end{array}\right]`$
 
-
+<br>
 
 #### Def.) Elementary Row Operations
 
@@ -90,7 +90,10 @@ three conditions:
 #### Def.) Reduced Row Echelon Form
 If a row echelon form matrix satisfies the following two additional conditions, we say that it is in reduced row echelon form.
 1. If a column contains the leading entry of some row, then all the other entries of that column are 0.
-2. The leading entry of each nonzero row is 1.
+2. The leading entry of each nonzero row is 1.   
+
+ex)   
+![](images/0301009.png)
 
 <br>
 
