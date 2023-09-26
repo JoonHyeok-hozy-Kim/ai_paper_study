@@ -58,7 +58,7 @@ Def.) $X\Rightarrow I_j$
 
 <br>
 
-#### Concept) Confidence Factor $c$
+#### Concept) Confidence Factor c
   * The rule of $X\Rightarrow I_j$ can be satisfied in $T$ with the confidence factor $0 \le c \le 1$
   * If and only if at least $c$% of transactions in $T$ that satisfy $X$ also satisfy $I_j$.
 
@@ -76,7 +76,7 @@ are also possible.
 The number of transactions in $T$ that support a rule.
 * Def.) The **support** for a rule 
   * The fraction of transactions in $T$ that satisfy the union of items in the consequent and antecedent of the rule.
-* Note) support $\ne$ [confidence]()
+* Note) support $\ne$ [confidence](#concept-confidence-factor-c)
 
 
 ---
