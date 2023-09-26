@@ -41,9 +41,9 @@ called equivalent.
 For a linear system 
 $\left\lbrace 
   \begin{array}{ccc} 
-    a_{11}x_1+a_{12}x_2+ & \dots & +a_{1n}x_n=b_1 \\ 
-    a_{21}x_1+a_{22}x_2+ & \dots & +a_{2n}x_n=b_2 \\ 
-    \vdots & \ddots & \vdots \\ 
+    a_{11}x_1+a_{12}x_2+ & \dots & +a_{1n}x_n=b_1 \\\
+    a_{21}x_1+a_{22}x_2+ & \dots & +a_{2n}x_n=b_2 \\\
+    \vdots & \ddots & \vdots \\\
     a_{m1}x_1+a_{m2}x_2+ & \dots&+a_{mn}x_n=b_m
   \end{array}
 \right.$
@@ -53,15 +53,15 @@ $\left\lbrace
 
 $a+b=1$
 
-trial1
+trial1    
 
-$\left\{ content \right.$  
+$\left\{ x \right.$  
 
-trial2
+trial2   
 
-$\begin{array}{c} content \end{array}$
+$\begin{array}{c} x \end{array}$
 
-trial3
+trial3   
 
 $\begin{pmatrix}a & b\\ c & d\end{pmatrix}$
 
