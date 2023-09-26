@@ -38,16 +38,46 @@ called equivalent.
 <br>
 
 #### Def.) Coefficient Matrix & Augmented Matrix
-For a linear system $\left\{ \begin{array}{ccc} a_{11}x_1+a_{12}x_2+ & \dots & +a_{1n}x_n=b_1 \\ a_{21}x_1+a_{22}x_2+ & \dots & +a_{2n}x_n=b_2 \\ \vdots & \ddots & \vdots \\ a_{m1}x_1+a_{m2}x_2+ & \dots&+a_{mn}x_n=b_m\end{array}\right.$
-* **Coefficient Matrix** is $\left[ \begin{array}{cccc} a_{11} & a_{12} & \dots & a_{1n} \\ a_{21} & a_{22} & \dots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \dots & a_{mn} \end{array}\right]$
-* **Augmented Matrix** is $\left[ \begin{array}{ccccc} a_{11} & a_{12} & \dots & a_{1n} & b_1 \\ a_{21} & a_{22} & \dots & a_{2n} & b_2 \\ \vdots & \vdots & \ddots & \vdots & \vdots \\ a_{m1} & a_{m2} & \dots & a_{mn} & b_m \end{array}\right]$
+For a linear system $\left\{ \begin{array}{ccc} a_{11}x_1+a_{12}x_2+ & \dots & +a_{1n}x_n=b_1 \\\ a_{21}x_1+a_{22}x_2+ & \dots & +a_{2n}x_n=b_2 \\\ \vdots & \ddots & \vdots \\\ a_{m1}x_1+a_{m2}x_2+ & \dots&+a_{mn}x_n=b_m\end{array}\right.$
+* **Coefficient Matrix** is $\left[ \begin{array}{cccc} a_{11} & a_{12} & \dots & a_{1n} \\\ a_{21} & a_{22} & \dots & a_{2n} \\\ \vdots & \vdots & \ddots & \vdots \\\ a_{m1} & a_{m2} & \dots & a_{mn} \end{array}\right]$
+* **Augmented Matrix** is $\left[ \begin{array}{ccccc} a_{11} & a_{12} & \dots & a_{1n} & b_1 \\\ a_{21} & a_{22} & \dots & a_{2n} & b_2 \\\ \vdots & \vdots & \ddots & \vdots & \vdots \\\ a_{m1} & a_{m2} & \dots & a_{mn} & b_m \end{array}\right]$
 
+$a+b=1$
+
+trial1
 
 $\left\{ content \right.$  
 
-$\begin{array}{c}{content} \end{array}$
+trial2
+
+$\begin{array}{c} content \end{array}$
+
+trial3
 
 $\begin{bmatrix} X \\\ Y \end{bmatrix}$
+
+
+#### Def.) Elementary Row Operations
+
+1. Interchange any two rows of the matrix. (interchange operation)
+2. Multiply every entry of some row of the matrix by the same nonzero scalar.
+(scaling operation)
+3. Add a multiple of one row of the matrix to another row. (row addition operation)
+
+* **Notations)**
+  ![](images/0301007.png)
+
+* Prop.)
+  * Performing an elementary row operation on the augmented matrix of a system of linear equations does not change the solution set. 
+    * i.e.) Each elementary row operation produces the augmented matrix of an equivalent system of linear equations.
+    * [Pf. will be made in Chapter 2]()
+
+<br><br>
+
+### 1.3.3 Reduced Row Echelon Form
+
+
+
 
 ### [Exercises 1.3](./exercises.md)
 
