@@ -9,13 +9,13 @@
 
 ## 1. Introduction
 #### Purpose of this paper
-1. Introduce the problem of “mining” a large collection of basket data type transactions for [association rules]() between sets of items with some minimum specified confidence 
+1. Introduce the problem of “mining” a large collection of basket data type transactions for [association rules](#eg-association-rule) between sets of items with some minimum specified confidence 
 2. Present an efficient algorithm for this purpose.
 
 <br>
 
 #### e.g.) Association Rule
-* cf.) [Formal Definition]()
+* cf.) [Formal Definition](#concept-association-rule)
 * Statement
   * 90% of transactions that purchase bread and butter also purchase milk.
 * The **antecedent** of this rule consists of bread and butter
@@ -47,16 +47,18 @@
       * e.g.) 
         * $t = [0\space 1\space 0\space ...\space 1]$
   * $X\subset I$ : a set of items in $I$
-  * "$t$ satisfies $X$" : For all items $I_k$ in $X$, $t[k]=1$.
+  * $t$ satisfies $X$ : For all items $I_k$ in $X$, $t[k]=1$.
 
 <br>
 
 #### Concept) Association Rule
 Def.) $X\Rightarrow I_j$
   * Let $I_j$ an item not included in $X$.
-  * Then the **association rule** can be denoted as $X\Rightarrow I_j$   
+  * Then the **association rule** can be denoted as $X\Rightarrow I_j$
 
-Def.) Confidence Factor $c$
+<br>
+
+#### Concept) Confidence Factor $c$
   * The rule of $X\Rightarrow I_j$ can be satisfied in $T$ with the confidence factor $0 \le c \le 1$
   * If and only if at least $c$% of transactions in $T$ that satisfy $X$ also satisfy $I_j$.
 
