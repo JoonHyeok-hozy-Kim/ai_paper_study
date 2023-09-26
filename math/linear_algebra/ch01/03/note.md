@@ -39,7 +39,7 @@ called equivalent.
 
 #### Def.) Coefficient Matrix & Augmented Matrix
 For a linear system 
-$\left\{ 
+$\left\lbrace 
   \begin{array}{ccc} 
     a_{11}x_1+a_{12}x_2+ & \dots & +a_{1n}x_n=b_1 \\ 
     a_{21}x_1+a_{22}x_2+ & \dots & +a_{2n}x_n=b_2 \\ 
