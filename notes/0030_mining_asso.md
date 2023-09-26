@@ -81,18 +81,21 @@ The number of transactions in $T$ that support a rule.
   * **support** corresponds to statistical significance
     * cf.) We are usually interested only in rules with **support** above some minimum threshold for business reasons.
 
+<br>
 
 ### 2.1 Problem Decomposition
 The problem of rule mining can
 be decomposed into two subproblems:
-1. Generate all **large itemsets**. 
-   * Terms)
-     * **large itemsets** : combinations of items that have fractional transaction support above **minsupports**
-       * **minsupport** : a certain threshold for support
-     * **small itemsets** : all other combinations that do not meet the threshold
-   * cf.) [Syntactic constraints](#concept-syntactic-constraints) further constrain the admissible combinations.
-     * i.e.) We can focus on a certain consequent $I_x$ and antecedent $I_y$.
-2. For a large itemset $Y=I_1I_2\dots I_k\space (k\ge2)$, generate all rules that use items from the set $\{I_1, I_2, \dots , I_k\}$.
+#### 1. Generate all large itemsets. 
+ * Terms)
+   * **large itemsets** : combinations of items that have fractional transaction support above **minsupports**
+     * **minsupport** : a certain threshold for support
+   * **small itemsets** : all other combinations that do not meet the threshold
+ * cf.) [Syntactic constraints](#concept-syntactic-constraints) further constrain the admissible combinations.
+   * i.e.) We can focus on a certain consequent $I_x$ and antecedent $I_y$.
+
+#### 2. Generate all rules from the previous large itemset.
+i.e., for a large itemset $Y=I_1I_2\dots I_k\space (k\ge2)$, generate all rules that use items from the set $\{I_1, I_2, \dots , I_k\}$.
    * The antecedents of these rules : $X$
      * $X\subset Y$
      * $X$ has $k-1$ items.
