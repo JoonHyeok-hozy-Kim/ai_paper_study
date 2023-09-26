@@ -38,7 +38,7 @@ called equivalent.
 <br>
 
 #### Def.) Coefficient Matrix & Augmented Matrix
-For a linear system $\left\{ \begin{array}{ccc} a_{11}x_1+a_{12}x_2+ & \dots & +a_{1n}x_n=b_1 \\\ a_{21}x_1+a_{22}x_2+ & \dots & +a_{2n}x_n=b_2 \\\ \vdots & \ddots & \vdots \\\ a_{m1}x_1+a_{m2}x_2+ & \dots&+a_{mn}x_n=b_m\end{array}\right.$
+For a linear system $$ \left\{ \begin{array}{ccc} a_{11}x_1+a_{12}x_2+ & \dots & +a_{1n}x_n=b_1 \\\ a_{21}x_1+a_{22}x_2+ & \dots & +a_{2n}x_n=b_2 \\\ \vdots & \ddots & \vdots \\\ a_{m1}x_1+a_{m2}x_2+ & \dots&+a_{mn}x_n=b_m\end{array}\right. $$
 * **Coefficient Matrix** is $\left[ \begin{array}{cccc} a_{11} & a_{12} & \dots & a_{1n} \\\ a_{21} & a_{22} & \dots & a_{2n} \\\ \vdots & \vdots & \ddots & \vdots \\\ a_{m1} & a_{m2} & \dots & a_{mn} \end{array}\right]$
 * **Augmented Matrix** is $\left[ \begin{array}{ccccc} a_{11} & a_{12} & \dots & a_{1n} & b_1 \\\ a_{21} & a_{22} & \dots & a_{2n} & b_2 \\\ \vdots & \vdots & \ddots & \vdots & \vdots \\\ a_{m1} & a_{m2} & \dots & a_{mn} & b_m \end{array}\right]$
 
@@ -75,6 +75,54 @@ $\begin{bmatrix} X \\\ Y \end{bmatrix}$
 <br><br>
 
 ### 1.3.3 Reduced Row Echelon Form
+#### Terms.)
+* **Zero Row** : A row which entries are all 0
+* **Nonezero Row** : A row that is not a **Zero Row**
+* **Leading Entry** : The leftmost nonzero entry of a **Nonzero Row**
+
+<br>
+
+#### Def.) Row Echelon Form
+A matrix is said to be in **row echelon form** if it satisfies the following
+three conditions:
+1. Each nonzero row lies above every zero row.
+2. The leading entry of a nonzero row lies in a column to the right of the column containing the leading entry of any preceding row.
+3. If a column contains the leading entry of some row, then all entries of that column below the leading entry are 0.
+
+<br>
+
+#### Def.) Reduced Row Echelon Form
+If a row echelon form matrix satisfies the following two additional conditions, we say that it is in reduced row echelon form.
+1. If a column contains the leading entry of some row, then all the other entries of that column are 0.
+2. The leading entry of each nonzero row is 1.
+
+<br>
+
+#### Tech.) How to solve a system of equations
+1. Represent the system by its augmented matrix
+2. Use elementary row operations to transform the augmented matrix into a reduced row echelon form.
+
+<br>
+
+#### Concept) General Solution
+* **Basic Variables** : Correspond to the leading entries of the augmented matrix
+* **Free Variables** : ~ **Basic Variables**
+* **General Solution** : A solution that every **Basic Variables** are solved in terms of **Free Variables**.
+
+<br>
+
+#### Prop.)
+Whenever an augmented matrix contains a row in which the only nonzero entry
+lies in the last column, the corresponding system of linear equations has no
+solution.
+* ex) ![](images/0301008.png)
+
+<br>
+
+#### Theorem 1.4)
+Every matrix can be transformed into one and only one matrix in reduced row echelon form by means of a sequence of elementary row operations.
+
+
 
 
 
