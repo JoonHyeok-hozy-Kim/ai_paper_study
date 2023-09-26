@@ -43,6 +43,10 @@ For a linear system $\left\{ \begin{array}{ccc} a_{11}x_1+a_{12}x_2+ & \dots & +
 * **Augmented Matrix** is $\left[ \begin{array}{ccccc} a_{11} & a_{12} & \dots & a_{1n} & b_1 \\ a_{21} & a_{22} & \dots & a_{2n} & b_2 \\ \vdots & \vdots & \ddots & \vdots & \vdots \\ a_{m1} & a_{m2} & \dots & a_{mn} & b_m \end{array}\right]$
 
 
+$\left\{content\right.$   
+
+$\begin{array}{c}content\end{array}$
+
 ### [Exercises 1.3](./exercises.md)
 
 
