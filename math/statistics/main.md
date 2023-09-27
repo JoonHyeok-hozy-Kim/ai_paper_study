@@ -10,16 +10,16 @@
         <td>No.</td><td>Chapter</td><td>Keywords</td>
     </tr>
     <tr>
-        <td>1-2</td><td><a href="./ch_01/02/note.md">Basic Concepts</a></td><td>Mean, Variance, Standard Deviation</td>
+        <td>1-2</td><td><a href="./ch01/02/note.md">Basic Concepts</a></td><td>Mean, Variance, Standard Deviation</td>
     </tr>
     <tr>
-        <td>1-3</td><td><a href="./ch_01/03/note.md">Sampling Schemes</a></td><td>Random Sample, Systemic Sample, Stratified Sample, Cluster Sampling (Area Sampling), Multiphase Sampling</td>
+        <td>1-3</td><td><a href="./ch01/03/note.md">Sampling Schemes</a></td><td>Random Sample, Systemic Sample, Stratified Sample, Cluster Sampling (Area Sampling), Multiphase Sampling</td>
     </tr>
     <tr>
-        <td>1-4</td><td><a href="./ch_01/04/note.md">Graphical Representation of Data</a></td><td>Bar Graph, Pareto Chart, Pie Chart, Stem-and-Leaf Plot, Frequency Table, Histogram</td>
+        <td>1-4</td><td><a href="./ch01/04/note.md">Graphical Representation of Data</a></td><td>Bar Graph, Pareto Chart, Pie Chart, Stem-and-Leaf Plot, Frequency Table, Histogram</td>
     </tr>
     <tr>
-        <td>1-5</td><td><a href="./ch_01/05/note.md">Numerical Representation of Data</a></td><td>Sample Mean, Sample Variance, Sample Standard Deviation, Median, Upper/Lower Quartile, Mode, Grouped Data, Box Plots</td>
+        <td>1-5</td><td><a href="./ch01/05/note.md">Numerical Representation of Data</a></td><td>Sample Mean, Sample Variance, Sample Standard Deviation, Median, Upper/Lower Quartile, Mode, Grouped Data, Box Plots</td>
     </tr>
 </table>
 
