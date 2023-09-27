@@ -94,6 +94,8 @@ be decomposed into two subproblems:
  * cf.) [Syntactic constraints](#concept-syntactic-constraints) further constrain the admissible combinations.
    * i.e.) We can focus on a certain consequent $I_x$ and antecedent $I_y$.
 
+<br>
+
 #### 2. Generate all rules from the previous large itemset.
 i.e., for a large itemset $Y=I_1I_2\dots I_k\space (k\ge2)$, generate all rules that use items from the set $\{I_1, I_2, \dots , I_k\}$.
    * The antecedents of these rules : $X$
