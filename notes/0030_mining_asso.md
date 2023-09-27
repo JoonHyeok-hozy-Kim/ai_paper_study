@@ -18,9 +18,10 @@
 * cf.) [Formal Definition](#concept-association-rule)
 * Statement
   * 90% of transactions that purchase bread and butter also purchase milk.
-* The **antecedent** of this rule consists of bread and butter
-* The **consequent** consists of milk alone. 
-* **Confidence** of the rule : The number 90%
+* Interpretation
+  * The **antecedent** of this rule consists of bread and butter
+  * The **consequent** consists of milk alone. 
+  * **Confidence** of the rule : The number 90%
 
 <br>
 
@@ -97,7 +98,7 @@ be decomposed into two subproblems:
 <br>
 
 #### 2. Generate all rules from the previous large itemset.
-i.e., for a large itemset $Y=I_1I_2\dots I_k\space (k\ge2)$, generate all rules that use items from the set $\{I_1, I_2, \dots , I_k\}$.
+i.e., for a large itemset $Y=I_1I_2\dots I_k\space (k\ge2)$, generate all rules that use items from the set $\lbrace I_1, I_2, \dots , I_k \rbrace$.
    * The antecedents of these rules : $X$
      * $X\subset Y$
      * $X$ has $k-1$ items.
@@ -115,6 +116,46 @@ i.e., for a large itemset $Y=I_1I_2\dots I_k\space (k\ge2)$, generate all rules 
 
 
 ## 3. Discovering Large Itemsets
+
+<details> 
+<summary>Template Algorithm</summary>
+
+```
+procedure LargeItemsets
+
+begin
+  let Large set L = None;
+  let Frontier set F = {None};
+
+  while F != None do begin
+    -- make a pass over the database
+    let Candidate set C = None;
+    for database_tuples t do
+      for itemsets f in F do
+        if f in t then begin
+          let CF = candidate_itemsets that are extensions of f and contained in t;
+          for itemsets cf in CF do
+            if cf in C then
+              cf.count = cf.count + 1;
+            else begin
+              cf.count = 0;
+              C = C + cf
+            end
+        end
+    
+    -- consolidate
+    let F = None;
+    for itemsets c in C do begin
+      if count(c)/dbsize > minsupport then
+        L = L + c;
+      if c should be used as a frontier in the next pass then
+        F = F + c;
+    end
+  end
+end
+```
+
+</details>
 
 
 
