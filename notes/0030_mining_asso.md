@@ -117,46 +117,73 @@ i.e., for a large itemset $Y=I_1I_2\dots I_k\space (k\ge2)$, generate all rules 
 
 ## 3. Discovering Large Itemsets
 
-<details> 
-<summary>Template Algorithm</summary>
+#### Defs.)
+  * $X+Y$
+    * an extension of the itemset $X$ if $X \cap Y = \emptyset$
+  * dbsize
+    * the total number of tuples in the database
+  * frontier set
+    * A set that consists of those itemsets that are extended during the pass
+    * The algorithm below makes multiple passes over the database.
+  * candidate itemset
+    * An itemset contained in the frontier set which support is measured
+  * counter of an itemset
+    * the number of transactions in which the corresponding itemset has appeared
+    * initialized to zero when an itemset is created
 
+<br>
+
+#### Template Algorithm
 ```
 procedure LargeItemsets
 
 begin
-  let Large set L = None;
-  let Frontier set F = {None};
+  let Large set L = ∅;       -- initialized to an empty set
+  let Frontier set F = {∅};  -- One element of an empty set
 
-  while F != None do begin
-    -- make a pass over the database
-    let Candidate set C = None;
-    for database_tuples t do
-      for itemsets f in F do
-        if f in t then begin
-          let CF = candidate_itemsets that are extensions of f and contained in t;
-          for itemsets cf in CF do
-            if cf in C then
-              cf.count = cf.count + 1;
-            else begin
-              cf.count = 0;
-              C = C + cf
-            end
-        end
+  while F != ∅ do 
+    begin
+      -- make a pass over the database
+      let Candidate set C = None;
+      for database_tuples t do
+        for itemsets f in F do
+          if f in t then 
+            begin
+              let CF = candidate_itemsets that are extensions of f and contained in t;
+              for itemsets cf in CF do
+                if cf in C then
+                  cf.count = cf.count + 1;
+                else 
+                  begin
+                    cf.count = 0;
+                    C = C + cf
+                  end
+              end
     
-    -- consolidate
-    let F = None;
-    for itemsets c in C do begin
-      if count(c)/dbsize > minsupport then
-        L = L + c;
-      if c should be used as a frontier in the next pass then
-        F = F + c;
+      -- consolidate
+      let F = None;
+      for itemsets c in C do 
+        begin
+
+          -- support of a candidate vs minsupport
+          if count(c)/dbsize > minsupport then 
+            L = L + c;
+          if c should be used as a frontier in the next pass then
+            F = F + c;
+        end
     end
-  end
 end
 ```
+* Explanation
+  * The frontier set consists of only one element : an empty set
+  * The support for a candidate itemset is compared with minsupport to determine if it is a large itemset.
+    * Also, it is determined if this itemset should be added to the frontier set for the next pass.
+  * The algorithm terminates when the frontier set becomes empty. 
+  * The support count for the itemset is preserved when an itemset is added to the large/frontier set.
 
-</details>
+<br><br>
 
+### 3.1 Number of Passes vs Measurement Wastage
 
 
 
