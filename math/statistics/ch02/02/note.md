@@ -55,14 +55,19 @@
     2. It is unity for a certain event
         * i.e., $P(S) = 1$.
     3. It is additive over the union of an infinite number of pairwise disjoint events
-        * i.e., if $A_1, A_2,...$ form a sequence of pairwise mutually exclusive events(i.e., $A_i \cap A_j = \emptyset$ for $i \ne j$) in $S$, then $P({\bigcup}^{\infty}_{i=1}{A_i})={\sum}^{\infty}_{i=1}{P(A_i)}$
+        * i.e., if $A_1, A_2,...$ form a sequence of pairwise mutually exclusive events(i.e., $A_i \cap A_j = \emptyset$ for $i \ne j$) in $S$, then $`P({\bigcup}^{\infty}_{i=1}{A_i})={\sum}^{\infty}_{i=1}{P(A_i)}`$
   * Props. derived
     * $P(\emptyset)=0$
     * $0 \le P(A) \le 1, \forall A$
 
+<br>
 
-
-
+#### Props.) Basic Properties of Probability
+For events $A$, $B$, and $S$ such that $A, B \subset S$
+* $P(A^c)=1-P(A)$
+* If $A \subset B$, then $P(A) \le P(B)$
+* $P(A) \cup P(B) = P(A) + P(B) - P(A \cap B)$
+  * in particular, if $P(A \cap B) = \emptyset$, then $P(A) \cup P(B) = P(A) + P(B)$
 
 <br><br>
 
