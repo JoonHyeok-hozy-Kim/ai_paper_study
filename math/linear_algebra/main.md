@@ -35,6 +35,7 @@
    1. [Matrices and Vectors](./ch01/01/note.md)
    2. [Linear Combinations, Matrix–Vector Products, and Special Matrices](./ch01/02/note.md)
    3. [Systems of Linear Equations](./ch01/03/note.md)
+   4. [Gaussian Elimination](./ch01/04/note.md)
 
 
 
