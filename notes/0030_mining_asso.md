@@ -235,9 +235,49 @@ end
      * However, having determined $AB$ to be small, it is unnecessary to measure $ABC$, $ABD$, $ABCD$, etc. 
   2. If we measure a small number of candidates and many of them turn out to be large then we need another pass, which may have not been necessary.
 
-<br><br>
+* Possible solution?
+  * [Estimation]()
+
+<br>
 
 ### 3.2 Determination of Candidate Itemsets
+* Idea
+  1. In every pass, what if we measure only the extensions of the frontier itemset that is **expected** to be *large*?
+     * Limit) 
+       * Additional pass over the database will be needed to determine the support of the extensions of those large itemsets.
+  2. Additionally, what if we measure the extensions $X + I_j$ that are expected to be small but such that $X$ is expected to be large and $X$ contains a frontier itemset.
+     * Why doing this?
+       * If our predictions are correct and $X + I_j$ indeed turns out to be small then no superset of $X + I_j$ has to be measured.
+     * Limit) 
+       * What if the data does not behave according to our expectation and $X + I_j$ turns out to be large?
+
+<br>
+
+#### Concept) Expected Support for an Itemset
+Use the statistical independence assumption to estimate the support for an itemset.
+
+* Assumptions
+  * Suppose that a candidate itemset $X + Y$ is a $k$-extension of the frontier itemset $X$ and that $Y = I_1 I_2 \dots I_k$.
+  * Suppose that the itemset $X$ appears in a total of $x$ tuples.
+    * The value of $x$ is known since $X$ was measured in the previous psss 
+      * $x$ is taken to be dbsize for the empty frontier itemset
+  * Suppose that $X + Y$ is being considered as a candidate itemset for the first time after $c$ tuples containing $X$ have already been processed in the current pass.
+  * Let $f(I_j)$ the relative frequency of the item $I_j$ in the database.
+* Model
+  * The expected support for the itemset $X+Y$ : $\bar{s}$
+    * $\bar{s} = f(I_1) \times f(I_2) \times \dots \times f(I_k) \times (x-c)/dbsize$
+      * Note)
+        * $(x-c)/dbsize$ : the actual support for $X$ in the remaining portion of the database. 
+      * Interpretation)
+        * If $\bar{s}$ is less than minsupport, then we say that $X + Y$ is expected to be small.
+        * Otherwise, it is expected to be large.
+
+
+
+
+
+
+
 
 ---
 * [Back to Main](../README.md)
