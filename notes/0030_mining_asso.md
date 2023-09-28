@@ -124,7 +124,7 @@ i.e., for a large itemset $Y=I_1I_2\dots I_k\space (k\ge2)$, generate all rules 
     * the total number of tuples in the database
   * frontier set
     * A set that consists of those itemsets that are extended during the pass
-    * The algorithm below makes multiple passes over the database.
+    * [The algorithm below](#template-algorithm) makes multiple passes over the database.
   * candidate itemset
     * An itemset contained in the frontier set which support is measured
   * counter of an itemset
@@ -139,12 +139,12 @@ procedure LargeItemsets
 
 begin
   let Large set L = ∅;       -- initialized to an empty set
-  let Frontier set F = {∅};  -- One element of an empty set
+  let Frontier set F = {∅};  -- A set with one element of an empty set
 
   while F != ∅ do 
     begin
       -- make a pass over the database
-      let Candidate set C = None;
+      let Candidate set C = ∅;
       for database_tuples t do
         for itemsets f in F do
           if f in t then 
@@ -184,6 +184,40 @@ end
 <br><br>
 
 ### 3.1 Number of Passes vs Measurement Wastage
+#### Concept) Trade-off between *Wasted Effort* and *Number of Passes* 
+
+<table>
+  <tr>
+    <td>Algorithm 1</td><td>Algorithm 2</td>
+  </tr>
+  <tr>
+    <td>
+    Check Every Itemsets<br>(Wasted Effort)
+    </td>
+    <td>
+
+Check $(k+1)$th itemsets only<br>(Multiple Database Pass)
+    </td>
+  </tr>
+  <tr>
+    <td>
+    
+* Best Case
+  * Every itemset present in any of the tuples will be measured in one pass.
+* Worst Case
+  * Setting up $2^m$ counters for all the subsets of the $m$ items in $I$
+    * Exponential time complexity!
+  * Also, this operation may be unnecessary because very few *large itemsets* will contain sufficient amount of items.
+
+    </td>
+    <td>
+    
+* How?)
+  * Measure in the $k$th pass only those itemsets that contain exactly $k$ items.
+  * Measure in $(k+1)$th pass only those itemsets that are 1-extensions (an itemset extended by exactly one item) of *large itemsets* found in the $k$th pass. 
+    </td>
+  </tr>
+<table>
 
 
 
