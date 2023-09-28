@@ -250,6 +250,7 @@ end
        * If our predictions are correct and $X + I_j$ indeed turns out to be small then no superset of $X + I_j$ has to be measured.
      * Limit) 
        * What if the data does not behave according to our expectation and $X + I_j$ turns out to be large?
+* Thus, we should rely on statistical approach!
 
 <br>
 
@@ -272,8 +273,33 @@ Use the statistical independence assumption to estimate the support for an items
         * If $\bar{s}$ is less than minsupport, then we say that $X + Y$ is expected to be small.
         * Otherwise, it is expected to be large.
 
+<br>
 
-
+#### Tech.) Candidate Itemset Generation Procedure
+* Logic
+  * An itemset not present in any of the tuples in the database never becomes a candidate for measurement.
+  * We read one tuple at a time from the database and check what frontier sets are contained in the tuple read.
+  * Candidate itemsets are generated from these frontier itemset by extending them recursively with other items present in the tuple.
+  * An itemset that is expected to be small is not further extended.
+  * Items are ordered and an itemset X is tried for extension only by items that are later in the ordering than any of the members of X.
+    * Why?)
+      * In order not to replicate different ways of constructing the same itemset
+* Pseudo Code
+  ```
+  procedure Extend(X: itemsets, t:tuple)
+    begin
+      let item I_j be the last item in X; -- X[-1]
+      for items I_k in t do
+        begin
+          if I_k <= I_j then
+            continue;
+          
+          output(X + I_k);
+          if X+I_k is expected to be large then
+            Extend(X+I_k, t);
+        end
+    end
+  ```
 
 
 
