@@ -238,7 +238,7 @@ end
 * Possible solution?
   * [Estimation]()
 
-<br>
+<br><br>
 
 ### 3.2 Determination of Candidate Itemsets
 * Idea
@@ -300,7 +300,21 @@ Use the statistical independence assumption to estimate the support for an items
         end
     end
   ```
+* Example
+  * Setting
+    * $I=\lbrace A,B,C,D,E,F \rbrace$ : All items
+    * $F=\lbrace AB \rbrace$ : current frontier set
+    * $t=ABCDF$ : tuple
+  * Candidates
+    * ABC expected large: continue extending
+    * ABCD expected small: do not extend any further
+    * ABCF expected large: cannot be extended further
+    * ABD expected small: do not extend any further
+    * ABF expected large: cannot be extended further
 
+<br><br>
+
+### 3.2 
 
 
 
