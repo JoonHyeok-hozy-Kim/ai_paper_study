@@ -218,8 +218,8 @@ end
 <td style="vertical-align: top">
     
 * How?)
-  * Measure in the $k$th pass only those itemsets that contain exactly $k$ items.
-  * Measure in $(k+1)$th pass only those itemsets that are 1-extensions (an itemset extended by exactly one item) of *large itemsets* found in the $k$th pass. 
+  * Measure in the $`k`$th pass only those itemsets that contain exactly $k$ items.
+  * Measure in $`(k+1)`$th pass only those itemsets that are 1-extensions (an itemset extended by exactly one item) of *large itemsets* found in the $`k`$th pass. 
   * Continue only if the current itemsets are large
 * Analysis
   * Too many passes over the database is made.
