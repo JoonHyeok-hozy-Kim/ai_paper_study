@@ -202,7 +202,7 @@ end
 
 </tr>
 <tr>
-<td>
+<td style="vertical-align: top">
     
 * How?
   * Check every itemsets from tuples searched in one database pass
@@ -215,7 +215,7 @@ end
     * Also, this operation may be unnecessary because very few *large itemsets* will contain sufficient amount of items.
 
 </td>
-<td>
+<td style="vertical-align: top">
     
 * How?)
   * Measure in the $k$th pass only those itemsets that contain exactly $k$ items.
