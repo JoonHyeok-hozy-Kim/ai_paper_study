@@ -228,7 +228,16 @@ end
 </tr>
 </table>
 
+* Why this trade-off exists?
+  1. If we measure a large number of candidate itemsets in a pass, many of them may turn out to be small anyhow.
+     * Suppose the itemset $A$ is large.
+     * Then, we must measure $AB$ to determine if it is large or small.
+     * However, having determined $AB$ to be small, it is unnecessary to measure $ABC$, $ABD$, $ABCD$, etc. 
+  2. If we measure a small number of candidates and many of them turn out to be large then we need another pass, which may have not been necessary.
 
+<br><br>
+
+### 3.2 Determination of Candidate Itemsets
 
 ---
 * [Back to Main](../README.md)
