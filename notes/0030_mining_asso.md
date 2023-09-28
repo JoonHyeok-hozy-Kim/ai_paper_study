@@ -186,38 +186,47 @@ end
 ### 3.1 Number of Passes vs Measurement Wastage
 #### Concept) Trade-off between *Wasted Effort* and *Number of Passes* 
 
+
 <table>
-  <tr>
-    <td>Algorithm 1</td><td>Algorithm 2</td>
-  </tr>
-  <tr>
-    <td>
-    Check Every Itemsets<br>(Wasted Effort)
-    </td>
-    <td>
+<tr>
+<td>
 
-Check $(k+1)$th itemsets only<br>(Multiple Database Pass)
-    </td>
-  </tr>
-  <tr>
-    <td>
+1st Algorithm : Check Every Itemsets in One Database Pass (Wasted Effort)
+
+</td>
+<td>
+
+2nd Algorithm : Check $(k+1)$th itemsets in One Database Pass (Multiple Database Pass)
+
+</td>
+
+</tr>
+<tr>
+<td>
     
-* Best Case
-  * Every itemset present in any of the tuples will be measured in one pass.
-* Worst Case
-  * Setting up $2^m$ counters for all the subsets of the $m$ items in $I$
-    * Exponential time complexity!
-  * Also, this operation may be unnecessary because very few *large itemsets* will contain sufficient amount of items.
+* How?
+  * Check every itemsets from tuples searched in one database pass
+* Analysis
+  * Best Case
+    * Every itemset present in any of the tuples will be measured in one pass.
+  * Worst Case
+    * Setting up $2^m$ counters for all the subsets of the $m$ items in $I$
+      * Exponential time complexity!
+    * Also, this operation may be unnecessary because very few *large itemsets* will contain sufficient amount of items.
 
-    </td>
-    <td>
+</td>
+<td>
     
 * How?)
   * Measure in the $k$th pass only those itemsets that contain exactly $k$ items.
   * Measure in $(k+1)$th pass only those itemsets that are 1-extensions (an itemset extended by exactly one item) of *large itemsets* found in the $k$th pass. 
-    </td>
-  </tr>
-<table>
+  * Continue only if the current itemsets are large
+* Analysis
+  * Too many passes over the database is made.
+
+</td>
+</tr>
+</table>
 
 
 
