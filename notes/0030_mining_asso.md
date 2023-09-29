@@ -189,43 +189,55 @@ end
 
 <table>
 <tr>
-<td>
+<th>Algorithm</th>
+<th>
 
-1st Algorithm : Check Every Itemsets in One Database Pass (Wasted Effort)
+Check Every Itemsets in One Database Pass (Wasted Effort)
 
-</td>
-<td>
+</th>
+<th>
 
-2nd Algorithm : Check $(k+1)$th itemsets in One Database Pass (Multiple Database Pass)
+Check $(k+1)$th itemsets in One Database Pass (Multiple Database Pass)
 
-</td>
-
+</th>
 </tr>
-<tr>
-<td style="vertical-align: top">
+<tr style="vertical-align: top; horizontal-align: left">
+<td> Methodology
+</td>
+<td>
     
-* How?
-  * Check every itemsets from tuples searched in one database pass
-* Analysis
-  * Best Case
-    * Every itemset present in any of the tuples will be measured in one pass.
-  * Worst Case
-    * Setting up $2^m$ counters for all the subsets of the $m$ items in $I$
-      * Exponential time complexity!
-    * Also, this operation may be unnecessary because very few *large itemsets* will contain sufficient amount of items.
+Check every itemsets from tuples searched in one database pass
 
 </td>
-<td style="vertical-align: top">
+<td>
     
-* How?)
-  * Measure in the $`k`$th pass only those itemsets that contain exactly $k$ items.
-  * Measure in $`(k+1)`$th pass only those itemsets that are 1-extensions (an itemset extended by exactly one item) of *large itemsets* found in the $`k`$th pass. 
-  * Continue only if the current itemsets are large
-* Analysis
-  * Too many passes over the database is made.
+1. Measure in the $`k`$th pass only those itemsets that contain exactly $k$ items.
+2. Measure in $`(k+1)`$th pass only those itemsets that are 1-extensions (an itemset extended by exactly one item) of *large itemsets* found in the $`k`$th pass. 
+3. Continue only if the current itemsets are large
 
 </td>
 </tr>
+
+<tr style="vertical-align: top; horizontal-align: left">
+<td> Performance Analysis
+</td>
+<td>
+
+* Best Case
+  * Every itemset present in any of the tuples will be measured in one pass.
+* Worst Case
+  * Setting up $2^m$ counters for all the subsets of the $m$ items in $I$
+    * Exponential time complexity!
+  * Also, this operation may be unnecessary because very few *large itemsets* will contain sufficient amount of items.
+
+</td>
+<td>
+
+* Makes too many passes over the database
+  
+</td>
+</tr>
+
 </table>
 
 * Why this trade-off exists?
@@ -236,7 +248,7 @@ end
   2. If we measure a small number of candidates and many of them turn out to be large then we need another pass, which may have not been necessary.
 
 * Possible solution?
-  * [Estimation]()
+  * [Estimation](#concept-expected-support-for-an-itemset)
 
 <br><br>
 
@@ -300,7 +312,7 @@ Use the statistical independence assumption to estimate the support for an items
         end
     end
   ```
-* Example
+* Itemset Generation Example
   * Setting
     * $I=\lbrace A,B,C,D,E,F \rbrace$ : All items
     * $F=\lbrace AB \rbrace$ : current frontier set
@@ -314,9 +326,90 @@ Use the statistical independence assumption to estimate the support for an items
 
 <br><br>
 
-### 3.2 
+### 3.3 Determination of the Frontier Set
+* Idea) What if we choose the maximal *large itemset*?
+  * Answer : Incorrect
+    * A counter example of missing some *large sets*
+      * Suppose current frontier set : $\lbrace AB \rbrace$ and our database tuple $t:ABCDF$
+      * After the database pass, both $ABD$ and $ABCD$ turned out to be large.
+      * Then, $ABCD$ will be chosen under this rule.
+      * This is a mistake because we should have chosen $ABD$ to reach $ABCDF$
+  * What we should consider
+    * Candidate itemsets that are expected to be small but may turn out to be large in the current pass.
+    * These sets are the only itemsets that should be included in the next frontier set.
+
+<br>
+
+#### Lemma for the Frontier Set Selection
+If the candidate itemset $X$ is expected to be small in the current pass over the database, then no extension $X+I_j$ of $X$, where $I_j \gt I_k, \space \forall I_k$ in $X$ is a candidate itemset in this pass.
+
+<br>
+
+#### Frontier Set Selection Rule
+1. Itemsets that are expected to be small in the current pass are not measured in the current pass.
+2. Thus, they should be included in the frontier set so that they can be measured in the next passes.
+3. By the [lemma](#lemma-for-the-frontier-set-selection), none of extensions of these *expected to be small itemsets* are measured in the previous passes. $\Rightarrow$ No Redundancy!
+4. Therefore, we may not miss any possibly *largest itemset* ultimately.
+
+<br><br>
+
+### 3.4 Memory Management
+**Goal)** Handle the situation that we may not have enough memory to store all the frontier and candidate itemsets in a pass   
+
+**Assumption)** We have enough memory to store any itemset and all its 1-extensions.   
+
+**Settings)** 
+* $t$ : a tuple
+* $X$ : a frontier itemset
+* $Z = parent(U)$ : $U$ is 1-extension of $Z$
+* $siblings(U)$ : All the 1-extensions of $Z$
+
+**Case)** 
+* Consider the case of insufficient memory for the extension of $X+Y$.   
+
+**Pseudo Code)**
+```
+procedure ReclaimMemory
+  begin
+    -- first obtain memory from the frontier set
+
+    while enough memory has not been reclaimed do
+      if there is an itemset X in the frontier set for which no extension has been generated then
+        move X to disk;
+      else
+        break;
+    
+    if enough memory has been reclaimed then 
+      return;
+    
+    -- now obtain memory by deleting some
+    -- candidate itemsets
+
+    find the candidate itemset U having maximum number of items;
+    discard U and all its siblings;
+
+    let Z = parent(U);
+
+    if Z is in the frontier set then
+      move Z to disk;
+    else
+      disable future extensions of Z in this pass;
+  end
+```
+
+**Explanation)**
+1. Make a room for the new itemset by writing those frontier itemsets that have not yet been extended to the disk.
+2. If 1 is not enough, discard the candidate itemset having maximum number of items($U$). And discard all its siblings.
+   * why?) The parent of this itemset will be included in the frontier set and be measured in the next pass.
+     * Thus, the siblings will be included in the frontier set for the next pass.
+3. Find the parent of the discarded itemset($Z$)
+4. If $Z$ is the frontier set move it to disk, else disable future extension of $Z$ in this pass.
 
 
+**Result)**
+Following two types of itemsets will be included in the frontier set.
+1. Disk-resident frontier itemsets that were not extended in the current pass
+2. Candidate and frontier sets whose children were deleted to reclaim memory
 
 
 ---
