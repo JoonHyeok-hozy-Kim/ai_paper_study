@@ -411,6 +411,10 @@ Following two types of itemsets will be included in the frontier set.
 1. Disk-resident frontier itemsets that were not extended in the current pass
 2. Candidate and frontier sets whose children were deleted to reclaim memory
 
+<br><br>
+
+### 3.5 Pruning Based on the Count of Remaining Tuples in the Pass
+
 
 ---
 * [Back to Main](../README.md)
