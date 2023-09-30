@@ -417,7 +417,7 @@ Following two types of itemsets will be included in the frontier set.
 Why is pruning needed?
 * We can save both memory and measurement effort if we can discard some candidate itemsets that will eventually turn out to be small.
 * Pruning can enable this.
-* This paper calls this pruning [remaining tuples optimization]().
+* This paper calls this pruning [remaining tuples optimization](#tech-remaining-tuples-optimization).
 
 <br>
 
@@ -433,12 +433,11 @@ Why is pruning needed?
 * The number of tuples that contain $X+Y$ may be at most $(x-c)$.
   * Thus, the maximum possible count of tuples that contain $X+Y$ is $(x-c+s)$.   
   
-**Rule)**
-* Compare $(x-c+s)$ with $(minsupport \times dbsize)$
-  * If $(x-c+s) \lt (minsupport \times dbsize)$, $X+Y$ is bound to be small, so prune it right away.
-  * Apply this pruning test whenever a tuple containing $X+Y$ is processed.
-    * why?)
-      * It is possible that a candidate itemset is not initially pruned, but it may satisfy the pruning condition after some more tuples have been processed.
+**Rule)** Compare $(x-c+s)$ with $(minsupport \times dbsize)$
+* If $(x-c+s) \lt (minsupport \times dbsize)$, $X+Y$ is bound to be small, so prune it right away.
+* Apply this pruning test whenever a tuple containing $X+Y$ is processed.
+  * why?)
+    * It is possible that a candidate itemset is not initially pruned, but it may satisfy the pruning condition after some more tuples have been processed.
 
 <br><br>
 
@@ -462,7 +461,7 @@ If we know that there are **less** than $minsupport$ fraction of transactions th
    * Hence,  $z(t)=w_1I_{j1} + w_2I_{j2} + \dots + w_mI_{jm} + \le \tau_X$
      * cf.) The pruning function associated with the frontier set $X$ can be used to determine whether an expansion of $X$ should be added to the candidate itemset or whether it should be pruned right away.
      * $\because$ (transaction support of $X$) $\ge$ (transaction support of $X+Y$)
-4. Given a frontier itemset $X$, we need a procedure for establishing $\tau_X$ such that $count(t |$ tuple $t$ contains $X$ and ,$z(t) \gt \tau_X) \lt minsupport$.
+4. Given a frontier itemset $X$, we need a procedure for establishing $\tau_X$ such that $count(t |$ tuple $t$ contains $X$ and ,$`z(t) \gt \tau_X) \lt minsupport`$.
 5. Collect $\tau$ information only for these itemsets and not all candidate itemsets.
    * Why doing this?)
      * We should collect information for determining $\tau$ for an itemset $X$, while $X$ is is still a candidate itemset and is being measured in anticipation that $X$ may become a frontier itemset in the next pass.
