@@ -15,7 +15,7 @@
 <br>
 
 #### e.g.) Association Rule
-* cf.) [Formal Definition](#concept-association-rule)
+* cf.) [Notation in this paper](#concept-association-rule)
 * Statement
   * 90% of transactions that purchase bread and butter also purchase milk.
 * Interpretation
@@ -59,7 +59,7 @@ Def.) $X\Rightarrow I_j$
 
 <br>
 
-#### Concept) Confidence Factor c
+#### Concept) Confidence Factor (c)
   * The rule of $X\Rightarrow I_j$ can be satisfied in $T$ with the confidence factor $0 \le c \le 1$
   * If and only if at least $c$% of transactions in $T$ that satisfy $X$ also satisfy $I_j$.
 
@@ -138,13 +138,13 @@ i.e., for a large itemset $Y=I_1I_2\dots I_k\space (k\ge2)$, generate all rules 
 procedure LargeItemsets
 
 begin
-  let Large set L = ∅;       -- initialized to an empty set
-  let Frontier set F = {∅};  -- A set with one element of an empty set
+  let large_set L = ∅;       -- initialized to an empty set
+  let frontier_set F = {∅};  -- A set with one element of an empty set
 
   while F != ∅ do 
     begin
       -- make a pass over the database
-      let Candidate set C = ∅;
+      let candidate_set C = ∅;
       for database_tuples t do
         for itemsets f in F do
           if f in t then 
@@ -293,12 +293,12 @@ Use the statistical independence assumption to estimate the support for an items
   * We read one tuple at a time from the database and check what frontier sets are contained in the tuple read.
   * Candidate itemsets are generated from these frontier itemset by extending them recursively with other items present in the tuple.
   * An itemset that is expected to be small is not further extended.
-  * Items are ordered and an itemset X is tried for extension only by items that are later in the ordering than any of the members of X.
+  * Items are ordered and an itemset $X$ is tried for extension only by items that are later in the ordering than any of the members of $X$.
     * Why?)
       * In order not to replicate different ways of constructing the same itemset
 * Pseudo Code
   ```
-  procedure Extend(X: itemsets, t:tuple)
+  procedure Extend(X: itemset, t: tuple)
     begin
       let item I_j be the last item in X; -- X[-1]
       for items I_k in t do
@@ -330,10 +330,10 @@ Use the statistical independence assumption to estimate the support for an items
 * Idea) What if we choose the maximal *large itemset*?
   * Answer : Incorrect
     * A counter example of missing some *large sets*
-      * Suppose current frontier set : $\lbrace AB \rbrace$ and our database tuple $t:ABCDF$
+      * Suppose current frontier set : $\lbrace AB \rbrace$ and our database tuple $t:ABDF$
       * After the database pass, both $ABD$ and $ABCD$ turned out to be large.
       * Then, $ABCD$ will be chosen under this rule.
-      * This is a mistake because we should have chosen $ABD$ to reach $ABCDF$
+      * This is a mistake because we should have chosen $ABD$ to reach $ABDF$
   * What we should consider
     * Candidate itemsets that are expected to be small but may turn out to be large in the current pass.
     * These sets are the only itemsets that should be included in the next frontier set.
@@ -414,6 +414,71 @@ Following two types of itemsets will be included in the frontier set.
 <br><br>
 
 ### 3.5 Pruning Based on the Count of Remaining Tuples in the Pass
+Why is pruning needed?
+* We can save both memory and measurement effort if we can discard some candidate itemsets that will eventually turn out to be small.
+* Pruning can enable this.
+* This paper calls this pruning [remaining tuples optimization]().
+
+<br>
+
+#### Tech) Remaining Tuples Optimization
+**Settings)**
+* $X$ : a frontier itemset
+  * $X$ appears in $x$ tuples.
+* $X+Y$ : the extension of the frontier itemset $X$
+  * Among tuples that contain $X$, suppose $c$-th tuple contains $X+Y$.
+  * Let $s$ : the count of tuples contain $X+Y$   
+
+**Prop.)**
+* The number of tuples that contain $X+Y$ may be at most $(x-c)$.
+  * Thus, the maximum possible count of tuples that contain $X+Y$ is $(x-c+s)$.   
+  
+**Rule)**
+* Compare $(x-c+s)$ with $(minsupport \times dbsize)$
+  * If $(x-c+s) \lt (minsupport \times dbsize)$, $X+Y$ is bound to be small, so prune it right away.
+  * Apply this pruning test whenever a tuple containing $X+Y$ is processed.
+    * why?)
+      * It is possible that a candidate itemset is not initially pruned, but it may satisfy the pruning condition after some more tuples have been processed.
+
+<br><br>
+
+### 3.6 Pruning Based on Synthesized Pruning Function
+#### Tech.) Pruning Function Optimization
+**Motivation)** Total Transaction Price   
+If we know that there are **less** than $minsupport$ fraction of transactions that bought more than $\tau$ dollars worth of items, we can skip all sets of items for which their total price exceeds $\tau$.
+
+**Derivation)**   
+1. We don't know what the actual Total Transaction Price pruning function looks like.
+2. Create a **synthesize pruning function** for a tuple $t$ as follows. 
+   * $z(t)=w_1I_{j1} + w_2I_{j2} + \dots + w_mI_{jm} + \le \tau$
+     * $I_j$ : the itemset that is ordered in the decreasing order of each item's frequency in the database
+     * $I_{ji}$ : $i$-th item in $I_j$
+     * $w_i$ : the weight of the $i$-th item
+       * $w_i = 2^{i-1} \epsilon$, where $\epsilon \approx 0^+$
+     * It can be shown that under certain mild assumptions, a pruning function with the above weights will have optimal pruning value — it will prune the largest number of candidate itemsets.
+       * For every item pair $I_j$, and $I_k$ in $I$, if $frequency(I_j) \lt frequency(I_k)$, then for every itemset $X$ comprising items in $I$, it holds that $frequency(I_jX) \lt frequency(I_kX)$.
+3. A separate pruning function is synthesized for each frontier itemset ($X$). These functions differ in their values for $\tau$.
+   * Thus, put $\tau_X$.
+   * Hence,  $z(t)=w_1I_{j1} + w_2I_{j2} + \dots + w_mI_{jm} + \le \tau_X$
+     * cf.) The pruning function associated with the frontier set $X$ can be used to determine whether an expansion of $X$ should be added to the candidate itemset or whether it should be pruned right away.
+     * $\because$ (transaction support of $X$) $\ge$ (transaction support of $X+Y$)
+4. Given a frontier itemset $X$, we need a procedure for establishing $\tau_X$ such that $count(t |$ tuple $t$ contains $X$ and ,$z(t) \gt \tau_X) \lt minsupport$.
+5. Collect $\tau$ information only for these itemsets and not all candidate itemsets.
+   * Why doing this?)
+     * We should collect information for determining $\tau$ for an itemset $X$, while $X$ is is still a candidate itemset and is being measured in anticipation that $X$ may become a frontier itemset in the next pass.
+       * Why?) Otherwise, separate pass for $\tau$ will be needed. $\Rightarrow$ Waste of resource!
+     * We know that only the candidate itemsets that are expected to be small are the ones that can become a frontier set.
+   * How?)
+     * Maintain $minsupport$ number of largest values of $z$ for tuples containing $X$. 
+       * This procedure will require memory for maintaining minsupport number of values with each candidate itemset that is expected to be small.
+       * If not, i.e. not using the pruning function, we may save memory at the cost of losing some precision...
+       * But the paper recommends using the pruning function.
+6. Finally, recall that, [when memory is limited, a candidate itemset whose children are deleted in the current pass also becomes a frontier itemset](#34-memory-management). In general, children of a candidate itemset are deleted in the middle of a pass, and we might not have been collecting $\tau$ information for such an itemset. Such itemsets inherit $\tau$ value from their parents when they become frontier.
+
+
+
+
+
 
 
 ---
