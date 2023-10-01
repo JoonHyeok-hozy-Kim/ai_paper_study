@@ -520,30 +520,56 @@ If we know that there are **less** than $minsupport$ fraction of transactions th
 <br><br>
 
 ### 4.2 Effectiveness of the Pruning Optimization
-1. [Remaining Tuples Optimization](#tech-remaining-tuples-optimization)
-   * Review
-     * Discard some candidate itemsets that will eventually turn out to be small
-     * If $(x-c+s) \lt (minsupport \times dbsize)$, discard $X+Y$.
-   * Experiment
-     * Statistics : Efficiency of a Pruning Technique
-       * the fraction of itemsets that it prunes.
-     * Setting
-       * **New** : Apply the optimization to the new candidate itemsets when generated.
-         * Efficiency : the ratio of the new itemsets pruned to the total number of new itemsets generated.
-       * **Old** : Apply the optimization to the unpruned candidate itemsets that are added to the candidate set.
-         * Efficiency : the ratio of the old candidate itemsets pruned to the total number of candidate itemsets added to the candidate set
-   * Result
-     ![](../images/004_mining_asso/04_01_03.png)
-   * Analysis
-     * The remaining tuple optimization prunes out a very large fraction of itemsets, both new and old.
-     * The pruning efficiency increases with an an increase in $minsupport$.
-       * Why?)
-         * If $minsupport$ increases, each itemset should be contained in more transactions to become a *large set*.
-     * The remaining tuple optimization prunes mostly those old candidate itemsets that were expected to be small;
-     * A large jump in the pruning efficiency for old candidate itemsets as minsupport increases from 0.1 to 0.5
-       * why?)
-         * Check [the estimation experiment]().
-         * There is a large increase in the fraction of itemsets expected to be small in the candidate set as minsupport increases from 0.1 to 0.5.
+#### 1. [Remaining Tuples Optimization](#tech-remaining-tuples-optimization) Experiment
+ * Review
+   * Discard some candidate itemsets that will eventually turn out to be small
+   * If $(x-c+s) \lt (minsupport \times dbsize)$, discard $X+Y$.
+ * Experiment
+   * Statistics : Efficiency of a Pruning Technique
+     * the fraction of itemsets that it prunes.
+   * Setting
+     * **New** : Apply the optimization to the new candidate itemsets when generated.
+       * Efficiency : the ratio of the new itemsets pruned to the total number of new itemsets generated.
+     * **Old** : Apply the optimization to the unpruned candidate itemsets that are added to the candidate set.
+       * Efficiency : the ratio of the old candidate itemsets pruned to the total number of candidate itemsets added to the candidate set
+ * Result
+   ![](../images/004_mining_asso/04_01_03.png)
+ * Analysis
+   * The remaining tuple optimization prunes out a very large fraction of itemsets, both new and old.
+   * The pruning efficiency increases with an an increase in $minsupport$.
+     * Why?)
+       * If $minsupport$ increases, each itemset should be contained in more transactions to become a *large set*.
+   * The remaining tuple optimization prunes mostly those old candidate itemsets that were expected to be small;
+   * A large jump in the pruning efficiency for old candidate itemsets as minsupport increases from 0.1 to 0.5
+     * why?)
+       * Check [the estimation experiment](#41-effectiveness-of-the-estimation-procedure).
+         * There was a large increase in the fraction of itemsets expected to be small in the candidate set as minsupport increases. 
+
+<br>
+
+#### 2. [Pruning Function Optimzation](#tech-pruning-function-optimization) Experiment
+* Setting
+  * Turn off the remaining tuple optimization
+* Result
+  * The effectiveness of the optimization increases with an increase in $minsupport$ as we can use a smaller value for $\tau$.
+
+
+<br><br>
+
+
+## 5. Related Works
+#### Discovering rules from data
+* Quantitative Rules
+  * Objective : Automate the discovery of numeric laws of the type commonly found in scientific data.
+  * Optimization Problem
+    * Given $m$ variables $x_1, x_2, ..., x_m$ and $k$ groups of observational data $d_1, d_2, ..., d_k$ where each $d_i$ is a set of $m$ values,
+    * Find a forumla $f(x_1, x_2, ..., x_m)$ that best fits the data.
+  * Hardship
+    * Too many formulas might fit the given data, so the domain knowledge is generally used to provide the bias toward the formulas that are appropriate for the domain.
+* Qualitative Rules
+  * Objective : Find rules in data with uncertainty, generally using little or no domain knowledge. 
+
+
 
 
 ---
