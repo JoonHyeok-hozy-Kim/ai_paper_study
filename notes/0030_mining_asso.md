@@ -197,7 +197,7 @@ Check Every Itemsets in One Database Pass (Wasted Effort)
 </th>
 <th>
 
-Check $(k+1)$th itemsets in One Database Pass (Multiple Database Pass)
+Check $`(k+1)`$th itemsets in One Database Pass (Multiple Database Pass)
 
 </th>
 </tr>
@@ -475,9 +475,75 @@ If we know that there are **less** than $minsupport$ fraction of transactions th
 6. Finally, recall that, [when memory is limited, a candidate itemset whose children are deleted in the current pass also becomes a frontier itemset](#34-memory-management). In general, children of a candidate itemset are deleted in the middle of a pass, and we might not have been collecting $\tau$ information for such an itemset. Such itemsets inherit $\tau$ value from their parents when they become frontier.
 
 
+<br><br>
 
 
+## 4. Experiment
+* Data
+  * Sales data obtained from a large retailing company.
+  * Total of 46,873 customer transactions
+    * Each transaction contains the department numbers from which a customer bought an item in a visit.
+  * Total of 63 departments.
+* Rules
+  * The algorithm finds if there is an association between departments in the customer purchasing behavior.
+  * Minimum Support ($minsupport$) : 1%
+  * Minimum Confidence : 50%
+  * $X \Rightarrow I|(c,s)$
+    * where $c$ is the confidence and $s$ is the support in percentage
+* Result   
+  ![](../images/004_mining_asso/04_01_01.png)
 
+
+<br><br>
+
+### 4.1 Effectiveness of the Estimation Procedure
+* [Estimation](#concept-expected-support-for-an-itemset)
+  * When $X$ is large, is its extension, $Y=X+I_j$, small?
+  * $\bar{s} = f(I_1) \times f(I_2) \times \dots \times f(I_k) \times (x-c)/dbsize$
+* Experiment
+  * Statistic : **Accuracy of Estimation**
+    * The ratio of the number of itemsets that actually turn out to be large (small) to the number of itemsets that were estimated to be large (small).
+  * Setting
+    * Measure accuracies for large and small itemsets for different values of $minsupport$
+  * Interpretation
+    * If we have a good estimation procedure, most of the itemsets expected to be large (small) will indeed turn out to be large (small).
+    * Low Accuracy for the Large Itemsets
+      * Wasted measurement effort : Left case in [the trade-off](#concept-trade-off-between-wasted-effort-and-number-of-passes)
+      * i.e.) we are measuring too many unnecessary itemsets in a pass.
+    * Low Accuracy for the Small Itemsets
+      * Possible extra passes over the data : Right case in [the trade-off](#concept-trade-off-between-wasted-effort-and-number-of-passes)
+      * i.e.) we are stopping too early in our candidate generation procedure and we are not measuring all the itemsets that we should in a pass.
+  * Result
+    ![](../images/004_mining_asso/04_01_02.png)
+
+
+<br><br>
+
+### 4.2 Effectiveness of the Pruning Optimization
+1. [Remaining Tuples Optimization](#tech-remaining-tuples-optimization)
+   * Review
+     * Discard some candidate itemsets that will eventually turn out to be small
+     * If $(x-c+s) \lt (minsupport \times dbsize)$, discard $X+Y$.
+   * Experiment
+     * Statistics : Efficiency of a Pruning Technique
+       * the fraction of itemsets that it prunes.
+     * Setting
+       * **New** : Apply the optimization to the new candidate itemsets when generated.
+         * Efficiency : the ratio of the new itemsets pruned to the total number of new itemsets generated.
+       * **Old** : Apply the optimization to the unpruned candidate itemsets that are added to the candidate set.
+         * Efficiency : the ratio of the old candidate itemsets pruned to the total number of candidate itemsets added to the candidate set
+   * Result
+     ![](../images/004_mining_asso/04_01_03.png)
+   * Analysis
+     * The remaining tuple optimization prunes out a very large fraction of itemsets, both new and old.
+     * The pruning efficiency increases with an an increase in $minsupport$.
+       * Why?)
+         * If $minsupport$ increases, each itemset should be contained in more transactions to become a *large set*.
+     * The remaining tuple optimization prunes mostly those old candidate itemsets that were expected to be small;
+     * A large jump in the pruning efficiency for old candidate itemsets as minsupport increases from 0.1 to 0.5
+       * why?)
+         * Check [the estimation experiment]().
+         * There is a large increase in the fraction of itemsets expected to be small in the candidate set as minsupport increases from 0.1 to 0.5.
 
 
 ---
