@@ -95,5 +95,20 @@ Case2) $P(A_1 \cap A_2) \ne \emptyset$; $P(\cup{A_i}) = P(A_1)+P(A_2)-P(A_1 \cap
 
 
 
+![](./images/ex020.png)  
+1. {(b, b), (b, g)}
+2. 0.5
+
+
+
+![](./images/ex021.png)  
+1. $P(A) = {{{}_3C_2+{}_2C_2}\over{{}_5C_2}} = 0.4$
+2. $P(B) = 1 - {{{}_2C_2}\over{{}_5C_2}} = 0.9$
+3. $P(A \cap B) = 0.3 \Rightarrow P(A \cup B) = 0.4+0.9-0.3 = 1$
+4. $P(A \cap B) = 0.3$
+
+
+
+
 
 * [Back to the note](./note.md)
