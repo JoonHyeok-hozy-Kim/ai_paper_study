@@ -12,6 +12,7 @@ Suppose $R$ is the reduced row echelon form of a matrix $A$.
   ![](./images/04_01_01.png)
   ![](./images/04_01_02.png)
 
+
 <br>
 
 #### Tech.) Gaussian Elimination Algorithm
@@ -37,6 +38,36 @@ Suppose $R$ is the reduced row echelon form of a matrix $A$.
     ![](./images/04_01_07.png)
   * Result   
     ![](./images/04_01_08.png)
+
+
+<br>
+
+#### Def.) Rank and Nullity of a Matrix
+Let $A$ a $m \times n$ matrix.
+* Rank of $A$ : $rank(A)$
+  * the number of nonzero rows in the reduced row echelon form of $A$
+* Nullity of $A$
+  * $n - rank(A)$
+
+<br>
+
+#### Props.)
+* The rank of a matrix equals the number of pivot columns in the matrix
+* the nullity of a matrix equals the number of nonpivot columns in the matrix
+* In a matrix in reduced row echelon form with rank $k$, the standard vectors $e_1, e_2, ... , e_k$ must appear.   
+  ![](./images/04_01_09.png)
+* If a $n \times n$ matrix has rank $n$, then its reduced row echelon form is $I_n$.   
+  ![](./images/04_01_10.png)
+
+<br>
+
+#### Props.)
+Let $Ax=b$ a consistent system of linear equations
+* $rank(A) =$ (the number of basic variables in a general solution of the system)
+* (nullity of A) = (the number of free variables in a general solution of the system)
+* A consistent system of linear equations has a **unique solution** if and only if the nullity of its coefficient matrix equals 0.
+* A consistent system of linear equations has **infinitely many solutions** if and only if the nullity of its
+coefficient matrix is positive.
 
 
 
