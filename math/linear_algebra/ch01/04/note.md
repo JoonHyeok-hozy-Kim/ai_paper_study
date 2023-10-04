@@ -9,6 +9,7 @@ Suppose $R$ is the reduced row echelon form of a matrix $A$.
 * Pivot Columns
   * A column of $A$ that contains some pivot positions of $A$.
 * Example   
+
 ![](./images/04_01_01.png)
 ![](./images/04_01_02.png)   
 
@@ -55,8 +56,11 @@ Let $A$ a $m \times n$ matrix.
 * The rank of a matrix equals the number of pivot columns in the matrix
 * the nullity of a matrix equals the number of nonpivot columns in the matrix
 * In a matrix in reduced row echelon form with rank $k$, the standard vectors $e_1, e_2, ... , e_k$ must appear.   
+
 ![](./images/04_01_09.png)   
+
 * If a $n \times n$ matrix has rank $n$, then its reduced row echelon form is $I_n$.   
+
 ![](./images/04_01_10.png)   
 
 <br>
