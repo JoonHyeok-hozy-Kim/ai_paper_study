@@ -83,7 +83,7 @@ The following conditions are equivalent
 * Proof)
   * **1** is equivalent to **2**
      * Let $A$ be a $m \times n$ matrix and $b \in R^m$. 
-     * By definition, $\exists v = \left[ \begin{array}{c} v_1 \\ v_2 \\ \vdots \\ v_n \end{array} \right] \in R^n$ such that $Av = b$ if and only if $\Sigma_{i=1}^{n}{v_ia_i} = b$.
+     * By definition, $`\exists v = \left[ \begin{array}{c} v_1 \\ v_2 \\ \vdots \\ v_n \end{array} \right] \in R^n`$ such that $Av = b$ if and only if $\Sigma_{i=1}^{n}{v_ia_i} = b$.
      * Thus, $Ax=b$ is consistent if and only if $b$ is a linear combination of the columns of $A$.
      * $\therefore$ **1** is equivalent to **2**.
   * **1** is equivalent to **3**
