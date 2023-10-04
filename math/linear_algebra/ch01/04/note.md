@@ -69,6 +69,15 @@ Let $Ax=b$ a consistent system of linear equations
 * A consistent system of linear equations has **infinitely many solutions** if and only if the nullity of its
 coefficient matrix is positive.
 
+<br>
+
+#### Theorem 1.5) Test for Consistency
+The following conditions are equivalent
+1. The matrix equation $Ax=b$ is consistent.
+2. The vector $b$ is a linear combination of the columns of A.
+3. The reduced row echelon form of the augmented matrix $[A \space b]$ has no row of the form $[0 \space 0 \space \dots d]$, where $d \ne 0$.
+
+
 
 
 ### [Exercises 1.4](./exercises.md)
