@@ -80,7 +80,17 @@ The following conditions are equivalent
 1. The matrix equation $Ax=b$ is consistent.
 2. The vector $b$ is a linear combination of the columns of A.
 3. The reduced row echelon form of the augmented matrix $[A \space b]$ has no row of the form $[0 \space 0 \space \dots d]$, where $d \ne 0$.
-
+* Proof)
+  * **1** is equivalent to **2**
+     * Let $A$ be a $m \times n$ matrix and $b \in R^m$. 
+     * By definition, $\exists v = \left[ \begin{array}{c} v_1 \\ v_2 \\ \vdots \\ v_n \end{array} \right] \in R^n$ such that $Av = b$ if and only if $\Sigma_{i=1}^{n}{v_ia_i} = b$.
+     * Thus, $Ax=b$ is consistent if and only if $b$ is a linear combination of the columns of $A$.
+     * $\therefore$ **1** is equivalent to **2**.
+  * **1** is equivalent to **3**
+     * Let $[R \space c]$ be the reduced row echelon form of the augmented matrix $[A \space b]$.
+     * Suppose not.
+     * Then, the system of linear equations corresponding to $Rx=c$ contains the equation $0x_1 + 0x_2 + \dots 0x_n = d$, where $d \ne 0$.
+     * Thus, the equation has no solution and $Rx=c$ is inconsistent. $\dots \otimes$
 
 
 
