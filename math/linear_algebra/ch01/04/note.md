@@ -8,7 +8,7 @@ Suppose $R$ is the reduced row echelon form of a matrix $A$.
   * The positions that contain the leading entries of the nonzero rows of $R$
 * Pivot Columns
   * A column of $A$ that contains some pivot positions of $A$.
-* example   
+* Example   
   ![](./images/04_01_01.png)
   ![](./images/04_01_02.png)
 
