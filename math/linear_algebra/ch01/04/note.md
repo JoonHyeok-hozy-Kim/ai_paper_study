@@ -10,7 +10,7 @@ Suppose $R$ is the reduced row echelon form of a matrix $A$.
   * A column of $A$ that contains some pivot positions of $A$.
 * example   
   ![](./images/04_01_01.png)
-  ![](images/04_01_02.png)
+  ![](./images/04_01_02.png)
 
 <br>
 
