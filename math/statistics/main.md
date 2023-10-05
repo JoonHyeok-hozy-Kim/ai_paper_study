@@ -33,6 +33,9 @@
     <tr>
         <td>2-2</td><td><a href="./ch02/02/note.md">Random Events and Probability</a></td><td>Experiment, Trial, Sample Space, Sample Point, Probability</td>
     </tr>
+        <td>2-3</td><td><a href="./ch02/03/note.md">Counting Techniques and Calculation of Probabilities</a></td><td> TBD</td>
+    <tr>
+    </tr>
     <!-- <tr>
         <td>1-3</td><td><a href="./ch01/03/note.md">Sampling Schemes</a></td><td>Random Sample, Systemic Sample, Stratified Sample, Cluster Sampling (Area Sampling), Multiphase Sampling</td>
     </tr>
