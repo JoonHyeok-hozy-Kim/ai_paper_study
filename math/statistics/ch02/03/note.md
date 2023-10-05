@@ -14,7 +14,7 @@ Let $n$ be the number of objects and $k$ be the sample size.
 <td>\</td><td>Replacement</td><td>No Replacement</td>
 </tr>
 <tr>
-<td>Objects Ordered</td><td> $'n^k'$ </td><td> ${}_n P_k$ </td>
+<td>Objects Ordered</td><td> $n^k$ </td><td> ${}_n P_k$ </td>
 </tr>
 <tr>
 <td>Objects Not Ordered</td><td> ${}_{n+k-1} C_k$ </td><td> ${}_n C_k$ </td>
