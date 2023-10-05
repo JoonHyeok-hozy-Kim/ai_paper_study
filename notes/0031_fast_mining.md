@@ -117,9 +117,83 @@
 <br><br>
 
 ### 2.1 Algorithm Apriori
+#### Algorithm
+```
+L[1] = {large 1-itemsets};       -- first pass
 
+for (k=2; L[k-2]!=∅; k++) do     -- subsequent k-passes
+  begin
+    Ck = apriori-gen(L[k-1]);    -- New candidates
+    for t in D do
+      begin
+        Ct = subset(Ck, t);      -- Candidates contained in t
+        for c in Ct do
+          c.count++;
+      end
+    L[k] = {c in Ck | c.count >= minsupport}
+  end
 
+result = union(L[k])
+```
+* Description
+  * The first pass of the algorithm counts item occurrences to determine the large 1-itemsets.
+  * Subsequent passes consists of two phases
+    * Let the pass be $k$-th pass.
+    * Then,
+      1. Use [the apriori-gen function]() to generate candidate itemsets $C_k$ using large itemsets $L_{k-1}$ found in the $(k-1)$-th pass.
+         * Use [the subset function]() to efficiently determine the candidates for $C_k$
+      2. Scan the database and count the support of candidates in $C_k$.
+    
+<br>
 
+#### 2.1.1 Apriori Candidate Generation
+* Apriori-gen Function
+  * Input
+    * $L_{k-1}$ : the set of all large $(k-1)$-itemsets
+  * Output
+    * A superset of the set of all large $k$-itemsets.
+  * Steps
+    1. **Join Step** : Join $L_{k-1}$ with $L_{k-1}$.
+       ```
+       INSERT INTO Ck
+       SELECT p.item_1_, p.item_2_, ..., p.item_k-1_, q.item_k-1_
+       FROM   L_k-1_  p
+             ,L_k-1_  q
+       WHERE p.item_1_ = q.item_1_
+       AND   ...
+       AND   p.item_k-2_ = q.item_k-2_
+       AND   p.item_k-1_ < q.item_k-1     -- guarantees that no duplicate is generated!
+       ```
+    2. **Prune Step** : Delete all itemsets $c \in C_k$ such that some $(k-1)$-subset of $c$ is not in $L_{k-1}$.
+       ```
+       for c in Ck do   -- c : candidate itemsets
+        for s in c do   -- s : (k-1)-subsets of c
+          if (s not in L_k-1_) then
+            DELETE c from Ck;
+       ```
+  * Examples
+    * Let $L_3$ be {{1 2 3}, {1 2 4}, {1 3 4}, {1 3 5}, {2 3 4}}.
+    * Then, $apriori \_ gen(L_3) = \{ \{ 1 2 3 4 \} \}$
+      * why?)
+        * After the join step, $C_4$ will be {{1 2 3 4}, {1 3 4 5}}.
+        * The prune step will delete {1 3 4 5}.
+          * why?) {1 4 5} $\notin L_3$.
+        * Thus, {1 2 3 4} will be returned.
+  * Proof
+    * $C_k \supe L_k$
+      * Any subset of a large itemset must also have minimum support.
+      * Then we did the join and prune step.
+        * Join : Extend $L_{k-1}$ with items in $L_{k-1}$
+        * Prune : Delete all itemsets which $(k-1)$-subset is not in $L_{k-1}$
+      * Thus, $L_k$ is left with the superset of the itemsets in $L_k$
+  * Analysis
+    * Comparison with AIS and SETM
+      * Apriori is way efficient.
+      * Example
+        * Suppose AIS and SETM are at $L_3$ state and about to extend to $L_4$
+        * Then, they will extend {1 2 3} to {1 2 3 4} and {1 2 3 5} first and then calculate the support.
+        * They will repeat this for {1 2 4}, {1 3 4}, {1 3 5}, {2 3 4} again.
+          * Redundant!
 
 
 
