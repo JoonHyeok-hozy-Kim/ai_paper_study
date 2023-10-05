@@ -141,7 +141,7 @@ result = union(L[k])
     * Let the pass be $k$-th pass.
     * Then,
       1. Use [the apriori-gen function](#211-apriori-candidate-generation) to generate candidate itemsets $C_k$ using large itemsets $L_{k-1}$ found in the $(k-1)$-th pass.
-         * Use [the subset function]() to efficiently determine the candidates for $C_k$
+         * Use [the subset function](#212-subset-function) to efficiently determine the candidates for $C_k$
       2. Scan the database and count the support of candidates in $C_k$.
     
 <br>
@@ -180,7 +180,7 @@ result = union(L[k])
           * why?) {1 4 5} $\notin L_3$.
         * Thus, {1 2 3 4} will be returned.
   * Proof
-    * $C_k \supe L_k$
+    * $C_k \supseteq L_k$
       * Any subset of a large itemset must also have minimum support.
       * Then we did the join and prune step.
         * Join : Extend $L_{k-1}$ with items in $L_{k-1}$
@@ -198,6 +198,31 @@ result = union(L[k])
 <br>
 
 #### 2.1.2 Subset Function
+* Candidate Itemset Hash Tree
+  * Why needed?)
+    * Candidate Itemsets are stored in a hash-tree.
+  * Data Structure
+    * A **node** of the hash-tree either contains a list of itemsets(a leaf node) or a hash table(an interior node).
+      * Root Node
+        * Defined to be at depth 1.
+      * Interior Node
+        * Each bucket of the hash table points to another node.
+        * One at the depth of $d$ points to nodes in the depth of $d+1$.
+      * Leaf Node
+        * Itemsets are stored in the leaves.
+  * Operations
+    * Searching an itemset : **The Subset Function**
+      * Starting from the root node, find all the candidates contained in a transaction $t$ as follows.
+        * At the root node, hash on every item in $t$.
+        * At a leaf node, find which of the itemsets in the leaf contained in $t$ and add references to them to the answer set.
+        * At an interior node, suppose we have reached the node by hashing an item $i$.
+          * Then, we hash on each item after $i$ in $t$ and recursively repeat the procedure to the node in the corresponding bucket.
+    * Adding an itemset
+      * Start from the root and go down the tree until we reach a leaf.
+      * At each branch, use hash function to the $d$-th item of the itemset.
+      * Initially, all nodes are created as leaf nodes.
+        * When the number of itemsets in a leaf node exceeds a threshold, convert the leaf node into an interior node.
+
 
 
 
