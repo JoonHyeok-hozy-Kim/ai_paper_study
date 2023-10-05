@@ -140,7 +140,7 @@ result = union(L[k])
   * Subsequent passes consists of two phases
     * Let the pass be $k$-th pass.
     * Then,
-      1. Use [the apriori-gen function]() to generate candidate itemsets $C_k$ using large itemsets $L_{k-1}$ found in the $(k-1)$-th pass.
+      1. Use [the apriori-gen function](#211-apriori-candidate-generation) to generate candidate itemsets $C_k$ using large itemsets $L_{k-1}$ found in the $(k-1)$-th pass.
          * Use [the subset function]() to efficiently determine the candidates for $C_k$
       2. Scan the database and count the support of candidates in $C_k$.
     
@@ -195,6 +195,9 @@ result = union(L[k])
         * They will repeat this for {1 2 4}, {1 3 4}, {1 3 5}, {2 3 4} again.
           * Redundant!
 
+<br>
+
+#### 2.1.2 Subset Function
 
 
 
