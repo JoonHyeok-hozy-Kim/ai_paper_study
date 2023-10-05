@@ -9,9 +9,9 @@ If the experiments $A_1, A_2,...,A_m$ contain, respectively, $n_1, n_2,...,n_m$ 
 
 #### Calculating the Total Number of Ways for Random Sample Collection
 Let $n$ be the number of objects and $k$ be the sample size.
-<table>
+<table style="vertical-align:center">
 <tr>
-<td>\</td><td>Replacement</td><td>No Replacement</td>
+<td></td><td>Replacement</td><td>No Replacement</td>
 </tr>
 <tr>
 <td>Objects Ordered</td><td> $n^k$ </td><td> ${}_n P_k$ </td>
