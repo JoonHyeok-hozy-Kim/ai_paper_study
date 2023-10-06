@@ -1,9 +1,9 @@
-* [Back to Main](../README.md)
+* [Back to Main]../../README.md
 ---
 
 # Zero-shot learning through cross-modal transfer
 #### Richard Socher, Milind Ganjoo, Christopher D. Manning, Andrew Y. Ng
-* [Read Paper](../papers/230623%20zero-shot-learning-through-cross-modal-transfer.pdf)
+* [Read Paper](../paper_pdfs/230623%20zero-shot-learning-through-cross-modal-transfer.pdf)
 
 ---
 ## 0. Abstract
@@ -419,4 +419,4 @@ separately.
 
 
 ---
-* [Back to Main](../README.md)
+* [Back to Main]../../README.md

@@ -1,9 +1,9 @@
-* [Back to Main](../README.md)
+* [Back to Main]../../README.md
 ---
 
 # Fast Algorithm for Mining Association Rules
 ### Rakesh Agrawal and Ramakrishnan Srikant
-* [Read Paper](../papers/230916%20fast_mining.pdf)
+* [Read Paper](../paper_pdfs/230916%20fast_mining.pdf)
 
 ---
 
@@ -233,4 +233,4 @@ result = union(L[k])
 
 
 ---
-* [Back to Main](../README.md)
+* [Back to Main]../../README.md

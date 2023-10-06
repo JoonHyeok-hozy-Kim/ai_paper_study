@@ -1,9 +1,9 @@
-* [Back to Main](../README.md)
+* [Back to Main]../../README.md
 ---
 
 # Mining Association Rules between Sets of Items in Large Databases
 ### Rakesh Agrawal, Tomasz Imielinski, and Arun Swami
-* [Read Paper](/papers/230926%20mining_asso.pdf)
+* [Read Paper](/paper_pdfs/230926%20mining_asso.pdf)
 
 ---
 
@@ -573,4 +573,4 @@ If we know that there are **less** than $minsupport$ fraction of transactions th
 
 
 ---
-* [Back to Main](../README.md)
+* [Back to Main]../../README.md
