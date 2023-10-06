@@ -26,7 +26,7 @@ regard for order the number of possible samples is ${18!} \over {4!14!}$
 
 <br>
 
-#### Theorem 2.3.4) Number of Combinations of $n$ Objects Into $m$ Classes
+#### Theorem 2.3.4) Number of Combinations of $'n'$ Objects Into $'m'$ Classes
 The number of ways that $n$ objects can be grouped into $m$ classes with $n_i$ in the $i$-th class, is given by ${n!} \over {n_1!n_2! \dots n_m!}$, where $i=1,2,3, \dots m$ and $\Sigma_{i=1}^{m}n_i=n$.
 
 <br>
