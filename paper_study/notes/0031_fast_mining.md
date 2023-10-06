@@ -229,7 +229,10 @@ result = union(L[k])
 <br><br>
 
 ### 2.2 Algorithm AprioriTid
-
+* Props.)
+  * Use [the apriori-gen function](#211-apriori-candidate-generation) to generate candidate itemsets $C_k$ using large itemsets $L_{k-1}$ found in the $(k-1)$-th pass.
+  * Use the set [$\bar{C_k}$](#assumptions--notations) to count the support.
+    * cf.) Apriori Agorithm used database $D$.
 
 
 ---
