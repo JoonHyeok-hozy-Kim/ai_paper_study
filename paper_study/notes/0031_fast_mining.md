@@ -231,9 +231,26 @@ result = union(L[k])
 ### 2.2 Algorithm AprioriTid
 * Props.)
   * Use [the apriori-gen function](#211-apriori-candidate-generation) to generate candidate itemsets $C_k$ using large itemsets $L_{k-1}$ found in the $(k-1)$-th pass.
-  * Use the set [$'\bar{C_k}'$](#assumptions--notations) to count the support.
+  * Use the set $\bar{C_k}$ to count the support.
     * cf.) Apriori Agorithm used database $D$.
 
+#### Def.) 
+* $\bar{C_k}$
+  * A Set of candidate $k$-itemsets when the $TID$s of the generating transactions are kept associated with the candidates.
+  * Each member of the set $\bar{C_k}$ is of the form $<TID,\{X_k\}>$, where $X_k$ is a potentially large $k$-itemset present in the transaction $t$ with the identifier $TID$.
+    * $\bar{C_1} \equiv D$ : database
+    * $X_k = \{ c \space |$ contained in $t \}$
+* Prop.)
+  * If a transaction does not contain any candidate $k$-itemset, then $\bar{C_k}$ does not have an entry for that transaction.
+  * For large values of $k$, the number of entries in $\bar{C_k}$ is always less than or equal to the number of transactions in the database.
+
+<br>
+
+#### Algorithm
+![](../images/003_fast_mining/02_02_01.png)
+* Example   
+  ![](../images/003_fast_mining/02_02_02.png)
+  * dd
 
 ---
 * [Back to Main](../../README.md)
