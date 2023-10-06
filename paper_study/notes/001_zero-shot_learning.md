@@ -1,4 +1,4 @@
-* [Back to Main]../../README.md
+* [Back to Main](../../README.md)
 ---
 
 # Zero-shot learning through cross-modal transfer
@@ -419,4 +419,4 @@ separately.
 
 
 ---
-* [Back to Main]../../README.md
+* [Back to Main](../../README.md)

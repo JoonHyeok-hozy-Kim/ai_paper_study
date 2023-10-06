@@ -1,4 +1,4 @@
-* [Back to Main]../../README.md
+* [Back to Main](../../README.md)
 ---
 
 # Mining Association Rules between Sets of Items in Large Databases
@@ -573,4 +573,4 @@ If we know that there are **less** than $minsupport$ fraction of transactions th
 
 
 ---
-* [Back to Main]../../README.md
+* [Back to Main](../../README.md)

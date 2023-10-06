@@ -1,4 +1,4 @@
-* [Back to Main]../../README.md
+* [Back to Main](../../README.md)
 ---
 
 # Fast Algorithm for Mining Association Rules
@@ -233,4 +233,4 @@ result = union(L[k])
 
 
 ---
-* [Back to Main]../../README.md
+* [Back to Main](../../README.md)
