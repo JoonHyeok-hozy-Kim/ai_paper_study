@@ -385,10 +385,10 @@ result = union(L[k])
     * why?)
       * The main degradation of AprioriTid's performance was that $\bar{C_k}$ was stored in the disk, due to its size.
       * The point that AprioriTid exceeds Apriori is when $\bar{C_k}$ can fit in the memory.
-    * When do we switch?
-      * Use a heuristic to estimate the size of $\bar{C_k}$.
-        * At the end of each pass, we have the counts of the candidates in $C_k$.
-        * Estimate the size of $\bar{C_k}$ with $\Sigma_{c \in C_k}{support \_ count(c)} +$ (number of transactions).
+* When do we switch?
+  * Use a heuristic to estimate the size of $\bar{C_k}$.
+    * At the end of each pass, we have the counts of the candidates in $C_k$.
+    * Estimate the size of $\bar{C_k}$ with $\Sigma_{c \in C_k}{support_count(c)} +$ (number of transactions).
 
 
 
