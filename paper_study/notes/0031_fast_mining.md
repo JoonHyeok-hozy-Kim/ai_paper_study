@@ -323,8 +323,39 @@ result = union(L[k])
     * $|L|$ : Number of items
   * Derivations
     * Size of the next transaction
-      * Picked from the Poisson distribution with $\mu = |T|$
+      * Picked from the Poisson distribution with $\mu = |T|$.
+      * cf.) If each item is chosen with the same probability $p$, and there are $N$ items, the expected number of items in a transaction is $Np \approx \mu$. ($\because$ Binomial Distribution.)
+    * Assigning items to transactions
+      * Each transaction is assigned a series of potentially large itemsets.
+      * If the large itemset on hand does not fit in the transaction, the itemset is put in the transaction anyway in half the cases, and the itemset is moved to the next transaction the rest of the cases.
+    * Choosing large itemsets
+      * Pick the size of the itemset from a Poisson distribution with $\mu = |I|$.
+      * Items in the first itemset are chosen randomly.
+      * Subsequent itemsets are chosen from the previous itemsets generated.
+      * Use an exponentially distributed random variable with $\mu = correlation level$ to decide this fraction for each itemset.
+        * $correlation level = 0.5$
+      * Remaining items are picked at random.
+      * Each itemset has a weight associated with it, which corresponds to the probability that this itemset will be picked.
+        * Weight is picked from an exponential distribution with unit mean, and is then normalized so that the sum of weights for all the itemsets is 1.
+    * Corruption Level
+      * To model the phenomenon that all the items in a large itemset are not always bought together.
+      * $c$ : corruption level
+        * When adding an itemset to a transaction, drop an item from the itemset as long as a uniformly distributed random number between 0 and 1 is less than $c$.
 
+<br>
+
+### 3.4 Relative Performance
+* SETM took too long to execute for most of the dataset.
+* Apriori beats SETM by more than an order of magnitude for large datasets.
+* Apriori beats AIS for all problem sizes.
+
+<br>
+
+### 3.5 Explanation of the Relative Performance
+* Why SETM is slow?
+  * Mainly due to the size of $\bar{C_k}$.
+    * $\bar{C_k} = \Sigma_{c \in C_k}{support-count(c)}$ where $C_k$ is the candidate itemset.
+    * Putting $S$, the average support count of the $C_k$, $\bar{C_k}$ is roughly $S$ times bigger than $C_k$
 
 ---
 * [Back to Main](../../README.md)
