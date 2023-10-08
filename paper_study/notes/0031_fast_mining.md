@@ -354,8 +354,46 @@ result = union(L[k])
 ### 3.5 Explanation of the Relative Performance
 * Why SETM is slow?
   * Mainly due to the size of $\bar{C_k}$.
-    * $\bar{C_k} = \Sigma_{c \in C_k}{support-count(c)}$ where $C_k$ is the candidate itemset.
+    * $\bar{C_k} = \Sigma_{c \in C_k}{support \_ count(c)}$ where $C_k$ is the candidate itemset.
     * Putting $S$, the average support count of the $C_k$, $\bar{C_k}$ is roughly $S$ times bigger than $C_k$
+    * If the data size is bigger, $\bar{C_k}$ must be saved in the disk, which makes the algorithm perform more poorly.
+  * cf.) AprioriTid also generates $\bar{C_k}$
+    * But generates fewer candidates
+    * Also, AprioriTid uses a single word(ID) to store a candidate rather than requiring where SETM uses words which size depends on the number of items in the candidate.
+* Why AIS is slow?
+  * It generates too many candidates that later turn out to be small.
+    * cf.) Apriori also counts too many small sets in the second pass but dramatically improves after the third pass.
+
+<br>
+
+### 3.6 Algorithm AprioriHybrid
+* Observation
+  * Same algorithm illustrate different performance in each pass.
+    * In earlier passes, Apriori beats AprioriTid.
+    * In later passes, AprioriTid beats Apriori.
+      * Why?)
+        * In later passes, the number of candidate itemsets reduces but Apriori still examines every transactions 
+        * AprioriTid scans $\bar{C_k}$, not the database, which becomes smaller.
+  * Why don't we mix them?
+
+<br>
+
+#### AprioriHybrid
+* How?
+  * Start with Apriori.
+  * Switch to AprioriTid when $\bar{C_k}$ can fit the memory.
+    * why?)
+      * The main degradation of AprioriTid's performance was that $\bar{C_k}$ was stored in the disk, due to its size.
+      * The point that AprioriTid exceeds Apriori is when $\bar{C_k}$ can fit in the memory.
+    * When do we switch?
+      * Use a heuristic to estimate the size of $\bar{C_k}$.
+        * At the end of each pass, we have the counts of the candidates in $C_k$.
+        * Estimate the size of $\bar{C_k}$ with $\Sigma_{c \in C_k}{support \_ count(c)} +$ (number of transactions).
+
+
+
+
+
 
 ---
 * [Back to Main](../../README.md)
