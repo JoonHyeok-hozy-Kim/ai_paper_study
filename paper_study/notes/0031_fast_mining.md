@@ -354,7 +354,7 @@ result = union(L[k])
 ### 3.5 Explanation of the Relative Performance
 * Why SETM is slow?
   * Mainly due to the size of $\bar{C_k}$.
-    * $\bar{C_k} = \Sigma_{c \in C_k}{support\_ count(c)}$ where $C_k$ is the candidate itemset.
+    * $\bar{C_k} = \Sigma_{c \in C_k}{support _ count(c)}$ where $C_k$ is the candidate itemset.
     * Putting $S$, the average support count of the $C_k$, $\bar{C_k}$ is roughly $S$ times bigger than $C_k$
     * If the data size is bigger, $\bar{C_k}$ must be saved in the disk, which makes the algorithm perform more poorly.
   * cf.) AprioriTid also generates $\bar{C_k}$
@@ -388,7 +388,7 @@ result = union(L[k])
 * When do we switch?
   * Use a heuristic to estimate the size of $\bar{C_k}$.
     * At the end of each pass, we have the counts of the candidates in $C_k$.
-    * Estimate the size of $\bar{C_k}$ with $\Sigma_{c \in C_k}{support\_ count(c)} +$ (number of transactions).
+    * Estimate the size of $\bar{C_k}$ with $\Sigma_{c \in C_k}{support _ count(c)} +$ (number of transactions).
 
 
 
