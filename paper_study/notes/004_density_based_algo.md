@@ -70,8 +70,36 @@ class identification, i.e. the grouping of the objects of a database into meanin
     2. Divisive Approach
        * From the root down to the leaves by merging or dividing clusters at each step
   * Do not need $k$ as an input.
-    * [Partitioning Algorithms]() did.
-
+    * [Partitioning Algorithms](#21-partitioning-algorithms) did.
+  * A **termination condition** has to be defined.
+    * Indicates when the merge or division process should be terminated. 
+    * e.g) agglomerative approach
+      * Critical distance $D_{min}$ between all the clusters of $Q$
+    * **Requirements**
+      * Small enough to separate all "natural" clusters 
+      * Large enough such that no cluster is split into two parts
+* Drawbacks)
+  * The difficulty of deriving appropriate parameters for the termination condition
+    * Improvements
+      * Ejcluster (Garcfa, Fdez-Valdivia, Cortijo & Molina 1994) 
+        * Automatically derives a termination condition in signal processing
+        * The key idea is that two points belong to the same cluster if you can walk from the first point to the second one by a "sufficiently small" step. 
+        * Follows the divisive approach. 
+        * Advantages
+          * Does not require any input of domain knowledge. 
+          * Experiments show that it is very effective in discovering non-convex clusters.
+        * Disadvantages
+          * $O(n^2)$ runtime due to the distance calculation for each pair of points.
+            * Prohibitive for applications on large databases
+      * Jain (1988)
+        * A density based approach to identify clusters in $k$-dimensional point sets.
+        * The data set is partitioned into a number of non-overlapping cells and histograms are constructed.
+        * Cells with relatively high frequency counts of points are the potential cluster centers and the boundaries between clusters fall in the "valleys" of the histogram.
+        * Advantage
+          * Has the capability of identifying clusters of any shape
+        * Disadvantage
+          * The space and run-time requirements for storing and searching multidimensional histograms can be enormous. 
+          * The performance of such an approach depends on the size of the cells.
 
 
 
