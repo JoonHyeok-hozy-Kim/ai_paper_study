@@ -209,8 +209,25 @@ Then $C$ equals to the set $O = \lbrace o | o \in D \space and \space o \space i
 
 ## 4. DBSCAN: Density Based Spatial Clustering of Applications with Noise
 * Objective
-  * Discover the clusters and the noise in a spatial database according to [Def.5]() and [Def.6]().
+  * Discover the clusters and the noise in a spatial database according to [Def.5 (Cluster)](#def5-cluster) and [Def.6 (Noise)](#def6-noise).
+* Required Inputs
+  * $Eps$ and $MinPts$
+  * Not easy to get this information in advance for all clusters of the database.
+    * Nevertheless, there is a [simple and effective heuristic]() to determine the parameters $Eps$ and $MinPts$ of the "thinnest" cluster in the database.
+      * Thinnest : least dense
 
+<br>
+
+### 4.1 The Algorithm
+
+
+
+
+<br><br>
+
+### 4.2 Determining the Parameters Eps and MinPts
+
+<br><br>
 
 ---
 * [Back to Main](../../README.md)
