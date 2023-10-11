@@ -101,6 +101,24 @@ class identification, i.e. the grouping of the objects of a database into meanin
           * The space and run-time requirements for storing and searching multidimensional histograms can be enormous. 
           * The performance of such an approach depends on the size of the cells.
 
+<br><br>
+
+## 3. A Density Based Notion of Clusters
+#### Concept) Density
+* Intuitive Notion about Density
+  * We recognize a cluster when it has a typical density of points which is considerably higher than outside of the cluster.   
+  ![](../images/005_density_based_algo/030101.png)
+* Formalization of "clusters" and "noise" in a database $D$ of points of some $k$-dimensional space $S$.
+  * Cluster
+    * For each point of a cluster, the **neighborhood** of a given radius has to contain at least a minimum number of points.
+      * i.e.) The density in the neighborhood has to exceed some threshold. 
+    * Neighborhood
+      * The shape of a neighborhood is determined by the choice of a **distance function** for two points $p$ and $q$, denoted by $dist(p,q)$. 
+      * Def.) Eps-Neighborhood of a point
+        * $N_{Eps}(p) = \lbrace q \in | dist(p,q) \le Eps \rbrace$
+
+
+
 
 
 ---
