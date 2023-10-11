@@ -167,6 +167,7 @@ A point $p$ is density-connected to a point $q$ w.r.t. $Eps$ and $MinPts$ if the
   * Symmetric
   * Reflexive
 * Ex.)   
+
 ![](../images/005_density_based_algo/030104.png)
 
 <br>
