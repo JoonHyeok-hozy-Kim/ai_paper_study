@@ -213,7 +213,7 @@ Then $C$ equals to the set $O = \lbrace o | o \in D \space and \space o \space i
 * Required Inputs
   * $Eps$ and $MinPts$
   * Not easy to get this information in advance for all clusters of the database.
-    * Nevertheless, there is a [simple and effective heuristic]() to determine the parameters $Eps$ and $MinPts$ of the "thinnest" cluster in the database.
+    * Nevertheless, there is a [simple and effective heuristic](#42-determining-the-parameters-eps-and-minpts) to determine the parameters $Eps$ and $MinPts$ of the "thinnest" cluster in the database.
       * Thinnest : least dense
 
 <br>
