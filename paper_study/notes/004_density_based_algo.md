@@ -110,29 +110,23 @@ We recognize a cluster when it has a typical density of points which is consider
 
 <br>
 
-### Def.) Formal Definition of Cluster
-Formalization of "clusters" and "noise" in a database $D$ of points of some $k$-dimensional space $S$.
-
-<br>
-
-#### Def.) Cluster
-For each point of a cluster, the **neighborhood** of a given radius has to contain at least a minimum number of points.
-* i.e.) The density in the neighborhood has to exceed some threshold. 
-
-<br>
-
-#### Def.) Neighborhood
-The shape of a neighborhood is determined by the choice of a **distance function** for two points $p$ and $q$, denoted by $dist(p,q)$. 
+#### Settings
+* Cluster
+  * Formalization of "clusters" and "noise" in a database $D$ of points of some $k$-dimensional space $S$.
+  * For each point of a cluster, the **neighborhood** of a given radius has to contain at least a minimum number of points.
+    * i.e.) The density in the neighborhood has to exceed some threshold. 
+* Neighborhood
+  * The shape of a neighborhood is determined by the choice of a **distance function** for two points $p$ and $q$, denoted by $dist(p,q)$. 
 
 <br> 
 
-#### Def. 1) Eps-Neighborhood of a point $p$
+#### Def.1) Eps-Neighborhood of a point $p$
 $N_{Eps}(p) = \lbrace q \in D | dist(p,q) \le Eps \rbrace$
 
 <br>
 
-#### Def. 2) Directly Density-Reachable
-A point $p$ is directly density reachable from a point $q$ with regard to $Eps$ and $MinPts$ if
+#### Def.2) Directly Density-Reachable
+A point $p$ is directly density reachable from a point $q$ w.r.t. $Eps$ and $MinPts$ if
 1. $p \in N_{Eps}(q)$ and
 2. $|N_{Eps}(q)| \ge MinPts$ : core points condition
 * Why needed?
@@ -147,6 +141,74 @@ A point $p$ is directly density reachable from a point $q$ with regard to $Eps$ 
   * Directly density-reachable is symmetric for pairs of core points.
   * In general, however, it is not symmetric if one core point and one border point are involved.
   * ![](../images/005_density_based_algo/030102.png)
+
+<br>
+
+#### Def.3) Density-Reachable
+A point $p$ is density-reachable from a point $q$ w.r.t. $Eps$ and $MinPts$ if there is a chain of points $p_1, p_2, \dots, p_n$, $p_1 = q$, $p_n=p$ such that $p_{i+1}$ is [directly density-reachable](#def-2-directly-density-reachable) from $p_{i}$.
+* Prop.)
+  * Density-reachability is a canonical extension of [directly density-reachability](#def-2-directly-density-reachable).
+  * This relation is transitive, but it is not symmetric.
+    * ex.) Asymmetric Case
+    * ![](../images/005_density_based_algo//030103.png)
+  * It is obvious that density-reachability is symmetric for core points.
+
+<br>
+
+#### Def.4) Density-Connected
+A point $p$ is density-connected to a point $q$ w.r.t. $Eps$ and $MinPts$ if there is a point $o$ such that both, $p$ and $q$ are density-reachable from $o$ w.r.t. $Eps$ and $MinPts$.
+* Why needed?
+  * A concept that covers a relation between border points is needed.
+  * why?
+    * Two border points of the same cluster $C$ are possibly not density reachable from each other.
+      * why?) The core point condition might not hold for both of them.
+  * Meanwhile, There must be a core point in $C$ from which both border points of $C$ are density-reachable. 
+* Prop.)
+  * Symmetric
+  * Reflexive
+* Ex.)
+* ![](../images/005_density_based_algo/030104.png)
+
+<br>
+
+#### Def.5) Cluster
+Let $D$ be a database of points. A cluster $C$ w.r.t. $Eps$ and $MinPts$ is a non-empty subset of $D$ satisfying the following conditions:
+1. Maximality
+   * $\forall p,q$, if $p \in C$ and $q$ is density-reachable from $p$ w.r.t. $Eps$ and $MinPts$, then $q \in C$
+2. Connectivity
+   * $\forall p,q \in C$, $p$ is density-connected to $q$ w.r.t. $Eps$ and $MinPts$.
+
+<br>
+
+#### Def.6) Noise
+Let $C_1, \dots, C_k$ be the clusters of the database $D$ w.r.t. parameters $Eps_i$ and $MinPts_i$, $i = 1, \dots, k$. The noise is the set of points in the database $D$ not belonging to any cluster $C_i$.
+* i.e.) noise = $\lbrace p \in D|p \notin C_i, \forall i \rbrace$
+
+<br><br>
+
+### Concept) Lemmata for validating the correctness of the clustering algorithm
+Given the parameters $Eps$ and $MinPts$, we can discover a cluster in a two-step approach. 
+1. Choose an arbitrary point from the database satisfying the core point condition as a seed. 
+2. Retrieve all points that are density-reachable from the seed obtaining the cluster containing the seed.
+
+#### Lemma 1)
+Let $p$ be a point in $D$ and $|N_{Eps}(p) > MinPts|$.   
+Then the set $O = \lbrace o | o \in D \space and \space o \space is \space density-reachable \space from \space p \space w.r.t. Eps \space and \space MinPts \rbrace$ is a cluster w.r.t. $Eps$ and $MinPts$.
+* Meaning
+  * A cluster $C$ w.r.t. $Eps$ and $MinPts$ is uniquely determined by any of its core points.
+  * A cluster $C$ contains exactly the points which are density-reachable from an arbitrary core point of $C$.
+
+<br>
+
+#### Lemma 2)
+Let $C$ be a cluster w.r.t. $Eps$ and $MinPts$ and let $p$ be any point in $C$ with $|N_{Eps}(p)| > MinPts$.  
+Then $C$ equals to the set $O = \lbrace o | o \in D \space and \space o \space is \space density-reachable \space from \space p \space w.r.t. Eps \space and \space MinPts \rbrace$
+
+<br><br>
+
+## 4. DBSCAN: Density Based Spatial Clustering of Applications with Noise
+* Objective
+  * Discover the clusters and the noise in a spatial database according to [Def.5]() and [Def.6]().
 
 
 ---
