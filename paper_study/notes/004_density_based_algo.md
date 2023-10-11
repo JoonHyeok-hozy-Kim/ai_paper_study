@@ -112,18 +112,41 @@ We recognize a cluster when it has a typical density of points which is consider
 
 ### Def.) Formal Definition of Cluster
 Formalization of "clusters" and "noise" in a database $D$ of points of some $k$-dimensional space $S$.
+
+<br>
+
 #### Def.) Cluster
 For each point of a cluster, the **neighborhood** of a given radius has to contain at least a minimum number of points.
 * i.e.) The density in the neighborhood has to exceed some threshold. 
 
+<br>
 
 #### Def.) Neighborhood
 The shape of a neighborhood is determined by the choice of a **distance function** for two points $p$ and $q$, denoted by $dist(p,q)$. 
-* Def.) Eps-Neighborhood of a point
-  * $N_{Eps}(p) = \lbrace q \in | dist(p,q) \le Eps \rbrace$
 
+<br> 
 
+#### Def. 1) Eps-Neighborhood of a point $p$
+$N_{Eps}(p) = \lbrace q \in D | dist(p,q) \le Eps \rbrace$
 
+<br>
+
+#### Def. 2) Directly Density-Reachable
+A point $p$ is directly density reachable from a point $q$ with regard to $Eps$ and $MinPts$ if
+1. $p \in N_{Eps}(q)$ and
+2. $|N_{Eps}(q)| \ge MinPts$ : core points condition
+* Why needed?
+  * Core Points vs Border Points
+    * Core Points : Points inside of a cluster
+    * Border Points : Points on the border of a cluster
+  * Props.)
+    * In general, a core point contains significantly more points in a Eps-Neighborhood compared to a border point.
+    * Thus, we should set the minimum number of points to a relatively **low value** in order to include all points belonging to the same cluster. 
+      * This value, however, will not be characteristic for the respective cluster - particularly in the presence of noise.
+* Props.)
+  * Directly density-reachable is symmetric for pairs of core points.
+  * In general, however, it is not symmetric if one core point and one border point are involved.
+  * ![](../images/005_density_based_algo/030102.png)
 
 
 ---
