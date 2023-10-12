@@ -219,7 +219,74 @@ Then $C$ equals to the set $O = \lbrace o | o \in D \space and \space o \space i
 <br>
 
 ### 4.1 The Algorithm
+```python
 
+class Point:
+  def __init__(self):
+    self._cluster_id = 'UNCLASSIFIED'
+
+
+class SetOfPoints:
+  def __init__(self):
+    self._points = [] # An iterable list of Points
+  
+  def get(self, i: int) -> Point:
+    return self._points[i]
+  
+  def size(self) -> int:
+    return len(self._points)
+  
+  def append(self, p: Point) -> None:
+    self._points.append(p)
+  
+  def delete(self, p: Point) -> None:
+    self._points.pop(p)
+  
+  def change_cluster_id(self, p: Point, cl_id) -> None:
+    p._cluster_id = cl_id
+  
+  def region_query(self, p: Point, eps) -> SetOfPoints:
+    '''
+      Returns the Eps-Neighborhood of point in SetOfPoints
+      Supported by spatial access methods such as R*-trees -> O(n log(n))
+    '''
+    return
+
+
+def DBSCAN(S: SetOfPoints, eps: float, min_pts: int) -> None:
+  # set_of_points is unclassified.
+  cl_id = next_id('NOISE')    # mark this cluster as a noise
+  for i in range(len(set_of_points)):
+    p = S.get(i)
+    if p._cluster_id == 'UNCLASSIFIED':
+      if expand_cluster(S, p, cl_id, eps, min_pts):
+        cl_id = next_id(cl_id)
+
+
+def expand_cluster(S: SetOfPoints, p: Point, cl_id, eps, min_pts) -> bool:
+  seeds = S.region_query(p, eps)
+  if seeds.size() < min_pts:  # No core point
+    S.change_cluster_id(p, 'NOISE')
+    return False
+
+  else: # All points in seeds are density-reachable from point
+    S.change_cluster_id(p, cl_id)
+    seeds.delete(p)
+
+    while seeds.size():
+      p_curr = seeds.first()
+      result = S.region_query(p_curr, eps)
+      if result.size() >= min_pts:
+        for i in range(result.size()):
+          p_result = result.get(i)
+          if p_result._cluster_id in ['UNCLASSIFIED', 'NOISE']:
+            if p_result._cluster_id == 'UNCLASSIFIED':
+              seeds.append(p_result)
+            S.change_cluster_id(p_result, cl_id)      
+      seeds.delete(p_curr)
+    return True
+
+```
 
 
 
