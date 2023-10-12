@@ -1,6 +1,6 @@
 * [Back to Statistics Main](../../main.md)
 
-## 1.5
+## 2.5 Random Variables and Probability Distributions
 
 
 <br><br>
