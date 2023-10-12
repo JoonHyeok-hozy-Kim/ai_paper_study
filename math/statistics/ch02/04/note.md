@@ -16,7 +16,8 @@ by $P(A|B) = \frac{P(A \cap B)}{P(B)}$ where $P(B) \gt 0$
 
 <br>
 
-![](./images/040102.png)
+![](./images/040102.png)   
+
 Or, $P(A \cap B) = P(A)P(B)$
 
 <br>
