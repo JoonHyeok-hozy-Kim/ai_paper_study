@@ -5,7 +5,7 @@
 
 <br><br>
 
-### [Exercises 1.5](./exercises.md)
+### [Exercises](./exercises.md)
 
 <br><br>
 
