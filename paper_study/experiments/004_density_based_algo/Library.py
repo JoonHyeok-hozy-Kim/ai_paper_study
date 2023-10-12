@@ -1,10 +1,7 @@
 class Id:
-    def __init__(self, val, type=None):
+    def __init__(self, val, type):
         self._val = val
-        if type:
-            self._type = type
-        else:
-            self._type = 'UNCLASSIFIED'
+        self._type = type
     
     def get_type(self):
         return self._type
@@ -15,11 +12,16 @@ class Id:
 
 class IdSpace:
     def __init__(self):
-        self._ids = []
+        self._cnt = 0
+        self._id_by_type = {}
     
-    def next_id(self, type=None):
-        new_id = Id(len(self._ids), type)
-        self._ids.append(new_id)
+    def next_id(self, type='UNCLASSIFIED'):
+        new_id = Id(self._cnt, type)
+        self._cnt += 1
+        if type not in self._id_by_type:
+            self._id_by_type[type] = []
+        self._id_by_type[type].append(new_id)
+
         return new_id
     
     def get_type(self, id):
@@ -38,6 +40,7 @@ class Data:
     def __str__(self) -> str:
         pass
 
+
 class Point:
     def __init__(self, data:object):
         self._cluster_id = ID_SPACE.next_id()
@@ -46,9 +49,18 @@ class Point:
     def __str__(self) -> str:
         return 'P(id:{},data:{})'.format(self._cluster_id._val, self._data)
 
+
 class SetOfPoints:
     def __init__(self):
         self._points = [] # An iterable list of Points
+
+    def __str__(self) -> str:
+        temp = ['[']
+        for p in self._points:
+            temp.append(str(p))
+            temp.append(' ')
+        temp[-1] = ']'
+        return ''.join(temp)
   
     def size(self) -> int:
         return len(self._points)
@@ -65,7 +77,10 @@ class SetOfPoints:
         self._points.append(p)
   
     def delete(self, p: Point) -> None:
-        self._points.pop(p)
+        for i, q in enumerate(self._points):
+            if q == p:
+                self._points.pop(i)
+                break
   
     def change_cluster_id(self, p: Point, cl_id: Id) -> None:
         if p not in self._points:
@@ -92,7 +107,7 @@ class SetOfPoints:
 
 def DBSCAN(S: SetOfPoints, eps: float, min_pts: int) -> None:
     # set_of_points is unclassified.    
-    for p in S:
+    for p in S._points:
         cl_id = ID_SPACE.next_id('NOISE')   # mark this cluster as a noise
         if p._cluster_id._type == 'UNCLASSIFIED':
             if expand_cluster(S, p, cl_id, eps, min_pts):
@@ -114,7 +129,7 @@ def expand_cluster(S: SetOfPoints, p: Point, cl_id: Id, eps, min_pts) -> bool:
             p_curr = seeds.first()
             result = S.region_query(p_curr, eps)
             if result.size() >= min_pts:
-                for q in result:
+                for q in result._points:
                     if q._cluster_id._type in ['UNCLASSIFIED', 'NOISE']:
                         if q._cluster_id._type == 'UNCLASSIFIED':
                             seeds.append(q)

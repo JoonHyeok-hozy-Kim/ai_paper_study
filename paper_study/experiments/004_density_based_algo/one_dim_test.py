@@ -21,5 +21,14 @@ S.append(Point(OneDimData(10.1)))
 S.append(Point(OneDimData(10.4)))
 S.append(Point(OneDimData(20)))
 
-for p in S._points:
-    print(p)
+print(S)
+# print(S.calculate_distance(S.first(), S.get(1)))
+
+DBSCAN(S, 1, 3)
+print(S)
+
+
+S.append(Point(OneDimData(9.8)))
+
+DBSCAN(S, 1, 3)
+print(S)
