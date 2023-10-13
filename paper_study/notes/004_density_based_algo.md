@@ -241,6 +241,37 @@ Then $C$ equals to the set $O = \lbrace o | o \in D \space and \space o \space i
 <br><br>
 
 ### 4.2 Determining the Parameters Eps and MinPts
+#### Objective
+Developing a simple but effective heuristic to determine the parameters $Eps$ and $MinPts$ of the *thinnest* cluster in the database.
+
+<br>
+
+#### The Heuristic
+Let $d$ be the distance of a point $p$ to its $k$-th nearest neighbor.   
+
+* Prop. 1) For **almost all** points $p$, the $d$-neighborhood of $p$ contains exactly $(k+1)$ points.
+  * cf.) Rarely, the $d$-neighborhood of $p$ may have has more than $(k+1)$ points when several points have exact $d$ distances from $p$, which is very unlikely. 
+* Prop. 2) Changing $k$ does not result in significant change in $d$
+  * cf.) Again rarely, if points are located in a straight line, it may happen, which is very unlikely.
+
+* Defs.)
+  * $k$-$dist$
+    * A function from the database $D$ to the real numbers, mapping each point to the distance from its $k$-th nearest neighbor.
+  * sorted $k$-$dist$ graph
+    * A graph that the vertical axis is the $k$-$dist$ of each point and the horizontal axis is the points $p$ sorted by their $k$-$dist$ values.
+  * Threshold Point
+    * The first point in the first valley of the sorted $k$-$dist$ graph.
+    * This point indicates a special point that a significant change in the decreasing trend of the $k$-$dist$ value takes place.
+    * With the *Threshold Point*...
+      * **Noise**
+        * Points on the left side of the *Threshold Point*
+        * High $k$-$dist$ values
+      * **Core Points**
+        * Points on the right side of the *Threshold Point*
+        * Low $k$-$dist$ values
+  * ![](../images/005_density_based_algo/040201.png)
+
+
 
 <br><br>
 
