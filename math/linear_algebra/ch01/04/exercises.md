@@ -35,5 +35,9 @@
 
 ![](./images/ex086.png)
 
+![](./images/ex087.png)
+
+![](./images/ex092.png)
+
 
 * [Back to the note](./note.md)
