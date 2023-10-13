@@ -269,7 +269,8 @@ Let $d$ be the distance of a point $p$ to its $k$-th nearest neighbor.
       * **Core Points**
         * Points on the right side of the *Threshold Point*
         * Low $k$-$dist$ values
-  * ![](../images/005_density_based_algo/040201.png)
+
+![](../images/005_density_based_algo/040201.png)
 
 
 
