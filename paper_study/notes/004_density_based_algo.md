@@ -272,9 +272,20 @@ Let $d$ be the distance of a point $p$ to its $k$-th nearest neighbor.
 
 ![](../images/005_density_based_algo/040201.png)
 
-
+* Suggested Interactive Approach
+  * Suggestions
+    1. The system computes and displays the 4-dist graph for the database.
+    2. If the **user can estimate the percentage of noise**, this percentage is entered and the system derives a proposal for the threshold point from it.
+    3. The user either accepts the proposed threshold or selects another point as the threshold point. The 4-dist value of the threshold point is used as the Eps value for DBSCAN.
+  * Why?
+    * Difficulty in detecting the threshold point automatically.
+    * But easy for users to find it from the graphical representation
+    * Increase in $k$ does not significantly differ from $k=4$.
 
 <br><br>
+
+## 5. Performance Evaluation
+
 
 ---
 * [Back to Main](../../README.md)
