@@ -8,8 +8,7 @@
 ---
 
 ## 1. Introduction
-* The task considered in this paper is
-class identification, i.e. the grouping of the objects of a database into meaningful subclasses.
+* The task considered in this paper is class identification, i.e. the grouping of the objects of a database into meaningful subclasses.
 * Requirements for clustering algorithms when applied to large spatial data.
   * **Minimal requirements of domain knowledge** to determine the input parameters, because appropriate values are often not known in advance when dealing with large databases.
   * **Discovery of clusters with arbitrary shape**, because the shape of clusters in spatial databases may be spherical, drawn-out, linear, elongated etc.
@@ -284,7 +283,43 @@ Let $d$ be the distance of a point $p$ to its $k$-th nearest neighbor.
 
 <br><br>
 
-## 5. Performance Evaluation
+## 5. Performance Evaluation : DBSCAN vs CLARANS
+#### Why CLARANS?)
+[CLARANS](#ex-clarans-clustering-large-applications-based-on-randomized-search) is the first and only clustering algorithm designed for the purpose of KDD.
+
+<br>
+
+#### DBSCAN settings)
+C++ based implementation and R*-tree application
+
+<br>
+
+#### Evaluation)
+Evaluate the accuracy of both algorithms by visual inspection
+* why?
+  * Clustering algorithms have no common quantitative measure of the classification accuracy.
+
+<br>
+
+#### Data)
+* DB1 : Four ball-shaped clusters with different sizes
+* DB2 : Four clusters of non-convex shape
+* DB3 : Four clusters with different shape and size with additional noise.   
+
+<br>
+
+#### Result)
+* Accuracy
+  |CLARANS|DBSCAN (winner)|
+    |:-----|:----|
+    |CLARANS splits clusters if they are relatively large or if they are close to some other cluster. CLARANS has no explicit notion of noise. Instead, all points are assigned to their closest medoid.|DBSCAN discovers all clusters (according to [def.5](#def5-cluster)) and detects the noise points (according to [def.6](#def6-noise)) from all sample databases.|
+    |![](../images/005_density_based_algo/050101.png)|![](../images/005_density_based_algo/050102.png)|
+* Efficiency
+  |CLARANS|DBSCAN (winner)|
+    |:-----|:----|
+    |The run time of CLARANS is close to quadratic in the number of points.|The run time of DBSCAN is slightly higher than linear in the number of points.|
+
+<br>
 
 
 ---
