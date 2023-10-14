@@ -98,7 +98,7 @@
 * Target)
   * Term-based information retrieval system
 * Experiment
-  ![table](../images/002_lsa/02_01_01.png)
+  ![table](./images/02_01_01.png)
   * How to interpret
     * A frictional query is given to a DB
       * Two Key Terms in the Query : Information, Computer
@@ -284,7 +284,7 @@
   * Words occurring in more than one title were selected for indexing.
   * Numbers : Frequencies each term occurred in each document.
 
-<img src="../images/002_lsa/03_01_01.png" width="70%" style="padding-left:15%"></img>
+<img src="./images/03_01_01.png" width="70%" style="padding-left:15%"></img>
 
 * Experiment)
   * Query : human computer interface
@@ -296,7 +296,7 @@
     * Open Squares : Documents
     * Point **q** : Pseudo Document of the query *human computer interface*
     * Dash Line : Border of the area within 0.9 cosine distance from the point **q**
-  ![](../images/002_lsa/03_01_02.png)
+  ![](./images/03_01_02.png)
 
 * Interpretation
   * Without SVD (Rough estimation)
@@ -315,7 +315,7 @@
 
 |1) Initial Model|>|2) Approximated Model|
 |-------|--|-------------|
-|![](../images/002_lsa/03_02_01.png)|>|![](../images/002_lsa/03_02_03.png)|
+|![](./images/03_02_01.png)|>|![](./images/03_02_03.png)|
 
 #### 1) Set a model.
 * Goal)
@@ -371,7 +371,7 @@
 
 #### 3.3.2 Geometric Interpretation of the SVD Model
 
-<img src="../images/002_lsa/03_02_03.png" width="60%" style="padding-left:10%"></img>
+<img src="./images/03_02_03.png" width="60%" style="padding-left:10%"></img>
 
 * Props)
   * **The rows of the reduced matrices of singular vectors** are taken as coordinates of points representing the documents and terms in a k dimensional space.
@@ -510,7 +510,7 @@
       * The test collection was made up by taking the union of the returns of a set of thorough keyword searches for documents relevant to the 30 queries in the set.
       * Thus, it needs [additional validation](#2-cisi-dataset)!
 * Test Result   
-  ![](../images/002_lsa/04_01_01.png)
+  ![](./images/04_01_01.png)
   * LSI captures some structure in the data which is obscured when raw term overlap is used.
     * Why?
       * The average difference in precision between the LSI and the term matching method is .06 (.51 vs. .45). 
@@ -545,7 +545,7 @@
       * Cxcluded words on SMART'S stop list of common words and words occurring in only one document
       * Resulted in 5135 index terms
 * Test Result   
-  ![](../images/002_lsa/04_01_02.png)
+  ![](./images/04_01_02.png)
   * All the methods do quite poorly on this dataset, with precision never rising above .30, even for the lowest levels of recall.
   * The SVD analysis is no more useful than raw term overlap.
   * The Voorhees' precision is similar to that for LSI and term matching.

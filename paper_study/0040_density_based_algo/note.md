@@ -105,7 +105,7 @@
 ## 3. A Density Based Notion of Clusters
 ### Concept) Intuitive Notion about Density
 We recognize a cluster when it has a typical density of points which is considerably higher than outside of the cluster.   
-![](../images/005_density_based_algo/030101.png)
+![](./images/030101.png)
 
 <br>
 
@@ -139,7 +139,7 @@ A point $p$ is directly density reachable from a point $q$ w.r.t. $Eps$ and $Min
 * Props.)
   * Directly density-reachable is symmetric for pairs of core points.
   * In general, however, it is not symmetric if one core point and one border point are involved.
-  * ![](../images/005_density_based_algo/030102.png)
+  * ![](./images/030102.png)
 
 <br>
 
@@ -149,7 +149,7 @@ A point $p$ is density-reachable from a point $q$ w.r.t. $Eps$ and $MinPts$ if t
   * Density-reachability is a canonical extension of [directly density-reachability](#def-2-directly-density-reachable).
   * This relation is transitive, but it is not symmetric.
     * ex.) Asymmetric Case
-    * ![](../images/005_density_based_algo//030103.png)
+    * ![](./images//030103.png)
   * It is obvious that density-reachability is symmetric for core points.
 
 <br>
@@ -167,7 +167,7 @@ A point $p$ is density-connected to a point $q$ w.r.t. $Eps$ and $MinPts$ if the
   * Reflexive
 * Ex.)   
 
-![](../images/005_density_based_algo/030104.png)
+![](./images/030104.png)
 
 <br>
 
@@ -221,7 +221,7 @@ Then $C$ equals to the set $O = \lbrace o | o \in D \space and \space o \space i
 * Pseudo Code by the Authors
   |DBSCAN()|ExpandCluster()|
   |:-------|:--------------|
-  |![](../images/005_density_based_algo/040101.png)|![](../images/005_density_based_algo/040102.png)|
+  |![](./images/040101.png)|![](./images/040102.png)|
 * Explanation
   * SetOfPOints.regionQuery(Point, Eps)
     * Returns the Eps-Neighborhood of Point in SetOfPoints
@@ -232,10 +232,10 @@ Then $C$ equals to the set $O = \lbrace o | o \in D \space and \space o \space i
     * For two clusters $C_1$ and $C_2$, there exists a point $p$ such that $p \in C_1 \wedge p \in C_2$.
       * Then $p$ must be a border point in both $C_1$ and $C_2$
       * In this algorithm, $p$ will be assigned to the cluster discovered first.
-* [Python Implementation by hozy](../experiments/004_density_based_algo/Library.py)
-  * [One-Dimensional Data Test](../experiments/004_density_based_algo/one_dim_test.py)
+* [Python Implementation by hozy](./scripts/Library.py)
+  * [One-Dimensional Data Test](./scripts/one_dim_test.py)
 
-![](../images/005_density_based_algo/040103.png)
+![](./images/040103.png)
 
 <br><br>
 
@@ -269,7 +269,7 @@ Let $d$ be the distance of a point $p$ to its $k$-th nearest neighbor.
         * Points on the right side of the *Threshold Point*
         * Low $k$-$dist$ values
 
-![](../images/005_density_based_algo/040201.png)
+![](./images/040201.png)
 
 * Suggested Interactive Approach
   * Suggestions
@@ -313,7 +313,7 @@ Evaluate the accuracy of both algorithms by visual inspection
   |CLARANS|DBSCAN (winner)|
     |:-----|:----|
     |CLARANS splits clusters if they are relatively large or if they are close to some other cluster. CLARANS has no explicit notion of noise. Instead, all points are assigned to their closest medoid.|DBSCAN discovers all clusters (according to [def.5](#def5-cluster)) and detects the noise points (according to [def.6](#def6-noise)) from all sample databases.|
-    |![](../images/005_density_based_algo/050101.png)|![](../images/005_density_based_algo/050102.png)|
+    |![](./images/050101.png)|![](./images/050102.png)|
 * Efficiency
   |CLARANS|DBSCAN (winner)|
     |:-----|:----|

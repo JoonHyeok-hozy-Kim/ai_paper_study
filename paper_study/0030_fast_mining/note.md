@@ -111,7 +111,7 @@
 * A count field to store the support for an itemset   
   * Initialized to zero when the itemset is first created.   
 
-![](../images/003_fast_mining/02_01_01.png)
+![](./images/02_01_01.png)
 * $\bar{C_k}$ will be used for [AprioriTid](#22-algorithm-aprioritid)
 
 <br><br>
@@ -247,13 +247,13 @@ result = union(L[k])
 <br>
 
 #### Algorithm
-![](../images/003_fast_mining/02_02_01.png)
+![](./images/02_02_01.png)
 * Explanation
   * Step 7)
     * t.set-of-itemsets : All $(k-1)$-candidates contained in $t$
     * t.
 * Example   
-  ![](../images/003_fast_mining/02_02_02.png)
+  ![](./images/02_02_02.png)
   * Setting
     * $minsupport=2$
   * Progress

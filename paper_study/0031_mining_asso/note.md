@@ -491,7 +491,7 @@ If we know that there are **less** than $minsupport$ fraction of transactions th
   * $X \Rightarrow I|(c,s)$
     * where $c$ is the confidence and $s$ is the support in percentage
 * Result   
-  ![](../images/004_mining_asso/04_01_01.png)
+  ![](./images/04_01_01.png)
 
 
 <br><br>
@@ -514,7 +514,7 @@ If we know that there are **less** than $minsupport$ fraction of transactions th
       * Possible extra passes over the data : Right case in [the trade-off](#concept-trade-off-between-wasted-effort-and-number-of-passes)
       * i.e.) we are stopping too early in our candidate generation procedure and we are not measuring all the itemsets that we should in a pass.
   * Result
-    ![](../images/004_mining_asso/04_01_02.png)
+    ![](./images/04_01_02.png)
 
 
 <br><br>
@@ -533,7 +533,7 @@ If we know that there are **less** than $minsupport$ fraction of transactions th
      * **Old** : Apply the optimization to the unpruned candidate itemsets that are added to the candidate set.
        * Efficiency : the ratio of the old candidate itemsets pruned to the total number of candidate itemsets added to the candidate set
  * Result
-   ![](../images/004_mining_asso/04_01_03.png)
+   ![](./images/04_01_03.png)
  * Analysis
    * The remaining tuple optimization prunes out a very large fraction of itemsets, both new and old.
    * The pruning efficiency increases with an an increase in $minsupport$.
