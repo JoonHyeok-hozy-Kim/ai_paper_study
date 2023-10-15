@@ -37,12 +37,14 @@ The **cumulative distribution function(cdf)** $F$ of a random variable $X$ is de
 * Props.)
   * $f(x) \ge 0, \forall x$
   * $\int_\infty^\infty f(x)dx = 1$
+  * If $f$ is continuous, $\frac{dF(x)}{dx}=f(x)$
+  * If $f$ is the pdf of a random variable $X$, then $P(a \le X \le b) = \int_a^b f(x)dx$.
+    * $P(X=a)=0, \forall a \in R$
+    * $P(a \le X \le b) = F(b) - F(a)$
 
+<br>
 
-
-
-
-
+![](images/020502.png)
 
 <br><br>
 

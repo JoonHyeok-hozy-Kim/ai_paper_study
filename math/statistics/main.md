@@ -40,7 +40,7 @@
         <td>2-4</td><td><a href="./ch02/04/note.md">The Conditional Probability, Independence, and Bayes' Rule</a></td><td> Conditional Probalbility, Independence, Bayes' Rule </td>
     </tr>
     <tr>
-        <td>2-5</td><td><a href="./ch02/05/note.md">Random Variables and Probability Distributions</a></td><td> TBD </td>
+        <td>2-5</td><td><a href="./ch02/05/note.md">Random Variables and Probability Distributions</a></td><td> Random Variable, Probability Density Function, Cumulative Distribution Function </td>
     </tr>
 </table>
 
