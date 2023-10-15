@@ -69,7 +69,7 @@ $\lbrace L^{(B)} \rbrace$
   * Stability of the procedure for constructing $\varphi$ improves the accuracy of bagging.
     * why?)
       * If changes in $L$ produces small changes in $\varphi$, then $\varphi_B$ will be close to $\varphi$.
-    * Still, baggin works well for unstable procedures.
+    * Still, bagging works well for unstable procedures.
       * This will be covered in Section 2.
 
 
