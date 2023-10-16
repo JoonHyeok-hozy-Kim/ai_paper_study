@@ -134,7 +134,7 @@ $\lbrace L^{(B)} \rbrace$
       * 2nd in accuracy on the satellite dataset
       * 1st in accuracy on the letters dataset
       * Average Rank : 1.8
-        * Way above other classifiers in the project
+        * Way above other classifiers in the project   
           ![](images/020203.png)
 ---
 
