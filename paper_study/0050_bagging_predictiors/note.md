@@ -119,8 +119,23 @@ $\lbrace L^{(B)} \rbrace$
   * Still, four data sets in the project were large enough.
     * Enough to divide them into training and test sets.
     ![](images/020201.png)
-
-
+* Bagging Application
+  * Data division
+    * a tree grown on the randomly chosen 90%. 
+    * a random 10% of the training set was set aside 
+      * Used to select the best pruned subtree. 
+  * In bagging, 50 bootstrap replicates of the training set were generated and a large tree grown on each one. 
+  * The original training set is used to select the best pruned subtree. 
+  * Result
+    ![](images/020202.png)
+    * Bagged Trees' rank among the 22 classifiers in the Statlog Project
+      * 2nd in accuracy on the DNA dataset
+      * 1st in accuracy on the shuttle dataset
+      * 2nd in accuracy on the satellite dataset
+      * 1st in accuracy on the letters dataset
+      * Average Rank : 1.8
+        * Way above other classifiers in the project
+          ![](images/020203.png)
 ---
 
 * [Back to Main](../../README.md)
