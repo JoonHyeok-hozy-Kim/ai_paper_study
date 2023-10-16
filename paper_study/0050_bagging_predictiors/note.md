@@ -126,7 +126,7 @@ $\lbrace L^{(B)} \rbrace$
       * Used to select the best pruned subtree. 
   * In bagging, 50 bootstrap replicates of the training set were generated and a large tree grown on each one. 
   * The original training set is used to select the best pruned subtree. 
-  * Result
+  * Result   
     ![](images/020202.png)
     * Bagged Trees' rank among the 22 classifiers in the Statlog Project
       * 2nd in accuracy on the DNA dataset
