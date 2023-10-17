@@ -12,7 +12,7 @@ For a nonempty set $S=\lbrace u_1, u_2, \dots, u_k \rbrace$ of vectors in $R^n$,
 * Span $\lbrace 0 \rbrace$ = $\lbrace 0 \rbrace$
 
 $a = \left [ 1 \right ]$   
-$b$ = $\begin{array}{c} 1 \end{array}$   
+$b$ = $'\begin{array}{c} 1 \end{array}'$   
 
 #### Ex) Span
 * $'S1 = \left \lbrace \left [ {\begin{array}{c} 1 \\ -1 \end{array}} \right ] \right \rbrace'$
