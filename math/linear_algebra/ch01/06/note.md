@@ -15,7 +15,7 @@ $a = \left [ 1 \right ]$
 
 $b = \begin{array}{c} 1 \end{array}$   
 
-$c = \left[ \begin{array}{c} v_1 \\ v_2 \\ \vdots \\ v_n \end{array} \right]$   
+$`c = \left[ \begin{array}{c} v_1 \\ v_2 \\ \vdots \\ v_n \end{array} \right]`$   
 
 #### Ex) Span
 * $'S1 = \left \lbrace \left [ {\begin{array}{c} 1 \\ -1 \end{array}} \right ] \right \rbrace'$
