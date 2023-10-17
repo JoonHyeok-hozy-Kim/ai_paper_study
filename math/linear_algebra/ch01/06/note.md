@@ -16,8 +16,8 @@ For a nonempty set $S=\lbrace u_1, u_2, \dots, u_k \rbrace$ of vectors in $R^n$,
    * Span $S1$ = $`\left \lbrace \left [ {\begin{array}{c} c \\ -c \end{array}} \right ], \forall c \in R \right \rbrace`$
 * $`S2 = \left \lbrace \left [ {\begin{array}{c} 1 \\ -1 \end{array}} \right ], \left [ {\begin{array}{c} -2 \\ 2 \end{array}} \right ] \right \rbrace`$
    * Span $S2$ = $`\left \lbrace \left [ {\begin{array}{c} c \\ -c \end{array}} \right ], \forall c \in R \right \rbrace`$    
-   
-|Span $S1$|Span $S2$|
+
+|Span S1|Span S2|
 |:-:|:-:|
 |![](./images/060101.png)|![](./images/060102.png)|
 
