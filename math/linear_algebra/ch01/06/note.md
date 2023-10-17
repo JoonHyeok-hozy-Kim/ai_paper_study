@@ -19,7 +19,7 @@ For a nonempty set $S=\lbrace u_1, u_2, \dots, u_k \rbrace$ of vectors in $R^n$,
    
 |Span $S1$|Span $S2$|
 |:-:|:-:|
-|![](images/060101.png)|![](images/060102.png)|
+|![](./images/060101.png)|![](./images/060102.png)|
 
 * $`S3 = \left \lbrace \left [ {\begin{array}{c} 1 \\ -1 \end{array}} \right ], \left [ {\begin{array}{c} -2 \\ 2 \end{array}} \right ], \left [ {\begin{array}{c} 2 \\ 0 \end{array}} \right ] \right \rbrace`$
    * Span $S2$ = $R^2$
