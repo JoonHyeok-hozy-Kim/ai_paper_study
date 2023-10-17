@@ -136,6 +136,86 @@ $\lbrace L^{(B)} \rbrace$
       * Average Rank : 1.8
         * Way above other classifiers in the project   
           ![](images/020203.png)
+
+
+<br><br>
+
+## 3. Bagging Regression Trees
+* Five data sets that the paper used.   
+  ![](images/030101.png)
+
+#### Bagging Application
+  * Divide each real data set into a test set and a learning set.
+    * 10% for the test set
+    * 90% for the learning set $L$
+  * In three simulated data sets, 1200 cases are generated.
+    * 200 are used as learning
+    * 1000 as test.
+  * A regression tree is constructed from $L$ using 10-fold cross-validation.
+    * $e_S(L,T)$ : the misclassification rate of running $T$ down this tree.
+  * A bootstrap sample $L_B$ is selected from $L$.
+    * A tree grown using $L_B$ and $L$ is used to select the pruned subtree.
+    * Repeat this 25 times giving tree predictors $\phi_1(x), \dots , \phi_{25}(x)$
+  * For $(y_n, x_n) \in T$, the bagged predictor is $\hat{y_n} = av_k\phi_k(x_n)$
+    * $e_B(L,T) = av_n(y_n-\hat{y_n})^2$ : the bagging misclassification rate
+  * The random division of the data into $L$ and $T$ is repeated 100 times.
+    * $\overline{e_S}, \overline{e_B}$ : the averages over the 100 iterations.
+    * For the simulated data, the 1200 cases are newly generated for each repetition.
+
+#### Result   
+  |Misclassification Rate (%)|Standard Errors of Misclassification|
+  |:-:|:-:|
+  |![](images/030102.png)|![](images/030103.png)|
+
+
+<br><br>
+
+## 4. Why Bagging Works
+### 4.1. Numeric Prediction
+#### Assumptions
+* Each $(y, x)$ case in $L$ are independently drawn from the probability distribution $P$.
+* $y$ is numerical.
+* $\phi (x,L)$ is the predictor.
+* $\phi_A (x) = E_L \phi(x,L)$ : the aggregated predictor
+
+#### Derivation
+* Take $x$ to be a fixed input value and $y$ an output value.
+* Then, $E_L(y-\phi(x,L))^2$ 
+  * $= y^2 - 2yE_L\phi(x,L) + E_L\phi^2(x,L)$
+  * $= y^2 - 2y\phi_A (x) + E_L\phi^2(x,L)$
+  * $\ge y^2 - 2y\phi_A (x) + {\phi_A (x)}^2$
+    * $\because E_L\phi^2(x,L) \ge {E_L\phi(x,L)}^2 = {\phi_A (x)}^2$ <------------- (1)
+* Thus, $E_L(y-\phi(x,L))^2 \ge (y-\phi_A(x))^2$
+  * i.e., the mean squared error (MSE) of the aggregate predictor $\phi_A (x)$ is lower than the MSE average over $L$ of $\phi (x,L)$.
+
+#### Interpretation
+* How much the aggregate predictor($\phi_A (x)$) depends on the following inequality.
+  * $[E_L\varphi(x,L)]^2 \le E_L\varphi^2(x,L)$
+    * Refer to $E_L\phi^2(x,L) \ge {E_L\phi(x,L)}^2$ at (1).
+* This can be interpreted as the instability.
+  * If $\varphi(x,L)$ does not change too much with replicate $L$, the $[E_L\varphi(x,L)]^2 \approx E_L\varphi^2(x,L)$
+    * This means that the aggregation will not help.
+  * The more highly variable the $\varphi(x,L)$ is, the more the improvement aggregation may produce.
+  * But $\varphi_A$ always improves on $\varphi$.
+
+#### Dependency on the probability distribution $P$.
+* $\phi_A$ depends on the underlying probability distribution $P$ as well.
+  * Thus, $\phi_A=\phi_A(x,P)$.
+* However, the bagged estimate $\varphi_B$ is dependent on $P_L$.
+  * where $P_L$ is the distribution that concentrates mass $1/N$ at each point $(y_n,x_n) \in L$
+    * or, $P_L$ is called the bootstrap approximation to $P$.
+  * Thus, $\varphi_B(x) = \varphi_A(x,P_L)$
+  * Hence, if the procedure is unstable, $\varphi_B(x)$ can give improvement through aggregation.
+  * On the other hand, of the procedure is stable, $\varphi_B(x)$ will not be accurate.
+    * why?) $\varphi_A(x,P) \simeq \varphi(x,L)$ 
+  * Therefore, there is a cross-over point between instability and stability at which $\varphi_B$ stops improving on $\varphi(x,L)$ and does worse.
+
+<br>
+
+### 4.2 Classification
+
+
+
 ---
 
 * [Back to Main](../../README.md)
