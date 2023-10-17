@@ -11,23 +11,17 @@ For a nonempty set $S=\lbrace u_1, u_2, \dots, u_k \rbrace$ of vectors in $R^n$,
 * If $u \in S$, then $cu \in Span(S), \forall c \in R$.
 * Span $\lbrace 0 \rbrace$ = $\lbrace 0 \rbrace$
 
-$a = \left [ 1 \right ]$   
-
-$b = \begin{array}{c} 1 \end{array}$   
-
-$`c = \left[ \begin{array}{c} v_1 \\ v_2 \\ \vdots \\ v_n \end{array} \right]`$   
-
 #### Ex) Span
-* $'S1 = \left \lbrace \left [ {\begin{array}{c} 1 \\ -1 \end{array}} \right ] \right \rbrace'$
-   * Span $S1$ = $'\left \lbrace \left [ {\begin{array}{c} c \\ -c \end{array}} \right ], \forall c \in R \right \rbrace'$
-* $'S2 = \left \lbrace \left [ {\begin{array}{c} 1 \\ -1 \end{array}} \right ], \left [ {\begin{array}{c} -2 \\ 2 \end{array}} \right ] \right \rbrace'$
-   * Span $S2$ = $'\left \lbrace \left [ {\begin{array}{c} c \\ -c \end{array}} \right ], \forall c \in R \right \rbrace'$    
+* $`S1 = \left \lbrace \left [ {\begin{array}{c} 1 \\ -1 \end{array}} \right ] \right \rbrace`$
+   * Span $S1$ = $`\left \lbrace \left [ {\begin{array}{c} c \\ -c \end{array}} \right ], \forall c \in R \right \rbrace`$
+* $`S2 = \left \lbrace \left [ {\begin{array}{c} 1 \\ -1 \end{array}} \right ], \left [ {\begin{array}{c} -2 \\ 2 \end{array}} \right ] \right \rbrace`$
+   * Span $S2$ = $`\left \lbrace \left [ {\begin{array}{c} c \\ -c \end{array}} \right ], \forall c \in R \right \rbrace`$    
    
 |Span $S1$|Span $S2$|
 |:-:|:-:|
 |![](images/060101.png)|![](images/060102.png)|
 
-* $'S3 = \left \lbrace \left [ {\begin{array}{c} 1 \\ -1 \end{array}} \right ], \left [ {\begin{array}{c} -2 \\ 2 \end{array}} \right ], \left [ {\begin{array}{c} 2 \\ 0 \end{array}} \right ] \right \rbrace'$
+* $`S3 = \left \lbrace \left [ {\begin{array}{c} 1 \\ -1 \end{array}} \right ], \left [ {\begin{array}{c} -2 \\ 2 \end{array}} \right ], \left [ {\begin{array}{c} 2 \\ 0 \end{array}} \right ] \right \rbrace`$
    * Span $S2$ = $R^2$
 
 <br>
