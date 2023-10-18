@@ -229,16 +229,22 @@ In classification, a predictor $\varphi(x,L)$ predicts a class label $j \in \lbr
 
 <br>
 
-#### Prop.)
-* $\Sigma_jQ(j|x)P(j|x) \le {max}_jP(j|x)$
-  * why?)
-    * $Q(j|x)$ was the relative frequency that $\phi$ predicts the class label $j$ at input $x$ over many independent replates of the learning set $L$.
-      * i.e., $0 \le Q(j|x) \le 1$
-    * Thus, $Q(j|x)P(j|x) \le P(j|x), \forall j$
-    * Also, $P(j|x) \le {max}_jP(j|x), \forall j$
-    * Therefore, $Q(j|x)P(j|x) \le P(j|x) \le {max}_jP(j|x), \forall j$
-  * Equality Condition
-    * $`Q(j|x)= \left \lbrace \begin{array}{cl} 1 & if P(j|x)=max_iP(i|x) \\ 0 & else \end{array} \right .`$
+#### Concept) Bayes Predictor
+$\phi^*(x) = argmax_jP(j|x)$
+* The predictor that gives the highest attainable correct classification rate $r^*$ 
+  * $r^*=\int{max_jP(j|x)P_X(x)}$
+* How to derive.
+  * Recall that $Q(j|x)$ was the relative frequency that $\phi$ predicts the class label $j$ at input $x$ over many independent replates of the learning set $L$.
+    * i.e., $0 \le Q(j|x) \le 1$
+  * Also, $P(j|x) \le {max}_jP(j|x), \forall j$
+  * Hence, $Q(j|x)P(j|x) \le P(j|x) \le {max}_jP(j|x), \forall j$
+  * Now, consider the equality condition for the above inequality.
+    * i.e.) $Q(j|x)P(j|x) = {max}_jP(j|x)$
+  * The condition must be the case that 
+    * $`Q(j|x)= \left \lbrace \begin{array}{cl} 1 & if \space P(j|x)=max_iP(i|x) \\ 0 & else \end{array} \right .`$
+  * $\phi^*(x)$ is the predictor that satisfies the above condition.
+
+
 
 
 ---
