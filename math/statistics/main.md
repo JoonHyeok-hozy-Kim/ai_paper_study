@@ -42,6 +42,9 @@
     <tr>
         <td>2-5</td><td><a href="./ch02/05/note.md">Random Variables and Probability Distributions</a></td><td> Random Variable, Probability Density Function, Cumulative Distribution Function </td>
     </tr>
+    <tr>
+        <td>2-6</td><td><a href="./ch02/06/note.md">Moments and Moment-Generating Functions</a></td><td>  </td>
+    </tr>
 </table>
 
 
