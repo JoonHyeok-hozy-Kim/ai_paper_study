@@ -234,8 +234,9 @@ $\phi^*(x) = argmax_jP(j|x)$
 * The predictor that gives the highest attainable correct classification rate $r^*$ 
   * $r^*=\int{max_jP(j|x)P_X(x)}$
 * How to derive.
-  * Recall that $Q(j|x)$ was the **relative frequency** that $\phi$ predicts the class label $j$ at input $x$ over many independent replates of the learning set $L$.
-    * i.e., $0 \le Q(j|x) \le 1$
+  * Consider that $0 \le Q(j|x) \le 1$.
+    * Why?)
+      * Recall that $Q(j|x)$ was the **relative frequency** that $\phi$ predicts the class label $j$ at input $x$ over many independent replates of the learning set $L$.
   * Also, by definition, $P(j|x) \le {max}_jP(j|x), \forall j$
   * Hence, $Q(j|x)P(j|x) \le P(j|x) \le {max}_jP(j|x), \forall j$
   * Now, consider the equality condition for the above inequality.
@@ -255,9 +256,35 @@ A predictor $\phi$ is order-correct at input $x$ if $argmax_jQ(j|x) = argmax_jP(
     * ex) 
       * Suppose $P(1|x)=0.9$, $P(2|x)=0.1$, $Q(1|x)=0.6$, and $Q(2|x)=0.4$.
       * Then, the probability of correct classification by $\phi$ at $x$ is $Q(1|x)P(1|x) + Q(2|x)P(2|x)=0.58$
-      * However, the Bayes Predictor gets 0.90, which is a nonsense.
+      * However, the Bayes Predictor gets $0.90$, which not reasonable.
 
+<br>
 
+#### Concept) Aggregate Predictor and its Probability of Correct Classfication
+* The aggregate predictor at $x$ is 
+  * $\phi_A(x) = argmax_jQ(j|x)$.   
+* Then the probability of correct classification at $x$ for the aggregate predictor is 
+  * $\Sigma_jI(argmax_iQ(i|x)=j)P(j|x)$
+    * where $I(\cdot)$ is the indicator function.
+
+#### Concept) Order-Correct and Aggregate Predictor
+* If $\phi$ is order-correct at $x$, 
+  * $\Sigma_jI(argmax_iQ(i|x)=j)P(j|x) = max_jP(j|x)$
+* The correct classification probability of $\phi_A$ is
+  * $r_A = \int_{x \in C}{max_jP(j|x)P_X(dx)} + \int_{x \in C'}{I(\phi_A(x)=j)P(j|x)P_X(x)}$
+* Even if $\phi$ is order-correct at $x$, its correct classification rate can be far from optimal.
+  * However, $\phi_A$ is optimal.
+  * If a predictor is order-correct for most inputs $x$, then the aggregation can transform it into a nearly optimal predictor.
+  * On the other hand, poor predictors can be transformed into worse ones.
+    * Not like the numerical prediction case.
+
+#### Concept) Stability, Predictors, and Bagging
+* For stable classifiers, bagging can deteriorate the poor predictors.
+* For unstable classifiers, bagging usually improves them.
+
+<br>
+
+### 4.3 Using the Learning Set as a Test Set
 
 
 ---
