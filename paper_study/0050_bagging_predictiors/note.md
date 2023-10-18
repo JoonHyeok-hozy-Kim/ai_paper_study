@@ -126,16 +126,16 @@ $\lbrace L^{(B)} \rbrace$
       * Used to select the best pruned subtree. 
   * In bagging, 50 bootstrap replicates of the training set were generated and a large tree grown on each one. 
   * The original training set is used to select the best pruned subtree. 
-  * Result   
-    ![](images/020202.png)
-    * Bagged Trees' rank among the 22 classifiers in the Statlog Project
-      * 2nd in accuracy on the DNA dataset
-      * 1st in accuracy on the shuttle dataset
-      * 2nd in accuracy on the satellite dataset
-      * 1st in accuracy on the letters dataset
-      * Average Rank : 1.8
-        * Way above other classifiers in the project   
-          ![](images/020203.png)
+* Result   
+  ![](images/020202.png)
+  * Bagged Trees' rank among the 22 classifiers in the Statlog Project
+    * 2nd in accuracy on the DNA dataset
+    * 1st in accuracy on the shuttle dataset
+    * 2nd in accuracy on the satellite dataset
+    * 1st in accuracy on the letters dataset
+    * Average Rank : 1.8
+      * Way above other classifiers in the project   
+        ![](images/020203.png)
 
 
 <br><br>
@@ -213,7 +213,32 @@ $\lbrace L^{(B)} \rbrace$
 <br>
 
 ### 4.2 Classification
+In classification, a predictor $\varphi(x,L)$ predicts a class label $j \in \lbrace 1, \dots, J \rbrace$.   
 
+#### Notations)
+* $Q(j|x) = P(\phi(x,L)=j)$
+  * Interpretation
+    * Over many independent replicates of the learning set $L$, $\phi$ predicts class label $j$ at input $x$ with the relative frequency $Q(j|x)$.   
+* $P(j|x)$
+  * The probability that input $x$ generates class $j$.
+* $\Sigma_jQ(j|x)P(j|x)$
+  * The probability that the predictor classifies the generated state at $x$ correctly.
+* $r=\int{\Sigma_jQ(j|x)P(j|x)P_X}dx$
+  * The correct classification
+  * where $P_xdx$ is the $x$ probability distribution.
+
+<br>
+
+#### Prop.)
+* $\Sigma_jQ(j|x)P(j|x) \le {max}_jP(j|x)$
+  * why?)
+    * $Q(j|x)$ was the relative frequency that $\phi$ predicts the class label $j$ at input $x$ over many independent replates of the learning set $L$.
+      * i.e., $0 \le Q(j|x) \le 1$
+    * Thus, $Q(j|x)P(j|x) \le P(j|x), \forall j$
+    * Also, $P(j|x) \le {max}_jP(j|x), \forall j$
+    * Therefore, $Q(j|x)P(j|x) \le P(j|x) \le {max}_jP(j|x), \forall j$
+  * Equality Condition
+    * $Q(j|x)= \left \lbrace \begin{array}{cl} 1 & if P(j|x)=max_iP(i|x) \\ 0 & else \end{array} \right.$
 
 
 ---
