@@ -238,7 +238,7 @@ In classification, a predictor $\varphi(x,L)$ predicts a class label $j \in \lbr
     * Also, $P(j|x) \le {max}_jP(j|x), \forall j$
     * Therefore, $Q(j|x)P(j|x) \le P(j|x) \le {max}_jP(j|x), \forall j$
   * Equality Condition
-    * $`Q(j|x)= \lbrace{\begin{array}{cl} 1 & if P(j|x)=max_iP(i|x) \\ 0 & else \end{array}}`$
+    * $`Q(j|x)= \left \lbrace \begin{array}{cl} 1 & if P(j|x)=max_iP(i|x) \\ 0 & else \end{array} \right .`$
 
 
 ---
