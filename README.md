@@ -5,6 +5,12 @@
 * [Statistics](./math/statistics/main.md)
 * [Linear Algebra](./math/linear_algebra/main.md)
 
+<br>
+
+## Textbook Study
+* [Machine Learning Tom Mitchell](text_books/ml_tom_mitchell/main.md)
+
+<br>
 
 ## Papers Covered
 |No.|Title|Year|Description|Tag|Start Date|End Date|
