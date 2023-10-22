@@ -16,8 +16,8 @@
 
 <br><br>
 
-## Intoduction
-### The Model
+## 1. Intoduction
+### 1.1 The Model
 #### Settings
 * $L$ : a learning set
   * Consists of data $\lbrace (y_n,x_n), n=1,\dots , N\rbrace$
@@ -324,17 +324,17 @@ Theoretical base that we can use $L_B$ as the training set for bagging trees.
 <br>
 
 ### 5.2 Simulation Structure
-* The model that draws the simulated data
+#### The model that draws the simulated data
   * $y=\Sigma_m \beta_m x_m+\epsilon$
     * where $\epsilon \sim N(0,1)$
   * $M=30$ : the number of variables
   * $N=60$ : the sample size
   * $\lbrace x_m \rbrace$ are drawn from a mean-zero joint normal distribution with $E[X_iXj] = \rho^{|i-j|}$
     * where $\rho \sim U(0,1)$
-* Known Facts
+#### Known Facts
   * Subset selection is nearly optimal if there are only a few large non-zero $\beta_m$
   * The model's performance is poor if there are many small but non-zero $\beta_m$.
-* Bridging the coefficients($\beta$)
+#### Bridging the coefficients($\beta$)
   * Why doing this?
     * The coefficients that we derived will vary in a spectrum.
     * Classifying the will be convenient.
@@ -351,7 +351,7 @@ Theoretical base that we can use $L_B$ as the training set for bagging trees.
       * $h=1$ : There are only three non-zero $\lbrace \beta_m \rbrace$.
       * $h=3$ : There are only 15 non-zero $\lbrace \beta_m \rbrace$.
       * $h=5$ : There are only 27 non-zero $\lbrace \beta_m \rbrace$.
-* Then for each set of coefficients the following procedure was replicated 250 times.
+#### Then for each set of coefficients the following procedure was replicated 250 times.
   1. Data $L=\lbrace (y_n, x_n), n=1, \dots,60 \rbrace$ was drawn from the model, $y=\Sigma_m \beta_m x_m+\epsilon$
      * where $\lbrace x_m \rbrace$ were drawn from the joint normal distribution.
   2. Forward entry of variables was done using $L$ to get the predictors $\varphi_1(x), \dots, \varphi_M(x)$.
@@ -360,7 +360,7 @@ Theoretical base that we can use $L_B$ as the training set for bagging trees.
      * For each of these, forward stepwise regression was applied to construct predictors $\varphi_1(x, L^{(B)}), \dots, \varphi_M(x, L^{(B)})$. 
      * These were averaged over the $L^{(B)}$ to give the bagged sequence $\varphi_1^{(B)}(x), \dots, \varphi_M^{(B)}(x)$. 
      * The prediction errors $e_1^{(B)},..., e_M^{(B)}$ for this sequence were computed. 
-* Results : The mean squared errors averaged over the 250 repetitions
+#### Results : The mean squared errors averaged over the 250 repetitions
   1. $\lbrace {\bar{e}}_m^{(S)} \rbrace$
   2. $\lbrace {\bar{e}}_m^{(B)} \rbrace$
 
@@ -376,8 +376,30 @@ Theoretical base that we can use $L_B$ as the training set for bagging trees.
 </tr>
 </table>
 
+#### Analysis
+  * The most accurate bagged predictor is at least as good as the most accurate subset predictor.
+    * $h=1$ : The subset selection is nearly optimal, so there is no improvement.
+    * $h=3$ and $h=5$ : There is substantial improvement.
+    * Thus, bagging can improve only if the unbagged is not optimal.
+  * In all three graphs, there is a point past which the bagged predictors have larger prediction error than the unbagged. 
+    * This means that the linear regression using all variables is a fairly stable procedure.
+    * The stability decreases as the number of variables used in the predictor decreases. 
+    * As $m$ decreases, the instability increases and there is a cross-over point at which $\varphi_m^{(B)}$ becomes more accurate than $\varphi_m$. 
 
+<br><br>
 
+## 6. Concluding Remarks
+### 6.1 Bagging Class Probability Estimates
+* Case 1) Some classification methods estimate probabilities $\hat{p}(j|x)$ that an object with prediction vector $x$ belongs to class $j$.
+  * Then the class corresponding to $x$ is estimated as $argmax_j \hat{p}(j|x)$.
+  * For such methods a natural competitor to bagging by...
+    * Voting is to average the $\hat{p}(j|x)$ over all bootstrap replications.
+    * Getting $\hat{p}(j|x)$, and then use the estimated class $argmax_j \hat{p}(j|x)$.
+  * The resulting misclassification rate was always virtually identical to the voting misclassification rate.
+
+* Case 2) Estimates of class probabilities are required instead of, or along with, the classifications.
+  * The evidence so far indicates that bagged estimates are likely to be more accurate than the single estimates. 
+  * To verify this, it would be necessary to compare both estimates with the true values $p^*(j|x)$ over the $x$ in the test set.
 
 
 ---
