@@ -360,8 +360,21 @@ Theoretical base that we can use $L_B$ as the training set for bagging trees.
      * For each of these, forward stepwise regression was applied to construct predictors $\varphi_1(x, L^{(B)}), \dots, \varphi_M(x, L^{(B)})$. 
      * These were averaged over the $L^{(B)}$ to give the bagged sequence $\varphi_1^{(B)}(x), \dots, \varphi_M^{(B)}(x)$. 
      * The prediction errors $e_1^{(B)},..., e_M^{(B)}$ for this sequence were computed. 
+* Results : The mean squared errors averaged over the 250 repetitions
+  1. $\lbrace {\bar{e}}_m^{(S)} \rbrace$
+  2. $\lbrace {\bar{e}}_m^{(B)} \rbrace$
 
- 
+<table>
+<tr>
+<td colspan="3"><img src="images/050101.png"></td>
+</tr>
+
+<tr>
+<td><img src="images/050102.png"></td>
+<td><img src="images/050103.png"></td>
+<td><img src="images/050104.png"></td>
+</tr>
+</table>
 
 
 
