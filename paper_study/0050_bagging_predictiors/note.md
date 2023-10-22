@@ -334,6 +334,38 @@ Theoretical base that we can use $L_B$ as the training set for bagging trees.
 * Known Facts
   * Subset selection is nearly optimal if there are only a few large non-zero $\beta_m$
   * The model's performance is poor if there are many small but non-zero $\beta_m$.
+* Bridging the coefficients($\beta$)
+  * Why doing this?
+    * The coefficients that we derived will vary in a spectrum.
+    * Classifying the will be convenient.
+  * So lets classify them into three clusters
+    1. Centered at $m=5$
+    2. Centered at $m=15$
+    3. Centered at $m=25$
+  * Then the clusters' forms will be...
+    * $\beta_m = c[(h-|m-k|)^+]^2$, $m=1, \dots, 30$
+      * where $k$ is the cluster center
+      * $h=1,3,5$ for the first, second and third set of coefficients.
+      * $c$ is the normalizing constant so that $R^2 \simeq 0.75$
+    * Thus,
+      * $h=1$ : There are only three non-zero $\lbrace \beta_m \rbrace$.
+      * $h=3$ : There are only 15 non-zero $\lbrace \beta_m \rbrace$.
+      * $h=5$ : There are only 27 non-zero $\lbrace \beta_m \rbrace$.
+* Then for each set of coefficients the following procedure was replicated 250 times.
+  1. Data $L=\lbrace (y_n, x_n), n=1, \dots,60 \rbrace$ was drawn from the model, $y=\Sigma_m \beta_m x_m+\epsilon$
+     * where $\lbrace x_m \rbrace$ were drawn from the joint normal distribution.
+  2. Forward entry of variables was done using $L$ to get the predictors $\varphi_1(x), \dots, \varphi_M(x)$.
+     * The mean-squared prediction error of each of these was computed giving $e_1,..., e_M$.
+  3. Fifty bootstrap replicates $\lbrace L^{(B)} \rbrace$ of $L$ were generated. 
+     * For each of these, forward stepwise regression was applied to construct predictors $\varphi_1(x, L^{(B)}), \dots, \varphi_M(x, L^{(B)})$. 
+     * These were averaged over the $L^{(B)}$ to give the bagged sequence $\varphi_1^{(B)}(x), \dots, \varphi_M^{(B)}(x)$. 
+     * The prediction errors $e_1^{(B)},..., e_M^{(B)}$ for this sequence were computed. 
+
+ 
+
+
+
+
 
 ---
 
