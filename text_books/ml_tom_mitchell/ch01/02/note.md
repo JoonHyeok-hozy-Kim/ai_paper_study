@@ -105,8 +105,11 @@
 <br><br>
 
 ### 1.2.4 Choosing a Function Approximation Algorithm
+#### Concept) Training Examples
+In order to learn the target function $\hat{V}$, we require a set of training examples, each describing a specific board state $b$ and the training value $V_{train}(b)$ for $b$.   
+Denote the training examples as an ordered pair of the form $\langle b, V_{train} \rangle$
 
-
+### 1.2.4.1. Estimating Training Values
 
 
 
