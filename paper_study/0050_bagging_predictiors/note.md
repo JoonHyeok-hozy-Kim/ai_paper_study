@@ -401,6 +401,33 @@ Theoretical base that we can use $L_B$ as the training set for bagging trees.
   * The evidence so far indicates that bagged estimates are likely to be more accurate than the single estimates. 
   * To verify this, it would be necessary to compare both estimates with the true values $p^*(j|x)$ over the $x$ in the test set.
 
+<br>
+
+### 6.2 How Many Bootstrap Replicates Are Enough?
+* The author's experiment
+  * 50 for classification
+  * 25 for regression
+  * Fewer are required when $y$ is numerical
+  * More are required with an increase in the number of classes
+  * Running times are nominal for CART
+  * Neural Network takes long time to apply bagging
+  * Bagging is suitable for parallel computing.
+    * Construction of each predictor $L^{(B)}$ is independent.
+
+<br>
+
+### 6.3 How Big Should the Bootstrap Learning Set Be?
+* Considering the duplicates in the bootstrap replicates
+  * The author used bootstrap replicates $L^{(B)}$ of the same size as the initial learning set $L$.
+  * 0.37 of the instances were omitted as duplicates
+  * The author increased the size of the $L^{(B)}$ by twice the amount of $L$.
+    * 0.14 of the instances are left out
+    * But no improvement in accuracy
+
+<br>
+
+### 6.4 Bagging Nearest Neighbor Classifiers
+* Nearest neighbor is more accurate than single trees in 3 of the 6 data sets, but bagged trees are more accurate in all of the 6 data sets.
 
 ---
 
