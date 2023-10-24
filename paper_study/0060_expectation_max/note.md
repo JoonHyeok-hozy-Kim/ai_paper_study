@@ -61,7 +61,7 @@ An algorithm that consists of two steps that are repeated until the parameter es
     * Here is the **many-to-one mapping** between $\lbrace x_1, x_2 \rbrace$ and $y_1$.
       * e.g.) If $y_1=3$, we don't know whether $x_1=1,x_2=2$ or $x_1=2,x_2=1$.
     * Put observations into a new pdf : $g$
-      * $P(Y_1=y_1 | p) \\ = {}_nC_{y_1} \left( \frac{1}{4} + \frac{p}{4} \right)^{y_1} \left( \frac{1}{2} - \frac{p}{4} \right)^{n - y_1} \\ = g(y_1|p)$
+      * $`P(Y_1=y_1 | p) \\ = {}_nC_{y_1} \left( \frac{1}{4} + \frac{p}{4} \right)^{y_1} \left( \frac{1}{2} - \frac{p}{4} \right)^{n - y_1} \\ = g(y_1|p)`$
     * Using the EM Algorithm, we can compute the ML estimate of $p$ which is...
       * $p_{ML}=argmax_p \space g(Y_1=y_1|p)$
         * where $argmax$ means the value that maximizes the function
