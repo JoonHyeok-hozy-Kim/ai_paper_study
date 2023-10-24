@@ -32,7 +32,7 @@
 
 <br>
 
-### 1.2.2 Choosing the Target Function
+## 1.2.2 Choosing the Target Function
 * What we should determine 
   1. What type of knowledge will be learned 
   2. How this will be used by the performance program
@@ -71,7 +71,7 @@
 
 <br><br>
 
-### 1.2.3 Choosing a Representation for the Target Function
+## 1.2.3 Choosing a Representation for the Target Function
 * What we should determine
   * A representation that the learning program will use to describe the function $\hat{V}$ that it will learn
 
@@ -104,12 +104,73 @@
 
 <br><br>
 
-### 1.2.4 Choosing a Function Approximation Algorithm
+## 1.2.4 Choosing a Function Approximation Algorithm
 #### Concept) Training Examples
-In order to learn the target function $\hat{V}$, we require a set of training examples, each describing a specific board state $b$ and the training value $V_{train}(b)$ for $b$.   
-Denote the training examples as an ordered pair of the form $\langle b, V_{train} \rangle$
+In order to learn the target function $\hat{V}$, we require a set of training examples, each describing a specific board state $b$ and the training value $V_{train}(b)$ for $b$.  
+* Notation
+  * $\langle b, V_{train} \rangle$
+  * Denote the training examples as an ordered pair of the form 
+* Ex.)
+  * a board state $b$ in which black has won the game
+  * $\langle [x_1=3, x_2=0, x_3=1, x_4=0, x_5=0, x_6=0], +100 \rangle$
+
+<br>
 
 ### 1.2.4.1. Estimating Training Values
+#### Rule for Estimating Training Values
+* Notation
+  * $V_{train}(b) \leftarrow \hat{V}(Successor(b))$
+    * where $\hat{V}$ is the learner's current approximation to $V$
+    * and $Successor(b)$ is the next board state following $b$
+* Meaning
+  * Assign $V_{train}(b)$ (*the training value at $b$*) with the current approximation to $V$ using the next board state.
+* Why doing this?
+  * While it is easy to assign a value to board states that correspond to the end of the game, it is less obvious how to assign training values to the more numerous **intermediate board states** that occur before the game's end.
+    * e.g.) Consider the case that the program loses the game.
+      * It is not sure which move incurred the loss.
+      * A move or the one before or after it?
+
+<br>
+
+### 1.2.4.2. Adjusting the Weights
+How should the model determine the weights($w_i$) to **best fit** the set of training examples($\lbrace\langle b, V_{train} \rangle\rbrace$)?
+
+#### Concept) Best Fit
+Minimize the squared error between the training values and the values predicted by the hypothesis $\hat{V}$.
+* min $E \equiv \Sigma_{\langle b, V_{train} \rangle}(V_{train}(b) - \hat{V}(b))^2$
+  * There are multiple algorithms that can accomplish this.
+    * We use Least Mean Squares (LMS)
+
+<br>
+
+#### Concept) Least Mean Squares (LMS)
+For each training example $\langle b, V_{train} \rangle$,
+1. Use the current weights to calculate $\hat{V}(b)$
+2. For each weight $w_i$, update it as follows.
+   * $w_i \leftarrow w_i + \eta \space (V_{train}(b)-\hat{V}(b)) \space x_i, \forall i$
+     * where $0 \lt \eta \lt 1$
+* Justification
+  * When the error is zero, all weights converge.
+    * i.e. $V_{train}(b) = \hat{V}(b)$
+  * When the error is positive, each weights is increased in proportion to the value of its corresponding feature.
+    * Then $\hat{V}(b)$ will increase and the error will decrease
+  * Weights are updated only the feature in the training example is not zero.
+    * $\because x_i = 0 \Rightarrow w_i + \eta * (V_{train}(b)-\hat{V}(b)) * 0 = w_i$
+
+<br><br>
+
+## 1.2.5 The Final Design
+#### Concept) Four Generic Modules in Machine Learning System
+The final design for our checker game program will consist of the following modules.
+|Module|Function|Input|Output|
+|:-----|:-------|:----|:-----|
+|Performance System|Solve the given Performance Task using the learned Target Function|An instance of a new problem|A trace of its solutions|
+|The Critic|Train the rule of learning|The history or trace of the game|A set of training examples of the target function|
+|The Generalizer|Generalize from the specific training example (e.g. [LMS](#concept-least-mean-squares-lms))|The training examples|Hypothesis that is its estimate of the target function|
+|The Experiment Generator|Pick new practice problems that will maximize the learning rate of the overall system|The current hypothesis (currently learned function)|A new problem for the Performance System to explore|   
+
+![](images/001.png)
+
 
 
 
