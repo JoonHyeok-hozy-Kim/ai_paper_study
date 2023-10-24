@@ -4,6 +4,7 @@
 ![](images/ex00101.png)
 ![](images/ex009.png)
 ![](images/ex017.png)
+![](images/ex021.png)
 
 
 * [Back to the note](./note.md)
