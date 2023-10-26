@@ -80,10 +80,22 @@ An algorithm that consists of two steps that are repeated until the parameter es
            * ${x_2}^{[k+1]} = y_1 \frac{\frac{1}{4}+\frac{p^{[k]}}{4}}{\frac{1}{2}+\frac{p^{[k]}}{4}}$
     2. Maximization Step
        * Since we can distinguish $x_3$, $x_3$ is known.
-       * Also, we derived ${x_1}^{[k+1]}$ and ${x_2}^{[k+1]}$.
+       * Also, we derived ${x_1}^{[k+1]}$ and ${x_2}^{[k+1]}$. (A.K.A. the **imputed** data)
        * Thus, applying the ML estimation, we will estimate $p$ that maximizes $f({x_1}^{[k+1]}, {x_2}^{[k+1]}, x_3 | p)$.
-       * Then, $f({x_1}^{[k+1]}, {x_2}^{[k+1]}, x_3 | p)$
+       * Then, our maximization problem goes as follows.
+         ![](images/001.png) 
+    3. Repeat $m$ times until $x^{[k+m]}$ in 2 and $p^{[k+m]}$ in 3 converges.
+       * i.e.
+         * Compute $x_1^{[k+2]}$ and $x_2^{[k+2]}$ using $p^{[k+1]}$
+         * Compute $p^{[k+2]}$ using $x_1^{[k+2]}$ and $x_2^{[k+2]}$
+         * And so on...
+  * cf.) Faster computation
+    * Expectation and Maximization in above case can be done using the following one-step formula.   
+      ![](images/002.png) 
 
+<br><br>
+
+#### Def.) General Statement of the EM Algorithm
 
 
 ---
