@@ -73,10 +73,16 @@ An algorithm that consists of two steps that are repeated until the parameter es
        1. Consider the expected value of $x_1$ given the measurement $y_1$ and the current($k$-th) estimate of the parameter
            * ${x_1}^{[k]} = E[x_1|y_1, p^{[k]}]$
        2. Then, 
-           * ${x_1}^{[k+1]} = y_1 \frac{\frac{1}{4}}{\frac{1}{2}+\frac{p^{[k]}}{2}}$
-             * [Proof](./expectation_pf.md)
+           * ${x_1}^{[k+1]} = y_1 \frac{\frac{1}{4}}{\frac{1}{2}+\frac{p^{[k]}}{4}}$
+             * Why?)   
+               $`\begin{array}{lcl} {x_1}^{[k+1]} &=& E[x_1|y_1, p^{[k]}] \\&=& y_1 \frac{p_1^{[k]}}{p_1^{[k]}+p_2^{[k]}} \space (\because proof \space below) \\&=& y_1 \frac{\frac{1}{4}}{\frac{1}{4}+ \left( \frac{1}{4}+\frac{p^{[k]}}{4} \right)} \\&=& y_1 \frac{\frac{1}{4}}{\frac{1}{2}+\frac{p^{[k]}}{4}} \end{array}`$
+                 * Refer to the [proof](./expectation_pf.md).
+           * ${x_2}^{[k+1]} = y_1 \frac{\frac{1}{4}+\frac{p^{[k]}}{4}}{\frac{1}{2}+\frac{p^{[k]}}{4}}$
     2. Maximization Step
-       * d
+       * Since we can distinguish $x_3$, $x_3$ is known.
+       * Also, we derived ${x_1}^{[k+1]}$ and ${x_2}^{[k+1]}$.
+       * Thus, applying the ML estimation, we will estimate $p$ that maximizes $f({x_1}^{[k+1]}, {x_2}^{[k+1]}, x_3 | p)$.
+       * Then, $f({x_1}^{[k+1]}, {x_2}^{[k+1]}, x_3 | p)$
 
 
 

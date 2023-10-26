@@ -2,8 +2,8 @@
 
 ## Prop. 1) 
 
-For $0 \lt i \lt n$, $P(X_1+X_2 = y) = (p_1+p_2)^y$
-* Why?)   
+$P(X_1+X_2 = y) = (p_1+p_2)^y$
+* Why?) For $0 \lt i \lt n$    
   $`\begin{array}{lcl} P(X_1+X_2 = y) & = & P(X_1=i, X_2=y-i) \\ &=& \Sigma_{x_1=0}^y \frac{(i+(y-i))!}{i!(y-i)!} p_1^i p_2^{y-i} \\&=& \Sigma_{x_1=0}^y \frac{y!}{i!(y-i)!} p_1^i p_2^{y-i} \\&=& (p_1+p_2)^y \end{array}`$
 
 <br>
@@ -14,7 +14,7 @@ For $0 \lt i \lt n$, $P(X_1+X_2 = y) = (p_1+p_2)^y$
 * Then, $P(X_1=x_1, X_2=x_2, X_3=x_3) = \frac{(x_1+x_2+x_3)!}{x_1!x_2!x_3}p_1^{x_1}p_2^{x_2}p_3^{x_3}$
 * Let $Y=X_1+X_2$.   
 * Then, the probability $P(Y,X_3)$ can be determined as follows:   
-  $`\begin{array}{lcl} P(X_1+X_2=y, X_3=x_3) & = & \Sigma_{i=0}^y P(X_1=i, X_2=y-i, X_3=x_3) \\ & = & \frac{(y+x_3)!}{y!x_3!} p_3^{x_3} \Sigma_{i=0}^y \frac{y!}{i!(y-i)!} p_1^i p_2^{y-i} \space (\because \space Prop.1) \\ & = & \frac{(y+x_3)!}{y!x_3!} {(p_1+p_2)}^y p_3^{x_3} \space (\because the \space binomial \space theorem) \end{array}`$    
+  $`\begin{array}{lcl} P(X_1+X_2=y, X_3=x_3) & = & \Sigma_{i=0}^y P(X_1=i, X_2=y-i, X_3=x_3) \\ & = & \frac{(y+x_3)!}{y!x_3!} \left( \Sigma_{i=0}^y \frac{y!}{i!(y-i)!} p_1^i p_2^{y-i} \right) \space  p_3^{x_3}  \space (\because \space Prop.1) \\ & = & \frac{(y+x_3)!}{y!x_3!} {(p_1+p_2)}^y p_3^{x_3} \space (\because the \space binomial \space theorem) \end{array}`$    
 * Thus, $(X_1+X_2, X_3)$ is binomial with class probabilities $(p_1+p_2, p_3)$.   
   * This can be generalized to multinomials!
 
@@ -25,7 +25,7 @@ For $0 \lt i \lt n$, $P(X_1+X_2 = y) = (p_1+p_2)^y$
 
 ## Tech.) Computing the Conditional Expectation
 #### Goal)
-* Compute the conditional expectation $E[X_1 | Y=y]$.
+* Show that conditional expectation $E[X_1 | Y=y] = y \frac{p_1}{p_1+p_2}$.
 #### Derivation)
 * First, determine the conditional probability, $P(X_1=x_1 | Y=y) = P(X_1=x_1 | X_1+X_2=y)$.   
   * why?)
@@ -36,9 +36,12 @@ For $0 \lt i \lt n$, $P(X_1+X_2 = y) = (p_1+p_2)^y$
 * Let's separate this into the denominator and the nominator
   * Denominator : $P(X_1=x_1, Y=y) = (X_1=x_1, X_2=y-x_1)$ 
     * binomial out of $n$ trials
-    * Thus, $P(X_1=x_1, X_2=y-x_1) = \frac{(x_1+(y-x_1))!}{x_1!(y-x_1)!} p_1^{x_1} p_2^{y-x_1} = \frac{y!}{x_1!(y-x_1)!} p_1^{x_1} p_2^{y-x_1}$
+    * Thus, $P(X_1=x_1, X_2=y-x_1) = \frac{(x_1+(y-x_1))!}{x_1!(y-x_1)!} p_1^{x_1} p_2^{y-x_1} \space (\because x_2 = y-x_1)$
   * Nominator : $P(Y=y)$ 
     * trinomial out of $n$ trials
     * $P(Y=y) = P(X_1+X_2=y) = (p_1+p_2)^y$  
       * Why?) Recall [Prop. 1](#prop-1)
-* Thus, $P(X_1=x_1 | Y=y) = \frac{\frac{y!}{x_1!(y-x_1)!} p_1^{x_1} p_2^{y-x_1}}{(p_1+p_2)^y}$
+* Thus, $P(X_1=x_1 | Y=y) = \frac{\frac{y!}{x_1!(y-x_1)!} p_1^{x_1} p_2^{x_2}}{(p_1+p_2)^y} = \frac{y!}{x_1!(y-x_1)!} p_1^{x_1} p_2^{x_2} \frac{1}{(p_1+p_2)^y}$
+* Hence,   
+  $`\begin{array}{lcl} E[X_1 | Y=y] &=& \Sigma_{x_1=0}^{y} x_1 P(X_1=x_1 | Y=y) \\&=& \Sigma_{x_1=0}^{y} x_1 \frac{y!}{x_1!(y-x_1)!} p_1^{x_1} p_2^{x_2} \frac{1}{(p_1+p_2)^y} \\&=& y p_1 \Sigma_{x_1=0}^{y} \frac{(y-1)!}{(x_1-1)!(y-x_1)!} p_1^{x_1-1} p_2^{x_2} \frac{1}{(p_1+p_2)^y} \\&=& y p_1 (p_1+p_2)^{y-1} \frac{1}{(p_1+p_2)^y} \\&=& y \frac{p_1}{p_1+p_2} \end{array}`$
+* Similarly, $E[X_2|Y=y] = y \frac{p_2}{p_1+p_2}$
