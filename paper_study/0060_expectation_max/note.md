@@ -70,8 +70,11 @@ An algorithm that consists of two steps that are repeated until the parameter es
     * Let $p^{[k]}$ be the estimate of $p$ after the $k$-th iteration.
   * Actual Steps
     1. Expectation Step
-       * The expected value of $x_1$ given $y_1$ and the current($k$-th) estimate of the parameter
-         * ${x_1}^{[k]} = E[x_1|y_1, p^{[k]}]$
+       1. Consider the expected value of $x_1$ given the measurement $y_1$ and the current($k$-th) estimate of the parameter
+           * ${x_1}^{[k]} = E[x_1|y_1, p^{[k]}]$
+       2. Then, 
+           * ${x_1}^{[k+1]} = y_1 \frac{\frac{1}{4}}{\frac{1}{2}+\frac{p^{[k]}}{2}}$
+             * [Proof](./expectation_pf.md)
     2. Maximization Step
        * d
 
