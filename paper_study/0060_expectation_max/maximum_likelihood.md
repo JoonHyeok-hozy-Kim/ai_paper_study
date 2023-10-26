@@ -23,7 +23,7 @@
 ## Concept) Maximum-Likelihood Estimation
 * Def.) Maximum-Likelihood Estimation
   * A means of estimating parameters of a distribution.
-  * Get the ML estimate of the parameter that maximizes the likelihood function.
+  * Get the ML estimate of the parameter $\theta$ that maximizes the likelihood function.
     * $\theta_{ML} = arg max_\theta \space l_x(\theta)$
 * Goal)
   * Determine the parameter $\theta$ for which the probability of observing the outcome $x=x_1, x_2, ..., x_N$ as high as possible.
@@ -36,5 +36,5 @@
         * Commonly use the **logarithm likelihood function** (or the **log-likelihood-function**) for the useful properties of the log function.
           * $L_x(\theta) = \log{l_x(\theta)}$
           * Necessary but not sufficient condition for this.
-            * $\nabla_\theta l_x(\theta)|_{\theta=\theta_{ML}} = \nabla_\theta \log{L_x}(\theta)|_{\theta=\theta_{ML}}=0$
+            * $`\nabla_\theta l_x(\theta)|_{\theta=\theta_{ML}} = \nabla_\theta \log{L_x}(\theta)|_{\theta=\theta_{ML}}=0`$
               * where $`\nabla_\theta = \left[ \begin{array}{c} \frac{\partial}{\partial \theta_1} \\ \frac{\partial}{\partial \theta_2} \\ \vdots \\ \frac{\partial}{\partial \theta_r} \\  \end{array} \right]`$
