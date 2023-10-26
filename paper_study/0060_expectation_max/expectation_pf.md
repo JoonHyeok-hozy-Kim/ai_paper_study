@@ -2,8 +2,7 @@
 
 ## Prop. 1) 
 
-For $0 \lt i \lt n$,  
-$P(X_1+X_2 = y) = (p_1+p_2)^y$
+For $0 \lt i \lt n$, $P(X_1+X_2 = y) = (p_1+p_2)^y$
 * Why?)   
   $`\begin{array}{lcl} P(X_1+X_2 = y) & = & P(X_1=i, X_2=y-i) \\ &=& \Sigma_{x_1=0}^y \frac{(i+(y-i))!}{i!(y-i)!} p_1^i p_2^{y-i} \\&=& \Sigma_{x_1=0}^y \frac{y!}{i!(y-i)!} p_1^i p_2^{y-i} \\&=& (p_1+p_2)^y \end{array}`$
 
@@ -15,7 +14,7 @@ $P(X_1+X_2 = y) = (p_1+p_2)^y$
 * Then, $P(X_1=x_1, X_2=x_2, X_3=x_3) = \frac{(x_1+x_2+x_3)!}{x_1!x_2!x_3}p_1^{x_1}p_2^{x_2}p_3^{x_3}$
 * Let $Y=X_1+X_2$.   
 * Then, the probability $P(Y,X_3)$ can be determined as follows:   
-  $`\begin{array}{lcl} P(X_1+X_2=y, X_3=x_3) & = & \Sigma_{i=0}^y P(X_1=i, X_2=y-i, X_3=x_3) \\ & = & \frac{(y+x_3)!}{y!x_3!} p_3^{x_3} \Sigma_{i=0}^y \frac{y!}{i!(y-i)!} p_1^i p_2^{y-i} \\ & = & \frac{(y+x_3)!}{y!x_3!} {(p_1+p_2)}^y p_3^{x_3} \space (\because the \space binomial \space theorem) \end{array}`$    
+  $`\begin{array}{lcl} P(X_1+X_2=y, X_3=x_3) & = & \Sigma_{i=0}^y P(X_1=i, X_2=y-i, X_3=x_3) \\ & = & \frac{(y+x_3)!}{y!x_3!} p_3^{x_3} \Sigma_{i=0}^y \frac{y!}{i!(y-i)!} p_1^i p_2^{y-i} \space (\because \space Prop.1) \\ & = & \frac{(y+x_3)!}{y!x_3!} {(p_1+p_2)}^y p_3^{x_3} \space (\because the \space binomial \space theorem) \end{array}`$    
 * Thus, $(X_1+X_2, X_3)$ is binomial with class probabilities $(p_1+p_2, p_3)$.   
   * This can be generalized to multinomials!
 
@@ -40,4 +39,6 @@ $P(X_1+X_2 = y) = (p_1+p_2)^y$
     * Thus, $P(X_1=x_1, X_2=y-x_1) = \frac{(x_1+(y-x_1))!}{x_1!(y-x_1)!} p_1^{x_1} p_2^{y-x_1} = \frac{y!}{x_1!(y-x_1)!} p_1^{x_1} p_2^{y-x_1}$
   * Nominator : $P(Y=y)$ 
     * trinomial out of $n$ trials
-    * $P(Y=y) = P(X_1+X_2=y)$ 
+    * $P(Y=y) = P(X_1+X_2=y) = (p_1+p_2)^y$  
+      * Why?) Recall [Prop. 1](#prop-1)
+* Thus, $P(X_1=x_1 | Y=y) = \frac{\frac{y!}{x_1!(y-x_1)!} p_1^{x_1} p_2^{y-x_1}}{(p_1+p_2)^y}$
