@@ -26,7 +26,7 @@ An algorithm that consists of two steps that are repeated until the parameter es
   3. Some of the data are missing  
 * EM algorithm is ideally suited for these kinds of problems
   * why?)
-    * It produces maximum-likelihood(ML) estimates of parameters when there is a **many-to-one mapping** from an underlying distribution to the distribution governing the observation.
+    * It produces [maximum-likelihood(ML) estimates](maximum_likelihood.md) of parameters when there is a **many-to-one mapping** from an underlying distribution to the distribution governing the observation.
  
 
 <br>
