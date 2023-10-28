@@ -95,7 +95,92 @@ An algorithm that consists of two steps that are repeated until the parameter es
 
 <br><br>
 
-#### Def.) General Statement of the EM Algorithm
+### Def.) General Statement of the EM Algorithm
+#### Settings) EM Algorithm
+* $Y$ : the sample space of the observations
+  * $y \in \mathbb{R}^m$ : an observation from $Y$
+* $\chi$ : the underlying space
+  * $x \in \mathbb{R}^n$ : an outcome from $\chi$ with $m \lt n$
+    * The data $x$ is referred to as the *complete data*.
+    * The complete data $x$ is not observed directly, but only by means of $y$ where $y = y(x)$.
+      * $y(x)$ is a **many-to-one mapping**.
+  * An observation $y$ determines a subset of $\chi$, which is denoted as $\chi(y)$.   
+    ![](images/003.png)
+* Probability Density Function (pdf) of $x$
+  * $f_X(x|\theta)=f(x|\theta)$ 
+    * where $\theta \in \Theta \subset \mathbb{R}^r$ : the set of parameters of the density
+    * $f$ is assumed to be a continuous function of $\theta$ and appropriately differentiable.
+* The ML estimate of $\theta$ is assumed to lie within the region $\Theta$.
+* The pdf of the incomplete data 
+  * $g(y|\theta)=\int_{\chi(y)}f(x|\theta) dx$
+* The Likelihood Functions
+  * $l_y(\theta) = g(y|\theta)$
+  * $L_y(\theta) = \log{g(y|\theta)}$ : the log-likelihood function
+
+<br>
+
+#### Objective) EM Algorithm
+* Find $\theta$ to maximize $\log{f(x|\theta)}$.
+* However, we do not have the data $x$ to compute the log-likelihood.
+* Instead, maximize the expectation of $\log{f(x|\theta)}$ given the data $y$ and our current estimate of $\theta$.
+
+<br>
+
+#### Methodology) EM Algorithm
+- Concept) Two Steps
+  - E-Step 
+    - Compute $Q(\theta|\theta^{[k]}) = E[\log{f(x|\theta) \space | \space y, \theta^{[k]}}]$
+      - where $\theta$ conditions the likelihood of the complete data
+      - $\theta^{[k]}$ : the estimate of $\theta$ at the $k$-th iteration.
+        - Regarded as fixed and known at every E-Step.
+  - M-Step
+    - $\theta^{[k+1]}$ : the value of $\theta$ that maximizes $Q(\theta|\theta^{[k]})$
+      - i.e.) $\theta^{[k+1]} = argmax_\theta \space Q(\theta|\theta^{[k]})$
+    - The maximization is with respect to $\theta$, the conditioner of the complete data likelihood.
+- Application)
+  - Choose an initial $\theta^{[k]}$.
+  - Perform E-Step and M-Step successively until convergence.
+    - i.e.) Stop when $||\theta^{[k]}-\theta^{[k-1]} \lt \epsilon||, \exist \epsilon$
+
+<br>
+
+#### Tech.) Restriction to Distributions in the Exponential Family
+* pdf (or pmf)
+  * $f(x|\theta) = \frac{b(x) \space \exp{[c(\theta)^T t(x)]}}{a(\theta)}$
+    * where $t(x)$ : the *sufficient statistic* of the family.
+      * A statistic is *sufficient* if it provides all of the information necessary to estimate the parameters of the distribution from the data.
+* Members of the Exponential Family
+  * Gaussian
+  * Poisson
+  * Binomial
+  * Uniform
+  * Rayleigh
+* E-Step Representation
+  * $Q(\theta|\theta^{[k]}) = E[\log{b(x)} \space | \space y, \theta^{[k]}] + c(\theta)^T E[t(x) \space | \space y, \theta^{[k]}] - \log{a(\theta)}$
+    * Let $t^{[k+1]} = E[t(x) \space | \space y, \theta^{[k]}]$ : an estimate of the sufficient statistic
+  * Since $E[\log{b(x)} \space | \space y, \theta^{[k]}]$ does not depend on $\theta$, we can simplify the E-Step as follows.
+    * Compute $t^{[k+1]} = E[t(x) \space | \space y, \theta^{[k]}]$
+* M-Step Representation
+  * Maximize the following.
+    * $E[\log{b(x)} \space | \space y, \theta^{[k]}] + c(\theta)^T t^{[k+1]} - \log{a(\theta)}$
+  * Again, since $E[\log{b(x)} \space | \space y, \theta^{[k]}]$ does not depend on $\theta$, we can simplify the M-Step as follows.
+    * $\theta^{[k+1]} = argmax_\theta \space c(\theta)^T t^{[k+1]} - \log{a(\theta)}$
+
+<br>
+
+#### Props.) EM Algorithm
+* Simple
+  * Repeating E-Step and M-Step until the convergence.
+  * Still, computing expectation and performing maximization may be taxing.
+* Every iteration increases the likelihood function until the (local) maximum is reached.
+* Not necessary to compute gradients or Hessians
+* No need to set step-size parameters
+  * e.g.) Learning rate in the gradient descent algorithm
+
+<br><br>
+
+### Concept) Convergence of the EM Algorithm
+
 
 
 ---

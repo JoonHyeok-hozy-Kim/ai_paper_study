@@ -40,7 +40,7 @@
         <td>2-4</td><td><a href="./ch02/04/note.md">The Conditional Probability, Independence, and Bayes' Rule</a></td><td> Conditional Probalbility, Independence, Bayes' Rule </td>
     </tr>
     <tr>
-        <td>2-5</td><td><a href="./ch02/05/note.md">Random Variables and Probability Distributions</a></td><td> Random Variable, Probability Density Function, Cumulative Distribution Function </td>
+        <td>2-5</td><td><a href="./ch02/05/note.md">Random Variables and Probability Distributions</a></td><td> Random Variable, Probability Mass Function(pmf), Probability Density Function(pdf), Cumulative Distribution Function </td>
     </tr>
     <tr>
         <td>2-6</td><td><a href="./ch02/06/note.md">Moments and Moment-Generating Functions</a></td><td> Expected Value, Variance, Skewness, Kurtosis, Moment Generating Function(MGF) </td>
