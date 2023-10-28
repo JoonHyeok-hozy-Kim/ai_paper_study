@@ -68,7 +68,7 @@ Let $g(X)$ be a function of $X$, then the expected value of $g(X)$ is
 #### Theorem 2.6.3)
 ![](images/003.png)
 
-Recall the Maclaurin series of the function $e^{tx}$ is
+Recall the Maclaurin series of the function $e^{tx}$ is   
 ![](images/004.png)
 
 |Explanation|Equation|
