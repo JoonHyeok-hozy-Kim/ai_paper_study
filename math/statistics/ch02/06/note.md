@@ -75,7 +75,8 @@ Let $g(X)$ be a function of $X$, then the expected value of $g(X)$ is
 #### Ex. 1) Binomial Random Variable
 * $`p(x) = \left( \begin{array}{c} n \\ x \end{array} \right) p^x(1-p)^{n-x}`$ where $x=0,1,2, \dots, n$
 * Show that $M_X(t)=[(1-p)+pe^t]^n$
-  ![](images/011.png)
+
+![](images/011.png)
 
 <br>
 

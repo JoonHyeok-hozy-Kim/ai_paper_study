@@ -1,4 +1,4 @@
-* [Back to note](note.md)
+* [Back to note](note.md#theorem-263)
 
 <br>
 
@@ -32,4 +32,4 @@ Continuing in this manner, we obtain all the moments to be
 
 ---
 
-* [Back to note](note.md)
+* [Back to note](note.md#theorem-263)
