@@ -1,3 +1,8 @@
+* [Back to note](note.md)
+
+<br>
+
+---
 
 Recall the Maclaurin series of the function $e^{tx}$ is   
 
@@ -22,3 +27,9 @@ Taking the second derivative and evaluating at $t=0$,
 Continuing in this manner, we obtain all the moments to be   
 
 ![](./images/009.png)   
+
+<br>
+
+---
+
+* [Back to note](note.md)
