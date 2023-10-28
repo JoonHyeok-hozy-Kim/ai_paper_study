@@ -11,4 +11,5 @@
 ## 2. Concept Learning and The General-To-Specific Ordering
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|2.1|[A Concept Learning Task](./ch02/02/note.md)||
+|2.2|[A Concept Learning Task](./ch02/02/note.md)|Concept Learning, Positive Example, Negative Example, Hypothesis, Inductive Learning Hypothesis|
+|2.3|[Concept Learning as Search](./ch02/03/note.md)||
