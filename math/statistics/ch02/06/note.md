@@ -69,7 +69,7 @@ Let $g(X)$ be a function of $X$, then the expected value of $g(X)$ is
 ![](images/003.png)
 
 * Derivation
-  * Recall the Maclaurin series of the function $e^{tx}$ is   
+  * Recall the Maclaurin series of the function $e^{tx}$ is
     ![](images/004.png)
   * Thus, the MGF can be denoted as   
     ![](images/005.png)
