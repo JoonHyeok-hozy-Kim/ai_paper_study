@@ -68,13 +68,17 @@ Let $g(X)$ be a function of $X$, then the expected value of $g(X)$ is
 #### Theorem 2.6.3)
 ![](images/003.png)
 
-Recall the Maclaurin series of the function $e^{tx}$ is   
-![](images/004.png)
+Recall the Maclaurin series of the function $e^{tx}$ is
+Thus, the MGF can be denoted as
+Taking the derivative of the MGF, we obtain
+Evaluating the derivative at $t=0$, we have
+Taking the second derivative and evaluating at $t=0$,
+Continuing in this manner, we obtain all the moments to be
 
 |Explanation|Equation|
 |:----------|:-------|
 ||
-|Thus, the MGF can be denoted as|![](images/005.png)|
+||![](images/005.png)|
 |Taking the derivative of the MGF, we obtain|![](images/006.png)|
 |Evaluating the derivative at $t=0$, we have|![](images/007.png)|
 |Taking the second derivative and evaluating at $t=0$,|![](images/008.png)|
