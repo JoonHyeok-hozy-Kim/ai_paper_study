@@ -12,4 +12,4 @@
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
 |2.2|[A Concept Learning Task](./ch02/02/note.md)|Concept Learning, Positive Example, Negative Example, Hypothesis, Inductive Learning Hypothesis|
-|2.3|[Concept Learning as Search](./ch02/03/note.md)||
+|2.3|[Concept Learning as Search](./ch02/03/note.md)|Hypothesis Space, (Syntactically/Semantically) Distinct Hypotheses, General-To-Specific Ordering|
