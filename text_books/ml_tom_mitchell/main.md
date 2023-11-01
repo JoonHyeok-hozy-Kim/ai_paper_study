@@ -14,4 +14,4 @@
 |2.2|[A Concept Learning Task](./ch02/02/note.md)|Concept Learning, Positive Example, Negative Example, Hypothesis, Inductive Learning Hypothesis|
 |2.3|[Concept Learning as Search](./ch02/03/note.md)|Hypothesis Space, (Syntactically/Semantically) Distinct Hypotheses, General-To-Specific Ordering ($\geq_g$)|
 |2.4|[Find-S: Finding a Maximally Specific Hypothesis](./ch02/04/note.md)|Find-S Algorithm|
-|2.5|[Version Spaces and the Candidate-Elimination Algorithm](./ch02/05/note.md)|Candidate-Elimination Algorithm|
+|2.5|[Version Spaces and the Candidate-Elimination Algorithm](./ch02/05/note.md)|Consistency, Version Space, List-Then-Elimination Algorithm, Candidate-Elimination Algorithm, General Boundary, Specific Boundary, Version Space Representation Theorem|
