@@ -19,9 +19,10 @@
   * $Consistent(h, D) \equiv h(x)=c(x), \forall \langle x, c(x) \rangle$
     * where $c$ is the target concept.
 * Prop.)
-  * Consistency is different from the [satisfaction](../03/note.md#def-satisfaction).
-    * Consistency : $h(x)=c(x)$
-    * Satisfaction : $h(x)=1$
+  * Consistency $\ne$ [Satisfaction](../03/note.md#def-satisfaction).
+    * why?)
+      * Consistency : $h(x)=c(x)$
+      * Satisfaction : $h(x)=1$
 
 <br>
 
@@ -87,6 +88,7 @@
     * $H$ : a set of boolean-valued hypotheses defined over $X$
     * $c:X\rightarrow \lbrace 0,1 \rbrace$ : an arbitrary target concept defined over $X$
     * $D$ : an arbitrary set of training examples $\lbrace \langle x, c(x) \rangle \rbrace$
+    * $VS_{H,D}$ : a version space with regard to $H$ and $D$
     * $S$ : a specific boundary
     * $G$ : a general boundary
   * Then...
@@ -98,13 +100,13 @@
      3. Thus, $h$ must be satisfied by all positive examples in $D$. $(\because h \ge_g s)$
      4. Also, by [definition](#concept-general-boundary), $g$ must not be satisfied by any negative examples in $D$.
      5. Hence, $h$ must not be satisfied by any negative examples in $D$. $(\because g \ge_g h)$
-     6. Therefore, "$h$ is [consistent](#concept-consistency) with $D$" $\Longleftrightarrow$ "$h \in VS_{H,D}$."
+     6. Therefore, $h$ is [consistent](#concept-consistency) with $D$ $\Longleftrightarrow$ $h \in VS_{H,D}$.
         - i.e.) $h$ is satisfied by all positive examples and not satisfied by any negative examples.
   2. Show that every member of $VS_{H,D}$ satisfies the right-hand side of the expression
-     1. Suppose not, i.e. $h \in VS_{H,D}$ does not satisfy the right hand side expression.
+     1. Suppose not, i.e. for $h \in VS_{H,D}$, ($\nexists s \in S$) or ($\nexists g \in G$) such that $g \ge_g h \ge_g s$
      2. Consider that $S, G \subset VS_{H,D}$.
      3. Also consider that if $VS_{H,D}$ is not empty, then $S$ and $G$ must have at least one element respectively.
-     4. Thus, there can be following cases for $h \in VS_{H,D}$.
+     4. Then, there can be following cases for $h \in VS_{H,D}$.
         1. $h \in S$ and $h \in G \dots \otimes$
         2. $h \notin S$ and $h \in G$
            - Then $\exists s \in S$ such that $s \lt_g h \dots \otimes$
@@ -112,6 +114,35 @@
            - Then $\exists g \in G$ such that $g \gt_g h \dots \otimes$
         4. $h \notin S$ and $h \notin G$ 
            - Then $\exists s \in S, \exists g \in G$ such that $g \gt_g h \gt_g s \dots \otimes$
+
+<br><br>
+
+### 2.5.4 Candidate-Elimination Learning Algorithm
+* Goal)
+  * Compute the version space containing **all hypotheses** from $H$ that are consistent with an observed sequence of training examples in $D$.
+- How?)
+  1. Initialize $S$ and $G$.
+     - $G_0 \leftarrow \lbrace \langle ?, ?, ?, ?, ?, ? \rangle \rbrace$ : the most general hypothesis
+     - $S_0 \leftarrow \lbrace \langle \empty, \empty, \empty, \empty, \empty, \empty \rangle \rbrace$ : the most specific hypothesis
+       - Then, $\forall h \in H, S_0 \le_g h \le_g G_0$
+  2. For $d$ in $D$, do...
+     - If $d$ is a positive example...
+       1. Remove from $G$ any hypothesis inconsistent with $d$.
+       2. For each hypothesis $s$ in $S$, that is inconsistent with $d$,
+          1. Remove $s$ from $S$.
+          2. Add to $S$ all minimal **generalizations** $h$ of $s$ such that...
+             1. $h$ is inconsistent with $d$.
+             2. Some member of $G$ is more general than $h$.
+          3. Remove from $S$ any hypothesis that is more general than another hypothesis in $S$.
+     - If $d$ is a negative example...
+       1. Remove from $S$ any hypothesis inconsistent with $d$.
+       2. For each hypothesis $g$ in $G$, that is inconsistent with $d$,
+          1. Remove $g$ from $G$.
+          2. Add to $G$ all minimal **specializations** $h$ of $g$ such that...
+             1. $h$ is inconsistent with $d$.
+             2. Some member of $S$ is more specific than $h$.
+          3. Remove from $G$ any hypothesis that is more specific than another hypothesis in $G$.
+
 
 <br>
 

@@ -53,7 +53,10 @@ Let $h_j$ and $h_k$ be boolean-valued functions defined over $X$. Then $h_j$ is
 * The $\geq_g$ relation defines a **partial order** over the hypothesis space $H$.
   * Def.) Partial Order
     * An order of structure that there may be pairs of hypotheses such as $h_1$ and $h_3$ such that $h_1 \ngeq_g h_3$ and $h_1 \nleq_g h_3$
-    ![](images/001.png)
+
+![](images/001.png)
+
+
 * The $\geq_g$ and $\gt_g$ relations are defined independent of the target concept.
   * They depend only on which instances satisfy the two hypotheses.
   * They are independent of the classification of those instances according to the target concept.

@@ -26,8 +26,10 @@
 
 #### Example) Find-S Algorithm
 * Recall the [EnjoySport](../02/note.md#example-enjoysport) task.   
-* Suppose following training examples are available.
-  ![](../02/images/001.png)   
+* Suppose following training examples are available.   
+
+![](../02/images/001.png)   
+
 * Simulation
   1. Initialize $h$ to the most specific hypothesis in H.
      - $h \leftarrow \langle \emptyset,\emptyset,\emptyset,\emptyset,\emptyset,\emptyset, \rangle$
