@@ -123,7 +123,7 @@
 - How?)
   1. Initialize $S$ and $G$.
      - $G_0 \leftarrow \lbrace \langle ?, ?, ?, ?, ?, ? \rangle \rbrace$ : the most general hypothesis
-     - $S_0 \leftarrow \lbrace \langle \empty, \empty, \empty, \empty, \empty, \empty \rangle \rbrace$ : the most specific hypothesis
+     - $`S_0 \leftarrow \lbrace \langle \empty, \empty, \empty, \empty, \empty, \empty \rangle \rbrace`$ : the most specific hypothesis
        - Then, $\forall h \in H, S_0 \le_g h \le_g G_0$
   2. For $d$ in $D$, do...
      - If $d$ is a positive example...
@@ -150,7 +150,7 @@
 
 |Phase|$d$|$S$|$G$|
 |:---:|:-:|:-:|:-:|
-|Initial|-|$\lbrace \langle \empty, \empty, \empty, \empty, \empty, \empty \rangle \rbrace$|$\lbrace \langle ?, ?, ?, ?, ?, ? \rangle \rbrace$|
+|Initial|-|$`\lbrace \langle \empty, \empty, \empty, \empty, \empty, \empty \rangle \rbrace`$|$\lbrace \langle ?, ?, ?, ?, ?, ? \rangle \rbrace$|
 |Ex 1|Pos|||
 |Ex 2|Pos|||
 |Ex 3|Neg|||
