@@ -20,7 +20,7 @@ Inferring a boolean-valued function from training examples of its input and outp
     - ex.) A hypothesis with six attributes
       - \<?, cold, high, ?, ?, ?, ?\>
       - \<?, ?, ?, ?, ?, ?, ?\>
-      - \<$\emptyset$, $\emptyset$, $\emptyset$, $\emptyset$, $\emptyset$, $\emptyset$, $\emptyset$\>
+      - \<$\emptyset$, $\emptyset$, $\emptyset$, $\emptyset$, $\emptyset$, $\emptyset$, $\emptyset$>
 
 <br>
 

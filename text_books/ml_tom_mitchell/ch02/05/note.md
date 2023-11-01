@@ -13,7 +13,8 @@
 #### Def.) Consistency
   * A hypothesis $h$ is consistent with a set of training examples $D$ if and only if $h(x) = c(x)$ for each example $\langle x, c(x) \rangle$ in $D$.
     * $Consistent(h, D) \equiv h(x)=c(x), \forall \langle x, c(x) \rangle$
-  * A hypothesis is consistent with the training examples if it correctly classifies these examples
+      * where $c$ is the target concept.
+    * i.e.) A hypothesis is consistent with the training examples if it correctly classifies these examples
 
 
 
