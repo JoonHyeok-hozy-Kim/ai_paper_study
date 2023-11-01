@@ -180,7 +180,20 @@ An algorithm that consists of two steps that are repeated until the parameter es
 <br><br>
 
 ### Concept) Convergence of the EM Algorithm
-
+* EM Algorithm always achieves a **local maximum**.
+  * At every iteration of the EM Algorithm, the algorithm computes the parameters in the way that the likelihood function does not decrease.
+    * This will be repeated until a local maximum is achieved.
+      * i.e.) The likelihood cannot increase anymore.
+* EM Algorithm does not guarantee the **global maximum**.
+  * The convergence will be a local maximum that depends on the initial starting point $\theta^{[0]}$
+* Convergence Rate
+  * EM Algorithm's convergence rate is slower than that of the quadratic convergence typically available with a Newton's-type method.
+  * But Newton's rapid convergence is limited to a certain condition.
+    * For exponential families, convergence near the maximum depends upon the eigenvalues of the Hessian of the update function M.
+  * Advantages of EM over Newton
+    * No need to compute Hessian
+    * No chance of overshooting
+    * Guaranteed to be stable and to converge to an ML estimate.
 
 
 ---
