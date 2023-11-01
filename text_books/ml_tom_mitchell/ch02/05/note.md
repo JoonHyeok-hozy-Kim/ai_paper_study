@@ -131,7 +131,7 @@
        2. For each hypothesis $s$ in $S$, that is inconsistent with $d$,
           1. Remove $s$ from $S$.
           2. Add to $S$ all minimal **generalizations** $h$ of $s$ such that...
-             1. $h$ is inconsistent with $d$.
+             1. $h$ is consistent with $d$.
              2. Some member of $G$ is more general than $h$.
           3. Remove from $S$ any hypothesis that is more general than another hypothesis in $S$.
      - If $d$ is a negative example...
@@ -139,9 +139,22 @@
        2. For each hypothesis $g$ in $G$, that is inconsistent with $d$,
           1. Remove $g$ from $G$.
           2. Add to $G$ all minimal **specializations** $h$ of $g$ such that...
-             1. $h$ is inconsistent with $d$.
+             1. $h$ is consistent with $d$.
              2. Some member of $S$ is more specific than $h$.
           3. Remove from $G$ any hypothesis that is more specific than another hypothesis in $G$.
+
+<br>
+
+### 2.5.5 An Illustrative Example
+![](../02/images/001.png)   
+
+|Phase|$d$|$S$|$G$|
+|:---:|:-:|:-:|:-:|
+|Initial|-|$\lbrace \langle \empty, \empty, \empty, \empty, \empty, \empty \rangle \rbrace$|$\lbrace \langle ?, ?, ?, ?, ?, ? \rangle \rbrace$|
+|Ex 1|Pos|||
+|Ex 2|Pos|||
+|Ex 3|Neg|||
+|Ex 4|Pos|||
 
 
 <br>
