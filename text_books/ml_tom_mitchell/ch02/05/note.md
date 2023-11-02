@@ -114,7 +114,7 @@
            - Then $\exists g \in G$ such that $g \gt_g h \dots \otimes$
         4. $h \notin S$ and $h \notin G$ 
            - Then $\exists s \in S, \exists g \in G$ such that $g \gt_g h \gt_g s \dots \otimes$
-
+cleansed
 <br><br>
 
 ### 2.5.4 Candidate-Elimination Learning Algorithm
@@ -142,6 +142,19 @@
              1. $h$ is consistent with $d$.
              2. Some member of $S$ is more specific than $h$.
           3. Remove from $G$ any hypothesis that is more specific than another hypothesis in $G$.
+* Explanation
+  1. $d$ is a positive example
+     - Why generalize $S$?
+       - $S$ is incorrectly predicting that $d$ is negative.
+         - i.e. overly specific
+       - By generalizing $S$ with regard to $d$, $S$ can work as a Specific Boundary that properly predicting that $d$ is positive.
+  2. $d$ is a negative example
+     - Why specialize $G$?
+       - $S$ is incorrectly predicting that $d$ is positive.
+         - i.e. overly general
+       - By specifying $G$ with regard to $d$, $G$ can work as a General Boundary that properly predicting that $d$ is negative.
+  
+
 
 <br>
 
@@ -150,11 +163,11 @@
 
 |Phase|$d$|$S$|$G$|
 |:---:|:-:|:-:|:-:|
-|Initial|-|$\lbrace \langle \emptyset, \emptyset, \emptyset, \emptyset, \emptyset, \emptyset \rangle \rbrace$|$\lbrace \langle ?, ?, ?, ?, ?, ? \rangle \rbrace$|
-|Ex 1|Pos|||
-|Ex 2|Pos|||
-|Ex 3|Neg|||
-|Ex 4|Pos|||
+|Initial|-|$\left\lbrace \langle \emptyset, \emptyset, \emptyset, \emptyset, \emptyset, \emptyset \rangle \right\rbrace$|$\left\lbrace \langle ?, ?, ?, ?, ?, ? \rangle \right\rbrace$|
+|Ex 1|Pos|$\left\lbrace \langle Sunny, Warm, Normal, Strong, Warm, Same \rangle \right\rbrace$|$\left\lbrace \langle ?, ?, ?, ?, ?, ? \rangle \right\rbrace$|
+|Ex 2|Pos|$\left\lbrace \langle Sunny, Warm, ?, Strong, Warm, Same \rangle \right\rbrace$|$\left\lbrace \langle ?, ?, ?, ?, ?, ? \rangle \right\rbrace$|
+|Ex 3|Neg|$\left\lbrace \right\rbrace$|$\left\lbrace \begin{array}{c} \langle ?, ?, ?, ?, ?, ? \rangle \\ \langle ?, ?, ?, ?, ?, ? \rangle \\ \langle ?, ?, ?, ?, ?, ? \rangle \end{array} \right\rbrace$|
+|Ex 4|Pos|$\left\lbrace \right\rbrace$||
 
 
 <br>
