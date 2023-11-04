@@ -166,8 +166,8 @@ cleansed
 |Initial|-|$\left\lbrace \langle \emptyset, \emptyset, \emptyset, \emptyset, \emptyset, \emptyset \rangle \right\rbrace$|$\left\lbrace \langle ?, ?, ?, ?, ?, ? \rangle \right\rbrace$|
 |Ex 1|Pos|$\left\lbrace \langle Sunny, Warm, Normal, Strong, Warm, Same \rangle \right\rbrace$|$\left\lbrace \langle ?, ?, ?, ?, ?, ? \rangle \right\rbrace$|
 |Ex 2|Pos|$\left\lbrace \langle Sunny, Warm, ?, Strong, Warm, Same \rangle \right\rbrace$|$\left\lbrace \langle ?, ?, ?, ?, ?, ? \rangle \right\rbrace$|
-|Ex 3|Neg|$\left\lbrace \right\rbrace$|$\left\lbrace \begin{array}{c} \langle ?, ?, ?, ?, ?, ? \rangle \\ \langle ?, ?, ?, ?, ?, ? \rangle \\ \langle ?, ?, ?, ?, ?, ? \rangle \end{array} \right\rbrace$|
-|Ex 4|Pos|$\left\lbrace \right\rbrace$||
+|Ex 3|Neg|$\left\lbrace \langle Sunny, Warm, ?, Strong, Warm, Same \rangle \right\rbrace$|$`\left\lbrace \begin{array}{c} \langle Sunny, ?, ?, ?, ?, ? \rangle \\ \langle ?, Warm, ?, ?, ?, ? \rangle \\ \langle ?, ?, ?, ?, ?, Same \rangle \end{array} \right\rbrace`$|
+|Ex 4|Pos|$\left\lbrace \langle Sunny, Warm, ?, Strong, ?, ? \rangle \right\rbrace$|$`\left\lbrace \begin{array}{c} \langle Sunny, ?, ?, ?, ?, ? \rangle \\ \langle ?, Warm, ?, ?, ?, ? \rangle \end{array} \right\rbrace`$|
 
 
 <br>
