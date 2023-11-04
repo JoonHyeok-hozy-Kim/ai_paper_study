@@ -15,3 +15,5 @@
 |2.3|[Concept Learning as Search](./ch02/03/note.md)|Hypothesis Space, (Syntactically/Semantically) Distinct Hypotheses, General-To-Specific Ordering ($\geq_g$)|
 |2.4|[Find-S: Finding a Maximally Specific Hypothesis](./ch02/04/note.md)|Find-S Algorithm|
 |2.5|[Version Spaces and the Candidate-Elimination Algorithm](./ch02/05/note.md)|Consistency, Version Space, List-Then-Elimination Algorithm, Candidate-Elimination Algorithm, General Boundary, Specific Boundary, Version Space Representation Theorem|
+|2.6|[Remarks on Version Spaces and Candidate-Elimination](ch02/06/note.md)|Query|
+|2.7|[Inductive Bias](ch02/07/note.md)||
