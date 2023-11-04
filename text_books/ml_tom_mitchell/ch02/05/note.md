@@ -161,13 +161,13 @@ cleansed
 ### 2.5.5 An Illustrative Example
 ![](../02/images/001.png)   
 
-|Phase|$d$|$S$|$G$|
-|:---:|:-:|:-:|:-:|
-|Initial|-|$\left\lbrace \langle \emptyset, \emptyset, \emptyset, \emptyset, \emptyset, \emptyset \rangle \right\rbrace$|$\left\lbrace \langle ?, ?, ?, ?, ?, ? \rangle \right\rbrace$|
-|Ex 1|Pos|$\left\lbrace \langle Sunny, Warm, Normal, Strong, Warm, Same \rangle \right\rbrace$|$\left\lbrace \langle ?, ?, ?, ?, ?, ? \rangle \right\rbrace$|
-|Ex 2|Pos|$\left\lbrace \langle Sunny, Warm, ?, Strong, Warm, Same \rangle \right\rbrace$|$\left\lbrace \langle ?, ?, ?, ?, ?, ? \rangle \right\rbrace$|
-|Ex 3|Neg|$\left\lbrace \langle Sunny, Warm, ?, Strong, Warm, Same \rangle \right\rbrace$|$`\left\lbrace \begin{array}{c} \langle Sunny, ?, ?, ?, ?, ? \rangle \\ \langle ?, Warm, ?, ?, ?, ? \rangle \\ \langle ?, ?, ?, ?, ?, Same \rangle \end{array} \right\rbrace`$|
-|Ex 4|Pos|$\left\lbrace \langle Sunny, Warm, ?, Strong, ?, ? \rangle \right\rbrace$|$`\left\lbrace \begin{array}{c} \langle Sunny, ?, ?, ?, ?, ? \rangle \\ \langle ?, Warm, ?, ?, ?, ? \rangle \end{array} \right\rbrace`$|
+|Phase|$d$|$S$|$G$|Why?|
+|:---:|:-:|:-:|:-:|:---|
+|Initial|-|$\left\lbrace \langle \emptyset, \emptyset, \emptyset, \emptyset, \emptyset, \emptyset \rangle \right\rbrace$|$\left\lbrace \langle ?, ?, ?, ?, ?, ? \rangle \right\rbrace$|Initialized.|
+|Ex 1|Pos|$\left\lbrace \langle Sunny, Warm, Normal, Strong, Warm, Same \rangle \right\rbrace$|$\left\lbrace \langle ?, ?, ?, ?, ?, ? \rangle \right\rbrace$||
+|Ex 2|Pos|$\left\lbrace \langle Sunny, Warm, ?, Strong, Warm, Same \rangle \right\rbrace$|$\left\lbrace \langle ?, ?, ?, ?, ?, ? \rangle \right\rbrace$|Generalized the attribute Humidity.|
+|Ex 3|Neg|$\left\lbrace \langle Sunny, Warm, ?, Strong, Warm, Same \rangle \right\rbrace$|$`\left\lbrace \begin{array}{c} \langle Sunny, ?, ?, ?, ?, ? \rangle \\ \langle ?, Warm, ?, ?, ?, ? \rangle \\ \langle ?, ?, ?, ?, ?, Same \rangle \end{array} \right\rbrace`$|Specialized the attribute Sky, AirTemp, and Forecast, which are consistent.|
+|Ex 4|Pos|$\left\lbrace \langle Sunny, Warm, ?, Strong, ?, ? \rangle \right\rbrace$|$`\left\lbrace \begin{array}{c} \langle Sunny, ?, ?, ?, ?, ? \rangle \\ \langle ?, Warm, ?, ?, ?, ? \rangle \end{array} \right\rbrace`$|Generalized Water and Forecast. Discarded the specialization for Forecast, which is inconsistent with the Ex4.|
 
 
 <br>
