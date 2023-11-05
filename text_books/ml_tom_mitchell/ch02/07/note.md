@@ -28,14 +28,14 @@
 Let $X$ be the instances denoted as a set.   
 The *power set* of $X$ is the set of all subsets of $X$.
 - e.g.) [Previous EnjoySport Example](../02/note.md#example-enjoysport)
-  - the size of the instance space is 96.
+  - The size of the instance space is 96.
     - why?)   
       - Four days
       - Six attributes with possible values of...   
         |Sky(3)|AirTemp(2)|Humidity(2)|Wind(2)|Water(2)|Forecast(2)|
         |:-:|:-:|:-:|:-:|:-:|:-:|
         |Sunny <br> Cloudy <br> Rainy|Warm <br> Cold|High <br> Normal|Strong <br> Weak|Warm <br> Cool|Same <br> Change|
-      - Thus, $4*(3*2*2*2*2*2)=96$.
+      - Thus, $`4*(3*2*2*2*2*2)=96`$.
 
 
 
