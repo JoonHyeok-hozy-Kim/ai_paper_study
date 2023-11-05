@@ -106,7 +106,9 @@ An algorithm that consists of two steps that are repeated until the parameter es
     * The complete data $x$ is not observed directly, but only by means of $y$ where $y = y(x)$.
       * $y(x)$ is a **many-to-one mapping**.
   * An observation $y$ determines a subset of $\chi$, which is denoted as $\chi(y)$.   
-    ![](images/003.png)
+
+![](images/003.png)
+
 * Probability Density Function (pdf) of $x$
   * $f_X(x|\theta)=f(x|\theta)$ 
     * where $\theta \in \Theta \subset \mathbb{R}^r$ : the set of parameters of the density
@@ -141,7 +143,7 @@ An algorithm that consists of two steps that are repeated until the parameter es
 - Application)
   - Choose an initial $\theta^{[k]}$.
   - Perform E-Step and M-Step successively until convergence.
-    - i.e.) Stop when $||\theta^{[k]}-\theta^{[k-1]} \lt \epsilon||, \exist \epsilon$
+    - i.e.) Stop when $||\theta^{[k]}-\theta^{[k-1]} \lt \epsilon||, \exists \epsilon$
 
 <br>
 
