@@ -90,7 +90,7 @@ An algorithm that consists of two steps that are repeated until the parameter es
          * Compute $p^{[k+2]}$ using $x_1^{[k+2]}$ and $x_2^{[k+2]}$
          * And so on...
   * cf.) Faster computation
-    * Expectation and Maximization in above case can be done using the following one-step formula.   
+    * Expectation and Maximization in above case can be done using the following one-step formula.    
       ![](images/002.png) 
 
 <br><br>
