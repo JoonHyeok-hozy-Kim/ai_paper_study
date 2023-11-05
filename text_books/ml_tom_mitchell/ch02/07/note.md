@@ -1,7 +1,7 @@
 * [Back to Machine Learning Tom Mitchell Main](../../main.md)
 
 # 2.7 Inductive Bias
-#### Some questions about the Candidate-Elimination algorithm
+### Some questions about the Candidate-Elimination algorithm
 * Recall that the [Candidate-Elimination algorithm](../05/note.md#254-candidate-elimination-learning-algorithm) will converge toward the true target concept under the following two conditions.
   1. Training examples are accurate.
   2. **Its initial hypothesis space contains the target concept.**
@@ -24,7 +24,7 @@
 <br><br>
 
 ## 2.7.2 An Unbiased Learner
-#### Concept) Power Set
+### Concept) Power Set
 Let $X$ be the instances denoted as a set.   
 Then, the *power set* of $X$ is the set of all subsets of $X$.
 - Prop.) The Sizes
@@ -55,7 +55,7 @@ The size of the conjunctive hypothesis space minute compared to the size of the 
 
 <br>
 
-#### Concept) Training an Unbiased Learner
+### Concept) Training an Unbiased Learner
 - How?)
   - Specific Boundary : Disjunction of all positive example
   - General Boundary : Rule out all negative examples
@@ -78,7 +78,7 @@ The size of the conjunctive hypothesis space minute compared to the size of the 
 <br><br>
 
 ## 2.7.3 The Futility of Bias-Free Learning
-#### Prop.) A Fundamental Property of Inductive Inference
+### Prop.) A Fundamental Property of Inductive Inference
 A learner that makes no a priori assumptions regarding the identity of the target concept has no rational basis for classifying any unseen instances.
 * cf.) Then how did the Candidate-Elimination algorithm generalize beyond the original example?
   * The algorithm was **biased** by the implicit assumption that the target concept could be represented by a **conjunction of attribute values**.
@@ -87,7 +87,7 @@ A learner that makes no a priori assumptions regarding the identity of the targe
 
 <br>
 
-#### Notations)
+#### Notations) Induction & Deduction
 * $y \succ z$ 
   * $z$ is inductively inferred from $y$.
 * $y \vdash z$ 
@@ -96,15 +96,44 @@ A learner that makes no a priori assumptions regarding the identity of the targe
 
 <br>
 
-#### Def.) Inductive Bias
+### Def.) Inductive Bias
 * Settings)
   * $L$ : an arbitrary learning algorithm for the set of instances $X$
   * $c$ : an arbitrary concept defined over $X$.
   * $D_c = \lbrace \langle x, c(x) \rangle \rbrace$ : an arbitrary set of training data of $c$.
   * $L(x_i, D_c)$ : the classification that $L$ assigns to an instance $x_i$ after learning from the training data $D_c$.
     * Then, $(D_c \wedge x_i) \succ L(x_i, D_c)$.
-* Then, the *inductive bias of* $L$ is any minimal set of assertions $B$ such that for any target concept $c$ and corresponding training examples $D_c$.
-  * $(\forall x_i \in X)[(B \wedge D_c \wedge x_i) \vdash L(x_i, D_c)]$
+* Then, the *inductive bias of* $L$ is any minimal set of assertions $B$ 
+  * such that for any target concept $c$ and corresponding training examples $D_c$
+    * $(\forall x_i \in X)[(B \wedge D_c \wedge x_i) \vdash L(x_i, D_c)]$
+
+<br>
+
+#### e.g.) Inductive Bias of the Candidate-Elimination Algorithm
+For $L$ : the Candidate-Elimination algorithm, $B=\lbrace c \in H \rbrace$
+* Why?)
+  1. If $c \in H$, then $c \in VS_{H, D_c}$
+     * Why?)
+       * Recall [the definition of the version space](../05/note.d#concept-version-space).
+         * i.e.) the subset of hypotheses from $H$ [consistent](../05/note.md#concept-consistency) with the training examples in $D_c$.
+       * Additionally, we assumed that $D_c = \lbrace \langle x, c(x) \rangle \rbrace$.
+       * Therefore, $c \in VS_{H, D_c}$
+  2. $c(x_i)=L(x_i,D_c)$
+     * Why?)
+       * Recall that we defined the classification $L(x_i, D_c)$ to be the unanimous vote of all hypotheses in the version space.
+       * Thus, if $L$ outputs the classification $L(x_i, D_c)$, it must be the case the every hypothesis in $VS_{H, D_c}$ also produces this classification.
+       * If $c \in H$ then it means that $c \in VS_{H, D_c}$.
+* Schematic Summary
+  ![](images/002.png)
+  - Explanation
+    1. Inductive System
+       - Input : $D_c$, $x_i$
+    2. Deductive System
+       - Input : $D_c$, $x_i$, $B$
+         - cf.) $B$ is implicitly in the code of the Candidate-Elimination algorithm.
+
+
+
 
 
 <br>
