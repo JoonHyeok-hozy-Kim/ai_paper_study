@@ -26,22 +26,85 @@
 ## 2.7.2 An Unbiased Learner
 #### Concept) Power Set
 Let $X$ be the instances denoted as a set.   
-The *power set* of $X$ is the set of all subsets of $X$.
+Then, the *power set* of $X$ is the set of all subsets of $X$.
+- Prop.) The Sizes
+  - $|X|$ : the size of a instance set $X$
+    - $`|X| =`$ (number of examples) $`* \Pi_{i}{n_i}`$.
+      - where $n_i$ is the number of possible values that the $i$-th attribute $x_i$ can have
+  - The Size of the Power Set
+    - (the number of distinct subsets of $X$) = $2^{|X|}$
+  - The size of the conjunctive hypothesis space is $\Pi_i{(n_i+1)}+1$.
+    - [why?) Recall 2.3.](../03/note.md#concept-hypothesis-space)
+
+<br>
+
+#### Prop.) Conjunctive Hypothesis Space is Biased.
+The size of the conjunctive hypothesis space minute compared to the size of the power set of $X$.
 - e.g.) [Previous EnjoySport Example](../02/note.md#example-enjoysport)
-  - The size of the instance space is 96.
-    - why?)   
+  - $|X|=96$
+    - $` \because 4*(3*2*2*2*2*2)=96`$.
       - Four days
       - Six attributes with possible values of...   
         |Sky(3)|AirTemp(2)|Humidity(2)|Wind(2)|Water(2)|Forecast(2)|
         |:-:|:-:|:-:|:-:|:-:|:-:|
         |Sunny <br> Cloudy <br> Rainy|Warm <br> Cold|High <br> Normal|Strong <br> Weak|Warm <br> Cool|Same <br> Change|
-      - Thus, $`4*(3*2*2*2*2*2)=96`$.
+  - The size of the power set is $2^{96} \approx 10^{28}$
+  - The size of the conjunctive hypothesis space is 973
+    - $` \because (3+1)*(2+1)*(2+1)*(2+1)*(2+1)*(2+1)+1=973`$
+  - Therefore, $2^{96} \gg 973$
+
+<br>
+
+#### Concept) Training an Unbiased Learner
+- How?)
+  - Specific Boundary : Disjunction of all positive example
+  - General Boundary : Rule out all negative examples
+- e.g.)
+  - Let $x_1, x_2$, and $x_3$ be the positive example and $x_4$ and $x_5$ be the negative.
+  - Then...
+    - $S : \lbrace (x_1 \vee x_2 \vee x_3) \rbrace$
+    - $G : \lbrace \sim(x_4 \wedge x_5) \rbrace$
+- Problem)
+  - In order to converge to a single, final target concept, we will have to present every single instance in $X$ as a training example.
+    - Why?)
+      - $S$ and $G$ are simply the disjunction and the negated disjunction of the observed examples.
+      - Thus, the only examples that will be unambiguously classified by $S$ and $G$ are the observed training examples themselves.
+      - Voting will not work.
+        - Each unobserved instance will be classified positive by precisely half the hypotheses in the version space and will be classified negative by the other half.
+          - why?)
+            - For $h \in H$ that covers an example $x$. ($h$ predicts $x$ is positive.)
+            - $\exists h' \in H$ that is identical to $h$ except for its classification of $x$. ($h'$ predicts $x$ is negative.)
+
+<br><br>
+
+## 2.7.3 The Futility of Bias-Free Learning
+#### Prop.) A Fundamental Property of Inductive Inference
+A learner that makes no a priori assumptions regarding the identity of the target concept has no rational basis for classifying any unseen instances.
+* cf.) Then how did the Candidate-Elimination algorithm generalize beyond the original example?
+  * The algorithm was **biased** by the implicit assumption that the target concept could be represented by a **conjunction of attribute values**.
+  * Thus, as long as the assumption that "the training examples are error-free" is correct, its classification of new instances will be correct as well.
+  * But in reality, the training examples are NOT error-free.
+
+<br>
+
+#### Notations)
+* $y \succ z$ 
+  * $z$ is inductively inferred from $y$.
+* $y \vdash z$ 
+  * $z$ follows deductively from $y$.
 
 
+<br>
 
-
-
-
+#### Def.) Inductive Bias
+* Settings)
+  * $L$ : an arbitrary learning algorithm for the set of instances $X$
+  * $c$ : an arbitrary concept defined over $X$.
+  * $D_c = \lbrace \langle x, c(x) \rangle \rbrace$ : an arbitrary set of training data of $c$.
+  * $L(x_i, D_c)$ : the classification that $L$ assigns to an instance $x_i$ after learning from the training data $D_c$.
+    * Then, $(D_c \wedge x_i) \succ L(x_i, D_c)$.
+* Then, the *inductive bias of* $L$ is any minimal set of assertions $B$ such that for any target concept $c$ and corresponding training examples $D_c$.
+  * $(\forall x_i \in X)[(B \wedge D_c \wedge x_i) \vdash L(x_i, D_c)]$
 
 
 <br>
