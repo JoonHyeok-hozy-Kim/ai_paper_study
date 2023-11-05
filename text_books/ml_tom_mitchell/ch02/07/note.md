@@ -133,6 +133,27 @@ For $L$ : the Candidate-Elimination algorithm, $B=\lbrace c \in H \rbrace$
          - cf.) $B$ is implicitly in the code of the Candidate-Elimination algorithm.
 
 
+<br>
+
+#### Prop.) Advantage of Viewing Inductive Inference Systems in Terms of their Inductive Bias
+1. It provides a nonprocedural means of characterizing their policies for generalizing beyond the observed data.
+2. It allows comparison of different learners according to the strength of the inductive 
+bias they employ.
+   - e.g.)
+     |Learning Algorithm($L$)|Property|Inductive Bias($B$)|
+     |:-----------------:|:-------|:-----------------|
+     |Rote-Learner|- Simply store each observed training example in memory. <br> - If the instance is found in memory, the stored classification is returned. <br> - Otherwise, the system refuses to classify the new instance.|No bias|
+     |Candidate-Elimination|- New instances are classified only in the case where all members of the current version space agree on the classification. <br> - Otherwise, the system refuses to classify the new instance. |The target concept can be represented in its hypothesis space.|
+     |Find-S|Finds the most specific hypothesis consistent with the training examples.|- The target concept can be described in its hypothesis space <br> - All instances are negative instances unless the opposite is entailed by its other know1edge|
+
+- More strongly biased methods make more inductive leaps, classifying a greater 
+proportion of unseen instances.
+- Some inductive biases correspond to categorical assumptions that completely rule out certain concepts.
+  - e.g.) "The hypothesis space $H$ includes the target concept."
+- Other inductive biases merely rank order the hypotheses by stating preferences.
+  - e.g.) "More specific hypotheses are preferred over more general hypotheses."
+- Some biases are implicit in the learner and are unchangeable by the learner.
+  - e.g.) the Candidate-Elimination algorithm
 
 
 

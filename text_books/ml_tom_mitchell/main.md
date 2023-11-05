@@ -1,12 +1,15 @@
 # Machine Learing
 ### Tom M. Mitchell
 
+<br>
+
 ## 1. Introduction
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
 |1.1|[Well-Posed Learning Problems](./ch01/01/note.md)|Learning|
 |1.2|[Designing a Learning System](./ch01/02/note.md)|Experience, Target Function, Nonoperational Definition, Operational Description, Representation of a Target Function, Training Example, Estimation, Least Mean Square(LMS), Performance System, The Critic, The Generalizer, The Experiment Generator|
 
+<br>
 
 ## 2. Concept Learning and The General-To-Specific Ordering
 |No.|Chapter|Keywords|
@@ -16,4 +19,11 @@
 |2.4|[Find-S: Finding a Maximally Specific Hypothesis](./ch02/04/note.md)|Find-S Algorithm|
 |2.5|[Version Spaces and the Candidate-Elimination Algorithm](./ch02/05/note.md)|Consistency, Version Space, List-Then-Elimination Algorithm, Candidate-Elimination Algorithm, General Boundary, Specific Boundary, Version Space Representation Theorem|
 |2.6|[Remarks on Version Spaces and Candidate-Elimination](ch02/06/note.md)|Query|
-|2.7|[Inductive Bias](ch02/07/note.md)|Power Set, Unbiased Learner, Inductive Bias|
+|2.7|[Inductive Bias](ch02/07/note.md)|Power Set, Unbiased Learner, Inductive Bias, Inductive Inference Systems|
+
+<br>
+
+## 3. Decision Tree Learning
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|3.2|[Decision Tree Representation](./ch03/02/note.md)||
