@@ -22,5 +22,3 @@
 |  5|[Bagging predictors](./paper_study/0050_bagging_predictiors/note.md)|1996|Bagging|Ensemble Learning|Oct 15, 2023|Oct 23, 2023|
 |  6|[The Expectation Maximization Algorithm](./paper_study/0060_expectation_max/note.md)|1996|EM algorithm|ML Basics|Oct 24, 2023|WIP|
 | 45|[Zero-shot learning through cross-modal transfer](./paper_study/0010_zero_shot_learning.md/note.md)|2013|Zero-shot learning|ML Basics|Jun 23, 2023|Jul 12, 2023|
-
-BASH TEST!!!
