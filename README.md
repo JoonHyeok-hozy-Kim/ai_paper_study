@@ -1,6 +1,8 @@
 # AI Paper Study Records.
 * Punctuality as Priority
 
+bash_test_hansung
+
 ## Math Review
 * [Statistics](./math/statistics/main.md)
 * [Linear Algebra](./math/linear_algebra/main.md)
