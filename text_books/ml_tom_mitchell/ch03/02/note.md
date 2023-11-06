@@ -34,15 +34,15 @@
 <br>
 
 #### Prop.) Decision Tree
-- In general, decision trees represent a disjunction of conjunctions of constraints on the attribute values of instances.
-- Each path from the tree root to a leaf corresponds to a conjunction of attribute tests.
-  - e.g.) [Play Tennis Example](#ex-play-tennis)
-    - Positive Paths
-      - $(Outlook=Sunny \wedge Humidity=Normal)$
-      - $(Outlook=Overcast)$
-      - $(Outlook=Rain \wedge Wind=Weak)$
-- The tree itself to a disjunction of these conjunctions.
-  - $(Outlook=Sunny \wedge Humidity=Normal) \vee (Outlook=Overcast) \vee (Outlook=Rain \wedge Wind=Weak)$
+1. In general, decision trees represent a disjunction of conjunctions of constraints on the attribute values of instances.
+2. Each path from the tree root to a leaf corresponds to a conjunction of attribute tests.
+   - e.g.) [Play Tennis Example](#ex-play-tennis)
+     - Positive Paths
+       - $(Outlook=Sunny \wedge Humidity=Normal)$
+       - $(Outlook=Overcast)$
+       - $(Outlook=Rain \wedge Wind=Weak)$
+3. The tree itself to a disjunction of these conjunctions.
+   - $(Outlook=Sunny \wedge Humidity=Normal) \vee (Outlook=Overcast) \vee (Outlook=Rain \wedge Wind=Weak)$
 
 
 
