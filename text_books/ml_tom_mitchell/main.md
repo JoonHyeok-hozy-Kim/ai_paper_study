@@ -26,4 +26,5 @@
 ## 3. Decision Tree Learning
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|3.2|[Decision Tree Representation](./ch03/02/note.md)||
+|3.2|[Decision Tree Representation](./ch03/02/note.md)|Node, Branch|
+|3.3|[Appropriate Problems for Decision Tree Learning](./ch03/03/note.md)||
