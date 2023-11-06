@@ -206,6 +206,23 @@ An algorithm that consists of two steps that are repeated until the parameter es
 * The multinomial distribution is a member of the exponential family as below.
   * $t(x)=x$ : $`f(x_1,x_2,x_3|p)=\left( \frac{n!}{x_1!x_2!x_3!} \right) \exp{\left[ \left[ \begin{array}{cc} \log{\frac{\frac{x_1}{4}}{\frac{1}{2}-\frac{p}{4}}} & \log{\frac{\frac{1}{4}+\frac{p}{4}}{\frac{1}{2}-\frac{p}{4}}} \end{array} \right] \left[ \begin{array}{c} x_1 \\ x_2 \end{array} \right] \right]} \left( \frac{1}{2} - \frac{p}{4} \right)^n`$
 
+<br>
+
+#### 2. ET Image Reconstruction
+* Problem
+  * Tissues within a body are stimulated to emit photons.
+  * These photons are detected by detectors surrounding the tissue.
+  * For purpose of computation, the body is divided into $B$ boxes.
+  * $n(b), b=1,2,3,...,B$
+    * The number of photons generated in each box
+  * $y(d), d=1,2,...,D$
+    * The number of photons detected in each detector
+  * $y = [y(1), y(2), ..., y(d)]$
+    * the vector of observations
+  * The generation of the photons from the box $b$ can be described as a Poisson process with mean $\lambda(b)$.
+    * $f(n|\lambda(b)) = P(n(b)=n|\lambda(b)) = e^{-\lambda(b)}\frac{\lambda(b)^n}{n!}$
+      * where $\lambda(b)$ is a parameter and a function of the tissue density.
+    * Then, we can construct an image of the body by estimating $\lambda(b)$ in each box $b$.
 
 
 
