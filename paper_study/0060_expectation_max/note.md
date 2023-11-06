@@ -204,7 +204,7 @@ An algorithm that consists of two steps that are repeated until the parameter es
 #### 1. Ector's Problem Revisited
 * Recall the [Ector's Problem](#ex-ectors-problem).
 * The multinomial distribution is a member of the exponential family as below.
-  * $`t(x)=x$ : $f(x_1,x_2,x_3|p)=\left( \frac{n!}{x_1!x_2!x_3!} \right) \exp{\left[ \left[ \begin{array}{cc} \log{\frac{\frac{x_1}{4}}{\frac{1}{2}-\frac{p}{4}}} & \log{\frac{\frac{1}{4}+\frac{p}{4}}{\frac{1}{2}-\frac{p}{4}}} \end{array} \right] \left[ \begin{array}{c} x_1 \\ x_2 \end{array} \right] \right]} \left( \frac{1}{2} - \frac{p}{4} \right)^n`$
+  * $t(x)=x$ : $`f(x_1,x_2,x_3|p)=\left( \frac{n!}{x_1!x_2!x_3!} \right) \exp{\left[ \left[ \begin{array}{cc} \log{\frac{\frac{x_1}{4}}{\frac{1}{2}-\frac{p}{4}}} & \log{\frac{\frac{1}{4}+\frac{p}{4}}{\frac{1}{2}-\frac{p}{4}}} \end{array} \right] \left[ \begin{array}{c} x_1 \\ x_2 \end{array} \right] \right]} \left( \frac{1}{2} - \frac{p}{4} \right)^n`$
 
 
 
