@@ -72,9 +72,57 @@
   - Thus, $Gain(S, A)$ is the **expected reduction in entropy** caused by knowing the value of attribute $A$.
 - e.g.)
   - Recall the example of $Entropy([9+, 5-])$
+  - Additionally...
+    - 6 of the **positive** examples have $Wind = Weak$
+    - 2 of the **negative** examples have $Wind = Weak$     
+  - Then, $Gain(S, Wind) is...$
     ![](images/002.png)
+- Application)
+  - Information gain is used by ID3 to select the best attribute at each step in growing the tree.
+    - e.g.) Comparison between attributes, $Humidity$ and $Wind$.   
+      ![](images/003.png)   
+      - Humidity provides greater information gain than Wind.
+
+<br><br>
+
+#### Concept) The ID3 Algorithm
+- Input Parameters)
+  1. $Examples$ : the training examples. 
+  2. $Target \underbar{ } attribute$ : the attribute whose value is to be predicted by the tree.
+  3. $Attributes$ : a list of other attributes that may be tested by the learned decision tree. 
+- Output)
+  - Returns a decision tree that correctly classifies the given Examples.
+- Algorithm)
+  1. Create a Root node for the tree.
+  2. If all Examples are positive, Return the single-node tree Root, with label = + 
+  3. If all Examples are negative, Return the single-node tree Root, with label = - 
+  4. If Attributes is empty, Return the single-node tree Root, with label = (most common value of $Target \underbar{ } attribute$ in $Examples$).
+  5. Otherwise
+     1. $A \leftarrow$ the attribute from $Attributes$ that **best** classifies $Examples$.
+        - (best classifies) = (highest information gain)
+     2. The decision attribute for Root $\leftarrow A$
+     3. For each possible value, $v_i$, of $A$,
+        1. Add a new tree branch below Root, corresponding to the test $A=v_i$.
+        2. Let $Examples_{v_i}$ be the subset of $Examples$ that have value $v_i$ for $A$.
+        3. If $Examples_{v_i}$ is empty...
+           1. Then, below this new branch, add a leaf node with label = (most common value of $Target \underbar{ } attribute$ in $Examples$).
+           2. Else, below this new branch, add the subtree $ID3(Examples_{v_i}, Target \underbar{ } attribute, Attributes - \lbrace A \rbrace)$
+  6. Return Root
 
 
+<br><br>
+
+### 3.4.2 An Illustrative Example of ID3
+- Input Parameters
+  - Examples
+    ![](images/004.png)
+  - Target Attribute : $PlayTennis$
+  - Attribute : $\lbrace Outlook, Temperature, Humidity, Wind \rbrace$
+- The algorithm...
+  1. Determine the best attribute for the root.
+     1. Calculate the information gain of Attributes.
+     2. Select $Outlook$
+        ![](images/005.png)
 
 
 
