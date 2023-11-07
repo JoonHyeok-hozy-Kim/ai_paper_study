@@ -83,8 +83,8 @@
 - Application)
   - Information gain is used by ID3 to select the best attribute at each step in growing the tree.
     - e.g.) Comparison between attributes, $Humidity$ and $Wind$.   
-      ![](images/003.png)   
-      - Humidity provides greater information gain than Wind.
+      - Humidity provides greater information gain than Wind.   
+        ![](images/003.png)   
 
 <br><br>
 
