@@ -117,16 +117,20 @@
 <br><br>
 
 ### 3.4.2 An Illustrative Example of ID3
-- Input Parameters
-  - Examples
-    ![](images/004.png)
+- Input Parameters 
   - Target Attribute : $PlayTennis$
   - Attribute : $\lbrace Outlook, Temperature, Humidity, Wind \rbrace$
+  - Examples
+
+![](images/004.png)
+
+
 - The algorithm...
   1. Determine the best attribute for the root.
      1. Calculate the information gain of Attributes.
-     2. Select $Outlook$
-        ![](images/005.png)
+     2. Select $Outlook$.   
+
+![](images/005.png)
 
 
 
