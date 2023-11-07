@@ -76,7 +76,10 @@
     - 6 of the **positive** examples have $Wind = Weak$
     - 2 of the **negative** examples have $Wind = Weak$     
   - Then, $Gain(S, Wind) is...$   
-    ![](images/002.png)
+
+![](images/002.png)
+
+
 - Application)
   - Information gain is used by ID3 to select the best attribute at each step in growing the tree.
     - e.g.) Comparison between attributes, $Humidity$ and $Wind$.   
