@@ -246,6 +246,21 @@ An algorithm that consists of two steps that are repeated until the parameter es
     * $`l_x(\lambda) = f(x|\lambda) = \Pi_{\begin{array}{c} b=1,...,B \\ d=1,...,D \end{array}} e^{-\lambda(b,d)} \frac{\lambda(b,d)^{x(b,d)}}{x(b,d)!}`$.
   * The log likelihood function will go as follows.
     * $`L_y(\lambda) = \log{l_y(\lambda)} = \Sigma_{\begin{array}{c} b=1,...,B \\ d=1,...,D \end{array}} {\left[ -\lambda(b)p(b,d) + x(b,d)\log{\lambda(b)} + x(b,d) \log{p(b,d)} - \log{x(b,d)}! \right]}`$
+* The EM Algorithm Application
+  * Sufficient Statistics
+    * $t(x) = x$
+  * Derivation
+    * Let...
+      * $\lambda^{[k]}$ : the estimate of the parameters at the $k$-th iteration
+      * $x^{[k]}(b,d)$ : the estimate of the complete data
+    * E-Step.
+      * Compute  $\begin{array}{lclr} x^{[k+1]}(b,d) & = & E\left[ x(b,d)|y,\lambda^{[k]} \right] & (A) \\ & = & E\left[ x(b,d)|y(d),\lambda^{[k]} \right] & (B) \\ & = & \frac{y(d)\lambda^{[k]}(b,d)}{\Sigma_{b'=1}^B \lambda^{[k]}(b',d)} & (C) \end{array}$
+          * $(B)  \because$ Each box is independent.
+          * $(C)  \because$ $\begin{array}{l} x(b,d) \sim Poisson(\lambda^{[k]}(b,d)) \\ y(d)=\Sigma_{b=1}^Bx(b,d) \sim Poisson(\lambda^{[k]}(d)=\Sigma_{b=1}^B\lambda^{[k]}(b,d)) \end{array}$
+    * M-Step
+      * Maximize the likelihood function with respect to $\lambda(b)$.
+        * $\begin{array}{l} \frac{\partial}{\partial \lambda(b)} L_y(\lambda) = 0 \\ \Leftrightarrow \lambda^{[k+1]}(b) = \Sigma_{d=1}^D x^{[k+1]}(b,d) p(b,d) \end{array}$
+    * Iterate E-Step and M-Step until convergence.
 
 
 <br>
