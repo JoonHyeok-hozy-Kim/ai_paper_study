@@ -29,3 +29,4 @@
 |3.2|[Decision Tree Representation](./ch03/02/note.md)|Node, Branch|
 |3.3|[Appropriate Problems for Decision Tree Learning](./ch03/03/note.md)||
 |3.4|[The Basic Decision Tree Learning Algorithm](./ch03/04/note.md)|Entropy, Information Gain, ID3|
+|3.5|[Hypothesis Space Search in Decision Tree Learning](./ch03/04/note.md)|ID3|

@@ -113,7 +113,7 @@
            2. Else, below this new branch, add the subtree $ID3(Examples_{v_i}, Target \space attribute, Attributes - \lbrace A \rbrace)$
   6. Return Root
 - Props.)
-  - [Capabilities and limitations of ID3](../05/note.md)
+  - [Capabilities and limitations of ID3](../05/note.md#capabilities-and-limitations-of-id3)
 
 <br><br>
 
