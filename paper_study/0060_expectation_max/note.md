@@ -243,9 +243,9 @@ An algorithm that consists of two steps that are repeated until the parameter es
     * each box generates independently of every other box 
     * the detectors operate independently
   * Then, the likelihood function of the complete data is...
-    * $l_x(\lambda) = f(x|\lambda) = \Pi_{\begin{array}{c} b=1,...,B \\ d=1,...,D \end{array}} e^{-\lambda(b,d)} \frac{\lambda(b,d)^{x(b,d)}}{x(b,d)!}$.
+    * $`l_x(\lambda) = f(x|\lambda) = \Pi_{\begin{array}{c} b=1,...,B \\ d=1,...,D \end{array}} e^{-\lambda(b,d)} \frac{\lambda(b,d)^{x(b,d)}}{x(b,d)!}`$.
   * The log likelihood function will go as follows.
-    * $L_y(\lambda) = \log{l_y(\lambda)} = \Sigma_{\begin{array}{c} b=1,...,B \\ d=1,...,D \end{array}} {\left[ -\lambda(b)p(b,d) + x(b,d)\log{\lambda(b)} + x(b,d) \log{p(b,d)} - \log{x(b,d)}! \right]}$
+    * $`L_y(\lambda) = \log{l_y(\lambda)} = \Sigma_{\begin{array}{c} b=1,...,B \\ d=1,...,D \end{array}} {\left[ -\lambda(b)p(b,d) + x(b,d)\log{\lambda(b)} + x(b,d) \log{p(b,d)} - \log{x(b,d)}! \right]}`$
 
 
 <br>
