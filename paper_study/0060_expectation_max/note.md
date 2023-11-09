@@ -222,7 +222,43 @@ An algorithm that consists of two steps that are repeated until the parameter es
   * The generation of the photons from the box $b$ can be described as a Poisson process with mean $\lambda(b)$.
     * $f(n|\lambda(b)) = P(n(b)=n|\lambda(b)) = e^{-\lambda(b)}\frac{\lambda(b)^n}{n!}$
       * where $\lambda(b)$ is a parameter and a function of the tissue density.
-    * Then, we can construct an image of the body by estimating $\lambda(b)$ in each box $b$.
+  * Then, we can construct an image of the body by estimating $\lambda(b)$ in each box $b$.
+    * Assume that the boxes are independent of each other.
+    * Let $\lambda = \lbrace \lambda(1),\lambda(2),\dots,\lambda(B) \rbrace$ be the set of unknown parameters.
+    * Assume that any emitted photon will be detected by some detector.
+      * i.e.) $\Sigma_{d=1}^D p(b,d)=1$
+    * Let the detector variables $y(d)$ be Poisson distributed as follows.
+      * $f(y|\lambda(d)) = P(y(d)=y) = e^{-\lambda(d)} \frac{\lambda(d)^y}{y!}$
+  * Then we can determine $p(b,d)$ as follows.
+    * $\lambda(d) = E[y(d)] = \Sigma_{b=1}^B \lambda(b)p(b,d)$
+  * Let
+    * $x(b,d)$ : the number of emissions from box $b$ detected in detector $d$.
+    * $x=\lbrace x(b,d), b=1,\dots,B, d=1,\dots,D \rbrace$ : the set of all possible $x(b,d)$.
+      * Then there is a many-to-one mapping from $x(b,d)$ to $y(d)$.
+        * why?)
+          * For any given set of detected data $\lbrace y(d) \rbrace$, there are many different ways that the photons could have been generated.
+      * Then, each variable of the complete data $x(b,d)$ is Possion with mean $\lambda(b,d)=\lambda(b) p(b,d)$
+* The Likelihood Function of the Complete Data
+  * Assume that 
+    * each box generates independently of every other box 
+    * the detectors operate independently
+  * Then, the likelihood function of the complete data is...
+    * $l_x(\lambda) = f(x|\lambda) = \Pi_{\begin{array}{c} b=1,...,B \\ d=1,...,D \end{array}} e^{-\lambda(b,d)} \frac{\lambda(b,d)^{x(b,d)}}{x(b,d)!}$.
+  * The log likelihood function will go as follows.
+    * $L_y(\lambda) = \log{l_y(\lambda)} = \Sigma_{\begin{array}{c} b=1,...,B \\ d=1,...,D \end{array}} {\left[ -\lambda(b)p(b,d) + x(b,d)\log{\lambda(b)} + x(b,d) \log{p(b,d)} - \log{x(b,d)}! \right]}$
+
+
+<br>
+
+#### 3. Active Noise Cancellation (ANC)
+
+<br>
+
+#### 4. HMMs
+
+<br>
+
+#### 5. Spread-Spectrum Multi-User Communication (SSMA)
 
 
 
