@@ -20,6 +20,12 @@ VAR(Y) = 5.34
 
 ![](images/ex005.png)  
 
+![](images/ex006.png)  
+
+![](images/ex007.png)  
+
+![](images/ex008.png)  
+
 
 
 
