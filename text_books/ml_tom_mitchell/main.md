@@ -31,3 +31,4 @@
 |3.4|[The Basic Decision Tree Learning Algorithm](./ch03/04/note.md)|Entropy, Information Gain, ID3|
 |3.5|[Hypothesis Space Search in Decision Tree Learning](./ch03/05/note.md)|ID3|
 |3.6|[Inductive Bias in Decision Tree Learning](./ch03/06/note.md)|BFS-ID3, Preference Bias(Search Bias), Restriction Bias(Language Bias)|
+|3.7|[Issues in Decision Tree Learning](./ch03/07/note.md)|overfit|

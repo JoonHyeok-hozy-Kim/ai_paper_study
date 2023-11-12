@@ -112,6 +112,8 @@
            1. Then, below this new branch, add a leaf node with label = (most common value of $Target \space attribute$ in $Examples$).
            2. Else, below this new branch, add the subtree $ID3(Examples_{v_i}, Target \space attribute, Attributes - \lbrace A \rbrace)$
   6. Return Root
+- Implementation
+  - [hozy ID3 ver 231111](scripts/Library.py)
 - Props.)
   - [Capabilities and limitations of ID3](../05/note.md#capabilities-and-limitations-of-id3)
 

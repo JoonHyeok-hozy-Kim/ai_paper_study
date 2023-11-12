@@ -73,17 +73,13 @@ class ID3Node:
     def __str__(self) -> str:
         return self._curr_attribute
     
-    def print_all(self, depth=0, Q=None):
-        if Q is None:
-            Q = deque()
-        if self._curr_attribute is None:
-            return
-        Q.append([depth, self._curr_attribute])
+    def _bread_fast_for_prit_all(self, depth, Q):
+        Q.append([depth+1, self._curr_attribute])
         for c in self._children:
-            c[1].print_all(depth+1, Q)
-        curr_depth = 0
-        while Q:
-            popped = Q.popleft()
-            if curr_depth != popped[0]:
-                print()
-            print(popped[1], end=" ")
+            c[1]._bread_fast_for_prit_all(depth+1, Q)
+    
+    def print_all(self):
+        depth = 0
+        Q = deque()
+        self._bread_fast_for_prit_all(depth, Q)
+        print(Q)
