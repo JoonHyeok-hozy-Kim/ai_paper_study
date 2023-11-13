@@ -67,7 +67,7 @@ Given a hypothesis space $H$, a hypothesis $h \in H$ is said to **overfit** the 
 - Effect)
   - Any leaf node added due to [coincidental regularities](#concept-possible-reasons-for-the-overfitting) will be pruned.
     - why?)
-      - It is unlikely that the same coincidence repeats in the validation set.
+      - It is unlikely that the coincidence took place in the training set repeats in the validation set.
   - In general, pruning prevents the overfitting problem
     ![](images/002.png)
 - Prop.)
@@ -84,14 +84,25 @@ Given a hypothesis space $H$, a hypothesis $h \in H$ is said to **overfit** the 
   1. Infer the decision tree from the training set, growing the tree until the training data is fit 
      - Allow overfitting to occur.
   2. Convert the learned tree into an equivalent set of rules by creating one rule for each path from the root node to a leaf node.
-     - Each leaf node has its own rule.
-       - We call this **the rule antecedent (or the precondition)**
-       - The classification at the leaf node is called **the rule consequent (or postcondition)**
-       - e.g.)
-         |Tree|Rule|
-         |:--:|:--:|
-         |![](images/003.png)|![](images/004.png)|
+     - Concepts)
+       - Rule Antecedent (precondition)
+         - A rule that is made from the root node to the leaf node
+         - Each leaf node has its own rule
+       - Rule Consequence (postcondition)
+         - The classification result at the leaf node
+     - e.g.)
+       |Tree|Rule|
+       |:--:|:--:|
+       |![](images/003.png)|![](images/004.png)|
   3. Prune (generalize) each rule by removing any preconditions that result in improving its estimated accuracy.
+     - Concept) How to evaluate the improvement in the estimated accuracy.
+       1. Use a validation set and figure out the model's accuracy on it.
+       2. Use a **Pessimistic Estimate** (C4.5 Method)
+          - How to get a Pessimistic Estimate
+            1. 
+     - e.g.)
+       - Remove the preconditions, $(Outlook = Sunny) \wedge (Humidity = High)$
+       - If such removal improve the estimated rule accuracy
   4. Sort the pruned rules by their estimated accuracy, and consider them in this sequence when classifying subsequent instances.
 
 
