@@ -50,6 +50,17 @@
 
 
 
+### 3. Additional Topics in Probability
+
+<table>
+    <tr>
+        <td>No.</td><td>Chapter</td><td>Keywords</td>
+    </tr>
+    <tr>
+        <td>3-2</td><td><a href="./ch03/02/note.md">Special Distribution Functions</a></td><td>Binomial</td>
+    </tr>
+</table>
+
 
 
 <br>
