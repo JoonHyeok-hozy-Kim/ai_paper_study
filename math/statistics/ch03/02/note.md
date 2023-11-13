@@ -36,8 +36,11 @@ A binomial experiment is one that has the following properties:
 - Prop.)
   - $\Sigma_{i=0}^x \space {}_nC_x p^xq^{n-x}=1=1$
     - pf.)   
-      ![](images/001.png)
+      - Consider that $(p+q)^n=\Sigma_{i=0}^x \space {}_nC_x p^xq^{n-x}$
       - Also, $p+q=1$.
+  - $E(X)=\mu=np$
+  - $Var(X)=\sigma^2=np(1-p)$
+  - $M_X(t) = \left[ pe^t + (1-p) \right]^n$
 
 
 <br><br>
