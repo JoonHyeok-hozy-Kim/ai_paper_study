@@ -57,7 +57,7 @@
         <td>No.</td><td>Chapter</td><td>Keywords</td>
     </tr>
     <tr>
-        <td>3-2</td><td><a href="./ch03/02/note.md">Special Distribution Functions</a></td><td>Binomial</td>
+        <td>3-2</td><td><a href="./ch03/02/note.md">Special Distribution Functions</a></td><td>Bernoulli, Binomial</td>
     </tr>
 </table>
 
