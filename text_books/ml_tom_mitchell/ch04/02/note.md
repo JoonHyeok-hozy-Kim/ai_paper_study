@@ -2,8 +2,10 @@
 
 # 4.2 Neural Network Representations
 #### Concept) ALVINN
-- A prototypical example of ANN provided by Pomerleau
-- Utilizes a learned ANN to steer an autonomous vehicle driving
+- Description)
+  - A prototypical example of ANN provided by Pomerleau
+  - Utilizes a learned ANN to steer an autonomous vehicle driving
+  - The network structure of ALVINN is typical of many ANNs
 - Representation)
   - Input : $30 \times 32$ grid of pixel intensities
   - Hidden Units

@@ -38,4 +38,5 @@
 ## 4. Artificial Neural Networks (ANNs)
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|4.2|[Neural Network Representations](./ch04/02/note.md)||
+|4.2|[Neural Network Representations](./ch04/02/note.md)|ALVINN|
+|4.3|[Appropriate Problems for Neural Network Learning](./ch04/03/note.md)||
