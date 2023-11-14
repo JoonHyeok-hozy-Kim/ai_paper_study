@@ -32,3 +32,10 @@
 |3.5|[Hypothesis Space Search in Decision Tree Learning](./ch03/05/note.md)|ID3|
 |3.6|[Inductive Bias in Decision Tree Learning](./ch03/06/note.md)|BFS-ID3, Preference Bias(Search Bias), Restriction Bias(Language Bias)|
 |3.7|[Issues in Decision Tree Learning](./ch03/07/note.md)|Overfit, Training and Validation Approach, Reduced-Error Pruning, Rule Post-Pruning, Rule Antecedent(precondition), Rule Consequent(postcondition), Pessimistic Estimate, Split Information, Gain Ratio|
+
+<br>
+
+## 4. Artificial Neural Networks (ANNs)
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|4.2|[Neural Network Representations](./ch04/02/note.md)||
