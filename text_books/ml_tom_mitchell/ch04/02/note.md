@@ -11,7 +11,8 @@
     - Each of these four hidden units computes a single real-valued output based on a weighted combination of its 960 inputs
   - Output : 30 output units
 - Graphic)   
-  ![](images/001.png)
+
+![](images/001.png)
 
 
 
