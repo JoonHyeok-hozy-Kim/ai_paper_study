@@ -18,18 +18,22 @@
 
 ![](images/001.png)
 
-- Explanation)
-  - Learning a perceptron
-    - Involves choosing values for the weights $w_0, \dots, w_n$.
-    - Thus, the candidate hypotheses' space $H$ is the set of all possible real-valued weight vectors.
-      - i.e.) $H = \lbrace w | w \in \mathbb{R}^{n+1} \rbrace$
+#### Concept) Learning a perceptron
+- Involves choosing values for the weights $w_0, \dots, w_n$.
+- Thus, the candidate hypotheses' space $H$ is the set of all possible real-valued weight vectors.
+  - i.e.) $H = \lbrace w | w \in \mathbb{R}^{n+1} \rbrace$
 
+<br><br>
 
+## 4.4.1 Representational Power of Perceptrons
+#### Concept) Geometrical View of a Perceptron
+<table>
+<tr><td><img src="images/002.png"></td><td>We can view the perceptron as representing a hyperplane decision surface in the n-dimensional space of instances (i.e., points). <br><br> <img src="images/003.png">  </td></tr>
+</table>
 
-
-
-
-
+- Above cases are **linearly separable**.
+- Some operations like XOR are not separable.   
+  ![](images/004.png)
 
 
 
