@@ -55,9 +55,25 @@ For a matrix $A$, we can express any solution of $Ax = 0$ as a linear combinatio
 - e.g)
   - Consider   
     ![](images/003.png)
-  - Then, the reduced row echelon form of $`[A 0]`$ is   
+  - Then, the reduced row echelon form of [A 0] is   
     ![](images/003.png)
+  - Then, the general solution of the homogeneous equation is   
+    ![](images/004.png)
+  - Expressing the solutions in the **vector form** yields   
+    ![](images/005.png)
+  - Thus, the solution of the homogeneous equation is the span of   
+    ![](images/006.png)
 
+<br><br>
+
+## 1.7.1 Linearly Dependent and Linearly Independent Sets
+#### Theorem 1.9)
+![](images/007.png)
+
+<br>
+
+#### Props.) Linearly Dependent and Independent Sets
+![](images/008.png)
 
 <br><br>
 
