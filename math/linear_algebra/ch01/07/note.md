@@ -27,6 +27,8 @@ Any finite subset $S \subset \mathbb{R}^n$ that contains the zero vector is line
 #### Notation) Matrix Vector Product
 $\Sigma c_iu_i = 0$ can be denoted as follows.
 - $`\left[ \begin{array}{cccc} u_1 & u_2 & \cdots & u_k \end{array} \right] \left[ \begin{array}{c} c_1 \\ c_2 \\ \vdots \\ c_k \end{array} \right] = 0`$
+- $Ax = 0$
+  - where $`A = \left[ \begin{array}{cccc} u_1 & u_2 & \cdots & u_k \end{array} \right]`$
 
 
 
