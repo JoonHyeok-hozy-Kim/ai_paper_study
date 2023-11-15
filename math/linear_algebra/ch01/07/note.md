@@ -55,7 +55,7 @@ For a matrix $A$, we can express any solution of $Ax = 0$ as a linear combinatio
 - e.g)
   - Consider   
     ![](images/003.png)
-  - Then, the reduced row echelon form of $[A \space 0]$ is   
+  - Then, the reduced row echelon form of [A 0] is   
     ![](images/003.png)
 
 
