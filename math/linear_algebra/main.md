@@ -10,6 +10,6 @@
 |1.3|[Systems of Linear Equations](./ch01/03/note.md)|Consistency, Elementary Row Operation, Augmented Matrix, Reduced Row Echelon Form, General Solution|
 |1.4|[Gaussian Elimination](./ch01/04/note.md)|Pivot Position, Pivot Column, Rank, Nullity|
 |1.6|[The Span of a Set of Vectors](./ch01/06/note.md)|Span, Generating Set|
-|1.7|[Linear Dependence and Linear Independence](./ch01/07/note.md)|Linear Dependence, Linear Independence|
+|1.7|[Linear Dependence and Linear Independence](./ch01/07/note.md)|Linear Dependence, Linear Independence, Homogeneous Equation, Vector Form of General Solution of Homogeneous Equation|
 
 * [Back to AI Main](../../README.md)

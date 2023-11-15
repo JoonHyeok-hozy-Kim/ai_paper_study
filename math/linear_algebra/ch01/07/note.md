@@ -30,14 +30,39 @@ $\Sigma c_iu_i = 0$ can be denoted as follows.
 - $Ax = 0$
   - where $`A = \left[ \begin{array}{cccc} u_1 & u_2 & \cdots & u_k \end{array} \right]`$
 
+<br>
+
+#### Theorem 1.8)
+![](images/001.png)   
+![](images/002.png)   
 
 
 <br>
 
-### [Exercises 1.2](./exercises.md)
+#### Concept) Homogeneous Equation
+- Def.)
+  - The equation $Ax=b$ is called homogeneous if $b=0$.
+- Prop.)
+  - The important question concerning a homogeneous equation is not if it has solutions, but whether $\overrightarrow{0}$ is the only solution.
+    - If not, then the system has infinitely many solutions.
+  - A homogeneous system of linear equations with more variables than equations has infinitely many solutions.
 
 
+<br>
+
+#### Concept) Vector Form of General Solution of Homogeneous Equation
+For a matrix $A$, we can express any solution of $Ax = 0$ as a linear combination of vectors in which the coefficients are the free variables in the general solution. We call such a representation a vector form of the general solution of $Ax = 0$.
+- e.g)
+  - Consider   
+    ![](images/003.png)
+  - Consider   
+    ![](images/003.png)
 
 
+<br><br>
+
+# [Exercises 1.7](./exercises.md)
+
+<br>
 
 * [Back to Linear Algebra Main](../../main.md)
