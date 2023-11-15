@@ -60,7 +60,7 @@ Recall that $x_i \in \lbrace 0,1 \rbrace$
 ## 4.4.2 The Perceptron Training Rule
 #### Concept) Learn the Weights for a Single Perceptron
 - Goal)
-  - Determine a weight vector that causes the perceptron to produce the correct $\plusmn 1$ output for each of the given training examples.
+  - Determine a weight vector that causes the perceptron to produce the correct $\pm 1$ output for each of the given training examples.
 - Algorithms)
   - Algorithms Considered)
     1. The Perceptron Rule
