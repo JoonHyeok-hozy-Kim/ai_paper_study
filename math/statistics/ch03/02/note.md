@@ -127,7 +127,12 @@ Thus, we use Poisson probability distribution in rare events.
 
 - Def.)   
 
-![](images/003.png)
+![](images/003.png)   
+![](images/004.png)   
+
+- Prop.)
+
+![](images/005.png)
 
 - When to use?)
   - When the domain of the variate, $X$, is greater than zero and its histogram is markedly skewed.
