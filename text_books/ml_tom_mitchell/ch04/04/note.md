@@ -94,6 +94,54 @@ Recall that $x_i \in \lbrace 0,1 \rbrace$
 - Props.)
   - Guaranteed to converge to somewhat different acceptable hypotheses, under somewhat different conditions. 
   - Important to ANNs because they provide the basis for learning networks of many units.
+  - When the training examples are **linearly separable**, **the perceptron rule** finds a successful weight vector.
+    - But it can fail to converge if the examples are not linearly separable.
+    - **The delta rule** is designed to overcome this difficulty.
+      - If the training examples are not linearly separable, the delta rule converges toward a best-fit approximation to the target concept.
+      - How?)
+        - Using [the gradient descent](#concept-gradient-descent) below.
+
+
+<br><br>
+
+## 4.4.3 Gradient Descent and the Delta Rule
+### Concept) Gradient Descent
+#### Settings)
+- $E(\overrightarrow{w}) \equiv \frac{1}{2}\Sigma_{d \in D}(t_d - o_d)^2$ : the training error
+  - where, $D$ : the set of training examples
+    - $t_d$ : the target output for training examples $d$
+    - $t_d$ : the output of the linear unit for training examples $d$
+  - cf.) $E$ is characterized as a function of $\overrightarrow{w}$.
+    - why?)
+      - $o$ depends on the weight vector $\overrightarrow{w}$
+      - We assume that the training examples, $d$, are given during the training.
+
+#### Derivation)
+- We have to find a weight vector, $\overrightarrow{w}$, that minimizes the training error, $E$.
+- Use the **gradient vector**, i.e. derivative of $E$ with respect to $\overrightarrow{w}$.
+  - $\nabla E(\overrightarrow{w}) \equiv \left[ \frac{\partial E}{\partial w_0}, \frac{\partial E}{\partial w_1}, \dots, \frac{\partial E}{\partial w_n} \right]$
+    - This denotes the direction that produces the steepest increase of $E$.
+    - Since we want to minimize the training error $E$, we have to subtract $\nabla E(\overrightarrow{w})$.
+- The delta rule can be defined as...
+  - $\overrightarrow{w} \leftarrow \overrightarrow{w} + \Delta \overrightarrow{w}$
+    - where $\Delta \overrightarrow{w} = -\eta \nabla E(\overrightarrow{w})$
+      - Here, $\eta$ is a positive constant called the learning rate.
+        - This determines the step size in the gradient descent search.
+      - The sign is negative because we have to decrease $E$.
+- The Notation for each component $w_i$)
+  - $w_i \leftarrow w_i + \Delta w_i$
+    - where $`\begin{array}{ll} \Delta w_i & = -\eta \frac{\partial E}{\partial w_i} \\& = -\eta \Sigma_{d \in D}(t_d - o_d)(-x_{id}) \\& = \eta \Sigma_{d \in D}(t_d - o_d)(x_{id}) \end{array}`$
+      - where $x_{id}$ denotes the single input component $x_i$ for training example $d$.
+      - why?   
+
+![](images/005.png)
+
+<br>
+
+#### Visualizing the Hypothesis Space
+Consider the case that there are only two variables $x_0$ and $x_1$.
+![](images/006.png)
+
 
 
 <br>
