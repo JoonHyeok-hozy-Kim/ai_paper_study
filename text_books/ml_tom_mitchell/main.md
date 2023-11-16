@@ -44,7 +44,7 @@
 |:-:|:------|:-------|
 |4.2|[Neural Network Representations](./ch04/02/note.md)|ALVINN|
 |4.3|[Appropriate Problems for Neural Network Learning](./ch04/03/note.md)||
-|4.4|[Perceptrons](./ch04/04/note.md)|Perceptron Training Rule, Delta Rule, Gradient Descent|
+|4.4|[Perceptrons](./ch04/04/note.md)|Perceptron Training Rule, Threshold, Delta Rule, Gradient Descent, Stochastic Gradient Descent (Incremental Gradient Descent)|
 
 
 
