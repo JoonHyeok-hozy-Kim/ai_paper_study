@@ -126,7 +126,8 @@ Thus, we use Poisson probability distribution in rare events.
   - Recall that **additive** was the normal distribution.
 
 - Def.)   
-  ![](images/003.png)
+
+![](images/003.png)
 
 - When to use?)
   - When the domain of the variate, $X$, is greater than zero and its histogram is markedly skewed.
