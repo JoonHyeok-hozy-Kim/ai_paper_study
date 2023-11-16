@@ -139,7 +139,8 @@ Recall that $x_i \in \lbrace 0,1 \rbrace$
 <br>
 
 #### Visualizing the Hypothesis Space
-Consider the case that there are only two variables $x_0$ and $x_1$.
+Consider the case that there are only two variables $x_0$ and $x_1$.   
+
 ![](images/006.png)
 
 
