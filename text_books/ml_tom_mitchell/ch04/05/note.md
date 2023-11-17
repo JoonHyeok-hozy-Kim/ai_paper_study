@@ -43,10 +43,51 @@ surfaces.
   - Easy to express its derivative.
     - $\frac{d \sigma(y)}{dy} = \sigma(y) \cdot (1-\sigma(y))$
 
+![](images/001.png)
 
+<br><br>
 
+## 4.5.2 The Backpropagation Algorithm
+#### Def.) Training Error for the Multiple Output Units
+- $E(\overrightarrow{w}) \equiv \frac{1}{2} \Sigma_{d \in D} \Sigma_{k \in outputs} (t_{kd} - o_{kd})^2$
+  - where $outputs$ is the set of output units in the network
+    - $t_{kd}$ : target value associated with the $k$-th output unit and training example $d$
+    - $o_{kd}$ : output value associated with the $k$-th output unit and training example $d$
+- Why needed?)
+  - We are considering networks with multiple output units rather than single units as before.
+    - Refer to the [previous single layered gradient descent](../04/note.md#settings)'s training error.
 
+<br>
 
+### Concept) The Backpropagation Algorithm
+- Algorithm)
+  - Inputs) ```backpropagation(training_examples, eta, n_in, n_out, n_hidden)```
+    - $training-example$
+      - a pair of form $\langle \overrightarrow{x}, \overrightarrow{t} \rangle$
+        - where $\overrightarrow{x}$ : the vector of network input values
+          - $\overrightarrow{t}$ : the vector of target network output values.
+    - $\eta$ : the learning rate
+    - $n_{in}$ : the number of network inputs
+    - $n_{out}$ : the number of network units
+    - $n_{hidden}$ : the number of units in the hidden layer
+  - Notations)
+    - $x_{ji}$ : the input from unit $i$ into unit $j$. 
+    - $w_{ji}$ : the weight from unit $i$ to unit $j$. 
+  - Procedures)
+    1. Create a feed-forward network with $n_{in}$ inputs, $n_{hidden}$ hidden units, and $n_{out}$ output units. 
+    2. Initialize all network weights to small random numbers (e.g., between -.05 and .05). 
+    3. Until the termination condition is met, do...
+       - For each $\langle \overrightarrow{x}, \overrightarrow{t} \rangle$ in $training-example$, do...
+          - Propagate the input forward through the network:
+            - Input the instance $\overrightarrow{x}$ to the network and compute the output $o_u$ of every unit $u$ in the network.
+          - Propagate the errors backward through the network:
+            1. For each network output unit $k$, calculate its error term $\delta_k$
+               - $\delta_k \leftarrow o_k(1-o_k)(t_k-o_k)$
+            2. For each hidden unit $h$, calculate its error term  $\delta_h$
+               - $\delta_h \leftarrow o_h(1-o_h) \Sigma_{k \in  outputs} w_{kh} \delta_k$
+            3. Update each network weight $w_{ji}$
+               - $w_{ji} \leftarrow w_{ji} + \Delta w_{ji}$
+                 - where $\Delta w_{ji} = \eta \delta_j x_{ji}$
 
 
 
