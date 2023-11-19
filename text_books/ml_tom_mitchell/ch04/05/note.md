@@ -185,6 +185,20 @@ Deriving the stochastic gradient descent rule implemented by [the Backpropagatio
 
 ![](images/002.png)
 
+- Now split the cases for computing $\frac{\partial E_d}{\partial net_j}$.
+  - Case 1) Training Rule for Output Unit Weights
+    - Just as $w_{ji}$ can influence the rest of the network only through $net_j$, $net_j$ can influence the network only through $o_j$.
+    - Thus, by the chain rule,
+      - $\frac{\partial E_d}{\partial net_j} = \frac{\partial E_d}{\partial o_j}\frac{\partial o_j}{\partial net_j}$
+    - Then
+      - $`\begin{array}{lcll} \frac{\partial E_d}{\partial o_j} & = & \frac{\partial}{\partial o_j} \frac{1}{2} \Sigma_{k \in outputs} (t_k-o_k)^2 & \\ &=& \frac{\partial}{\partial o_j} \frac{1}{2}  (t_j-o_j)^2 & (\because \frac{\partial}{\partial o_j}(t_k-o_k)^2=0, k\ne j) \\&=&-(t_j-o_j)& \end{array}`$
+    - Also, consider that $o_j = \sigma(net_j)$.
+      - Thus, $\frac{\partial o_j}{\partial net_j} = \frac{\partial \sigma(net_j)}{\partial net_j} = o_j(1-o_j)$
+    - Hence, 
+      - $`\begin{array}{lcl} \frac{\partial E_d}{\partial net_j} & = & \frac{\partial E_d}{\partial o_j}\frac{\partial o_j}{\partial net_j} \\ &=& -(t_j-o_j) o_j(1-o_j) \end{array}`$
+    - Therefore,
+      - $\Delta w_{ji} = -\eta \frac{\partial E_d}{\partial w_{ji}} = \eta (t_j-o_j) o_j(1-o_j) x_{ji}$
+  - Case 2) Training Rule for Hidden Unit Weights
 
 
 <br>
