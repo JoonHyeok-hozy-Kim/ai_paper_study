@@ -33,6 +33,7 @@ surfaces.
   - The sigmoid unit computes its output $o$ as
     - $o=\sigma(\overrightarrow{w} \cdot \overrightarrow{x})$
       - where $\sigma(y) = \frac{1}{1+e^{-y}}$
+      - Denote $\overrightarrow{w} \cdot \overrightarrow{x} = net$
   - $\sigma$ is often called the sigmoid function or a logistic function
 - Props.)
   - Its output ranges between 0 and 1.
@@ -71,8 +72,12 @@ surfaces.
     - $n_{out}$ : the number of network units
     - $n_{hidden}$ : the number of units in the hidden layer
   - Notations)
+    - Each node is assigned with an index.
     - $x_{ji}$ : the input from unit $i$ into unit $j$. 
     - $w_{ji}$ : the weight from unit $i$ to unit $j$. 
+    - $\delta_n$ : the error term associated with unit $n$.
+      - Similar to the term $(t-o)$ of [the delta training rule](../04/note.md#443-gradient-descent-and-the-delta-rule).
+      - $\delta_n = -\frac{\partial E}{\partial net_n}$
   - Procedures)
     1. Create a feed-forward network with $n_{in}$ inputs, $n_{hidden}$ hidden units, and $n_{out}$ output units. 
     2. Initialize all network weights to small random numbers (e.g., between -.05 and .05). 
@@ -89,7 +94,10 @@ surfaces.
                - $w_{ji} \leftarrow w_{ji} + \Delta w_{ji}$
                  - where $\Delta w_{ji} = \eta \delta_j x_{ji}$
 
-
+- Props.)
+  - Multilayer network can have multiple local minima in their error surfaces.
+    - Thus, the gradient descent does not guaranteed the converge toward the global minimum.
+    - Still, Backpropagation algorithm is known to produce excellent results.
 
 
 
