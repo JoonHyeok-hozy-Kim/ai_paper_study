@@ -161,7 +161,7 @@ The Backpropagation algorithm can be generalized to feedforward networks of arbi
 ## 4.5.3 Derivation of the Backpropagation Rule
 Deriving the stochastic gradient descent rule implemented by [the Backpropagation algorithm above](#452-the-backpropagation-algorithm).
 
-#### How?)
+### How?)
   - Recall that [the stochastic gradient descent](../04/note.md#tech-stochastic-gradient-descent-incremental-gradient-descent) involves iterating through the training examples one at a time, for each training example $d$ descending the gradient of the error $E_d$ with respect to this single example.
     - i.e.) $\Delta w_{ji} = -\eta\frac{\partial E_d}{\partial w_{ji}}$
       - where $E_d$ is the error on training example $d$, summed over all output units in the network $E_d(\overrightarrow{w}) \equiv \frac{1}{2} \Sigma_{k \in outputs} (t_k-o_k)^2$
@@ -169,38 +169,55 @@ Deriving the stochastic gradient descent rule implemented by [the Backpropagatio
         - $t_k$ is the target value of unit $k$ for training example $d$
         - $o_k$ is the output of unit $k$ given training example $d$.
 
-#### Notations)
+### Notations)
 - $x_{ji}$ : the $i$-th input to unit $j$
 - $w_{ji}$ : the weight associated with the $i$-th input to unit $j$
 - $net_j = \Sigma_i w_{ji}x_{ji}$ : the weighted sum of inputs for unit $j$
 - $o_j$ : the output computed by unit $j$
-- $5_j$ : the target output for unit $j$
+- $t_j$ : the target output for unit $j$
 - $\sigma$ : the sigmoid function
 - $outputs$ : the set of units in the final layer of the network
 - $Downstream(j)$ : the set of units whose immediate inputs include the output of unit $j$
 
-#### Derivation)
+### Derivation)
 - Recall that weight $w_{ji}$ can influence the rest of the network only through $net_j$.
 - Thus, we can use the chain rule as follows.
 
 ![](images/002.png)
 
 - Now split the cases for computing $\frac{\partial E_d}{\partial net_j}$.
-  - Case 1) Training Rule for Output Unit Weights
-    - Just as $w_{ji}$ can influence the rest of the network only through $net_j$, $net_j$ can influence the network only through $o_j$.
-    - Thus, by the chain rule,
-      - $\frac{\partial E_d}{\partial net_j} = \frac{\partial E_d}{\partial o_j}\frac{\partial o_j}{\partial net_j}$
-    - Then
-      - $`\begin{array}{lcll} \frac{\partial E_d}{\partial o_j} & = & \frac{\partial}{\partial o_j} \frac{1}{2} \Sigma_{k \in outputs} (t_k-o_k)^2 & \\ &=& \frac{\partial}{\partial o_j} \frac{1}{2}  (t_j-o_j)^2 & (\because \frac{\partial}{\partial o_j}(t_k-o_k)^2=0, k\ne j) \\&=&-(t_j-o_j)& \end{array}`$
-    - Also, consider that $o_j = \sigma(net_j)$.
-      - Thus, $\frac{\partial o_j}{\partial net_j} = \frac{\partial \sigma(net_j)}{\partial net_j} = o_j(1-o_j)$
-    - Hence, 
-      - $`\begin{array}{lcl} \frac{\partial E_d}{\partial net_j} & = & \frac{\partial E_d}{\partial o_j}\frac{\partial o_j}{\partial net_j} \\ &=& -(t_j-o_j) o_j(1-o_j) \end{array}`$
-    - Therefore,
-      - $\Delta w_{ji} = -\eta \frac{\partial E_d}{\partial w_{ji}} = \eta (t_j-o_j) o_j(1-o_j) x_{ji}$
-  - Case 2) Training Rule for Hidden Unit Weights
+  - Cases)
+    1. [Unit $j$ is an output unit](#case-1-training-rule-for-output-unit-weights)
+    2. [Unit $j$ is an internal(hidden) unit](#case-2-training-rule-for-hidden-unit-weights)
+  
+#### Case 1) Training Rule for Output Unit Weights
+Just as $w_{ji}$ can influence the rest of the network only through $net_j$, $net_j$ can influence the network only through $o_j$.
+Thus, by the chain rule,
+ - $\frac{\partial E_d}{\partial net_j} = \frac{\partial E_d}{\partial o_j}\frac{\partial o_j}{\partial net_j}$
 
+Then
+ - $`\begin{array}{lcll} \frac{\partial E_d}{\partial o_j} & = & \frac{\partial}{\partial o_j} \frac{1}{2} \Sigma_{k \in outputs} (t_k-o_k)^2 & \\ &=& \frac{\partial}{\partial o_j} \frac{1}{2}  (t_j-o_j)^2 & (\because \frac{\partial}{\partial o_j}(t_k-o_k)^2=0, k\ne j) \\&=&-(t_j-o_j)& \end{array}`$   
 
+Also, consider that $o_j = \sigma(net_j)$.
+
+Thus, $\frac{\partial o_j}{\partial net_j} = \frac{\partial \sigma(net_j)}{\partial net_j} = o_j(1-o_j)$
+
+Hence, 
+ - $`\begin{array}{lcl} \frac{\partial E_d}{\partial net_j} & = & \frac{\partial E_d}{\partial o_j}\frac{\partial o_j}{\partial net_j} \\ &=& -(t_j-o_j) o_j(1-o_j) \end{array}`$
+
+Therefore,
+ - $\Delta w_{ji} = -\eta \frac{\partial E_d}{\partial w_{ji}} = \eta (t_j-o_j) o_j(1-o_j) x_{ji}$
+
+<br>
+
+#### Case 2) Training Rule for Hidden Unit Weights
+$j$ is an internal, or a hidden unit in the network.   
+The derivation of the training rule for $w_{ji}$ must take into account the indirect ways in which $w_{ji}$ can influence the network outputs and hence $E_d$.   
+Also, $net_j$ can influence the network outputs (and therefore $E_d$) only through the units in $Downstream(j)$.   
+Thus,   
+![](images/003.png)    
+![](images/004.png)    
+    
 <br>
 
 * [Back to Machine Learning Tom Mitchell Main](../../main.md)
