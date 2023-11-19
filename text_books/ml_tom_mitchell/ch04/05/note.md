@@ -69,15 +69,19 @@ surfaces.
           - $\overrightarrow{t}$ : the vector of target network output values.
     - $\eta$ : the learning rate
     - $n_{in}$ : the number of network inputs
-    - $n_{out}$ : the number of network units
+    - $n_{out}$ : the number of network output units
     - $n_{hidden}$ : the number of units in the hidden layer
   - Notations)
     - Each node is assigned with an index.
+      - Concept) Node
+        - Either an input to the network or the output of some unit in the network
     - $x_{ji}$ : the input from unit $i$ into unit $j$. 
     - $w_{ji}$ : the weight from unit $i$ to unit $j$. 
     - $\delta_n$ : the error term associated with unit $n$.
       - Similar to the term $(t-o)$ of [the delta training rule](../04/note.md#443-gradient-descent-and-the-delta-rule).
+      - For the intuitive explanation, refer to 2 in [the Props.](#props-the-backpropagation-algorithm) below.
       - $\delta_n = -\frac{\partial E}{\partial net_n}$
+        - Refer to [the section 4.5.3](#453-derivation-of-the-backpropagation-rule) for the derivation.
   - Procedures)
     1. Create a feed-forward network with $n_{in}$ inputs, $n_{hidden}$ hidden units, and $n_{out}$ output units. 
     2. Initialize all network weights to small random numbers (e.g., between -.05 and .05). 
@@ -87,17 +91,99 @@ surfaces.
             - Input the instance $\overrightarrow{x}$ to the network and compute the output $o_u$ of every unit $u$ in the network.
           - Propagate the errors backward through the network:
             1. For each network output unit $k$, calculate its error term $\delta_k$
-               - $\delta_k \leftarrow o_k(1-o_k)(t_k-o_k)$
+               - $\delta_k \leftarrow o_k(1-o_k)(t_k-o_k)$ $\cdots\space\cdots(T4.3)$
             2. For each hidden unit $h$, calculate its error term  $\delta_h$
-               - $\delta_h \leftarrow o_h(1-o_h) \Sigma_{k \in  outputs} w_{kh} \delta_k$
+               - $\delta_h \leftarrow o_h(1-o_h) \Sigma_{k \in  outputs} w_{kh} \delta_k$ $\cdots\space\cdots(T4.4)$
             3. Update each network weight $w_{ji}$
-               - $w_{ji} \leftarrow w_{ji} + \Delta w_{ji}$
+               - $w_{ji} \leftarrow w_{ji} + \Delta w_{ji}$ $\cdots\space\cdots(T4.5)$
                  - where $\Delta w_{ji} = \eta \delta_j x_{ji}$
 
-- Props.)
-  - Multilayer network can have multiple local minima in their error surfaces.
-    - Thus, the gradient descent does not guaranteed the converge toward the global minimum.
-    - Still, Backpropagation algorithm is known to produce excellent results.
+<br>
+
+#### Props.) The Backpropagation Algorithm
+1. Multilayer network can have multiple local minima in their error surfaces.
+   - Thus, the gradient descent does not guaranteed the converge toward the global minimum.
+   - Still, Backpropagation algorithm is known to produce excellent results.
+2. The intuitive understanding of the term $\delta_j$
+   1. $\delta_k$ : the error of the output unit
+      - $\delta_k$ is computed for each network output unit $k$ similar to the error $(t-o)$.
+      - $o_k(1-o_k)$ is multiplied because it's the derivative of [the sigmoid squashing function](#concept-sigmoid-unit).
+   2. $\delta_h$ : the error of the hidden unit $h$.
+      - No target values are directly available to indicate the error of hidden units' values.
+        - why?)
+          - Training examples provide target values $t_k$ only for network outputs.
+      - Instead, the error term for hidden unit $h$ is calculated by summing the error terms $\delta_k$ for each output unit influenced by $h$, weighting each of the $\delta_k$s by $w_{kh}$, the weight from hidden unit $h$ to output unit $k$.
+        - This weight $w_{kh}$ characterizes the degree to which hidden unit $h$ is "responsible for" the error in output unit $k$.
+   3. Updating weights incrementally, following the presentation of each training example.
+      - This corresponds to a stochastic approximation to gradient descent.
+      - To obtain the true gradient of $E$, one would sum the $\delta_j x_{ji}$ values over all training examples before altering weight values.
+3. The Termination Condition
+   - Possible Options)
+      1. Halt after a fixed number of iterations through the loop
+      2. Halt when the error on the training examples falls below some threshold
+      3. Halt when the error on a separate validation set of examples meets some criterion
+   - Props.)
+     - Too few iterations can fail to reduce error sufficiently
+     - Too many can lead to overfitting the training data.
+
+<br>
+
+#### 4.5.2.1 Adding Momentum
+- Ideation)
+  - Alter the weight-update [rule in Equation $(T4.5)$](#452-the-backpropagation-algorithm) in the algorithm by making the weight update on the $n$-th iteration depend partially on the update that occurred during the $(n - 1)$-th iteration, as follows: 
+    - $\Delta w_{ji}(n) = \eta \delta_j x_{ji} + \alpha \Delta w_{ji} (n-1)$
+- Explanation)
+  - $\Delta w_{ji}(n)$ is the weight update performed during the $n$-th iteration through the main loop of the algorithm.
+  - $\alpha \in [0, 1]$ : a constant called the **momentum**
+    - The effect of $\alpha$ 
+      - Add momentum that tends to keep the ball rolling in the same direction from one iteration to the next. 
+      - Sometimes, keep the ball rolling through small local minima in the error surface.
+      - Sometimes, make the ball stop if there were no momentum along flat regions in the surface.
+      - Gradually increase the step size of the search in regions where the gradient is unchanging, thereby speeding convergence.
+
+<br>
+
+#### 4.5.2.2 Learning in Arbitrary Acyclic Networks
+The Backpropagation algorithm can be generalized to feedforward networks of arbitrary depth.
+- How?)
+  - Retain the weight rule $(T4.5)$.
+  - Change the procedure for computing $\delta$ values.
+  - Let $r$ a unit in layer $m$.
+    - Then, $\delta_r = o_r(1-o_r) \Sigma_{s \in layer_{m+1}} w_{sr} \delta_s$
+      - where $m+1$ is the next deeper layer.
+    - Or, using the concept of Downstream, we can denote as follows.
+      - $\delta_r = o_r(1-o_r) \Sigma_{s \in Downstream(r)} w_{sr} \delta_s$
+        - where $Downstream(r)$ is the set of units immediately downstream from unit $r$ in the network.
+
+
+<br>
+
+## 4.5.3 Derivation of the Backpropagation Rule
+Deriving the stochastic gradient descent rule implemented by [the Backpropagation algorithm above](#452-the-backpropagation-algorithm).
+
+#### How?)
+  - Recall that [the stochastic gradient descent](../04/note.md#tech-stochastic-gradient-descent-incremental-gradient-descent) involves iterating through the training examples one at a time, for each training example $d$ descending the gradient of the error $E_d$ with respect to this single example.
+    - i.e.) $\Delta w_{ji} = -\eta\frac{\partial E_d}{\partial w_{ji}}$
+      - where $E_d$ is the error on training example $d$, summed over all output units in the network $E_d(\overrightarrow{w}) \equiv \frac{1}{2} \Sigma_{k \in outputs} (t_k-o_k)^2$
+        - $outputs$ is the set of output units (the final layer) in the network
+        - $t_k$ is the target value of unit $k$ for training example $d$
+        - $o_k$ is the output of unit $k$ given training example $d$.
+
+#### Notations)
+- $x_{ji}$ : the $i$-th input to unit $j$
+- $w_{ji}$ : the weight associated with the $i$-th input to unit $j$
+- $net_j = \Sigma_i w_{ji}x_{ji}$ : the weighted sum of inputs for unit $j$
+- $o_j$ : the output computed by unit $j$
+- $5_j$ : the target output for unit $j$
+- $\sigma$ : the sigmoid function
+- $outputs$ : the set of units in the final layer of the network
+- $Downstream(j)$ : the set of units whose immediate inputs include the output of unit $j$
+
+#### Derivation)
+- Recall that weight $w_{ji}$ can influence the rest of the network only through $net_j$.
+- Thus, we can use the chain rule as follows.
+
+![](images/002.png)
 
 
 
