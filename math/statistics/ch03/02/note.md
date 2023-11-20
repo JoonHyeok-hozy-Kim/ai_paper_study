@@ -118,7 +118,11 @@ Thus, we use Poisson probability distribution in rare events.
   - First, we sort the data in an ascending order. 
     - If the plot of these scores against the expected normal scores is a straight line, then the data can be considered normal. 
   - Any curvature of the points indicates departures from normality.
-
+- e.g.)
+  - Normal Probability Plot   
+    ![](images/006.png)
+  - Various Distributions     
+    ![](images/006.png)
 <br>
 
 #### Concept) Log-Normal Distribution
@@ -142,6 +146,12 @@ Thus, we use Poisson probability distribution in rare events.
 <br><br>
 
 ### 3.2.5 Gamma Probability Distribution
+#### Concept) Gamma Function
+- Def.)
+  - $\Gamma(a) = \int_0^\infty e^{-x}x^{a-1}dx, a \gt 0$
+- Props.)
+  - $\Gamma(a) = (a-1)\Gamma(a-1)$
+  - $\Gamma(n) = (n-1)!$
 
 <br><br>
 
