@@ -129,7 +129,7 @@
 3. The evolution of weights connecting the eight input units (and the constant 1 bias input) to one of the three hidden units.
    |Graph|Description|
    |:----|:----------|
-   |![](images/005.png)|- Significant changes in the weight values for this hidden unit coincide with significant changes in the hidden layer encoding and output squared errors. <br><br> -The weight that converges to a value near zero in this case is the bias weight $w_o$.|
+   |![](images/005.png)|- Significant changes in the weight values for this hidden unit coincide with significant changes in the hidden layer encoding and output squared errors. <br><br> -The weight that converges to a value near zero in this case is the bias weight w_o.|
 
 
 <br>
