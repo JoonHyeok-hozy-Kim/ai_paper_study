@@ -85,6 +85,26 @@
       - Training examples constrain only the network **inputs** and **outputs**.
       - The weight-tuning procedure is free to set weights that define whatever hidden unit representation is most effective at minimizing the squared error $E$.
 
+#### Example)
+![](images/002.png)
+- Settings)
+  - The eight network inputs are connected to three hidden units, which are in turn connected to the eight output units.
+  - Assume that the network is to learn a simple target function $f$ such that...
+    - $f(\overrightarrow{x}) = \overrightarrow{x}$
+      - where $\overrightarrow{x}$ is a vector containing sever 0s and a single 1.$
+        - e.g.) $0000001, 0000010, \cdots, 1000000$
+  - Then, the essential information from all eight input units must be captured by the three learned hidden units.
+- Result)
+  - The learned encoding is similar to the familiar standard binary encoding of eight values using three bits.
+    - e.g.) $000,001,010, \cdots , 111$
+      - How?)   
+        |Input|Hidden Values|Rounded Hidden Values|Output|
+        |:---:|:-----------:|:-----:|:----:|
+        |1000000|.89 .04 .08|1 0 0|1000000|
+        |0100000|.15 .99 .99|0 1 1|0100000|
+        |0010000|.01 .97 .27|0 1 0|0010000|
+        |$\vdots$|$\vdots$|$\vdots$|$\vdots$|
+        |0000001|.60 .94 .91|1 1 1|0000001|
 
 
 
