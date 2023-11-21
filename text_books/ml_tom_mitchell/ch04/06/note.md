@@ -84,17 +84,28 @@
     - why?)
       - Training examples constrain only the network **inputs** and **outputs**.
       - The weight-tuning procedure is free to set weights that define whatever hidden unit representation is most effective at minimizing the squared error $E$.
+  - It allows the learner to invent features not explicitly introduced by the human designer.
 
-#### Example)
+### Example 4.7
 ![](images/002.png)
-- Settings)
+#### Settings)
   - The eight network inputs are connected to three hidden units, which are in turn connected to the eight output units.
-  - Assume that the network is to learn a simple target function $f$ such that...
-    - $f(\overrightarrow{x}) = \overrightarrow{x}$
-      - where $\overrightarrow{x}$ is a vector containing sever 0s and a single 1.$
-        - e.g.) $0000001, 0000010, \cdots, 1000000$
-  - Then, the essential information from all eight input units must be captured by the three learned hidden units.
-- Result)
+    - Assume that the network is to learn a simple target function $f$ such that...
+      - $f(\overrightarrow{x}) = \overrightarrow{x}$
+        - where $\overrightarrow{x}$ is a vector containing sever 0s and a single 1.$
+          - e.g.) $0000001, 0000010, \cdots, 1000000$
+    - Then, the essential information from all eight input units must be captured by the three learned hidden units.
+  - Weights Initialization and Parameters)
+    - The weights are initialized  to random values in the interval $(-0.1, 0.1)$.
+    - The learning rate $\eta = 0.3$
+    - No weight momentum : $\alpha = 0$
+     
+#### Procedure) Using the Backpropagation algorithm
+  - 5000 training iterations through the outer loop of the algorithm
+    - i.e.) 5000 iterations through each of the eight training example
+    - Most of the interesting weight changes occurred, however, during the first 2500 iterations
+
+#### Result)
   - The learned encoding is similar to the familiar standard binary encoding of eight values using three bits.
     - e.g.) $000,001,010, \cdots , 111$
       - How?)   
@@ -106,6 +117,19 @@
         |$\vdots$|$\vdots$|$\vdots$|$\vdots$|
         |0000001|.60 .94 .91|1 1 1|0000001|
 
+#### Analysis
+1. The squared output error as a function of the number of gradient descent search steps.
+   |Graph|Description|
+   |:----|:----------|
+   |![](images/003.png)|- The sum of squared errors for each output decreases as the gradient descent procedure proceeds, more quickly for some output units and less quickly for others.|
+2. The three hidden unit values computed by the learned network for one of the possible inputs (in particular, 01000000).
+   |Graph|Description|
+   |:----|:----------|
+   |![](images/004.png)|- The network passes through a number of different encodings before converging to the final encoding.|
+3. The evolution of weights connecting the eight input units (and the constant 1 bias input) to one of the three hidden units.
+   |Graph|Description|
+   |:----|:----------|
+   |![](images/005.png)|- Significant changes in the weight values for this hidden unit coincide with significant changes in the hidden layer encoding and output squared errors. <br><br> -The weight that converges to a value near zero in this case is the bias weight $w_o$.|
 
 
 <br>
