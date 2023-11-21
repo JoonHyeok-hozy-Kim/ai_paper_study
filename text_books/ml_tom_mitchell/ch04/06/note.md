@@ -54,12 +54,36 @@
      - The proof of this involves showing that any function can be approximated by a linear combination of many localized functions that have value 0 everywhere except for some small region, and then showing that two layers of sigmoid units are sufficient to produce good local approximations.
 
 
-<br>
+<br><br>
 
 ## 4.6.3 Hypothesis Space Search and Inductive Bias
+#### Concept) Hypothesis Space Search of Backpropagation
+- The hypothesis space is the $n$-dimensional Euclidean space of the $n$ network weights.
+- This hypothesis space is continuous.
+  - cf.) Recall that the hypothesis spaces of decision tree learning and other methods based on discrete representations.
+  - Also, the error $E$ is differentiable with respect to the continuous parameters of the hypothesis.
+    - As a result, a well-defined error gradient provides a very useful structure for organizing the search for the best hypothesis. 
+
+<br>
+
+#### Concept) Inductive Bias of the Backpropagation Algorithm
+- It is difficult to characterize precisely the inductive bias of BACKPROPAGATION learning.
+  - why?)
+    - It depends on the interplay between the gradient descent search and the way in which the weight space spans the space of representable functions.
+- Still, one can roughly characterize it as smooth interpolation between data points.
+  - Given two positive training examples with no negative examples between them, Backpropagation will tend to label points in between as positive examples as well. 
+  - This can be seen, for example, in the decision surface illustrated in the figure below, in which the specific sample of training examples gives rise to smoothly varying decision regions.   
+    ![](images/001.png)
 
 
+<br><br>
 
+## 4.6.4 Hidden Layer Representation
+- Prop.)
+  - Backpropagation can discover useful intermediate representations at the hidden unit layers inside the network.
+    - why?)
+      - Training examples constrain only the network **inputs** and **outputs**.
+      - The weight-tuning procedure is free to set weights that define whatever hidden unit representation is most effective at minimizing the squared error $E$.
 
 
 
