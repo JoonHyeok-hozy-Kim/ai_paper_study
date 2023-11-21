@@ -46,7 +46,7 @@
 |4.3|[Appropriate Problems for Neural Network Learning](./ch04/03/note.md)||
 |4.4|[Perceptrons](./ch04/04/note.md)|Perceptron Training Rule, Threshold, Delta Rule, Gradient Descent, Stochastic Gradient Descent (Incremental Gradient Descent)|
 |4.5|[Multilayer Networks and the Backpropagation Algorithm](./ch04/05/note.md)|Sigmoid Unit (logistic function), Momentum|
-|4.6|[Remarks on the Backpropagation Algorithm](./ch04/06/note.md)||
+|4.6|[Remarks on the Backpropagation Algorithm](./ch04/06/note.md)|Generalization Accuracy, Weight Decay, k-fold Cross-Validation Approach|
 
 
 

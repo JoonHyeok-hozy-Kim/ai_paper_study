@@ -125,6 +125,7 @@ surfaces.
    - Props.)
      - Too few iterations can fail to reduce error sufficiently
      - Too many can lead to overfitting the training data.
+   - For more detailed explanation refer to [the next chapter](../06/note.md#465-generalization-overfitting-and-stopping-criterion).
 
 <br>
 
