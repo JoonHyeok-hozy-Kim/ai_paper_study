@@ -1,6 +1,17 @@
 * [Back to Statistics Main](../../main.md)
 
 ## 3.2 Special Distribution Functions
+
+#### Before listing various distributions...
+- How do we know which distribution to use in a given physical
+problem?
+  - There is no simple and direct answer to this question. One intuitive way is to construct a histogram from the information at hand; from the shape of this histogram, we decide whether the random variable follows a particular distribution such as gamma distribution. 
+  - Once we decide that it follows a particular distribution, then the parameters of this distribution, such as α and β, must be statistically estimated.
+
+
+
+
+
 ### 3.2.1 The Binomial Probability Distribution
 #### Concept) Bernoulli Probability Distribution
 - Def.)
@@ -152,6 +163,69 @@ Thus, we use Poisson probability distribution in rare events.
 - Props.)
   - $\Gamma(a) = (a-1)\Gamma(a-1)$
   - $\Gamma(n) = (n-1)!$
+
+<br>
+
+#### Concept) Gamma Probability Distribution
+- Def.)
+  - A random variable $X$ is said to possess a gamma probability distribution with parameters $\alpha \gt 0$ and $\beta \gt 0$ if it has the pdf given by
+    - $`f(x) = \left\lbrace \begin{array}{cc} \frac{1}{\beta^\alpha \Gamma(\alpha)} x^{\alpha -1}e^{\frac{-x}{\beta}} & if \space x \gt 0 \\ 0, & otherwise \end{array} \right.`$
+- Notation)
+  - $X\sim Gamma(\alpha, \beta)$
+    - $\alpha$ : a shape parameter
+    - $\beta$ : a scale parameter
+- Props.)
+  - Mean : $E(X)=\alpha\beta$
+  - Variance : $Var(X)=\alpha\beta^2$
+  - MGF : $M_X(t)=\frac{1}{(1-\beta t)^\alpha}, t \lt \frac{1}{\beta}$
+  - Varying $\alpha$ and $\beta$ will generate different members of the gamma family.
+    - e.g.)
+      - Erlang distribution : $\alpha$ is a positive integer
+
+![](images/008.png)
+
+<br><br>
+
+#### Concept) Exponential Probability Distribution
+- Def.)
+  - A random variable $X$ is said to possess a gamma probability distribution with parameters $\beta \gt 0$ if it has the pdf given by
+    - $`f(x) = \left\lbrace \begin{array}{cc} \frac{1}{\beta} e^{\frac{-x}{\beta}} & if \space x \ge 0 \\ 0, & otherwise \end{array} \right.`$
+- Prop.)
+  - An Gamma Probability Distribution with $\alpha=1$.
+  - Often used to model the lifetimes of electronic components such as fuses, for survival analysis, and for reliability analysis, among others
+  - Used in developing models of insurance risks
+  - Mean : $E(X)=\beta$
+  - Variance : $Var(X)=\beta^2$
+  - MGF : $M_X(t)=\frac{1}{(1-\beta t)}, t \lt \frac{1}{\beta}$
+
+![](images/009.png)
+
+<br><br>
+
+#### Concept) Chi-Square Distribution
+Let $n$ be a positive integer. A random variable, $X$, is said to have a chi-square($\chi^2$) distribution with $n$ degrees of freedom if and only if $X$ is a gamma random variable with parameters $\alpha=\frac{n}{2}$ and $\beta = 2$. We denote this by $X \sim \chi^2(n)$.
+- Hence, the probability density function of a chi-square distribution with $n$ degrees of freedom is given by
+  - $`f(x) = \left\lbrace \begin{array}{cc} \frac{1}{\Gamma(\frac{n}{2}) 2^{\frac{n}{2}}} x^{\frac{n}{2} -1}e^{\frac{-x}{2}} & if \space x \ge 0 \\ 0, & otherwise \end{array} \right.`$
+- Props.)
+  - Mean : $E(X)=n$
+  - Variance : $Var(X)=2n$
+  - MGF : $M_X(t)=\frac{1}{(1-2t)^\frac{n}{2}}, t \lt \frac{1}{2}$
+
+![](images/010.png)
+
+<br><br>
+
+#### Concept) Beta Distribution
+- Def.)
+  - A random variable $X$ is said to have a beta distribution with parameters $\alpha$ and $\beta$ if and only if the density function of $X$ is
+    - $`f(x)=\left\lbrace \begin{array}{cc} \frac{x^{\alpha - 1}(1-x)^{\beta - 1}}{B(\alpha, \beta)} & \alpha,\beta \gt 0, 0 \le x \le 1 \\ 0, & otherwise \end{array} \right.`$
+      - where $B(\alpha, \beta) = \int_0^1 x^{\alpha - 1} (1-x)^{\beta -1} dx$
+- Props.)
+  - $B(\alpha, \beta) = \frac{\Gamma(\alpha) \Gamma(\beta)}{\Gamma(\alpha + \beta)}$
+  - Mean : $E(X) = \frac{\alpha}{\alpha+\beta}$
+  - Variance : $Var(X) = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$
+  - Used as a prior distribution for binomial or geometric proportions
+
 
 <br><br>
 
