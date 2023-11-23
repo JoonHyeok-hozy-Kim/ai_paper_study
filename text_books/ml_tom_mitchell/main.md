@@ -48,7 +48,7 @@
 |4.5|[Multilayer Networks and the Backpropagation Algorithm](./ch04/05/note.md)|Sigmoid Unit (logistic function), Momentum|
 |4.6|[Remarks on the Backpropagation Algorithm](./ch04/06/note.md)|Generalization Accuracy, Weight Decay, k-fold Cross-Validation Approach|
 |4.7|[An Illustrative Example: Face Recognition](./ch04/07/note.md)|1-of-n Output Encoding|
-|4.8|[Advanced Topics in Artificial Neural Networks](./ch04/08/note.md)||
+|4.8|[Advanced Topics in Artificial Neural Networks](./ch04/08/note.md)|Various Error Functions (Penalty Term, Derivative{Slop}, Cross Entropy, Weight Sharing), Line Search, Conjugate Gradient|
 
 
 
