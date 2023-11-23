@@ -22,7 +22,20 @@
 <br>
 
 #### 2) Adding a term for errors in the slope or derivative of the target function
-
+- In some cases, training information may be available regarding desired 
+derivatives of the target function($t$) and the desired values($o$).
+- e.g.)
+  - Simard et al (1992)
+  - Mitchell and Thrun (1993)
+  - In both of these systems, the error function is modified to add a term measuring **the discrepancy between these training derivatives and the actual derivatives of the learned network**.
+    - i.e.) $\frac{\partial t}{\partial x^j} - \frac{\partial o}{\partial x^j}$
+  - One way of representation is...
+    - $E(\overrightarrow{w}) \equiv \frac{1}{2} \Sigma_{d \in D} \Sigma_{k \in outputs} \left[ (t_{kd}-o_{kd})^2 + \mu \Sigma_{j \in inputs} \left( \frac{\partial t_{kd}}{\partial x_d^j} - \frac{\partial o_{kd}}{\partial x_d^j} \right)^2\right]$
+      - where $x_d^j$ : the value of the $j$-th input unit for training example $d$
+        - $\mu$ : a constant that determines the relative weight placed on fitting the training values versus the training derivative
+    - Explanation)
+      - $\frac{\partial t_{kd}}{\partial x_d^j}$ : the training derivative describing how the target output value $t_{kd}$ should vary with a change in the input $x_d^j$.
+      - $\frac{\partial o_{kd}}{\partial x_d^j}$ : the actual learned network's derivative describing how the learned output value $t_{kd}$ should vary corresponding to the input $x_d^j$.
 
 <br>
 

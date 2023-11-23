@@ -172,7 +172,7 @@
   - Keep weight values small, to bias learning against complex decision surfaces
 - How?)
   - Decrease each weight by some small factor during each iteration. 
-  - This is equivalent to modifying the definition of $E$ to include a penalty term corresponding to the total magnitude of the network weights.
+  - This is equivalent to modifying the definition of $E$ to [include a penalty term corresponding to the total magnitude of the network weights](../08/note.md#1-adding-a-penalty-term-for-weight-magnitude).
 
 <br>
 
