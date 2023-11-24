@@ -94,7 +94,45 @@ derivatives of the target function($t$) and the desired values($o$).
   - Tend to have no significant impact on the generalization error of the final network
   - The only likely impact on the final error is that different error-minimization procedures may fall into different local minima.
 
+<br><br>
 
+## 4.8.3 Recurrent Networks
+- Def.)
+  - Recurrent networks are artificial neural networks that apply to time series data and that use outputs of network units at time $t$ as the input to other units at time $t + 1$.
+  - In this way, they support a form of **directed cycles** in the network.
+
+<br>
+
+#### Ex.) Predicting the Stock Price
+- Objective)
+  - Consider the time series prediction task of predicting the next day's stock market average $y(t + 1)$ based on the current day's economic indicators $x(t)$.
+- Problem)
+  - Dependencies between the past and the current data.
+    - i.e.) The prediction of $y(t + 1)$ depends only on $x(t)$ and cannot capture possible dependencies of $y(t + 1)$ on earlier values of $x$.
+- Solution) Recurrent Network
+  - How?
+    - Add a new unit $b$ to the hidden layer, and new input unit $c(t)$.
+    - The value of $c(t)$ is defined as the value of unit $b$ at time $t - 1$.
+    - The input value $c(t)$ to the network at one time step is simply copied from the value of unit $b$ on the previous time step.
+  - Advantage)
+    - Because $b$ depends on both $x(t)$ and on $c(t)$, it is possible for $b$ to summarize information from earlier values of $x$ that are arbitrarily distant in time.
+
+<table><tr><td><img src="images/001.png"></td><td><img src="images/002.png"></td></tr></table>
+
+
+<br><br>
+
+## 4.8.4 Dynamically Modifying Network Structure 
+- Goal)
+  - Dynamically grow or shrink the number of network units and interconnections in an attempt to improve generalization accuracy and training efficiency.
+
+### Concept) CASCADE-CORRELATION algorithm
+- Desc.)
+  - Begin with a network containing no hidden units, then grow the network as needed by adding hidden units until the training error is reduced to some acceptable level
+
+### Concept) The Opposite Approach
+- Desc.)
+  - Begin with a complex network and prune it as we find that certain connections are inessential
 
 <br>
 
