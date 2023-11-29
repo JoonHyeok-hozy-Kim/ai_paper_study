@@ -50,6 +50,13 @@
 |4.7|[An Illustrative Example: Face Recognition](./ch04/07/note.md)|1-of-n Output Encoding|
 |4.8|[Advanced Topics in Artificial Neural Networks](./ch04/08/note.md)|Various Error Functions (Penalty Term, Derivative{Slop}, Cross Entropy, Weight Sharing), Line Search, Conjugate Gradient, Recurrent Networks, CASCADE-CORRELATION algorithm|
 
+<br>
+
+## 5. Evaluating Hypotheses
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|5.1|[Motivations](./ch05/01/note.md)|Bias and Variance in an estimate|
+
 
 
 

@@ -132,7 +132,21 @@ derivatives of the target function($t$) and the desired values($o$).
 
 ### Concept) The Opposite Approach
 - Desc.)
-  - Begin with a complex network and prune it as we find that certain connections are inessential
+  - Begin with a complex network and prune it as we find that certain connections are inessential.
+- Question) What is the inessential connection?
+  - Possible Answers)
+    1. See whether the value of the connection is close to zero.
+    2. (More Successful) See whether a small variation in the weight has significant effect on the error $E$.
+       - i.e.) $\frac{\partial E}{\partial w}$
+       - e.g.) *Optimal Brain Damage Approach* by LeCun et al. (1990)
+         - How?)
+           1. A network is trained.
+           2. The least salient connections removed.
+           3. This process iterated until some termination condition is met.
+         - Effect)
+           - Reduced the number of weights in a large network by a factor of 4
+           - A slight improvement in generalization accuracy
+           - A significant improvement in subsequent training efficiency
 
 <br>
 
