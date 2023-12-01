@@ -56,6 +56,7 @@
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
 |5.1|[Motivations](./ch05/01/note.md)|Bias and Variance in an estimate|
+|5.2|[Estimating Hypothesis Accuracy](./ch05/02/note.md)|Sample Error, True Error, Confidence Intervals|
 
 
 
