@@ -21,8 +21,8 @@
 
 ## 5.2.1 Sample Error and True Error
 #### Def.) Sample Error
-The sample error (denoted $error_s(h)$) of hypothesis $h$ w.r.t. target function $f$ and the data sample $S$ is
- - $error_s(h) \equiv \frac{1}{n}\Sigma_{x \in S} \delta(f(x), h(x))$
+The sample error (denoted $error_S(h)$) of hypothesis $h$ w.r.t. target function $f$ and the data sample $S$ is
+ - $error_S(h) \equiv \frac{1}{n}\Sigma_{x \in S} \delta(f(x), h(x))$
    - where $n$ is the number of examples in $S$,
      - $\delta(f(x), h(x))$ is 1 if $f(x) \ne h(x)$ and 0 otherwise. 
 
@@ -33,15 +33,39 @@ The true error (denoted $error_D(h)$) of hypothesis $h$ w.r.t. target function $
  - $error_D(h) \equiv Pr_{x \in D} [f(x) \ne h(x)]$
    - where $Pr_{x \in D}$ denotes the probability of $x$ taken over the instance distribution $D$
 
+<br>
+
+#### Props.) 
+- What we ultimately want to know is $error_D(h)$.
+- However, we can only get $error_S(h)$.
+- Thus, our question will be "How good an estimate of $error_D(h)$ is 
+provided by $error_S(h)$?"
+  - [Confidence interval](#def-confidence-interval) can provide the statistic of goodness.
+
+
 <br><br>
 
 ## 5.2.2 Confidence Intervals for Discrete-Valued Hypotheses
 #### Def.) Confidence Interval
+Under the following conditions
+- $h$ is a discrete-valued hypothesis
+- the sample $S$ contains $n$ examples drawn **independent** of one another, and independent of $h$, according to the probability distribution $D$.
+- $n \ge 30$
+- $h$ commits $r$ errors over the $n$ examples.
+  - i.e.) $error_S(h) = \frac{r}{n}$
+
 The approximate $N$% confidence intervals for $error_D(h)$ is
 - $error_s(h) \pm z_N \sqrt{\frac{error_s(h)(1-error_s(h))}{n}}$
   - where $z_N$ is chosen depending on the desired confidence level
 
 ![](images/001.png)
+
+<br>
+
+#### Prop.)
+The approximate confidence interval works well when
+- $n \cdot error_S(h) \cdot (1-error_S(h)) \ge 5$
+
 
 
 <br>
