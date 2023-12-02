@@ -13,7 +13,11 @@ An estimator is a random variable $Y$ used to estimate some parameter $p$ of an 
 <br>
 
 #### Concept) Estimation Bias
-a The estimation bias of $Y$ as an estimator for $p$ is the quantity $(E[Y] - p)$. An unbiased estimator is one for which the bias is zero. 
+a The estimation bias of $Y$ as an estimator for $p$ is the quantity $(E[Y] - p)$. 
+- An **unbiased estimator** is one for which the bias is zero. 
+- cf.) Estimation Bias vs Inductive Bias
+  - The estimation bias is a numerical quantity.
+  - The inductive bias is a set of assertions.
 
 <br>
 

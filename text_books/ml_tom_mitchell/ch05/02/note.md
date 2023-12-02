@@ -42,6 +42,17 @@ The true error (denoted $`error_D(h)`$) of hypothesis $h$ w.r.t. target function
 provided by $error_S(h)$?"
   - [Confidence interval](#def-confidence-interval) can provide the statistic of goodness.
 
+<br>
+
+#### Ex.) Analogy with the Binomial Distribution
+The sample error ($`error_S(h)`$) and the true error ($`error_D(h)`$) compared with the Binomial Distribution Estimation.
+|Case|Binomial Distribution Example|Sample Error and True Error|
+|:---|:---|:---|
+|Situation|Tossing a bent coin.|A hypothesis classifies instances.|
+|Rule|Toss a coin $n$ times. <br> Head is observed $r$ times. <br> Put $p$ the probability of head.|The hypothesis $h$ classifies a random sample of instances from $D$.|
+|1|Estimating $p$.|Estimating $error_D(h)$, i.e. the true error of the space.|
+|2|Estimating $\frac{r}{n}$.|Estimating $error_S(h)$, i.e. the sample error from the sample size of $n$.|
+
 
 <br><br>
 
