@@ -29,7 +29,7 @@ The sample error (denoted $error_S(h)$) of hypothesis $h$ w.r.t. target function
 <br>
 
 #### Def.) True Error
-The true error (denoted $error_D(h)$) of hypothesis $h$ w.r.t. target function $f$ and distribution $D$, is the probability that $h$ will misclassify an instance drawn at random according to $D$.
+The true error (denoted $`error_D(h)`$) of hypothesis $h$ w.r.t. target function $f$ and distribution $D$, is the probability that $h$ will misclassify an instance drawn at random according to $D$.
  - $error_D(h) \equiv Pr_{x \in D} [f(x) \ne h(x)]$
    - where $Pr_{x \in D}$ denotes the probability of $x$ taken over the instance distribution $D$
 
