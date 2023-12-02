@@ -21,7 +21,7 @@
 
 ## 5.2.1 Sample Error and True Error
 #### Def.) Sample Error
-The sample error (denoted $error_S(h)$) of hypothesis $h$ w.r.t. target function $f$ and the data sample $S$ is
+The sample error (denoted $`error_S(h)`$) of hypothesis $h$ w.r.t. target function $f$ and the data sample $S$ is
  - $error_S(h) \equiv \frac{1}{n}\Sigma_{x \in S} \delta(f(x), h(x))$
    - where $n$ is the number of examples in $S$,
      - $\delta(f(x), h(x))$ is 1 if $f(x) \ne h(x)$ and 0 otherwise. 
