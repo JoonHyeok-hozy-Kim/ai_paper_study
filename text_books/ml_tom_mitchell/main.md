@@ -57,7 +57,8 @@
 |:-:|:------|:-------|
 |5.1|[Motivations](./ch05/01/note.md)|Bias and Variance in an estimate|
 |5.2|[Estimating Hypothesis Accuracy](./ch05/02/note.md)|Sample Error, True Error, Confidence Intervals|
-|5.3|[Basics of Sampling Theory](./ch05/03/note.md)||
+|5.3|[Basics of Sampling Theory](./ch05/03/note.md)|The Central Limit Theorem, Estimator, Estimation Bias, Confidence Interval|
+|5.5|[Difference in Error of Two Hypotheses](./ch05/05/note.md)|Hypothesis Testing|
 
 
 
