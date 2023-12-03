@@ -26,7 +26,18 @@
 #### Question)
 What is the probability that $error_D(h_1) > error_D(h_2)$?
 
-
+#### Example)
+- Suppose
+  - Hypothesis $h_1$ and $h_2$ are tested on two independent samples $S_1$ and $S_2$ respectively, each with the size 100.
+    - $error_{S_1}(h_1) = 0.3$
+    - $error_{S_2}(h_2) = 0.2$
+- Then, $\hat{d} = 0.1$
+- Thus, the probability the below are identical.
+  - the probability that $error_D(h_1) > error_D(h_2)$ given $error_{S_1}(h_1) = 0.3$ and $error_{S_2}(h_2) = 0.2$
+  - the probability that $d \gt 0$ given $\hat{d} = 0.1$.
+  - the probability that $\hat{d}$ falls into the one-sided interval $\hat{d} \lt d+0.1$.
+    - Since $d$ is the mean of the distribution governing $\hat{d}$,
+      - $\hat{d} \lt \mu_{\hat{d}}+0.1$
 
 
 
