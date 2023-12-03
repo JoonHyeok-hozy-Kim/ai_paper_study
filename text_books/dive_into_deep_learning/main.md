@@ -8,7 +8,7 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 <br>
 
 - [Installation](ch00/01/note.md)
-
+- [Notations](ch00/02/note.md)
 
 
 
