@@ -11,7 +11,7 @@ Numerical Objects
 -  $\mathsf{X}$: a general tensor
 -  $\mathbf{I}$: the identity matrix (of some given dimension), i.e., a square matrix with $1$ on all diagonal entries and    $0$ on all off-diagonals
 -  $x_i$, $[\mathbf{x}]_i$: the $i^\textrm{th}$    element of vector $\mathbf{x}$
--  $x_{ij}$, $x_{i,j}$, $[\mathbf{X}]_{ij}$,    $[\mathbf{X}]_{i,j}$: the element of matrix $\mathbf{X}$ at row $i$ and column $j$.
+-  $x_{ij}$, $x_{i,j}$, $`[\mathbf{X}]_{ij}`$, $`[\mathbf{X}]_{i,j}`$: the element of matrix $`\mathbf{X}`$ at row $i$ and column $j$.
 
 Set Theory
 ----------
