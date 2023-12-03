@@ -9,6 +9,7 @@
 
 ## Textbook Study
 * [Machine Learning Tom Mitchell](text_books/ml_tom_mitchell/main.md)
+* [Dive into Deep Learning](text_books/dive_into_deep_learning/main.md)
 
 <br>
 
