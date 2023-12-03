@@ -77,7 +77,7 @@
 #### 2.6 Kalman Filter Trained Recurrent Network 
 - Puskorius and Feldkamp (1994) use Kalman filter techniques to improve recurrent net performance.
 - How?)
-  - It uses he derivative discount factor imposed to decay exponentially the effects of past dynamic derivatives
+  - It uses the derivative discount factor imposed to decay exponentially the effects of past dynamic derivatives
 - Limit)
   - Not verified to be useful for long minimal time lags.
 
@@ -117,6 +117,12 @@
   - The chunker system deteriorates as the noise level increases and the input sequences become less compressible.
     - LTSM does not suffer from this problem.
 
+
+<br><br>
+
+## 3. Constant Error Backprop
+### 3.1 Exponentially Decaying Error
+#### 3.1.1 Conventional BPTT
 
 
 <br>
