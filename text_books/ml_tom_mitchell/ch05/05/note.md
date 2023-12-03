@@ -38,8 +38,11 @@ What is the probability that $error_D(h_1) > error_D(h_2)$?
   - the probability that $\hat{d}$ falls into the one-sided interval $\hat{d} \lt d+0.1$.
     - Since $d$ is the mean of the distribution governing $\hat{d}$,
       - $\hat{d} \lt \mu_{\hat{d}}+0.1$
-
-
+- Consider
+  - $\sigma_{\hat{d}} \approx 0.061$
+  - 1.64 standard deviation about the mean corresponds to a two-sided interval with confidence level 90%.
+    - i.e.) the one-sided interval will have an associated level of 95%
+- Therefore, given the observed $\hat{d} = 0.1$, the probability that $error_D(h_1) > error_D(h_2)$ is approximately 0.95.
 
 
 
