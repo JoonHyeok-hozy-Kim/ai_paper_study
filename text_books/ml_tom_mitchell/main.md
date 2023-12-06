@@ -59,7 +59,14 @@
 |5.2|[Estimating Hypothesis Accuracy](./ch05/02/note.md)|Sample Error, True Error, Confidence Intervals|
 |5.3|[Basics of Sampling Theory](./ch05/03/note.md)|The Central Limit Theorem, Estimator, Estimation Bias, Confidence Interval|
 |5.5|[Difference in Error of Two Hypotheses](./ch05/05/note.md)|Hypothesis Testing|
-|5.6|[Comparing Learning Algorithms](./ch05/06/note.md)||
+|5.6|[Comparing Learning Algorithms](./ch05/06/note.md)|Paired Test, Paired t Test, k-Fold Method|
+
+<br>
+
+## 6. Bayesian Learning
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|6.2|[Bayes Theorem](./ch06/02/note.md)||
 
 
 
