@@ -13,7 +13,7 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 ## 2. Preliminaries
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|2.1|[Data Manipulation](./ch02/01/note.md)||
+|2.1|[Data Manipulation](./ch02/01/note.md)|Tensor, Indexing, Slicing|
 
 
 

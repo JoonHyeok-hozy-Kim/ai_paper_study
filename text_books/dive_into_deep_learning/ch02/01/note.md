@@ -99,24 +99,36 @@ Pytorch
   ```
   ![](images/010.png)
 
-#### Indexing the last row
-```
-X[-1]
-```
-![](images/011.png)
+- Indexing the last row
+    ```python
+    X[-1]
+    ```
+    ![](images/011.png)
 
-#### Indexing multiple rows.
-```
-X[1:3]
-```
-![](images/012.png)
+- Indexing multiple rows.
+    ```python
+    X[1:3]
+    ```
+    ![](images/012.png)
 
-#### Writing an element of matrix.
-```
-X[1,2] = 17
-X
-```
-![](images/013.png)
+- Writing an element of a matrix.
+    ```python
+    X[1,2] = 17
+    X
+    ```
+    ![](images/013.png)
+
+- Writing multiple elements of a matrix.
+    ```python
+    X[:2, :] = 12
+    X
+    ```
+    - In the first and second row ```:2```, for every column ```:```, write 12.   
+      ![](images/014.png)
+
+
+
+
 
 
 <br>
