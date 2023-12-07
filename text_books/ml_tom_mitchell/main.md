@@ -66,7 +66,7 @@
 ## 6. Bayesian Learning
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|6.2|[Bayes Theorem](./ch06/02/note.md)||
+|6.2|[Bayes Theorem](./ch06/02/note.md)|Maximum A Posteriori Hypothesis (MAP Hypothesis)|
 
 
 
