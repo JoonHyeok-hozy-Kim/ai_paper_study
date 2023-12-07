@@ -56,7 +56,7 @@ Every elementary matrix is invertible. Furthermore, the inverse of an elementary
 Let $A$ be an $m \times n$ matrix with reduced row echelon form $R$. Then there exists
 an invertible $m \times m$ matrix $P$ such that $PA = R$.
 - Why?)
-  - If $R$ exists, then $\exist E_1, \cdots, E_n$, the elementary matrices, such that $(E_1 \cdots E_n)A = R$.
+  - If $R$ exists, then $\exists E_1, \cdots, E_n$, the elementary matrices, such that $(E_1 \cdots E_n)A = R$.
   - Then, $P = E_1 \cdots E_n$.
 - Corollary)
   - The matrix equation $Ax = b$ has the same solutions as $Rx = c$, where $[R \space c]$
