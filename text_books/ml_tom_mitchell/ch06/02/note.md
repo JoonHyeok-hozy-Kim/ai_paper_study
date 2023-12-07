@@ -45,15 +45,40 @@
     - i.e.) $P(h_i) = P(h_j), \forall h_i, h_j \in H$
   - We may consider only the term $P(D|h)$ to find the most probable hypothesis.
   - $P(D|h)$ is called the **likelihood** of the data $D$ given $h$.
-  - Any hypothesis that maximizes P(D|h) is called a **maximum likelihood hypothesis**.
+  - Any hypothesis that maximizes $P(D|h)$ is called a **maximum likelihood hypothesis**.
     - i.e.) $h_{ML} \equiv argmax_{h \in H} P(D|h)$
 
+<br><br>
 
-
-
-
-
-
+## 6.2.1 Example
+- Objective)
+  - A medical diagnosis problem in which there are two alternative hypotheses: 
+    1. The patient has a particular form of cancer. 
+    2. The patient does not.
+- Situation)
+  - The available data is from a particular laboratory test with two possible outcomes
+    - $\oplus$ (positive) 
+    - $\ominus$ (negative)
+  - We have prior knowledge that over the entire population of people only 0.008 have this disease.
+    - $P(cancer)=0.008$
+    - $P(\neg cancer)=0.992$
+  - The test returns a correct positive result in only 98% of the cases in which the disease is actually present.
+    - $P(\oplus | cancer) = 0.98$
+    - $P(\ominus | cancer) = 0.02$
+  - The test returns a correct negative result in only 97% of the cases in which the disease is not present.
+    - $P(\oplus | \neg cancer) = 0.03$
+    - $P(\ominus | \neg cancer) = 0.97$
+- Problem)
+  - Suppose we now observe a new patient for whom the lab test returns a **positive result**. 
+  - Should we diagnose the patient as having cancer or not?
+    - i.e.) $P(cancer | \oplus)$ or $P(\neg cancer | \oplus)$
+- [Maximum A Priori Hypothesis](#concept-maximum-a-posteriori-hypothesis-map-hypothesis)
+  - We should compare $h_{cancer}$ and $h_{\neg cancer}$.
+    - $h_{cancer} = P(\oplus|cancer)P(cancer) = 0.98 \times 0.008 = 0.0078$
+    - $h_{\neg cancer} = P(\oplus|\neg cancer)P(\neg cancer) = 0.03 \times 0.992 = 0.0298$
+  - Thus, $h_{MAP} = argmax_{h \in \lbrace cancer, \neg cancer \rbrace} P(h|\oplus) = h_{\neg cancer}$
+    - $\because P(cancer | \oplus) \lt P(\neg cancer | \oplus)$
+  - Therefore, we should diagnose that the patient does not have cancer.
 
 
 

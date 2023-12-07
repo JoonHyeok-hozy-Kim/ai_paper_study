@@ -17,7 +17,8 @@
 ### 2. Matrices and Linear Transformations
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|2.1|[Matrix Multiplication](./ch02/01/note.md)||
+|2.1|[Matrix Multiplication](./ch02/01/note.md)|Matrix Product, Diagonal Matrix|
+|2.3|[Invertibility and Elementary Matrices](./ch02/03/note.md)||
 
 
 
