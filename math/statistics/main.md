@@ -46,8 +46,7 @@
         <td>2-6</td><td><a href="./ch02/06/note.md">Moments and Moment-Generating Functions</a></td><td> Expected Value, Variance, Skewness, Kurtosis, Moment Generating Function(MGF) </td>
     </tr>
 </table>
-
-
+<br>
 
 
 ### 3. Additional Topics in Probability
@@ -57,9 +56,13 @@
         <td>No.</td><td>Chapter</td><td>Keywords</td>
     </tr>
     <tr>
-        <td>3-2</td><td><a href="./ch03/02/note.md">Special Distribution Functions</a></td><td>Bernoulli, Binomial, Poisson, Uniform, Normal, Log-Normal, Gamma, Exponential, Chi-Square</td>
+        <td>3-2</td><td><a href="./ch03/02/note.md">Special Distribution Functions</a></td><td>Bernoulli, Binomial, Poisson, Uniform, Normal, Log-Normal, Gamma, Exponential, Chi-Square, Beta</td>
+    </tr>
+    <tr>
+        <td>3-3</td><td><a href="./ch03/03/note.md">Joint Probability Distributions</a></td><td>Univariate/Bivariate Distribution, Conditional Probability Distribution, Conditional Expectation, Covariance, Correlation, Joint Moment-Generating Function</td>
     </tr>
 </table>
+
 
 
 
