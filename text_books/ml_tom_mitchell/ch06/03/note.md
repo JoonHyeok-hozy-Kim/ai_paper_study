@@ -90,8 +90,16 @@ Under the following two [assumptions](#desc), every consistent learner outputs a
 
 #### e.g.) Candidate-Elimination Algorithm
 - Recall the [Candidate-Elimination Algorithm](../../ch02/05/note.md#254-candidate-elimination-learning-algorithm)
-  - We defined the [inductive bias](../../ch02/07/note.md#27-inductive-bias) of a learning algorithm to be the set of assumptions B sufficient to deductively justify the inductive inference 
-performed by the learner.
+- [Inductive Bias](../../ch02/07/note.md#27-inductive-bias) was one way to characterize the assumptions implicit in learning algorithms.
+  - We defined the **inductive bias** of a learning algorithm to be the set of assumptions $B$ sufficient to deductively justify the inductive inference performed by the learner.
+    - e.g.) The inductive bias of the Candidate-Elimination Algorithm is the assumption that the target concept $c$ is included in the hypothesis space $H$.
+  - Furthermore, we showed there that the output of this learning algorithm follows deductively from its inputs plus this implicit inductive bias assumption.
+- Bayesian Interpretation provides an alternative way to characterize the assumptions implicit in learning algorithms.
+  - How?)
+    - Use the **probabilistic reasoning system** based on Bayes theorem.
+      - Implicit Assumptions)
+        - The prior probabilities over $H$ are given by the distribution $P(h)$
+        - The strength of data in rejecting or accepting a hypothesis is given by $P(D|h)$.
 
 
 

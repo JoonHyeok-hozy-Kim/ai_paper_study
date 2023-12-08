@@ -39,7 +39,7 @@ Then, the *power set* of $X$ is the set of all subsets of $X$.
 <br>
 
 #### Prop.) Conjunctive Hypothesis Space is Biased.
-The size of the conjunctive hypothesis space minute compared to the size of the power set of $X$.
+The size of the conjunctive hypothesis space is minute compared to the size of the power set of $X$.
 - e.g.) [Previous EnjoySport Example](../02/note.md#example-enjoysport)
   - $|X|=96$
     - $` \because 4*(3*2*2*2*2*2)=96`$.
@@ -63,7 +63,7 @@ The size of the conjunctive hypothesis space minute compared to the size of the 
   - Let $x_1, x_2$, and $x_3$ be the positive example and $x_4$ and $x_5$ be the negative.
   - Then...
     - $S : \lbrace (x_1 \vee x_2 \vee x_3) \rbrace$
-    - $G : \lbrace \sim(x_4 \wedge x_5) \rbrace$
+    - $G : \lbrace \neg(x_4 \wedge x_5) \rbrace$
 - Problem)
   - In order to converge to a single, final target concept, we will have to present every single instance in $X$ as a training example.
     - Why?)
