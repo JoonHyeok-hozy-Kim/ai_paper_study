@@ -29,6 +29,12 @@
 
 <br>
 
+#### Theorem) Theorem of Total Probability
+If events $A_1, \cdots, A_n$ are mutually exclusive with $\Sigma_{i=1}^n P(A_i) = 1$, then
+- $P(B) = \Sigma_{i=1}^n P(B|A_i)P(A_i)$
+
+<br>
+
 #### Concept) Maximum A Posteriori Hypothesis (MAP Hypothesis)
 - Desc.)
   - Among various candidate hypotheses in the hypotheses space $H$,

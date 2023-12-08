@@ -13,6 +13,8 @@
       - i.e.) $d_i = c(x_i)$
   - Since we assumed the instances are in a sequence, we can simplify the target values as $D = \langle d_1, \cdots, d_m \rangle$.
 
+<br>
+
 #### Model) Brute-Force MAP Learning Algorithm
 - Algorithm)
   1. For each hypothesis $h \in H$, calculate the posterior probability.
@@ -35,11 +37,27 @@
         - why?) 
           - By the assumption 1, $d_i = c(x_i)$. Assuming that $h$ is the correct description of $c$, $d_i=h(x_i)$.
       - $P(D) = \frac{|VS_{H,D}|}{|H|}$ where $VS_{H,D}$ is the [version space](../../ch02/05/note.md#concept-version-space) of $H$ w.r.t. $D$.
+        - why?)
+          - Recall the [theorem of total probability](../02/note.md#theorem-theorem-of-total-probability).
+          - Thus, $`\begin{array}{ll} P(D) & = \Sigma_{h_i \in H} P(D|h_i)P(h_i) \\ & = \Sigma_{h_i \in VS_{H,D}} 1 \cdot \frac{1}{|H|} + \Sigma_{h_i \notin VS_{H,D}} 0 \cdot \frac{1}{|H|} \\ & = \frac{|VS_{H,D}|}{|H|} \end{array}`$
+  - How to calculate $P(h|D)$.
+    - $`P(h|D) = \frac{P(D|h)P(h)}{P(D)} = \left\lbrace\begin{array}{ll} \frac{1}{VS_{H,D}} & if \space h(x_i) = c(x_i)=d_i, \forall x_i \in X \\ 0 & otherwise. \end{array}\right.`$
+      - where $h(x_i) = c(x_i)=d_i, \forall x_i \in X$ denotes the [consistent](../../ch02/05/note.md#concept-consistency) hypothesis
+- Analysis)
+  - Every consistent hypothesis is a [MAP hypothesis](../02/note.md#concept-maximum-a-posteriori-hypothesis-map-hypothesis).
+    - why?)
+      - Every consistent hypothesis shares the same probability of $P(h|D)=\frac{1}{VS_{H,D}}$.
+        - cf.) [Consistency](../../ch02/05/note.md#concept-consistency)
+          - $h(x) = c(x)$
+      - Recall that the definition of the MAP hypothesis is a hypothesis that maximizes $P(h|D)$.
+      - Thus, every consistent hypothesis is a $h_{MAP}$.
 - Limit)
   - This algorithm may require significant computation.
     - why?) Calculating $P(h|D), \forall h \in H$ is costly!
 
+<br><br>
 
+## 6.3.2 MAP Hypotheses and Consistent Learners
 
 
 
