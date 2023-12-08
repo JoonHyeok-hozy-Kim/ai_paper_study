@@ -157,7 +157,7 @@ torch.exp(X)
     ![](images/016.png)
 - e.g.) Logical Operators
   - Equality : ==
-  - Inequalities : <, >
+  - Inequalities : <, >   
     ![](images/017.png)   
     ![](images/020.png)
 
