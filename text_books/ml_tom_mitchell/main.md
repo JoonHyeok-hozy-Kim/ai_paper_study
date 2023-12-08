@@ -67,7 +67,7 @@
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
 |6.2|[Bayes Theorem](./ch06/02/note.md)|Maximum A Posteriori Hypothesis (MAP), Maximum Likelihood Hypothesis (ML)|
-|6.3|[Bayes Theorem and Concept Learning](./ch06/03/note.md)||
+|6.3|[Bayes Theorem and Concept Learning](./ch06/03/note.md)|Brute-Force Bayes Concept Learning|
 
 
 
