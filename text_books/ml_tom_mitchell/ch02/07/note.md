@@ -29,7 +29,7 @@ Let $X$ be the instances denoted as a set.
 Then, the *power set* of $X$ is the set of all subsets of $X$.
 - Prop.) The Sizes
   - $|X|$ : the size of a instance set $X$
-    - $`|X| =`$ (number of examples) $`* \Pi_{i}{n_i}`$.
+    - $|X| =$ (number of examples) $* \Pi_{i}{n_i}$.
       - where $n_i$ is the number of possible values that the $i$-th attribute $x_i$ can have
   - The Size of the Power Set
     - (the number of distinct subsets of $X$) = $2^{|X|}$
