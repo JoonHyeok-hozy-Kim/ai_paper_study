@@ -66,6 +66,7 @@ In the previous example, the variable RoofType had two values, either "Slate" or
     y = torch.tensor(target.to_numpy(dtype=float))
     y
     ```
+    ![](images/004.png)
 
 
 
