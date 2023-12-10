@@ -37,13 +37,36 @@ In the previous example, the variable RoofType had two values, either "Slate" or
        |Before|After|
        |:----:|:---:|
        |RoofType = {Slate, NaN}| RoofType_Slate={True, False} <br> RoofType_Nan={True, False} |
+       - Hands on) How to perform One hot encoding in pandas
+         - Use ```get_dummies()``` method.
+           ```python
+           inputs, target = data.iloc[:, 0:2], data.iloc[:, 2]
+           inputs = pd.get_dummies(inputs, dummy_na=True)
+           print(inputs)
+           ```
+           ![](images/002.png)
+  3. Replace the missing value with the mean value.
+     - Hands on) How to fill the missing values with the mean value in pandas
+       - Use ```fillna()``` method with the input value of ```mean()```.
+         ```python
+         inputs = inputs.fillna(inputs.mean())
+         print(inputs)
+         ```
+         ![](images/003.png)
 
-- How to perform One hot encoding in pandas
-  ```python
-  inputs, target = data.iloc[:, 0:2], data.iloc[:, 2]
-  inputs = pd.get_dummies(inputs, dummy_na=True)
-  print(inputs)
-  ```
+<br>
+
+#### Tech) Conversion to the Tensor Format
+- How to)
+  - Use pandas' ```to_numpy()``` method, and convert this ndarray into tensor.
+    ```python
+    import torch
+    x = torch.tensor(inputs.to_numpy(dtype=float))
+    x
+    y = torch.tensor(target.to_numpy(dtype=float))
+    y
+    ```
+
 
 
 
