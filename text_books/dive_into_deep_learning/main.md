@@ -13,8 +13,8 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 ## 2. Preliminaries
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|2.1|[Data Manipulation](./ch02/01/note.md)|Tensor, Indexing, Slicing, Unary/Binary Operators, Concatenation, Broadcasting, Tensor Object Conversion|
-|2.2|[Data Processing](./ch02/02/note.md)|pandas|
+|2.1|[Data Manipulation](./ch02/01/note.md)|Tensor(Indexing, Slicing, Unary/Binary Operators, Concatenation, Broadcasting, Tensor Object Conversion(ndarray))|
+|2.2|[Data Processing](./ch02/02/note.md)|pandas(CSV File Loading, Missing Value Treatment)|
 
 
 
