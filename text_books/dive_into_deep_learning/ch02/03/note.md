@@ -181,6 +181,32 @@ Using tools from linear algebra implemented for tensor.
       x
       torch.mv(A, x)
       ```
+      ![](images/019.png)
+  - Python's ```@``` operator
+    - e.g.)
+      ```python
+      A@x
+      ```
+      ![](images/020.png)
+
+<br>
+
+## 2.3.10 Matrix-Matrix Multiplication
+- Syntax
+  - ```torch.mm([matrix_obj_1], [matrix_obj_2])```
+    - e.g.)
+      ```python
+      A = torch.arange(6, dtype=torch.float32).reshape(2, 3)
+      A
+      B = torch.ones(3, 4)
+      B
+      torch.mm(A, B)
+      ```
+  - Python's ```@``` operator
+    - e.g.)
+      ```python
+      A@x
+      ```
 
 
 
