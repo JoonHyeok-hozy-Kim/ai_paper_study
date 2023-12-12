@@ -236,7 +236,7 @@ notions of size. The Euclidean norm that we all learned in elementary
 school geometry when calculating the hypotenuse of a right triangle is
 the square root of the sum of squares of a vector's' elements. Formally,
 this is called the $\ell_2$ *norm* and expressed as
-- $`\|\mathbf{x}\|_2 = \sqrt{\sum_{i=1}^n{x_i^2}}`$
+- $`\|\mathbf{x}\|_2 = \sqrt{\Sigma_{i=1}^n{x_i^2}}`$
 
 The method ``norm`` calculates the $\ell_2$ norm.
 
