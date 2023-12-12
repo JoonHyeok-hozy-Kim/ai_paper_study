@@ -139,7 +139,49 @@ Using tools from linear algebra implemented for tensor.
   sum_A
   sum_A.shape
   ```
+  ![](images/015.png)
+  - Usage
+    - ```sum_A``` keeps its two axes after summing each row, we can divide ```A``` by ```sum_A``` with broadcasting to create a matrix where each row sums up to 1.
+      ```python
+      A / sum_A
+      ```
+      ![](images/016.png)
+
 - Cumulative Sum
+  ```python
+  A.cumsum(axis=0)
+  ```
+  ![](images/017.png)
+
+<br>
+
+## 2.3.8 Dot Products
+- Syntax
+  - ```torch.dot([vector_obj_1], [vector_obj_2])```
+    - e.g.)
+      ```python
+      x = torch.arange(3, dtype=torch.float32)
+      x
+      y = torch.ones(3, dtype = torch.float32)
+      y
+      torch.dot(x,y)
+      ```
+      ![](images/018.png)
+
+<br>
+
+## 2.3.9 Matrix-Vector Products
+- Syntax
+  - ```torch.mv([matrix_obj], [vector_obj])```
+    - e.g.)
+      ```python
+      A = torch.arange(6, dtype=torch.float32).reshape(2, 3)
+      A
+      x = torch.arange(3, dtype=torch.float32)
+      x
+      torch.mv(A, x)
+      ```
+
 
 
 
