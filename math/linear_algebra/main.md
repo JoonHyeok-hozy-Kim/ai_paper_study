@@ -19,7 +19,8 @@
 |:-:|:------|:-------|
 |2.1|[Matrix Multiplication](./ch02/01/note.md)|Matrix Product, Diagonal Matrix|
 |2.3|[Invertibility and Elementary Matrices](./ch02/03/note.md)|Inverse, Elementary Matrix, Column Correspondence Property|
-|2.4|[The Inverse of a Matrix](./ch02/04/note.md)||
+|2.4|[The Inverse of a Matrix](./ch02/04/note.md)|Invertible Matrix Theorem|
+|2.7|[Linear Transformations and Matrices](./ch02/07/note.md)|Image, Domain, Codomain, Range, Matrix Transformation, Orthogonal Projection with Matrix Transformation, Shear Transformation, Linear Transformation, Standard Matrix|
 
 
 

@@ -126,6 +126,23 @@ Using tools from linear algebra implemented for tensor.
     ```
     ![](images/014.png)
 
+<br>
+
+## 2.3.7 Non-Reduction Sum
+- When to use?
+  - Keep the number of axes unchanged when invoking the function for calculating the sum or mean.
+- Summation
+  ```python
+  A = torch.arange(6, dtype=torch.float32).reshape(2, 3)
+  A
+  sum_A = A.sum(axis=1, keepdims=True)
+  sum_A
+  sum_A.shape
+  ```
+- Cumulative Sum
+
+
+
 
 
 <br>
