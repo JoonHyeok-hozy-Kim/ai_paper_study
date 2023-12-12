@@ -238,7 +238,7 @@ Using tools from linear algebra implemented for tensor.
       ```
       ![](images/023.png)
     - How to get $\ell_1$ norm.
-      - i.e.) $`\|\mathbf{x}\|_1 = \sum_{i=1}^n|x_i|`$
+      - i.e.) $`\|\mathbf{x}\|_1 = \sum_{i=1}^{n}{|x_i|}`$
       - Use ```torch.abs([tensor_obj]).sum()```
         ```python
         torch.abs(u).sum()
