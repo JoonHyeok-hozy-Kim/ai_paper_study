@@ -12,6 +12,7 @@ Then the Bayes Optimal Classifier is the value $v_j \in V$, for which $P(v_j|D) 
 
 #### Example)
 - Setting
+  - The set of possible classification of the new instance is $V=\lbrace \oplus, \ominus \rbrace$.
   - A hypothesis space contains three hypotheses, $h_1$, $h_2$, and $h_3$.
     - i.e.) $H = \lbrace h_1, h_2, h_3 \rbrace$.
   - The posterior probabilities of the hypotheses are...
@@ -30,7 +31,7 @@ Then the Bayes Optimal Classifier is the value $v_j \in V$, for which $P(v_j|D) 
   - Then,
     - $P(\oplus|D) = \sum_{i=1}^3 P(\oplus|h_i)P(h_i|D) = 0.4 \times 1 + 0.3 \times 0 + 0.3 \times 0 = 0.4$
     - $P(\ominus|D) = \sum_{i=1}^3 P(\ominus|h_i)P(h_i|D) = 0.4 \times 0 + 0.3 \times 1 + 0.3 \times 1 = 0.6$
-  - Therefore, choose $ominus$.
+  - Therefore, choose $\ominus$.
     - i.e.) $argmax_{v_j \in V} P(v_j|D)=\ominus$
 
 <br>
