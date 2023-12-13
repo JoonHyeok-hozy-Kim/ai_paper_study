@@ -71,6 +71,8 @@
 |6.4|[Maximum Likelihood and Least-Squared Error Hypothesis](./ch06/04/note.md)|Bayesian Justification for Least-Squared Error Hypothesis, Probability Density Function|
 |6.5|[Maximum Likelihood Hypotheses for Predicting Probabilities](./ch06/05/note.md)|Neural Network for ML Hypothesis, Cross Entropy|
 |6.6|[Minimum Description Length Principle](./ch06/06/note.md)|Minimum Description Length Principle(MDL)|
+|6.7|[Bayes Optimal Classifier](./ch06/07/note.md)|Bayes Optimal Classifier (Bayes Optimal Learner)|
+|6.8|[Gibbs Algorithm](./ch06/08/note.md)||
 
 
 
