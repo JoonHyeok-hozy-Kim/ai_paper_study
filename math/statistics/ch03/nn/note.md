@@ -1,6 +1,6 @@
 * [Back to Statistics Main](../../main.md)
 
-## 3.2 
+# 3.2 
 
 
 <br><br>
