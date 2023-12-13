@@ -16,7 +16,7 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 |2.1|[Data Manipulation](./ch02/01/note.md)|Tensor(Indexing, Slicing, Unary/Binary Operators, Concatenation, Broadcasting, Tensor Object Conversion(ndarray))|
 |2.2|[Data Processing](./ch02/02/note.md)|pandas(CSV File Loading, Missing Value Treatment)|
 |2.3|[Linear Algebra](./ch02/03/note.md)|Scalars, Vectors, Matrices, Tensors, Hadamard/Scalar Product, Reduction, Non-Reduction Sum, Dot Products, Matrix-Vector Products, Matrix-Matrix Multiplication, Norms|
-|2.4|[Calculus](./ch02/04/note.md)||
+|2.4|[Calculus](./ch02/04/note.md)|Derivatives, Differentiation, Visualization Tools (```matplotlib```), Gradients|
 
 
 
