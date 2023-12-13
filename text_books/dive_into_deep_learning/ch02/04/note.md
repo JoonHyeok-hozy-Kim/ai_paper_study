@@ -68,7 +68,7 @@ We can visualize the slopes of functions using the ```matplotlib``` library.
         """Plot data points."""
     
         def has_one_axis(X):  # True if X (tensor or list) has 1 axis
-            return (hasattr(X, "ndim") and X.ndim == 1 or isinstance(X, list) and not hasattr(X[0], "__len__"))
+            return (hasattr(X, "ndim") and X.ndim == 1 or isinstance(X, list) and not     hasattr(X[0], "__len__"))
     
         if has_one_axis(X): X = [X]
         if Y is None:
@@ -93,14 +93,32 @@ We can visualize the slopes of functions using the ```matplotlib``` library.
     plot(x, [f(x), 2 * x - 3], 'x', 'f(x)', legend=['f(x)', 'Tangent line (x=1)'])
     ```
 
+<br>
 
+We can concatenate partial derivatives of a multivariate function with
+respect to all its variables to obtain a vector that is called the
+*gradient* of the function. Suppose that the input of function
+$f: \mathbb{R}^n \rightarrow \mathbb{R}$ is an
+$n$-dimensional vector
+$\mathbf{x} = [x_1, x_2, \ldots, x_n]^\top$ and the output is a
+scalar. The gradient of the function $f$ with respect to
+$\mathbf{x}$ is a vector of $n$ partial derivatives:
 
+$\nabla_{\mathbf{x}} f(\mathbf{x}) = \left[\partial_{x_1} f(\mathbf{x}), \partial_{x_2} f(\mathbf{x}), \ldots \partial_{x_n} f(\mathbf{x})\right]^\top$
 
+When there is no ambiguity, $\nabla_{\mathbf{x}} f(\mathbf{x})$ is
+typically replaced by $\nabla f(\mathbf{x})$. The following rules
+come in handy for differentiating multivariate functions:
 
+-  For all $\mathbf{A} \in \mathbb{R}^{m \times n}$ we have $\nabla_{\mathbf{x}} \mathbf{A} \mathbf{x} = \mathbf{A}^\top$ and $`\nabla_{\mathbf{x}} \mathbf{x}^\top \mathbf{A} = \mathbf{A}`$.
+-  For square matrices $`\mathbf{A} \in \mathbb{R}^{n \times n}`$ we
+   have that
+   $`\nabla_{\mathbf{x}} \mathbf{x}^\top \mathbf{A} \mathbf{x} = (\mathbf{A} + \mathbf{A}^\top)\mathbf{x}`$
+   and in particular
+   $`\nabla_{\mathbf{x}} \|\mathbf{x} \|^2 = \nabla_{\mathbf{x}} \mathbf{x}^\top \mathbf{x} = 2\mathbf{x}`$.
 
-
-
-
+Similarly, for any matrix $`\mathbf{X}`$, we have
+$`\nabla_{\mathbf{X}} \|\mathbf{X} \|_\textrm{F}^2 = 2\mathbf{X}`$.
 
 
 <br>
