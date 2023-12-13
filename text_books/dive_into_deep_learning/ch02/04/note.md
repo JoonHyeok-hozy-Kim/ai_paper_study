@@ -23,7 +23,8 @@ from d2l import torch as d2l
     for h in 10.0**np.arange(-1, -6, -1):
         print(f'h={h:.5f}, numerical limit={(f(1+h)-f(1))/h:.5f}')
     ```
-    ![](images/001.png)
+
+![](images/001.png)
 
 <br>
 
