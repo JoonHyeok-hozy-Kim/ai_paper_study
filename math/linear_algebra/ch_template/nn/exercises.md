@@ -1,6 +1,6 @@
 * [Back to the note](./note.md)
 
-![](/images/)
+![](images/)
 
 
 * [Back to the note](./note.md)
