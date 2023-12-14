@@ -73,7 +73,7 @@
 |6.6|[Minimum Description Length Principle](./ch06/06/note.md)|Minimum Description Length Principle(MDL)|
 |6.7|[Bayes Optimal Classifier](./ch06/07/note.md)|Bayes Optimal Classifier (Bayes Optimal Learner)|
 |6.8|[Gibbs Algorithm](./ch06/08/note.md)||
-|6.9|[Naive Bayesian Classifier](./ch06/09/note.md)||
+|6.9|[Naive Bayesian Classifier](./ch06/09/note.md)|Naive Bayesian Classifier $(v_{NB})$, m-Estimate of Probability, Equivalent Sample Size|
 
 
 
