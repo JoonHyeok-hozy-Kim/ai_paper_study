@@ -65,6 +65,7 @@
   x.requires_grad_(True)
   x.grad
   y = x*x
+  y
   y.backward(gradient=torch.ones(len(y)))
   x.grad
   ```
