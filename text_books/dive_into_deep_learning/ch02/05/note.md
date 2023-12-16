@@ -69,6 +69,15 @@
   y.backward(gradient=torch.ones(len(y)))
   x.grad
   ```
+  ![](images/002.png)
+
+
+<br><br>
+
+### Tech.) Detaching Computation
+
+
+  
 
 
 <br>
