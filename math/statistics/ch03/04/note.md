@@ -63,6 +63,20 @@ random variable $X$.
 ![](images/007.png)
 ![](images/008.png)
 
+<br><br>
+
+## 3.4.4 Functions of Several Random Variables: Method of Distribution Functions
+- i.e.) $Y$ is a function of several random variables.
+  - $Y=g(X_1, \cdots, X_n)$
+
+#### Example : min/max function
+1. $Y_1 = min(X_1, \cdots, X_n)$
+
+![](images/009.png)
+
+2. $Y_n = max(X_1, \cdots, X_n)$
+
+![](images/010.png)
 
 <br><br>
 
