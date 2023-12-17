@@ -15,7 +15,8 @@ on the [naive Bayes classifier](../09/note.md#69-naive-bayes-classifier)
     - where 
       - $x \in X$ 
       - $v_j$ is the target value.
-- Objective)
+
+#### Objective)
   - Learn from these training examples to predict the target value for subsequent text documents.
     - e.g.)
       - classifying documents as interesting or uninteresting to a particular person, using the target values *like* and *dislike* to indicate these two classes.
@@ -70,7 +71,7 @@ on the [naive Bayes classifier](../09/note.md#69-naive-bayes-classifier)
              - Since $|Vocabulary|$ is the number of distinct words, assuming the uniform prior, $p = \frac{1}{|Vocabulary|}$.
 
 
-- Algorithm Implementation)
+#### Algorithm Implementation)
   - ```LearnNaiveBayesText(examples, V)```
     - Desc.)
       - ```examples``` is a set of text documents along with their target values. 
