@@ -25,13 +25,13 @@ random variable $X$.
       - Sol.)   
 
 ![](images/002.png)   
-![](images/003.png)  
+![](images/003.png)   
 
 - Discrete Case)
    - Let $X \sim Poisson(\lambda)$. Find the cdf of $Y=aX+b$.
       - Sol.)    
 
-![](images/004.png)  
+![](images/004.png)   
 
 <br><br>
 
@@ -73,6 +73,8 @@ random variable $X$.
 1. $Y_1 = min(X_1, \cdots, X_n)$
 
 ![](images/009.png)
+
+<br>
 
 2. $Y_n = max(X_1, \cdots, X_n)$
 
