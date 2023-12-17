@@ -15,6 +15,7 @@ random variable $X$.
 - Desc.)
   - If $X$ is a random variable with pdf $f_X(x)$ and if $Y$ is some function of $X$, then we can find the cdf $F_Y(y) = P(Y \le y)$ directly by integrating $f_X(x)$ over the region for which $\lbrace Y \le y\rbrace$.
 - Procedure)   
+  <img src="images/001.png">
   ![](images/001.png)
 - Examples)
   1. Continuous Case)
