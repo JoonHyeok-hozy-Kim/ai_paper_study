@@ -19,7 +19,8 @@ on the [naive Bayes classifier](../09/note.md#69-naive-bayes-classifier)
 #### Objective)
   - Learn from these training examples to predict the target value for subsequent text documents.
     - e.g.)
-      - classifying documents as interesting or uninteresting to a particular person, using the target values *like* and *dislike* to indicate these two classes.
+      - Classifying documents as interesting or uninteresting to a particular person, using the target values *like* and *dislike* to indicate these two classes.
+        - $v_j \in \lbrace like, dislike \rbrace$
 
 <br>
 
@@ -47,14 +48,14 @@ on the [naive Bayes classifier](../09/note.md#69-naive-bayes-classifier)
   - We can apply naive Bayesian classifier for this problem.
     - i.e.) $P(v_j|a_1=w_1, a_2=w_2, \cdots, a_n=w_n) = P(v_j) P(a_1=w_1, a_2=w_2, \cdots, a_n=w_n|v_j)$
 - Naive Bayesian Classifier)
-  - $`\begin{array}{lll} v_{NB} &= argmax_{v_j \in V} P(v_j) P(a_1=w_1, a_2=w_2, \cdots, a_n=w_n|v_j) & \\&= argmax_{v_j \in V} P(v_j)\prod_{i=1}^n P(a_i=w_i|v_j) & \because Assumption \space 1  \\&= argmax_{v_j \in V} P(v_j) \prod_{k} P(w_k|v_j) & \because Assumption \space 2 \\&= argmax_{v_j \in V} P(v_j) \prod_{k} \frac{n_k+1}{n+|Vocabulary|} & \because \textrm{m-estimate} \end{array}`$
+  - $`\begin{array}{lll} v_{NB} &= argmax_{v_j \in V} P(v_j) P(a_1=w_1, a_2=w_2, \cdots, a_n=w_n|v_j) & \\&= argmax_{v_j \in V} P(v_j)\Pi_{i=1}^n P(a_i=w_i|v_j) & \because Assumption \space 1  \\&= argmax_{v_j \in V} P(v_j) \Pi_{k} P(w_k|v_j) & \because Assumption \space 2 \\&= argmax_{v_j \in V} P(v_j) \Pi_{k} \frac{n_k+1}{n+|Vocabulary|} & \because \textrm{m-estimate} \end{array}`$
     - Why?
-      1. $P(a_1=w_1, a_2=w_2, \cdots, a_n=w_n|v_j) = \prod_{i=1}^n P(a_i=w_i|v_j)$ ?
+      1. $P(a_1=w_1, a_2=w_2, \cdots, a_n=w_n|v_j) = \Pi_{i=1}^n P(a_i=w_i|v_j)$ ?
          - Recall our [Assumption](#assumptions) 1.
          - Then, two distinct word positions $a_{i_1}$ and $a_{i_2}$ are independent of each other, given a classification $v_j$.
            - i.e.), $P(a_{i_1}, a_{i_2}|v_j) = P(a_{i_1}|v_j)P(a_{i_2}|v_j)$
-         - Thus, without the loss of generality, $P(a_1, a_2, \cdots, a_n|v_j) = \prod_{i=1}^n P(a_i|v_j)$
-      2. $\prod_{i=1}^n P(a_i=w_i|v_j) = \prod_{k} P(w_k|v_j)$ ?
+         - Thus, without the loss of generality, $P(a_1, a_2, \cdots, a_n|v_j) = \Pi_{i=1}^n P(a_i|v_j)$
+      2. $\Pi_{i=1}^n P(a_i=w_i|v_j) = \Pi_{k} P(w_k|v_j)$ ?
          - Recall our [Assumption](#assumptions) 2.
          - Thus, $P(a_{i_1}=w_k|v_j) = P(a_{i_2}=w_k|v_j), \forall i_1,i_2,k,j$
            - where $w_k$ is the $k$-th word in the word dictionary.
@@ -96,7 +97,7 @@ on the [naive Bayes classifier](../09/note.md#69-naive-bayes-classifier)
     - Procedures)
       - ```positions``` $\leftarrow$ all word positions in ```doc``` that contain tokens found in ```vocabulary```
       - Return $v_{NB}$
-        - where $v_{NB} = argmax_{v_j \in V} P(v_j) \prod_{i \in positions} P(a_i|v_j)$
+        - where $v_{NB} = argmax_{v_j \in V} P(v_j) \Pi_{i \in positions} P(a_i|v_j)$
 
 
 
