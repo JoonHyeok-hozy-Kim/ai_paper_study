@@ -75,9 +75,63 @@
 <br><br>
 
 ### Tech.) Detaching Computation
+Consider the following example.
+- e.g.) 
+  - Suppose $y = x \times x$ and $z = x \times x \times x$.
+  - Then $z=y*x$.
+  - What if we want to focus on the **direct** influence of $x$ on $z$ rather than the influence conveyed via $y$.
+    - i.e.) Put $u=y$.
+      - Then, $\frac{\partial}{\partial x} z = u$
+        - Not $\frac{\partial}{\partial x} z = 3x^2$
+    - In this case we use the detaching computation.
+
+- Code
+  ```python
+  x = torch.arange(4.0)
+  x.requires_grad_(True)
+  y = x * x
+  u = y.detach()
+  z = u * x
+
+  z.sum().backward()
+  x.grad == u
+  ```
+  ![](images/003.png)
+  - Although the above procedure detaches ```y```’s ancestors from the graph leading to ```z```, the computational graph leading to ```y``` persists and thus we can calculate the gradient of ```y``` with respect to ```x```.
+    ```python
+    x.grad.zero_()
+    y.sum().backward()
+    x.grad == 2*x
+    ```
+    ![](images/004.png)
 
 
-  
+<br><br>
+
+## 2.5.4 Gradient and Python Control Flow
+One benefit of using automatic differentiation is that even if building the computational graph of a function required passing through a maze of Python control flow (e.g., conditionals, loops, and arbitrary function calls), we can still calculate the gradient of the resulting variable.
+- e.g.)
+  ```python
+  def f(a):
+    b = a * 2
+    while b.norm() < 1000:
+      b = b * 2
+    if b.sum() <= 0:
+      return 100 * b    
+    return b
+
+  if __name__ == '__main__':
+    a = torch.randn(size=(), requires_grad=True)
+    d = f(a)
+    d.backward()
+
+    a.grad == d/a
+  ```
+
+
+
+
+
 
 
 <br>
