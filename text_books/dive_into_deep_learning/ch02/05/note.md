@@ -119,13 +119,12 @@ One benefit of using automatic differentiation is that even if building the comp
     if b.sum() <= 0:
       return 100 * b    
     return b
+  
+  a = torch.randn(size=(), requires_grad=True)
+  d = f(a)
+  d.backward()
 
-  if __name__ == '__main__':
-    a = torch.randn(size=(), requires_grad=True)
-    d = f(a)
-    d.backward()
-
-    a.grad == d/a
+  a.grad == d/a
   ```
 
 
