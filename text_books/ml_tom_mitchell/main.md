@@ -75,7 +75,7 @@
 |6.8|[Gibbs Algorithm](./ch06/08/note.md)||
 |6.9|[Naive Bayesian Classifier](./ch06/09/note.md)|Naive Bayesian Classifier $(v_{NB})$, m-Estimate of Probability, Equivalent Sample Size|
 |6.10|[An Example: Learning to Classify Text](./ch06/10/note.md)|Text Classification Algorithm based on the naive Bayes classifier|
-
+|6.11|[Bayesian Belief Networks](./ch06/11/note.md)|Joint Space, Joint Probability Distribution, Conditional Independence|
 
 
 
