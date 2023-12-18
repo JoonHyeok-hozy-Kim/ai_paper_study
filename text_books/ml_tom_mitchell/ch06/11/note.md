@@ -57,24 +57,55 @@
 #### Structure)
 - In general, a Bayesian network represents the joint probability distribution by specifying **a set of conditional independence assumptions**, together with sets of local conditional probabilities.
   - How?)
-    - Use the **directed acyclic graph**.
-      - Each node represents attributes(variables).
-      - Each network arc (edge) represents the assertion that the variable is conditionally independent of its nondescendants in the network given its immediate predecessors in the network.
-        - e.g.)   
-          ![](images/001.png)
-          - Desc.)
-            - Storm, BusTourGroup, Lightening, Campfire, Thunder, ForestFire are all attributes(variables).
-    - Provide a conditional probability table for each attributes(variables).
-      - The table describes the probability distribution for that variable, given the values of its immediate predecessors.
-        - e.g.)   
-          ![](images/002.png)
-          - Desc.) The conditional probability of Campfire, given the value of its predecessors, Storm and BusTourGroup.
+    1. Use the **directed acyclic graph**.
+         - Each node represents attributes(variables).
+         - Each network arc (edge) represents the assertion that the variable is conditionally independent of its nondescendants in the network given its immediate predecessors in the network.
+           - e.g.)   
+             ![](images/001.png)
+             - Desc.)
+               - Storm, BusTourGroup, Lightening, Campfire, Thunder, ForestFire are all attributes(variables).
+    2. Provide a conditional probability table for each attributes(variables).
+         - The table describes the probability distribution for that variable, given the values of its immediate predecessors.
+           - e.g.)   
+             ![](images/002.png)
+             - Desc.) The conditional probability of Campfire, given the value of its predecessors, Storm and BusTourGroup.
+             - Refer to [below](#eg-how-to-use-the-conditional-probability-of-table) for how to read this table.
 
+<br>
 
+#### E.g.) How to use the conditional probability of table.
+Consider the $Campfire$ variable in the example [above](#structure).   
+$Campfire$'s immediate predecessors are $Storm$ and $BusTourGroup$.   
+According the to table, $P(Campfire=True|Storm=True, BusTourGroup=True)=0.4$
 
+<br>
 
+#### Tech.) How to calculate the joint probability for any desired assignment of values.
+The joint probability such that $Y_1=y_1, Y_2=y_2, \cdots, Y_n=y_n$ is...
+- $P(y_1,\cdots,y_n) = \Pi_{i=1}^n P(y_i|Parents(Y_i))$
+  - where $Parents(Y_i)$ denotes the set of immediate predecessors of $Y_i$ in the network.
 
+<br><br>
 
+## 6.11.3 Inference
+#### Question) How can we use the Bayesian Belief Networks?
+  1. Infer the **probability distribution for the target variable**, which specifies the probability that it will take on each of its possible values given the observed values of the other variables. 
+  2. Infer the probability distribution for some variable **given observed values for only a subset of the other variables**.
+     - e.g.) $P(ForestFire|Thunder,BusTourGroup)$
+
+<br>
+
+#### Prop.)
+- In general, a Bayesian network can be used to compute the probability distribution for any subset of network variables given the values or distributions for any subset of the remaining variables. 
+- Exact inference of probabilities in general for an arbitrary Bayesian network is known to be NP-hard (Cooper 1990).
+  - Too costly...
+- Instead, numerous methods have been proposed for probabilistic inference in Bayesian networks.
+  1. Exact inference methods 
+  2. Approximate inference methods
+     - e.g.)
+       - Monte Carlo methods provide approximate solutions by randomly sampling the distributions of the unobserved variables (Pradham and Dagum 1996)
+         - In theory, even approximate inference of probabilities in Bayesian networks can be NP-hard (Dagum and Luby 1993).
+         - Fortunately, in practice approximate methods have been shown to be useful in many cases.
 
 
 <br>
