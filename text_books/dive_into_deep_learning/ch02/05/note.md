@@ -126,11 +126,7 @@ One benefit of using automatic differentiation is that even if building the comp
 
   a.grad == d/a
   ```
-
-
-
-
-
+  ![](images/005.png)
 
 
 <br>
