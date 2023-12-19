@@ -35,7 +35,8 @@ from d2l import torch as d2l
   cum_counts = counts.cumsum(dim=0)
   estimates = cum_counts / cum_counts.sum(dim=1, keepdims=True)
   estimates = estimates.numpy()
-
+  ```
+  ```python
   d2l.set_figsize((4.5, 3.5))
   d2l.plt.plot(estimates[:, 0], label=("P(coin=heads)"))
   d2l.plt.plot(estimates[:, 1], label=("P(coin=tails)"))
