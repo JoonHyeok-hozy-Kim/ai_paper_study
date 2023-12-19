@@ -124,7 +124,7 @@ The joint probability such that $Y_1=y_1, Y_2=y_2, \cdots, Y_n=y_n$ is...
     <td class="diagonal"></td><td>Network Structure is Given</td><td>Not Given</td>
   </tr>
   <tr>
-    <td>Data Fully Observable</td><td>Simply estimate the conditional probability table entries just as we would for a naive Bayes classifier.</td><td>-</td>
+    <td>Data Fully Observable</td><td>Simply estimate the conditional probability table entries just as we would for a naive Bayes classifier.</td><td>Cooper and Herskovits (1992) <br> - Bayesian scoring metric for choosing among alternative networks<br> - K2 Algorithm (Greedy search that trades-off network complexity for accuracy over the training data.<br><br>Spirtes et al. 1993<br>- Constraint-based approaches to learning Bayesian network structure</td>
   </tr>
   <tr>
     <td>Some Unobservable</td><td>This problem is somewhat analogous to learning the weights for the hidden units in an artificial neural network.<br>- e.g.) <a href="#6115-gradient-ascent-training-of-bayesian-network">Gradient ascent procedure by Russell et al.(1995)</a></td><td>-</td>
@@ -153,16 +153,24 @@ Maximize $P(D|h)$ by following the gradient of $\ln{P(D|h)}$ w.r.t. the paramete
         - $U_i=\langle Storm, BusTourGroup \rangle$
           - $u_{ik}=\langle False, False \rangle$
         - Then, $w_{ijk}=0.2$
-- Derivation)
-  - The gradient of $\ln{P(D|h)}$ is...
-    - $\frac{\partial \ln{P(D|h)}}{\partial w_{ijk}} = \sum_{d\in D} \frac{P(Y_i=y_{ij}, U_i=u_{ik}|d)}{w_{ijk}}$
-      - why?)
-        - For simplicity, put $P(D|h)=P_h(D)$.
-        - Then   
-          $`\begin{array}{lll} \frac{\partial \ln{P_h(D)}}{\partial w_{ijk}} & = \frac{\partial}{\partial w_{ijk}} \ln{\prod_{d\in D}}P_h(d) &\\&= \sum_{d\in D} \frac{\partial \ln{P_h(d)}}{\partial w_{ijk}}  &\\&= \sum_{d\in D} \frac{1}{P_h(d)}\frac{\partial P_h(d)}{\partial w_{ijk}} &\\&= \sum_{d\in D} \frac{1}{P_h(d)}\frac{\partial}{\partial w_{ijk}} \sum_{j', k'} P_h(d|y_{ij'}, u_{ik'})P_h(y_{ij'}, u_{ik'}) & \because \textrm{Bayes Theorem} \end{array}`$
-        - .   
-          $`\begin{array}{lll} \frac{\partial \ln{P_h(D)}}{\partial w_{ijk}} &= \sum_{d\in D} \frac{P_h(y_{ij}, u_{ik}|d) P_h(u_{ik})}{P_h(y_{ij}, u_{ik})} &\\&= \sum_{d\in D} \frac{P_h(y_{ij}, u_{ik}|d) P_h(u_{ik})}{P_h(y_{ij}|u_{ik})P_h(u_{ik})} & \because P(A\cap B)=P(A|B)P(B) \\&= \sum_{d\in D} \frac{P_h(y_{ij}, u_{ik}|d)}{P_h(y_{ij}|u_{ik})} &\\&= \sum_{d\in D} \frac{P_h(y_{ij}, u_{ik}|d)}{w_{ijk}} & \because P_h(y_{ij}|u_{ik}) = w_{ijk}  \end{array}`$
-
+      - This $w_{ijk}$ will be the weight that we will update with the gradient ascent algorithm.
+        - why?) Some data are unobservable.
+- Gradient Ascent Procedure)
+  1. Calculate the gradient of $\ln{P(D|h)}$
+      - $\frac{\partial \ln{P(D|h)}}{\partial w_{ijk}} = \sum_{d\in D} \frac{P_h(Y_i=y_{ij}, U_i=u_{ik}|d)}{w_{ijk}} = \sum_{d\in D} \frac{P_h(y_{ij}, u_{ik}|d)}{w_{ijk}}$
+        - why?)
+          - For simplicity, put $P(D|h)=P_h(D)$.
+            - Then   
+              $`\begin{array}{lll} \frac{\partial \ln{P_h(D)}}{\partial w_{ijk}} & = \frac{\partial}{\partial w_{ijk}} \ln{\prod_{d\in D}}P_h(d) &\\&= \sum_{d\in D} \frac{\partial \ln{P_h(d)}}{\partial w_{ijk}}  &\\&= \sum_{d\in D} \frac{1}{P_h(d)}\frac{\partial P_h(d)}{\partial w_{ijk}} &\\&= \sum_{d\in D} \frac{1}{P_h(d)}\frac{\partial}{\partial w_{ijk}} \sum_{j', k'} P_h(d|y_{ij'}, u_{ik'})P_h(y_{ij'}, u_{ik'}) & \because \textrm{Bayes Theorem} \end{array}`$
+            - .   
+              $`\begin{array}{lll} \frac{\partial \ln{P_h(D)}}{\partial w_{ijk}} &= \sum_{d\in D} \frac{P_h(y_{ij}, u_{ik}|d) P_h(u_{ik})}{P_h(y_{ij}, u_{ik})} &\\&= \sum_{d\in D} \frac{P_h(y_{ij}, u_{ik}|d) P_h(u_{ik})}{P_h(y_{ij}|u_{ik})P_h(u_{ik})} & \because P(A\cap B)=P(A|B)P(B) \\&= \sum_{d\in D} \frac{P_h(y_{ij}, u_{ik}|d)}{P_h(y_{ij}|u_{ik})} &\\&= \sum_{d\in D} \frac{P_h(y_{ij}, u_{ik}|d)}{w_{ijk}} & \because P_h(y_{ij}|u_{ik}) = w_{ijk}  \end{array}`$
+  2. Update the weight $w_{ijk}$.
+     - $w_{ijk} \leftarrow w_{ijk}+\eta\sum_{d\in D} \frac{P_h(y_{ij}, u_{ik}|d)}{w_{ijk}}$
+       - where $\eta$ is the learning rate
+       - and $\sum_j w_{ijk} = 1$
+         - To keep this constraint, we should normalize $w_{ijk}$ for every loop.
+- Result)
+  - This process will converge to a locally maximum likelihood hypothesis for the conditional probabilities in the Bayesian network.
 
 
 <br>
