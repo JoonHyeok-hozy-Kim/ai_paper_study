@@ -107,6 +107,36 @@ The joint probability such that $Y_1=y_1, Y_2=y_2, \cdots, Y_n=y_n$ is...
          - In theory, even approximate inference of probabilities in Bayesian networks can be NP-hard (Dagum and Luby 1993).
          - Fortunately, in practice approximate methods have been shown to be useful in many cases.
 
+<br><br>
+
+## 6.11.4 Learning Bayesian Belief Networks
+#### Concept) Two Aspects to Consider for Devising Bayesian Belief Network
+1. Is the network structure given in advance?
+   - Or, should it be inferred from the training data?
+2. Are all the network variables directly observable?
+   - Or, are some of them unobservable?
+
+<br>
+
+#### Tech.) Implementation Plan by Cases
+<table>
+  <tr>
+    <td class="diagonal"></td><td>Network Structure is Given</td><td>Not Given</td>
+  </tr>
+  <tr>
+    <td>Data Fully Observable</td><td>Simply estimate the conditional probability table entries just as we would for a naive Bayes classifier.</td><td>-</td>
+  </tr>
+  <tr>
+    <td>Some Unobservable</td><td>This problem is somewhat analogous to learning the weights for the hidden units in an artificial neural network.<br>- e.g.) <a href="#6115-gradient-ascent-training-of-bayesian-network">Gradient ascent procedure by Russell et al.(1995)</a></td><td>-</td>
+  </tr>
+</table>
+
+<br><br>
+
+## 6.11.5 Gradient Ascent Training of Bayesian Network
+
+
+
 
 <br>
 
