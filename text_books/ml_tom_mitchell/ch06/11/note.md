@@ -157,7 +157,8 @@ Maximize $P(D|h)$ by following the gradient of $\ln{P(D|h)}$ w.r.t. the paramete
   - The gradient of $\ln{P(D|h)}$ is...
     - $\frac{\partial \ln{P(D|h)}}{\partial w_{ijk}} = \sum_{d\in D} \frac{P(Y_i=y_{ij}, U_i=u_{ik}|d)}{w_{ijk}}$
       - why?)
-        - For simplicity, put $P(D|h)=P_h(D)$.   
+        - For simplicity, put $P(D|h)=P_h(D)$.
+        - Then   
           $`\begin{array}{lll} \frac{\partial \ln{P_h(D)}}{\partial w_{ijk}} & = \frac{\partial}{\partial w_{ijk}} \ln{\prod_{d\in D}}P_h(d) &\\&= \sum_{d\in D} \frac{\partial \ln{P_h(d)}}{\partial w_{ijk}}  &\\&= \sum_{d\in D} \frac{1}{P_h(d)}\frac{\partial P_h(d)}{\partial w_{ijk}} &\\&= \sum_{d\in D} \frac{1}{P_h(d)}\frac{\partial}{\partial w_{ijk}} \sum_{j', k'} P_h(d|y_{ij'}, u_{ik'})P_h(y_{ij'}, u_{ik'}) & \because \textrm{Bayes Theorem} \\&= \sum_{d\in D} \frac{1}{P_h(d)}\frac{\partial}{\partial w_{ijk}} \sum_{j', k'} P_h(d|y_{ij'}, u_{ik'})P_h(y_{ij'}|u_{ik'})P(u_{ik'}) & \because P(A\cap B)=P(A|B)P(B) \\&= \sum_{d\in D} \frac{1}{P_h(d)}\frac{\partial}{\partial w_{ijk}} P_h(d|y_{ij}, u_{ik})P_h(y_{ij}|u_{ik})P(u_{ik}) &\\&= \sum_{d\in D} \frac{1}{P_h(d)}\frac{\partial}{\partial w_{ijk}} P_h(d|y_{ij}, u_{ik})w_{ijk}P(u_{ik}) & \because P_h(y_{ij}|u_{ik})=w_{ijk} \\&= \sum_{d\in D} \frac{1}{P_h(d)}P_h(d|y_{ij}, u_{ik})P(u_{ik})  \end{array}`$
 
 
