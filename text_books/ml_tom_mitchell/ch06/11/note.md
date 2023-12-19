@@ -160,7 +160,7 @@ Maximize $P(D|h)$ by following the gradient of $\ln{P(D|h)}$ w.r.t. the paramete
         - For simplicity, put $P(D|h)=P_h(D)$.
         - Then   
           $`\begin{array}{lll} \frac{\partial \ln{P_h(D)}}{\partial w_{ijk}} & = \frac{\partial}{\partial w_{ijk}} \ln{\prod_{d\in D}}P_h(d) &\\&= \sum_{d\in D} \frac{\partial \ln{P_h(d)}}{\partial w_{ijk}}  &\\&= \sum_{d\in D} \frac{1}{P_h(d)}\frac{\partial P_h(d)}{\partial w_{ijk}} &\\&= \sum_{d\in D} \frac{1}{P_h(d)}\frac{\partial}{\partial w_{ijk}} \sum_{j', k'} P_h(d|y_{ij'}, u_{ik'})P_h(y_{ij'}, u_{ik'}) & \because \textrm{Bayes Theorem} \end{array}`$
-        - ...
+        - .   
           $`\begin{array}{lll} \frac{\partial \ln{P_h(D)}}{\partial w_{ijk}} &= \sum_{d\in D} \frac{P_h(y_{ij}, u_{ik}|d) P_h(u_{ik})}{P_h(y_{ij}, u_{ik})} &\\&= \sum_{d\in D} \frac{P_h(y_{ij}, u_{ik}|d) P_h(u_{ik})}{P_h(y_{ij}|u_{ik})P_h(u_{ik})} & \because P(A\cap B)=P(A|B)P(B) \\&= \sum_{d\in D} \frac{P_h(y_{ij}, u_{ik}|d)}{P_h(y_{ij}|u_{ik})} &\\&= \sum_{d\in D} \frac{P_h(y_{ij}, u_{ik}|d)}{w_{ijk}} & \because P_h(y_{ij}|u_{ik}) = w_{ijk}  \end{array}`$
 
 
