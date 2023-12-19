@@ -134,7 +134,31 @@ The joint probability such that $Y_1=y_1, Y_2=y_2, \cdots, Y_n=y_n$ is...
 <br><br>
 
 ## 6.11.5 Gradient Ascent Training of Bayesian Network
+#### Concept) The Gradient Ascent Rule
+Maximize $P(D|h)$ by following the gradient of $\ln{P(D|h)}$ w.r.t. the parameters that define the conditional probability tables of the Bayesian network.
 
+<br>
+
+#### Model)
+- Settings)
+  - Put
+    - $Y_i$ : the network variable
+      - $y_{ij}$ : the $j$-th value of $Y_i$
+    - $U_i$ : the immediate parent of $Y_i$
+      - $u_{ik}$ : the $k$-th value of $U_i$
+    - $w_{ijk} = P(Y_i=y_{ij}|U_i=u_{ik})$
+      - e.g.) Recall the [previous example](#eg-how-to-use-the-conditional-probability-of-table).
+        - $Y_i=Campfire$
+          - $y_{ij}=True$
+        - $U_i=\langle Storm, BusTourGroup \rangle$
+          - $u_{ik}=\langle False, False \rangle$
+        - Then, $w_{ijk}=0.2$
+- Derivation)
+  - The gradient of $\ln{P(D|h)}$ is...
+    - $\frac{\partial \ln{P(D|h)}}{\partial w_{ijk}} = \sum_{d\in D} \frac{P(Y_i=y_{ij}, U_i=u_{ik}|d)}{w_{ijk}}$
+      - why?)
+        - For simplicity, put $P(D|h)=P_h(D)$.   
+          $`\begin{array}{lll} \frac{\partial \ln{P_h(D)}}{\partial w_{ijk}} & = \frac{\partial}{\partial w_{ijk}} \ln{\prod_{d\in D}}P_h(d) &\\&= \sum_{d\in D} \frac{\partial \ln{P_h(d)}}{\partial w_{ijk}}  &\\&= \sum_{d\in D} \frac{1}{P_h(d)}\frac{\partial P_h(d)}{\partial w_{ijk}} &\\&= \sum_{d\in D} \frac{1}{P_h(d)}\frac{\partial}{\partial w_{ijk}} \sum_{j', k'} P_h(d|y_{ij'}, u_{ik'})P_h(y_{ij'}, u_{ik'}) & \because \textrm{Bayes Theorem} \\&= \sum_{d\in D} \frac{1}{P_h(d)}\frac{\partial}{\partial w_{ijk}} \sum_{j', k'} P_h(d|y_{ij'}, u_{ik'})P_h(y_{ij'}|u_{ik'})P(u_{ik'}) & \because P(A\cap B)=P(A|B)P(B) \\&= \sum_{d\in D} \frac{1}{P_h(d)}\frac{\partial}{\partial w_{ijk}} P_h(d|y_{ij}, u_{ik})P_h(y_{ij}|u_{ik})P(u_{ik}) &\\&= \sum_{d\in D} \frac{1}{P_h(d)}\frac{\partial}{\partial w_{ijk}} P_h(d|y_{ij}, u_{ik})w_{ijk}P(u_{ik}) & \because P_h(y_{ij}|u_{ik})=w_{ijk} \\&= \sum_{d\in D} \frac{1}{P_h(d)}P_h(d|y_{ij}, u_{ik})P(u_{ik})  \end{array}`$
 
 
 
