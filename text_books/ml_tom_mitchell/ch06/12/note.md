@@ -25,8 +25,26 @@
       - i.e.) $argmax_{d \in D} p(d|h)$
       - Problem)
         - We don't know from which one among $k$ distributions an instance $x_i$ originated.
-        - Thus, we will adopt additional variable $z_{ij}$ such that
+        - Thus, we will adopt hidden variable $z_{ij}$.
+          - Here, $z_{ij}$ denotes the probability that $x_i$ was created by the $j$-th Normal distribution.
           - $`z_{ij}=\left\lbrace \begin{array}{ll} 1 & \textrm{if } x_i \textrm{ was created by the }j\textrm{th Normal distribution} \\ 0 & \textrm{otherwise} \end{array} \right.`$
+            - e.g.) 
+              - If $x_1$ is originated from the second distribution, $z_{12}=1$.
+              - If $x_5$ is not originated from the second distribution, $z_{51}=0$.
+  - Solution)
+    - Initialize an arbitrary value for $\langle \mu_1,\mu_2 \rangle$.
+    - Repeat the following steps.
+      1. Calculate the expected value $E[z_{ij}]$ of each hidden variable $z_{ij}$, assuming the current hypothesis $h=\langle \mu_1,\mu_2 \rangle$ holds.
+         - How?)
+           - Recall that $z_{ij}$ denotes the probability that $x_i$ was created by the $j$-th Normal distribution.   
+           - Thus,   
+             $`\begin{array}{lll} E[z_{ij}] &= \frac{p(x=x_i|\mu=\mu_j)}{\Sigma_{n \in \lbrace 1, 2\rbrace} p(x=x_i|\mu=\mu_n)} &\\&= \frac{e^{-\frac{1}{2\sigma^2}(x_i-\mu_j)^2}}{\Sigma_{n \in \lbrace 1, 2\rbrace} e^{-\frac{1}{2\sigma^2}(x_i-\mu_n)^2}} & \because \textrm{Normal distribution}\end{array}`$
+      2. Calculate a new ML hypothesis $h' = \langle \mu_1',\mu_2' \rangle$, assuming the value taken on by each hidden variable $z_{ij}$ is its expected value $E[z_{ij}]$ calculated in Step 1.
+         - How?)
+           - $\mu_j \leftarrow \frac{\Sigma_{i=1}^m E[z_{ij}] x_i}{\Sigma_{i=1}^m E[z_{ij}]}$
+             - Desc.)
+               - We are updating the estimated mean$(\mu_j)$ with the weighted sample mean $\left(\frac{\Sigma_{i=1}^m E[z_{ij}] x_i}{\Sigma_{i=1}^m E[z_{ij}]}\right)$.
+      3. Replace $h$ with $h'$.
 
 
 
