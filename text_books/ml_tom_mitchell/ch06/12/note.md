@@ -3,7 +3,7 @@
 # 6.12 The EM Algorithm
 - Desc.)
   - A widely used approach to learning in the presence of **unobserved variables**.
-    - It be used even for variables whose value is never directly observed, provided the general form of the **probability distribution governing these variables is known**. 
+    - Can be used even for variables whose value is never directly observed, provided the general form of the **probability distribution governing these variables is known**. 
 
 ## 6.12.1 Estimating Means of k Gaussians
 - Example Case)
@@ -43,7 +43,7 @@
          - How?)
            - $\mu_j \leftarrow \frac{\Sigma_{i=1}^m E[z_{ij}] x_i}{\Sigma_{i=1}^m E[z_{ij}]}$
              - Desc.)
-               - We are updating the estimated mean$(\mu_j)$ with the weighted sample mean $\left(\frac{\Sigma_{i=1}^m E[z_{ij}] x_i}{\Sigma_{i=1}^m E[z_{ij}]}\right)$.
+               - We are updating the estimated mean $(\mu_j)$ with the weighted sample mean $\left(\frac{\Sigma_{i=1}^m E[z_{ij}] x_i}{\Sigma_{i=1}^m E[z_{ij}]}\right)$.
       3. Replace $h$ with $h'$.
 
 
