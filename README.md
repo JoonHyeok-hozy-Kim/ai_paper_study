@@ -13,8 +13,6 @@
 
 <br>
 
-[Temp page](#temp.md)
-
 ## Papers Covered
 |No.|Title|Year|Description|Tag|Start Date|End Date|
 |:-:|:----|:--:|:----------|:--|:--------:|:------:|
