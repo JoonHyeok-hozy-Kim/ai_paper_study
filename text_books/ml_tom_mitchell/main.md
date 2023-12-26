@@ -76,7 +76,14 @@
 |6.9|[Naive Bayesian Classifier](./ch06/09/note.md)|Naive Bayesian Classifier $(v_{NB})$, m-Estimate of Probability, Equivalent Sample Size|
 |6.10|[An Example: Learning to Classify Text](./ch06/10/note.md)|Text Classification Algorithm based on the naive Bayes classifier|
 |6.11|[Bayesian Belief Networks](./ch06/11/note.md)|Joint Space, Joint Probability Distribution, Conditional Independence|
-|6.12|[The EM Algorithm](./ch06/12/note.md)|(Ex.)Estimating Means of k Gaussians, |
+|6.12|[The EM Algorithm](./ch06/12/note.md)|(Ex.)Estimating Means of k Gaussians, The EM Algorithm|
+
+<br>
+
+## 7. Computational Learning Theory
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|7.2|[Probably Learning an Approximately Correct Hypothesis](./ch07/02/note.md)|Probably Approximately Correct (PAC), True Error, Training Error|
 
 
 
