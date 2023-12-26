@@ -20,6 +20,13 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 |2.5|[Automatic Differentiation](./ch02/05/note.md)|Backproagation, Autograd Package, Detaching Computation|
 |2.6|[Probability and Statistics](./ch02/06/note.md)||
 
+<br>
+
+## 3. Linear Neural Networks for Regression
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|3.1|[Linear Regression](./ch03/01/note.md)||
+
 
 
 <br><br>
