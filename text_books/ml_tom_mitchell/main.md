@@ -83,7 +83,7 @@
 ## 7. Computational Learning Theory
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|7.2|[Probably Learning an Approximately Correct Hypothesis](./ch07/02/note.md)|Probably Approximately Correct (PAC), True Error, Training Error|
+|7.2|[Probably Learning an Approximately Correct Hypothesis](./ch07/02/note.md)|Probably Approximately Correct (PAC), True Error, Training Error, PAC Learnability|
 
 
 
