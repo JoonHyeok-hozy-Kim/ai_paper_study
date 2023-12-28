@@ -62,7 +62,10 @@
         <td>3-3</td><td><a href="./ch03/03/note.md">Joint Probability Distributions</a></td><td>Univariate/Bivariate Distribution, Conditional Probability Distribution, Conditional Expectation, Covariance, Correlation, Joint Moment-Generating Function</td>
     </tr>
     <tr>
-        <td>3-4</td><td><a href="./ch03/04/note.md">Functions of Random Variables</a></td><td>Method of Distribution Functions, Probability Integral Transformation</td>
+        <td>3-4</td><td><a href="./ch03/04/note.md">Functions of Random Variables</a></td><td>Method of Distribution Functions, Probability Integral Transformation, Multivariate Transformation</td>
+    </tr>
+    <tr>
+        <td>3-5</td><td><a href="./ch03/05/note.md">Limit Theorems</a></td><td>TBD</td>
     </tr>
 </table>
 

@@ -83,10 +83,40 @@ random variable $X$.
 <br><br>
 
 ## 3.4.5 Transformation Method
+- For functions of more than one variable
 
+<br>
 
+### Concept) Bivariate Distribution Case
+- Let
+  - $X,Y,U,V$ : random variables
+  - $f(x, y)$ : the joint pdf of $(X,Y)$
+  - $U = g_1(X,Y)$
+  - $V = g_2(X,Y)$
+  - The mapping from $(X,Y)$ to $(U,V)$ is one-to-one and onto.
+- Then, $\exists h_1, h_2$ such that
+  - $x=h_1^{-1}(u,v)$
+  - $y=h_2^{-1}(u,v)$
+- Define the Jacobian of the transformation $J$ by
+  - $`J=\left\vert \begin{array}{cc} \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\ \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} \end{array} \right\vert`$
+- Then the joint pdf of $U$ and $V$ is given by
+  - $f(u,v) = f\left(h_1^{-1}(u,v), h_2^{-1}(u,v) \right) |J|$
 
+#### e.g.)
+![](images/011.png)
+- Additionally, the marginal pdf will be...
+  ![](images/012.png)
 
+<br>
+
+#### Tech.) Bivariate to One Variable Expression
+Call the given expression of $X$ and $Y$ as $U$, and define $V = Y$.
+
+- e.g.)   
+  ![](images/013.png)   
+  ![](images/014.png)   
+  ![](images/015.png)   
+  ![](images/016.png)   
 
 
 ### [Exercises](./exercises.md)
