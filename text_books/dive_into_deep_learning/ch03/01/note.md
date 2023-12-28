@@ -58,7 +58,19 @@ from d2l import torch as d2l
 ### 3.1.1.3 Analytic Solution
 1. Subsume the bias $b$ into the parameter $\mathbf{w}$ by appending a column to the design matrix consisting of all 1s.
    - $`\mathbf{X} = \left[ \begin{array}{c} 1 & x_{11} & \cdots & x_{1d} \\ 1 & x_{21} & \cdots & x_{2d} \\ \vdots & \vdots & \ddots & \vdots \\ 1 & x_{n1} & \cdots & x_{nd} \end{array} \right]`$, $`\mathbf{w} = \left[ \begin{array}{c} b \\ w_1 \\ w_2 \\ \vdots \\ w_d \end{array} \right]`$
-2. Then our problem is to minimize $||\mathbf{y}-\mathbf{Xw}||^2$
+2. Then our problem is to minimize the loss function of $||\mathbf{y}-\mathbf{Xw}||^2$
+   - As long as $\mathbf{X}$ has full rank, then there will be just one critical point on the loss surface and it corresponds to the minimum of the loss over the entire domain.
+   - Taking derivative of the loss function w.r.t. $\mathbf{w}$,
+     - $\partial_\mathbf{w}||\mathbf{y}-\mathbf{Xw}||^2 = 2\mathbf{X}^\top(\mathbf{Xw-y})=0$
+   - Thus, $\mathbf{X}^\top\mathbf{Xw} = \mathbf{X}^\top\mathbf{y}$
+   - If $\mathbf{X}^\top\mathbf{X}$ is invertible, we can get the unique solution 
+     - $\mathbf{w}^\star = \left(\mathbf{X}^\top\mathbf{X}\right)^{-1}\mathbf{X}^\top\mathbf{y}$
+
+
+<br><br>
+
+### 3.1.1.4 Minibatch Stochastic Gradient Descent
+
 
 
 
