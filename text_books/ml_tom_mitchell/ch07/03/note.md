@@ -40,7 +40,7 @@ $\epsilon$-exhausting version space.
 If the hypothesis space $H$ is finite, and $D$ is a sequence of $m \ge 1$ independent randomly drawn examples of some target concept $c$, then for any $0 \le \epsilon \le 1$, the **probability** that the version space $VS_{H,D}$ is not $\epsilon$-exhausted w.r.t. $c$ is less than or equal to $|H|e^{-\epsilon m}$.
 - pf.)
   - Let $H_1, H_2 \subset H$ such that
-    - $H_1 \cup H_2 = H$ and $H_1 \cap H_2 = \empty$
+    - $H_1 \cup H_2 = H$ and $H_1 \cap H_2 = \emptyset$
     - $error_D(h_1) \gt \epsilon, \space \forall h_1 \in H_1$ : all the hypotheses with **true error greater** than $\epsilon$ w.r.t. $c$
     - $error_D(h_2) \lt \epsilon, \space \forall h_2 \in H_2$ : all the hypotheses with **true error less** than $\epsilon$ w.r.t. $c$
   - Then, we **fail** to $\epsilon$-exhaust the version space $VS_{H,D}$ iff. $\exists h_1 \in H_1$ consistent with $m$ independently drawn examples.
