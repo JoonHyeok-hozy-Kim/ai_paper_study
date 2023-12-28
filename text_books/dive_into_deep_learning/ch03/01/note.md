@@ -53,6 +53,14 @@ from d2l import torch as d2l
       - $\mathbf{w}^*, b^* = \operatorname*{argmin}_{\mathbf{w}, b}\  L(\mathbf{w}, b)$
 
 
+<br>
+
+### 3.1.1.3 Analytic Solution
+1. Subsume the bias $b$ into the parameter $\mathbf{w}$ by appending a column to the design matrix consisting of all 1s.
+   - $`\mathbf{X} = \left[ \begin{array}{c} 1 & x_{11} & \cdots & x_{1d} \\ 1 & x_{21} & \cdots & x_{2d} \\ \vdots & \vdots & \ddots & \vdots \\ 1 & x_{n1} & \cdots & x_{nd} \end{array} \right]`$, $`\mathbf{w} = \left[ \begin{array}{c} b \\ w_1 \\ w_2 \\ \vdots \\ w_d \end{array} \right]`$
+2. Then our problem is to minimize $||\mathbf{y}-\mathbf{Xw}||^2$
+
+
 
 
 <br>
