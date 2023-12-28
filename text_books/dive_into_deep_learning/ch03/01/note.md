@@ -48,6 +48,9 @@ from d2l import torch as d2l
   - Large differences between estimates $\hat{y}^{(i)}$ and targets $y^{(i)}$  lead to even larger contributions to the loss, due to its quadratic form.
   - To measure the quality of a model on the entire dataset of examples, we simply average (or equivalently, sum) the losses on the training set:
     - $L(\mathbf{w}, b) =\frac{1}{n}\sum_{i=1}^n l^{(i)}(\mathbf{w}, b) =\frac{1}{n} \sum_{i=1}^n \frac{1}{2}\left(\mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)}\right)^2$
+  - Training a model
+    - Find $(\mathbf{w}^*, b^*)$ such that
+      - $\mathbf{w}^*, b^* = \operatorname*{argmin}_{\mathbf{w}, b}\  L(\mathbf{w}, b)$
 
 
 
