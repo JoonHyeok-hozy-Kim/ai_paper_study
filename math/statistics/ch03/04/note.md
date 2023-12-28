@@ -82,6 +82,13 @@ random variable $X$.
 
 <br><br>
 
+## 3.4.5 Transformation Method
+
+
+
+
+
+
 ### [Exercises](./exercises.md)
 
 <br><br>
