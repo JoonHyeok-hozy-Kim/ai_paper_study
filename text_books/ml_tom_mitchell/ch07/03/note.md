@@ -72,7 +72,7 @@ If the hypothesis space $H$ is finite, and $D$ is a sequence of $m \ge 1$ indepe
     - We may set $|H|e^{-\epsilon m} \le \delta$.
   - $|H|e^{-\epsilon m} \le \delta \space \Rightarrow \space m \ge \frac{1}{\epsilon}\left(\ln{|H|}+\ln{\frac{1}{\delta}}\right)$
 - Meaning)
-  - This number $m$ of training examples is sufficient to assure that any consistent hypothesis will be probably (with probability $(1-\delta)$) approximately (within error $\epsilon$) correct.
+  - This number $m$ of training examples is sufficient to assure that any consistent hypothesis will be probably (with probability $(1-\delta)$ ) approximately (within error $\epsilon$ ) correct.
 - Prop.)
   - $m$ grows...
      - linearly in $\frac{1}{\epsilon}$
