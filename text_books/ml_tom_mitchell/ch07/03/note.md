@@ -146,7 +146,7 @@ If the hypothesis space $H$ is finite, and $D$ is a sequence of $m \ge 1$ indepe
             - If we use $e^{-2m\epsilon^2}$, we may derive $m \le \textrm{(...)}$, which is the upper bound for $m$, non-sense!
           - Consider that our problem is whether a hypothesis is correctly classifying training examples.
             - Since each examples are independently drawn from $\mathcal{D}$ over $X$, we can see this as the Bernoulli distribution.
-            - Thus, put $`\left\lbrace\begin{aligned}a_i=0, & \textrm{Success} \\ b_i=1, & \textrm{Failure} \end{aligned}\right.`$
+            - Thus, put $`\left\lbrace\begin{aligned}a_i=0, & \textrm{ Success} \\ b_i=1, & \textrm{ Failure} \end{aligned}\right.`$
           - Recall that we draw $m$ independent training examples.
             - Thus, $m=n$
             - Hence, $\sum _{i=1}^{n}(b_{i}-a_{i})^{2} = \sum _{i=1}^{m}(b_{i}-a_{i})^{2}=\sum _{i=1}^{m}(1-0)^{2}=m$ 
