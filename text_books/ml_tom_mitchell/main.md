@@ -84,7 +84,7 @@
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
 |7.2|[Probably Learning an Approximately Correct Hypothesis](./ch07/02/note.md)|Probably Approximately Correct (PAC), True Error, Training Error, PAC Learnability|
-|7.3|[Sample Complexity for Finite Hypothesis Spaces](./ch07/03/note.md)|Sample complexity, Consistent Learner, Exhausted Version Space, General Bound on the Number of Training Examples|
+|7.3|[Sample Complexity for Finite Hypothesis Spaces](./ch07/03/note.md)|Sample complexity, Consistent Learner, Exhausted Version Space, General Bound on the Number of Training Examples, Agnostic Learner, Hoeffding Bounds (Chernoff Bounds)|
 
 
 

@@ -72,7 +72,8 @@ If the hypothesis space $H$ is finite, and $D$ is a sequence of $m \ge 1$ indepe
     - We may set $|H|e^{-\epsilon m} \le \delta$.
   - $|H|e^{-\epsilon m} \le \delta \space \Rightarrow \space m \ge \frac{1}{\epsilon}\left(\ln{|H|}+\ln{\frac{1}{\delta}}\right)$
 - Meaning)
-  - This number $m$ of training examples is sufficient to assure that any consistent hypothesis will be probably (with probability $(1-\delta)$ ) approximately (within error $\epsilon$ ) correct.
+  - $m$ training examples are sufficient to assure that any consistent hypothesis will be probably (with probability $(1-\delta)$ ) approximately (within error $\epsilon$ ) correct.
+    - cf.) "Consistency" $\Leftrightarrow$ "Zero training error in $H$"
 - Prop.)
   - $m$ grows...
      - linearly in $\frac{1}{\epsilon}$
@@ -84,6 +85,42 @@ If the hypothesis space $H$ is finite, and $D$ is a sequence of $m \ge 1$ indepe
       - Thus, if the size of hypothesis space is large, $m$ will be large as well.
       - Consider the case that **the version space is comparatively small**.
         - Then, the $m$ bound we derived will overestimate the sufficient bound for the number of training examples.
+  - If $H$ does not contain the target concept $c$, then a zero-error hypothesis (the consistency of $H$) cannot always be found.
+    - Alternative Sol)
+      - Loosen the zero-error hypothesis condition.
+      - [Agnostic Learner](#concept-agnostic-learner) : Find the hypothesis with **minimum** training error
+
+<br><br>
+
+## 7.3.1 Agnostic Learning and Inconsistent Hypothesis
+### Concept) Agnostic Learner
+- Ideation)
+  - Recall that [the general bound for training examples](#concept-general-bound-on-the-number-of-training-examples-for-successful-consistent-learner) above, $m$, holds when every hypothesis in $H$ has zero training error.
+    - i.e.) [Consistent Learner](#def-consistent-learner) is required.
+  - However, if $H$ does not contain the target concept $c$, then a zero-error hypothesis (the consistency of $H$) cannot always be found.
+  - Let's loosen the zero-error hypothesis condition.
+    - Find the hypothesis with **minimum** training error
+- Def.) Agnostic Learner
+  - A learner that makes no assumption that the target concept is representable by $H$ and that simply finds the hypothesis with minimum training error, is often called an agnostic learner
+    - Tt makes no prior commitment about whether or not $C \subseteq H$.
+
+<br>
+
+#### Concept) Hoeffding Bounds (Chernoff Bounds)
+- Desc.)
+  - Hoeffding Bounds characterize the **deviation** between the **true probability** of some event and its **observed frequency** over $m$ independent trials.
+  - The bounds apply to experiments involving $m$ distinct **Bernoulli** trials.
+- Statement)
+  - Let $X_1, \cdots, X_n$ be independent random variables such that $a_i \le X_i \le b_i$ almost surely.
+  - Consider the sum of these random variables, $S_n = \Sigma_{i=1}^n X_i$
+  - Then Hoeffding's theorem states that, for all $t \gt 0$,   
+    $`\begin{aligned}\operatorname {P} \left(S_{n}-\mathrm {E} \left[S_{n}\right]\geq t\right)&amp;\leq \exp \left(-{\frac {2t^{2}}{\sum _{i=1}^{n}(b_{i}-a_{i})^{2}}}\right)\\\operatorname {P} \left(\left|S_{n}-\mathrm {E} \left[S_{n}\right]\right|\geq t\right)&amp;\leq 2\exp \left(-{\frac {2t^{2}}{\sum _{i=1}^{n}(b_{i}-a_{i})^{2}}}\right)\end{aligned}`$
+
+
+
+
+
+
 
 <br>
 
