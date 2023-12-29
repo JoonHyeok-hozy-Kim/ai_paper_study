@@ -105,9 +105,11 @@ from d2l import torch as d2l
 #### Concept) Minibatch Stochastic Gradient Descent
 - How?)
   - The intermediate strategy between Full Batch and SGD.
-  - The size of the minibatch
-    - depends on many factors, such as the amount of memory, the number of accelerators, the choice of layers, and the total dataset size
-    - a number between 32 and 256, preferably a multiple of a large power of, is a good start.
+  - Hyperparameters
+    - The size of the minibatch : $|\mathcal{B}|$
+      - depends on many factors, such as the amount of memory, the number of accelerators, the choice of layers, and the total dataset size
+      - a number between 32 and 256, preferably a multiple of a large power of, is a good start.
+    - The learning rate : $\eta$
 - Model)
   1. Initialize the values of the model parameters, typically at random.
   2. In each iteration $t$,
@@ -122,6 +124,19 @@ from d2l import torch as d2l
 - Solution)
   - For quadratic losses and affine transformations, this has a closed-form expansion:
     - $`\begin{aligned} \mathbf{w} & \leftarrow \mathbf{w} - \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \partial_{\mathbf{w}} l^{(i)}(\mathbf{w}, b) && = \mathbf{w} - \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \mathbf{x}^{(i)} \left(\mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)}\right)\\ b &\leftarrow b -  \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \partial_b l^{(i)}(\mathbf{w}, b) &&  = b - \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \left(\mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)}\right). \end{aligned}`$
+  - We derive the estimated model parameters $\hat{\mathbf{w}}, \hat{b}$.
+    - Even if our function is linear and noiseless, these parameters will not be the global minimum, nor even deterministic.
+      - why?)
+        - Although the algorithm converges slowly towards the minimizers it typically will not find them exactly in a finite number of steps.
+        - Moreover, the minibatches $\mathcal{B}$ used for updating the parameters are chosen at random. This breaks determinism.
+    - $\hat{\mathbf{w}}, \hat{b}$ are not the global minimum.
+      - Not like the Linear Regression that had the [analytic solution](#3113-analytic-solution) of $\mathbf{w}^\star = \left(\mathbf{X}^\top\mathbf{X}\right)^{-1}\mathbf{X}^\top\mathbf{y}$ 
+      - Still, our goal is to find parameters that lead to accurate predictions on previously unseen data, a challenge called **generalization**, not the global minimum for the training data.
+
+<br>
+
+### 3.1.1.5 Predictions
+Given the model $`\hat{\mathbf{w}}^\top \mathbf{x} + \hat{b}`$, we can now make predictions for a new example $\mathbf{x}_1$
 
 
 <br>
