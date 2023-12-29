@@ -106,7 +106,7 @@ If the hypothesis space $H$ is finite, and $D$ is a sequence of $m \ge 1$ indepe
 
 <br>
 
-#### Concept) Hoeffding Bounds (Chernoff Bounds)
+#### Concept) Hoeffding Bounds
 - Desc.)
   - Hoeffding Bounds characterize the **deviation** between the **true probability** of some event and its **observed frequency** over $m$ independent trials.
   - The bounds apply to experiments involving $m$ distinct **Bernoulli** trials.
@@ -114,10 +114,54 @@ If the hypothesis space $H$ is finite, and $D$ is a sequence of $m \ge 1$ indepe
   - Let $X_1, \cdots, X_n$ be independent random variables such that $a_i \le X_i \le b_i$ almost surely.
   - Consider the sum of these random variables, $S_n = \Sigma_{i=1}^n X_i$
   - Then Hoeffding's theorem states that, for all $t \gt 0$,   
-    $`\begin{aligned} {P} \left(S_{n}-\mathrm {E} \left[S_{n}\right]\geq t\right)&;\leq \exp \left(-{\frac {2t^{2}}{\sum _{i=1}^{n}(b_{i}-a_{i})^{2}}}\right)\\ {P} \left(\left|S_{n}-\mathrm {E} \left[S_{n}\right]\right|\geq t\right)&;\leq 2\exp \left(-{\frac {2t^{2}}{\sum _{i=1}^{n}(b_{i}-a_{i})^{2}}}\right)\end{aligned}`$
+    ${P} \left(S_{n}-\mathrm{E} \left[S_{n}\right]\geq t\right) \leq \exp \left(-{\frac {2t^{2}}{\sum _{i=1}^{n}(b_{i}-a_{i})^{2}}}\right)$
 
+<br>
 
-
+### Concept) Inconsistent Hypothesis
+- Goal)
+  - Derive the sufficient amount of training examples when the hypothesis space is **inconsistent**.
+    - i.e.) $\exists h \in H, h(x) \ne c(x)$ : non-zero training error!
+- Settings)
+  - $D$ :  the particular set of training examples available to the learner
+    - $error_D(h)$ : the training error of hypothesis $h$
+  - $\mathcal{D}$ : s the probability distribution over the entire set of instances $X$
+    - $error_{\mathcal{D}}(h)$ : the true error over the entire probability distribution $\mathcal{D}$.
+  - $h_{best}$ : the hypothesis from $H$ having lowest training error over the training examples
+- Problem)
+  - Get $m$ such that $error_{\mathcal{D}}(h) \ge \epsilon + error_D(h)$.
+- Sol.)
+  - Applying the [Hoeffding Bounds](#concept-hoeffding-bounds-chernoff-bounds), $Pr\left[error_{\mathcal{D}(h)} \gt error_D(h)+\epsilon\right] \le e^{\frac{-2\epsilon^2}{m}}$
+    - why?)
+      - Recall the inequality, $`{Pr} \left(S_{n}-\mathrm {E} \left[S_{n}\right]\geq t\right) \leq \exp \left(-{\frac {2t^{2}}{\sum _{i=1}^{n}(b_{i}-a_{i})^{2}}}\right)`$
+      - Then 
+        - LHS : $Pr\left[error_{\mathcal{D}(h)} \gt error_D(h)+\epsilon\right]$
+          - $S_n=error_{\mathcal{D}(h)}$ : the true error on the entire set
+          - $E[S_n]=error_D(h)$ : the training error of an arbitrarily chosen single hypothesis $h$
+          - $t=\epsilon \gt 0$ 
+        - RHS : $e^{\frac{-2\epsilon^2}{m}}$
+          - Verification required!
+            - The book says it's $e^{-2m\epsilon^2}$ instead of $e^{\frac{-2\epsilon^2}{m}}$
+            - But, considering the direction of the inequality operator, $e^{-2m\epsilon^2}$ seems more reasonable, setting the lower bound for $m$.
+            - If we use $e^{-2m\epsilon^2}$, we may derive $m \le \textrm{(...)}$, which is the upper bound for $m$, non-sense!
+          - Consider that our problem is whether a hypothesis is correctly classifying training examples.
+            - Since each examples are independently drawn from $\mathcal{D}$ over $X$, we can see this as the Bernoulli distribution.
+            - Thus, put $`\left\lbrace\begin{aligned}a_i=0, & \textrm{Success} \\ b_i=1, & \textrm{Failure} \end{aligned}\right.`$
+          - Recall that we draw $m$ independent training examples.
+            - Thus, $m=n$
+            - Hence, $\sum _{i=1}^{n}(b_{i}-a_{i})^{2} = \sum _{i=1}^{m}(b_{i}-a_{i})^{2}=\sum _{i=1}^{m}(1-0)^{2}=m$ 
+              - i.e.) the **frequency** that the hypothesis misclassified a randomly drawn instance.
+          - Therefore, $`\exp \left(-{\frac {2t^{2}}{\sum _{i=1}^{n}(b_{i}-a_{i})^{2}}}\right) = e^{\frac{-2\epsilon^2}{m}}`$
+      - Thus, the inequality goes as 
+        - $Pr\left[error_{\mathcal{D}(h)} \gt error_D(h)+\epsilon\right] \le e^{\frac{-2\epsilon^2}{m}}$
+          - i.e.) A **bound** on the **probability** that an arbitrarily chosen single hypothesis has a very misleading training error.
+  - Then, $Pr\left[\left(\exists h \in H\right) \left(error_{\mathcal{D}(h)} \gt error_D(h)+\epsilon\right)\right] \le |H|e^{\frac{-2\epsilon^2}{m}}$
+    - why?)
+      - Consider that there are $|H|$ hypotheses in $H$.
+        - To assure that $h_{best}$, the best hypothesis is found by $L$, has an error bounded as above, we must consider the probability that any one of the $|H|$ hypotheses could have a large error.
+  - Putting $\delta$ denote this probability, $\delta=Pr\left[\left(\exists h \in H\right) \left(error_{\mathcal{D}(h)} \gt error_D(h)+\epsilon\right)\right]$
+  - Then   
+    $`\begin{aligned} & \delta \le |H|e^{\frac{-2\epsilon^2}{m}} \\ \Rightarrow & \ln{\delta} \le \ln{|H|} -\frac{2\epsilon^2}{m} \\ \Rightarrow & \frac{2\epsilon^2}{m} \le \ln{|H|} + \ln{\frac{1}{\delta}} \\ \Rightarrow & \frac{m}{2\epsilon^2} \ge \frac{1}{\ln{|H|} + \ln{\frac{1}{\delta}}} \\ \Rightarrow & m \ge \frac{2\epsilon^2}{\ln{|H|} + \ln{\frac{1}{\delta}}} \end{aligned}`$
 
 
 
