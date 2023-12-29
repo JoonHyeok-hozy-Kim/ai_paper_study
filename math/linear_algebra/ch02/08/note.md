@@ -58,15 +58,50 @@ A linear transformation is one-to-one if and only if its null space contains onl
 <br><br>
 
 ## 2.8.2 Composition of Linear Transformations
+#### Concept) Composition of Linear Transformations
+- Def.)
+  - Let
+    - $f: S_1 \rightarrow S_2$
+    - $g: S_2 \rightarrow S_3$
+  - Then, the composition $g \circ f : S_1 \rightarrow S_3$ is defined by $(g \circ f)(u) = g(f(u)), \forall u \in S_1$
+- Notation)
+  - $\circ$ can be omitted.
+    - $U \circ T \equiv UT$
 
-
+- e.g.)   
+  ![](images/004.png)
 
 <br>
 
+### Theorem 2.12)
+![](images/005.png)
+- pf.)
+  - Suppose
+    - $A \subset \lbrace\mathbb{R}^m\times\mathbb{R}^n\rbrace$ : a $m\times n$ matrix
+    - $B \subset \lbrace\mathbb{R}^p\times\mathbb{R}^m\rbrace$ : a $p\times m$ matrix
+    - $T_A:\mathbb{R}^n\rightarrow\mathbb{R}^m$ : a matrix transformation
+    - $T_B:\mathbb{R}^m\rightarrow\mathbb{R}^p$ : a matrix transformation
+    - $T_{AB}:\mathbb{R}^n\rightarrow\mathbb{R}^p$ : a matrix transformation
+  - Then, $\forall v \in \mathbb{R}^n$
+    - $T_{AB}(v)=(BA)v=B(Av)=B(T_A(v))=T_B(T_A(v))=T_BT_A(v)$
+
+<br>
+
+### Theorem 2.13)
+![](images/006.png)
+- pf.)
+  - Suppose $A$ is an invertible $n\times n$ matrix.
+  - Then, $\forall v \in \mathbb{R}^n$
+    - $T_AT_{A^{-1}}(v)=T_A(T_{A^{-1}}(v))=T_A(A^{-1}v)=AA^{-1}v=v$
+  - By definition, ${T_A}^{-1}=T_{A^{-1}}$
+
+<br>
+
+![](images/007.png)
+
+
 ### [Exercises 2.8](./exercises.md)
 
-
-
-
+<br>
 
 * [Back to Linear Algebra Main](../../main.md)

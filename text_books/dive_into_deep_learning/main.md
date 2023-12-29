@@ -25,7 +25,7 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 ## 3. Linear Neural Networks for Regression
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|3.1|[Linear Regression](./ch03/01/note.md)||
+|3.1|[Linear Regression](./ch03/01/note.md)|Loss Function, Analytic Solution, Minibatch Stochastic Gradient Descent|
 
 
 

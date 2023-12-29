@@ -70,9 +70,58 @@ from d2l import torch as d2l
 <br><br>
 
 ### 3.1.1.4 Minibatch Stochastic Gradient Descent
+#### Concept) Gradient Descent
+- Def.)
+  - Iteratively reducing the error by updating the parameters in the direction that incrementally lowers the loss function
 
+<br>
 
+#### Concept) Naive Gradient Descent
+- How?)
+  - Taking the derivative of the loss function, which is an average of the losses computed on **every single example in the dataset**.
+- Advantage)
+  - Very powerful
+- Drawback)
+  - Extremely slow!
+  - If there is a lot of redundancy in the training data, the benefit of a full update is limited.
 
+<br>
+
+#### Concept) Stochastic Gradient Descent (SGD)
+- How?)
+  - Consider only a single example at a time and to take update steps based on one observation at a time
+- Advantage)
+  - Effective even for large datasets
+- Drawback)
+  - Maybe slow because it can take a lot longer to process one sample at a time compared to a full batch.
+     - why?)
+       - CPUs are a lot faster **(1) multiplying and adding numbers** than they are at **(2) moving data from main memory to processor cache**. 
+       - It is up to an order of magnitude more efficient to perform **(1) a matrix–vector multiplication** than **(2) a corresponding number of vector–vector operations**.
+       - **(1) Full Batch** / **(2) SGD**
+  - Some of the layers, such as batch normalization, only work well when we **have access to more than one observation at a time**.
+
+<br>
+
+#### Concept) Minibatch Stochastic Gradient Descent
+- How?)
+  - The intermediate strategy between Full Batch and SGD.
+  - The size of the minibatch
+    - depends on many factors, such as the amount of memory, the number of accelerators, the choice of layers, and the total dataset size
+    - a number between 32 and 256, preferably a multiple of a large power of, is a good start.
+- Model)
+  1. Initialize the values of the model parameters, typically at random.
+  2. In each iteration $t$,
+     1. Randomly sample a minibatch $\mathcal{B}_t$
+        - such that $|B|=|\mathcal{B}_t|, \forall t$, 
+          - i.e.) Fix the size.
+     2. Compute the derivative (gradient) of the **average** loss on the minibatch with respect to the model parameters $(\mathbf{w}, b)$.
+        - $`\frac{1}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \partial_{(\mathbf{w},b)} l^{(i)}(\mathbf{w},b)`$
+     3. Multiply the gradient by the learning rate $\eta$, and subtract the resulting term from the current parameter values.
+        - i.e.) $`(\mathbf{w},b) \leftarrow (\mathbf{w},b) - \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \partial_{(\mathbf{w},b)} l^{(i)}(\mathbf{w},b)`$
+          - where $l^{(i)}(\mathbf{w}, b) = \frac{1}{2} \left(\hat{y}^{(i)} - y^{(i)}\right)^2$
+- Solution)
+  - For quadratic losses and affine transformations, this has a closed-form expansion:
+    - $`\begin{aligned} \mathbf{w} & \leftarrow \mathbf{w} - \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \partial_{\mathbf{w}} l^{(i)}(\mathbf{w}, b) && = \mathbf{w} - \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \mathbf{x}^{(i)} \left(\mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)}\right)\\ b &\leftarrow b -  \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \partial_b l^{(i)}(\mathbf{w}, b) &&  = b - \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \left(\mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)}\right). \end{aligned}`$
 
 
 <br>
