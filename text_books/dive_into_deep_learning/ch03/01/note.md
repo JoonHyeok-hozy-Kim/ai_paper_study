@@ -167,10 +167,21 @@ Given the model $`\hat{\mathbf{w}}^\top \mathbf{x} + \hat{b}`$, we can now make 
     f'{time.time() - t:.5f} sec'
     ```
 
+<br><br>
 
-
-
-
+## 3.1.3. The Normal Distribution and Squared Loss
+- Consider the assumption that the noise $\epsilon$ follows the normal distribution.
+  - i.e.) $y = \mathbf{w}^\top \mathbf{x} + b + \epsilon$, where $\epsilon \sim \mathcal{N}(0, \sigma^2)$
+- Thus, we can now write out the *likelihood* of seeing a particular $y$ for a given $`\mathbf{x}`$ 
+  - via $P(y \mid \mathbf{x}) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp\left(-\frac{1}{2 \sigma^2} (y - \mathbf{w}^\top \mathbf{x} - b)^2\right)$.
+- According to *the principle of maximum likelihood*, the best values of parameters $\mathbf{w}$ and $b$ are those that maximize the *likelihood* of the entire dataset:
+  - $P(\mathbf y \mid \mathbf X) = \prod_{i=1}^{n} p(y^{(i)} \mid \mathbf{x}^{(i)})$.
+    - Estimators chosen according to the principle of maximum likelihood are called *maximum likelihood estimators*.
+- For historical reasons, optimizations are more often expressed as minimization rather than maximization. So, we can *minimize* the *negative log-likelihood*, which we can express as follows:
+  - $-\log P(\mathbf y \mid \mathbf X) = \sum_{i=1}^n \frac{1}{2} \log(2 \pi \sigma^2) + \frac{1}{2 \sigma^2} \left(y^{(i)} - \mathbf{w}^\top \mathbf{x}^{(i)} - b\right)^2$
+- If we assume that $\sigma$ is fixed, we can ignore the first term, $\mathbf{w}$ or $b$. The second term is identical to the squared error loss introduced earlier, except for the multiplicative constant $`\frac{1}{\sigma^2}`$.
+  - Fortunately, the solution does not depend on $`\sigma`$ either. 
+- It follows that minimizing the mean squared error is equivalent to the maximum likelihood estimation of a linear model under the assumption of additive Gaussian noise.
 
 <br>
 
