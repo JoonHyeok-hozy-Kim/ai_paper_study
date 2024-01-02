@@ -51,7 +51,7 @@
 
 ## 7.2.3 Probably Learning an Approximately Correct (PAC) Learnability
 ### Concept) PAC Learnability
-#### Def.) PAC Learnability
+#### Def.) Probably Learning an Approximately Correct (PAC) Learnability
   - Let
     - $C$ : some class of possible target concepts
     - $L$ : a learner
