@@ -163,6 +163,12 @@ If the hypothesis space $H$ is finite, and $D$ is a sequence of $m \ge 1$ indepe
   - Then   
     $`\begin{aligned} & \delta \le |H|e^{\frac{-2\epsilon^2}{m}} \\ \Rightarrow & \ln{\delta} \le \ln{|H|} -\frac{2\epsilon^2}{m} \\ \Rightarrow & \frac{2\epsilon^2}{m} \le \ln{|H|} + \ln{\frac{1}{\delta}} \\ \Rightarrow & \frac{m}{2\epsilon^2} \ge \frac{1}{\ln{|H|} + \ln{\frac{1}{\delta}}} \\ \Rightarrow & m \ge \frac{2\epsilon^2}{\ln{|H|} + \ln{\frac{1}{\delta}}} \end{aligned}`$
 
+<br><br>
+
+## 7.3.2 Conjunctions of Boolean Literals Are PAC-Learnable
+
+
+
 
 
 

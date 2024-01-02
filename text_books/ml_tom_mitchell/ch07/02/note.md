@@ -49,7 +49,7 @@
 
 <br>
 
-## 7.2.3 PAC Learnability
+## 7.2.3 Probably Learning an Approximately Correct (PAC) Learnability
 ### Concept) PAC Learnability
 #### Def.) PAC Learnability
   - Let
