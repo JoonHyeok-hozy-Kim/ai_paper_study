@@ -153,16 +153,16 @@ Given the model $`\hat{\mathbf{w}}^\top \mathbf{x} + \hat{b}`$, we can now make 
     n = 10000
     # Two 10,000-dimensional vectors containing all 1s
     a, b = torch.ones(n), torch.ones(n) 
-    # Using For-Loop
+    print("Using For-Loop")
     c = torch.zeros(n)
     t = time.time()
     for i, av in enumerate(a):
       c[i] = av + b[i]
-    f'For Loop : {time.time() = t:.5f} sec'
-    # Vectorization
+    f'{time.time() - t:.5f} sec'
+    print("\nVectorization")
     t = time.time()
     d = a+b
-    f'Vectorization : {time.time() = t:.5f} sec'
+    f'{time.time() - t:.5f} sec'
     ```
 
 
