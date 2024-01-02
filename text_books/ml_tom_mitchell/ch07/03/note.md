@@ -149,7 +149,7 @@ If the hypothesis space $H$ is finite, and $D$ is a sequence of $m \ge 1$ indepe
             - Thus, put $`\left\lbrace\begin{aligned}a_i=0, & \textrm{ Success} \\ b_i=1, & \textrm{ Failure} \end{aligned}\right.`$
           - Recall that we draw $m$ independent training examples.
             - Thus, $m=n$
-            - Hence, $\sum _{i=1}^{n}(b_{i}-a_{i})^{2} = \sum _{i=1}^{m}(b_{i}-a_{i})^{2}=\sum _{i=1}^{m}(1-0)^{2}=m$ 
+            - Hence, $`\sum _{i=1}^{n}(b_{i}-a_{i})^{2} = \sum _{i=1}^{m}(b_{i}-a_{i})^{2}=\sum _{i=1}^{m}(1-0)^{2}=m`$ 
               - i.e.) the **frequency** that the hypothesis misclassified a randomly drawn instance.
           - Therefore, $`\exp \left(-{\frac {2t^{2}}{\sum _{i=1}^{n}(b_{i}-a_{i})^{2}}}\right) = e^{\frac{-2\epsilon^2}{m}}`$
       - Thus, the inequality goes as 
