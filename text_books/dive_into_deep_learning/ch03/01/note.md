@@ -158,7 +158,8 @@ Given the model $`\hat{\mathbf{w}}^\top \mathbf{x} + \hat{b}`$, we can now make 
     t = time.time()
     for i, av in enumerate(a):
       c[i] = av + b[i]
-      
+    
+    
     f'{time.time() - t:.5f} sec'
     print("\nVectorization")
     t = time.time()
