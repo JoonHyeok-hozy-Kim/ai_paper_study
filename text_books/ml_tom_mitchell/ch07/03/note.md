@@ -102,7 +102,7 @@ If the hypothesis space $H$ is finite, and $D$ is a sequence of $m \ge 1$ indepe
     - Find the hypothesis with **minimum** training error
 - Def.) Agnostic Learner
   - A learner that makes no assumption that the target concept is representable by $H$ and that simply finds the hypothesis with minimum training error, is often called an agnostic learner
-    - Tt makes no prior commitment about whether or not $C \subseteq H$.
+    - It makes no prior commitment about whether or not $C \subseteq H$.
 
 <br>
 
@@ -114,7 +114,7 @@ If the hypothesis space $H$ is finite, and $D$ is a sequence of $m \ge 1$ indepe
   - Let $X_1, \cdots, X_n$ be independent random variables such that $a_i \le X_i \le b_i$ almost surely.
   - Consider the sum of these random variables, $S_n = \Sigma_{i=1}^n X_i$
   - Then Hoeffding's theorem states that, for all $t \gt 0$,   
-    ${P} \left(S_{n}-\mathrm{E} \left[S_{n}\right]\geq t\right) \leq \exp \left(-{\frac {2t^{2}}{\sum _{i=1}^{n}(b_{i}-a_{i})^{2}}}\right)$
+    $`{P} \left(S_{n}-\mathrm{E} \left[S_{n}\right]\geq t\right) \leq \exp \left(-{\frac {2t^{2}}{\sum _{i=1}^{n}(b_{i}-a_{i})^{2}}}\right)`$
 
 <br>
 
