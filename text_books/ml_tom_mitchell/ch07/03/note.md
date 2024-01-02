@@ -180,10 +180,12 @@ A boolean literal is any boolean variable, or its negation.
 
 <br>
 
-### Prop.) Conjunctions of Boolean Literals Are PAC-Learnable
+### Theorem) PAC-Learnability of Boolean Conjunctions
+The class $C$ of conjunctions of boolean literals is [PAC-learnable](../02/note.md#props-pac-learnability) by the FIND-S algorithm using $H = C$.
 - pf.)
-  1. Let's show that any consistent learner will require only a polynomial number of training examples to learn $\forall c \in C$
+  1. The sample complexity for this concept class is polynomial in $n$ (the number of variables), $\frac{1}{\delta}$, and $\frac{1}{\epsilon}$, and independent of the size of the concept class, $size(c)$.
      - Consider any consistent learner $L$ using a hypothesis space $H$ identical to $C$.
+       - i.e.) $H = C$.
      - Here, $m \ge \frac{1}{\epsilon}\left(n\ln{3}+\ln{\frac{1}{\delta}}\right)$
        - why?)
          - Recall [the General Bound on the Number of Training Examples for Successful Consistent Learner](#concept-general-bound-on-the-number-of-training-examples-for-successful-consistent-learner) : $m \ge \frac{1}{\epsilon}\left(\ln{|H|}+\ln{\frac{1}{\delta}}\right)$ 
@@ -193,23 +195,79 @@ A boolean literal is any boolean variable, or its negation.
               1. True
               2. False (negation)
               3. Ignore the variable.
+         - By assumption, $|H| = size(c)$.
+           - Thus, the sample complexity $m$ is independent of $size(c)$.
        - e.g.)
          - Suppose a consistent learner attempts to learn a target concept 
            - described by conjunctions of up to 10 boolean literals. $(n=10)$
            - and we desire a 95% probability that it will learn a hypothesis with error less than 0.1. $(\delta = 0.05, \epsilon = 0.1)$
          - Then, $m \ge \frac{1}{0.1}\left(10\ln{3}+\ln{\frac{1}{0.05}}\right)$
-  2. Let's suggest a specific algorithm that uses polynomial time per training example.
-     - Requirement 
-       - Efficiency : Total computation is polynomial
-         - no more than **polynomial computation per training example** 
-         - no more than a **polynomial number of training examples**
-       - Capable of learning conjunctions of boolean literals
-     - Candidate : [The Find-S Algorithm](../../ch02/04/note.md#24-find-s-finding-a-maximally-specific-hypothesis)
-       - The FIND-S algorithm PAC-learns the concept class of conjunctions of $n$ boolean literals with negations.
-         - Why?) Recall that Find-S
-           - incrementally computes the most specific hypothesis consistent with the training examples. 
-           - computes the intersection of the literals shared by the current hypothesis and the new training example, for each new positive training example, using time linear in $n$.
+  2.  To incrementally process each training example, the FIND-S algorithm requires effort linear in $n$ and independent of $\frac{1}{\delta}$, $\frac{1}{\epsilon}$, and $size(c)$.
+      - Requirement 
+        - Efficiency : Total computation is polynomial
+          - no more than **polynomial computation per training example** 
+          - no more than a **polynomial number of training examples**
+        - Capable of learning conjunctions of boolean literals
+      - The [The Find-S Algorithm](../../ch02/04/note.md#24-find-s-finding-a-maximally-specific-hypothesis) PAC-learns the concept class of conjunctions of $n$ boolean literals with negations.
+        - Why?) 
+          - Recall that Find-S
+            - incrementally computes the most specific hypothesis consistent with the training examples. 
+            - computes the intersection of the literals shared by the current hypothesis and the new training example, for each new positive training example, using time linear in $n$.
 
+<br><br>
+
+## 7.3.3 PAC-Learnability of Other Concept Classes
+### 7.3.3.1 Unbiased Learners
+- Unbiased Learners have **exponential** sample complexity under PAC Model.
+  - Thus, NOT [PAC-learnable](../02/note.md#props-pac-learnability) (linear complexity required.)
+  - Why?)
+    - Consider the unbiased concept class $C$ that contains every teachable concept relative to $X$.
+    - Then, $|C|=2^{|X|}$.
+      - $\because C$ is unbiased $\Rightarrow \space C$ is the power set of $X$.
+    - For the simplicity, assume that instances in $X$ are defined by $n$ boolean variables.
+      - Then $|X|=2^n$.
+    - Thus, $|C|=2^{|X|}=2^{2^n}$
+    - Since the concept class $C$ is unbiased, the learner should use an unbiased hypothesis space, i.e., $H=C$.
+    - Hence, $|H|=|C|=2^{2^n}$
+    - Therefore, $m \ge \frac{1}{\epsilon}\left(2^n\ln{2}+\ln{\frac{1}{\delta}}\right)$ : Exponential Sample Complexity!
+
+
+<br><br>
+
+### 7.3.3.2 k-Term DNF and k-CNF Concepts
+#### Concept) k-Term Disjunctive Normal Form (k-Term DNF)
+- Def.) $k$-Term DNF Expressions
+  - $T_1 \vee T_2 \vee \cdots \vee T_k$
+    - where $T_i$ is a conjunction of $n$ boolean attributes and their negations.
+- Prop.)
+  - $k$-Term DNF has **polynomial** sample complexity.
+    - why?)
+      - Assuming $H=C$, $|H| = 3^{nk}$.
+        - Why?)
+          - There are $k$ terms($T_1, \cdots, T_k$), each of which may take on $3^{n}$ possible values
+        - cf.) $3^{nk}$ is an overestimate of $|H|$.
+          - why?)
+            - It excludes the cases that $T_i = T_j$ and $T_i \subset T_j$.
+      - Still, we can use this upper bound of $H$ to obtain the upper bound on the sample complexity.
+        - $m \ge \frac{1}{\epsilon}\left(nk\ln{3}+\ln{\frac{1}{\delta}}\right)$
+      - Therefore, the sample complexity of $k$-Term DNF is **polynomial** in $\frac{1}{\delta}$, $\frac{1}{\epsilon}$, $n$, and $k$.
+  - $k$-Term DNF is NOT PAC-Learnable.
+    - The computational complexity is not polynomial, because this learning problem can be shown to be equivalent to other problems that are known to be unsolvable in polynomial time (unless $RP = NP$).
+
+<br>
+
+#### Concept) k-Conjunctive Normal Form (k-CNF)
+- Def.) $k$-CNF Expressions
+  - $T_1 \wedge T_2 \wedge \cdots \wedge T_j$
+    - where $T_i$ is a disjunction of up to $k$ boolean attributes and their negations.
+- Prop.)
+  - $k$-CNF subsumes $k$-Term DNF.
+    - i.e.) Any $k$-Term DNF expression can be rewritten as a $k$-CNF expression.
+      - But not vice versa.
+  - $k$-CNF is PAC Learnable.
+    - i.e.) polynomial sample complexity and polynomial time complexity.
+  - $k$-term DNF is PAC learnable by an efficient algorithm using $H = k\textrm{-CNF}$.
+    - Refer to Kearns and Vazirani (1994)
 
 
 <br>
