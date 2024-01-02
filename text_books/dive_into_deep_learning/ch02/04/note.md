@@ -68,7 +68,7 @@ We can visualize the slopes of functions using the ```matplotlib``` library.
         """Plot data points."""
     
         def has_one_axis(X):  # True if X (tensor or list) has 1 axis
-            return (hasattr(X, "ndim") and X.ndim == 1 or isinstance(X, list) and not     hasattr(X[0], "__len__"))
+            return (hasattr(X, "ndim") and X.ndim == 1 or isinstance(X, list) and not hasattr(X[0], "__len__"))
     
         if has_one_axis(X): X = [X]
         if Y is None:
