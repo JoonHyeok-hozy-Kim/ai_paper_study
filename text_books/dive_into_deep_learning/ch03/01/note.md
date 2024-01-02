@@ -138,6 +138,37 @@ from d2l import torch as d2l
 ### 3.1.1.5 Predictions
 Given the model $`\hat{\mathbf{w}}^\top \mathbf{x} + \hat{b}`$, we can now make predictions for a new example $\mathbf{x}_1$
 
+<br><br>
+
+## 3.1.2 Vectorization for Speed
+- Why Vectorize?
+  - Vectorization is faster than Python ```for loop```.
+  - e.g.)
+    ```python
+    import math
+    import time
+    import numpy as np
+    import torch
+    from d2l import torch as d2l
+    n = 10000
+    # Two 10,000-dimensional vectors containing all 1s
+    a, b = torch.ones(n), torch.ones(n) 
+    # Using For-Loop
+    c = torch.zeros(n)
+    t = time.time()
+    for i, av in enumerate(a):
+      c[i] = av + b[i]
+    f'For Loop : {time.time() = t:.5f} sec'
+    # Vectorization
+    t = time.time()
+    d = a+b
+    f'Vectorization : {time.time() = t:.5f} sec'
+    ```
+
+
+
+
+
 
 <br>
 
