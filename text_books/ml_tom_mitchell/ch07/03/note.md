@@ -166,9 +166,49 @@ If the hypothesis space $H$ is finite, and $D$ is a sequence of $m \ge 1$ indepe
 <br><br>
 
 ## 7.3.2 Conjunctions of Boolean Literals Are PAC-Learnable
+#### Def.) Boolean Literal
+A boolean literal is any boolean variable, or its negation. 
+- e.g.)
+  - $Old$
+  - $\neg Old$
 
+<br>
 
+#### Concept.) Conjunction of Boolean Literals
+- e.g.)
+  - $\neg Old \wedge Tall$
 
+<br>
+
+### Prop.) Conjunctions of Boolean Literals Are PAC-Learnable
+- pf.)
+  1. Let's show that any consistent learner will require only a polynomial number of training examples to learn $\forall c \in C$
+     - Consider any consistent learner $L$ using a hypothesis space $H$ identical to $C$.
+     - Here, $m \ge \frac{1}{\epsilon}\left(n\ln{3}+\ln{\frac{1}{\delta}}\right)$
+       - why?)
+         - Recall [the General Bound on the Number of Training Examples for Successful Consistent Learner](#concept-general-bound-on-the-number-of-training-examples-for-successful-consistent-learner) : $m \ge \frac{1}{\epsilon}\left(\ln{|H|}+\ln{\frac{1}{\delta}}\right)$ 
+         - $\epsilon$ and $\delta$ are the hyperparameters that we set.
+         - $|H| = 3^n$, where $n$ is the number of boolean variables.
+           - $\because$ For each variable, there are three possibilities
+              1. True
+              2. False (negation)
+              3. Ignore the variable.
+       - e.g.)
+         - Suppose a consistent learner attempts to learn a target concept 
+           - described by conjunctions of up to 10 boolean literals. $(n=10)$
+           - and we desire a 95% probability that it will learn a hypothesis with error less than 0.1. $(\delta = 0.05, \epsilon = 0.1)$
+         - Then, $m \ge \frac{1}{0.1}\left(10\ln{3}+\ln{\frac{1}{0.05}}\right)$
+  2. Let's suggest a specific algorithm that uses polynomial time per training example.
+     - Requirement 
+       - Efficiency : Total computation is polynomial
+         - no more than **polynomial computation per training example** 
+         - no more than a **polynomial number of training examples**
+       - Capable of learning conjunctions of boolean literals
+     - Candidate : [The Find-S Algorithm](../../ch02/04/note.md#24-find-s-finding-a-maximally-specific-hypothesis)
+       - The FIND-S algorithm PAC-learns the concept class of conjunctions of $n$ boolean literals with negations.
+         - Why?) Recall that Find-S
+           - incrementally computes the most specific hypothesis consistent with the training examples. 
+           - computes the intersection of the literals shared by the current hypothesis and the new training example, for each new positive training example, using time linear in $n$.
 
 
 
