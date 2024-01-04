@@ -5,7 +5,7 @@
 * [Statistics](./math/statistics/main.md)
 * [Linear Algebra](./math/linear_algebra/main.md)
 
-<br>test
+<br>
 
 ## Textbook Study
 * [Machine Learning by Tom Mitchell](text_books/ml_tom_mitchell/main.md)
