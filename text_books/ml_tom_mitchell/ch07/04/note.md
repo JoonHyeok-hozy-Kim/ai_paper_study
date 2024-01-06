@@ -134,6 +134,7 @@ New bounds for the sample complexity using $VC(H)$ instead of $|H|$.
 - Theorem)   
   ![](images/002.png)
 
+
 - Usage)
   - The Equation provides an **upper bound** on the number of training examples **necessary** to probably approximately learn any target concept in $C$, for any desired $\epsilon$ and $\delta$.
 
