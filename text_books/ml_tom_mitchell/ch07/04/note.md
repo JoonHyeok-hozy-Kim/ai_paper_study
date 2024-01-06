@@ -92,12 +92,50 @@ The Vapnik-Chervonenkis Dimension, $VC(H)$, of hypothesis space $H$ defined over
 3. $r$-dimensional Space
    - It can be shown that the VC dimension of linear decision surfaces in an $r$-dimensional space is $r + 1$.
 4. $n$ Boolean Literals Case
-   - Suppose 
-     - each instance in $X$ is described by the conjunction of exactly $n$ boolean literals, 
-     - each hypothesis in $H$ is described by the conjunction of up to $n$ boolean literals. 
-   - Then the VC dimension for conjunctions of $n$ boolean literals is at least $n$.
+   - Prop.)
+     - The VC dimension for conjunctions of $n$ boolean literals is at least $n$.
+   - why?)
+     - Suppose 
+       1. each instance in $X$ is described by the conjunction of exactly $n$ boolean literals, 
+       2. each hypothesis in $H$ is described by the conjunction of up to $n$ boolean literals. 
+     - Then the VC dimension for conjunctions of $n$ boolean literals is at least $n$.
+   - e.g.)
+     - Settings)
+       - Three 3-digit binaries
+         - $x_1 = 100$
+         - $x_2 = 010$
+         - $x_3 = 001$
+     - Then the instances can be shattered by $H$ such that
+       - $H=\lbrace 000, 001, 010, 011, 100, 101, 111 \rbrace$
+     - Thus, $VC(H)=3$
 
 
+
+<br><br>
+
+## 7.4.3 Sample Complexity and the VC Dimension
+New bounds for the sample complexity using $VC(H)$ instead of $|H|$.
+- cf.) [Bound](../03/note.md#concept-general-bound-on-the-number-of-training-examples-for-successful-consistent-learner) using $|H|$
+  - $m \ge \frac{1}{\epsilon}\left(\ln{|H|}+\ln{\frac{1}{\delta}}\right)$
+
+<br>
+
+### Concept) Upper Bound on Sample Complexity
+- Theorem)
+  - $m \ge \frac{1}{\epsilon} \left( 4\log_2{\frac{2}{\delta}} + 8VC(H)\log_2{\frac{13}{\epsilon}} \right)$
+    - $\because VC(H) \le \log_2 |H|$.
+- Usage)
+  - The Equation provides an **upper bound** on the number of training examples **sufficient** to probably approximately learn any target concept in $C$, for any desired $\epsilon$ and $\delta$.  
+- Source : Blumer et al. 1989
+
+<br>
+
+### Concept) Lower Bound on Sample Complexity
+- Theorem)   
+  ![](images/002.png)
+
+- Usage)
+  - The Equation provides an **upper bound** on the number of training examples **necessary** to probably approximately learn any target concept in $C$, for any desired $\epsilon$ and $\delta$.
 
 
 <br>
