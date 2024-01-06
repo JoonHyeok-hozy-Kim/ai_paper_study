@@ -121,18 +121,17 @@ New bounds for the sample complexity using $VC(H)$ instead of $|H|$.
 <br>
 
 ### Concept) Upper Bound on Sample Complexity
-- Theorem)
+#### Theorem) Blumer et al. 1989
   - $m \ge \frac{1}{\epsilon} \left( 4\log_2{\frac{2}{\delta}} + 8VC(H)\log_2{\frac{13}{\epsilon}} \right)$
     - $\because VC(H) \le \log_2 |H|$.
 - Usage)
   - The Equation provides an **upper bound** on the number of training examples **sufficient** to probably approximately learn any target concept in $C$, for any desired $\epsilon$ and $\delta$.  
-- Source : Blumer et al. 1989
 
 <br>
 
 ### Concept) Lower Bound on Sample Complexity
-- Theorem)   
-  ![](images/002.png)
+#### Theorem) Ehrenfeucht et al. 1989
+![](images/002.png)
 
 
 - Usage)
