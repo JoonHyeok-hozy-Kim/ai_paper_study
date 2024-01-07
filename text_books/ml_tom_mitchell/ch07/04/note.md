@@ -67,47 +67,47 @@ The Vapnik-Chervonenkis Dimension, $VC(H)$, of hypothesis space $H$ defined over
       - Thus, $2^d \le |H| \Rightarrow d=VC(H)\le \log_2 |H|$
 
 ### 7.4.2.1 Illustrative Examples
-1. One-Dimension Case
+#### 1. One-Dimension Case
+ - Settings)
+   - $X \subseteq \mathbb{R}$ : the instance space that consists real numbers
+   - $H$ : the set of hypotheses of the form $a \lt x \lt b$ where $a,b \in \mathbb{R}$
+ - Result)
+   - $VC(H)=2$
+ - why?)
+   1. Consider $S=\lbrace x_1, x_2 \rbrace$ where $x_1 \lt x_2$.
+      - Then we may set $H$ that shatters $S$ as the following.
+        - $H=\lbrace (x_1-2, x_1-1), (x_1-1, \frac{x_1+x_2}{2}), (\frac{x_1+x_2}{2}, x_2+1), (x_2+1, x_2+2) \rbrace$ 
+   2. Consider $S=\lbrace x_1, x_2, x_3 \rbrace$ where $x_1 \lt x_2 \lt x_3$.
+      - $\nexists h$ such that includes $x_1, x_3$ but not $x_2$.
+#### 2. Two-Dimension Case
+- Settings)
+  - $X \subseteq \mathbb{R}^2$ : the set of instances corresponding to points on the $x, y$ plane
+  - $H$ : the set of all linear decision surfaces in the plane.
+- Result)
+  - $VC(H)=3$
+- Why?)
+  - As long as the points are not colinear, we will be able to find $2^3$ linear surfaces that shatter them.
+  - Why three, where we cannot shatter the three colinear points case?
+    - The definition of VC dimension indicates that if we find **any** set of instances of size $d$ that can be shattered, then $VC(H) \ge d$.
+#### 3. r-dimensional Space
+ - It can be shown that the VC dimension of **linear** decision surfaces in an $r$-dimensional space is $r + 1$.
+#### 4. n Boolean Literals Case
+ - Prop.)
+   - The VC dimension for conjunctions of $n$ boolean literals is at least $n$.
+ - why?)
+   - Suppose 
+     1. each instance in $X$ is described by the conjunction of exactly $n$ boolean literals, 
+     2. each hypothesis in $H$ is described by the conjunction of up to $n$ boolean literals. 
+   - Then the VC dimension for conjunctions of $n$ boolean literals is at least $n$.
+ - e.g.)
    - Settings)
-     - $X \subseteq \mathbb{R}$ : the instance space that consists real numbers
-     - $H$ : the set of hypotheses of the form $a \lt x \lt b$ where $a,b \in \mathbb{R}$
-   - Result)
-     - $VC(H)=2$
-   - why?)
-     1. Consider $S=\lbrace x_1, x_2 \rbrace$ where $x_1 \lt x_2$.
-        - Then we may set $H$ that shatters $S$ as the following.
-          - $H=\lbrace (x_1-2, x_1-1), (x_1-1, \frac{x_1+x_2}{2}), (\frac{x_1+x_2}{2}, x_2+1), (x_2+1, x_2+2) \rbrace$ 
-     2. Consider $S=\lbrace x_1, x_2, x_3 \rbrace$ where $x_1 \lt x_2 \lt x_3$.
-        - $\nexists h$ such that includes $x_1, x_3$ but not $x_2$.
-2. Two-Dimension Case
-   - Settings)
-     - $X \subseteq \mathbb{R}^2$ : the set of instances corresponding to points on the $x, y$ plane
-     - $H$ : the set of all linear decision surfaces in the plane.
-   - Result)
-     - $VC(H)=3$
-   - Why?)
-     - As long as the points are not colinear, we will be able to find $2^3$ linear surfaces that shatter them.
-     - Why three, where we cannot shatter the three colinear points case?
-       - The definition of VC dimension indicates that if we find **any** set of instances of size $d$ that can be shattered, then $VC(H) \ge d$.
-3. $r$-dimensional Space
-   - It can be shown that the VC dimension of linear decision surfaces in an $r$-dimensional space is $r + 1$.
-4. $n$ Boolean Literals Case
-   - Prop.)
-     - The VC dimension for conjunctions of $n$ boolean literals is at least $n$.
-   - why?)
-     - Suppose 
-       1. each instance in $X$ is described by the conjunction of exactly $n$ boolean literals, 
-       2. each hypothesis in $H$ is described by the conjunction of up to $n$ boolean literals. 
-     - Then the VC dimension for conjunctions of $n$ boolean literals is at least $n$.
-   - e.g.)
-     - Settings)
-       - Three 3-digit binaries
-         - $x_1 = 100$
-         - $x_2 = 010$
-         - $x_3 = 001$
-     - Then the instances can be shattered by $H$ such that
-       - $H=\lbrace 000, 001, 010, 011, 100, 101, 111 \rbrace$
-     - Thus, $VC(H)=3$
+     - Three 3-digit binaries
+       - $x_1 = 100$
+       - $x_2 = 010$
+       - $x_3 = 001$
+   - Then the instances can be shattered by $H$ such that
+     - $H=\lbrace 000, 001, 010, 011, 100, 101, 111 \rbrace$
+   - Thus, $VC(H)=3$
 
 
 
@@ -140,6 +140,81 @@ New bounds for the sample complexity using $VC(H)$ instead of $|H|$.
     - why?)
       - If we were to substitute $H$ for $C$ in the lower bound, this would result in a tighter bound on $m$ in the case $H \supset C$.
 
+
+<br><br>
+
+## 7.4.4 VC Dimension for Neural Networks
+#### Objective)
+- About the general result that allows computing the VC dimension of **layered acyclic networks**, based on the structure of the network and the VC dimension of its individual units
+- This VC dimension can then be used to bound the number of training examples sufficient to probably approximately correctly learn a feedforward network to desired values of $\epsilon$ and $\delta$.
+
+<br>
+
+#### Concept) Layered Directed Acyclic Graph
+- **Layered** : Nodes can be partitioned into layers such that all directed edges from nodes at layer $l$ go to nodes at layer $l+1$.
+- **Directed** : Edges have a direction : $\textrm{input} \rightarrow \textrm{unit} \rightarrow \textrm{output}$
+- **Acyclic** : No directed cycles
+
+<br>
+
+#### Def.) G-composition of C
+$G\textrm{-composition of }C$ ($C_G$) is the class of all functions that can be implemented by the network $G$ assuming individual units in $G$ take on functions from the class $C$.
+- Prop.)
+  - $C_G$ is the **hypothesis space** representable by the network $G$. 
+
+<br>
+
+
+### Theorem) VC dimension of Layered Acyclic Networks (Kearns and Vazirani 1994)
+- Settings and Assumptions)
+  - $G$ : a network of units which forms a [layered directed acyclic graph](#concept-layered-directed-acyclic-graph)
+  - $n$ : the number of **inputs** to the network $G$
+  - There is just **one output node**.
+  - $s \ge 2$ : the number of internal nodes in $G$
+  - $C$ : a concept class over $\mathbb{R}^r$
+  - $d=VC(C)$ : the VC-dimension of $C$
+  - $N_i$ : $i$-th internal unit of $G$ such that
+    - has at most $r$ inputs
+    - implement a boolean-valued function $c_i : \mathbb{R}^r \rightarrow \lbrace 0,1 \rbrace$ from the function class $C$.
+    - $i \in \lbrace 1,2,\cdots,s\rbrace$, $c_i \in C$
+  - $C_G$ : the [G-composition of C](#def-g-composition-of-c)
+- Theorem)
+  - $VC(C_G) \le 2ds\log(es)$
+    - where $e$ is the base of the natural logarithm
+
+<br>
+
+#### Application) Upper Bound on Sample Complexity of Perceptron Network
+- Settings)
+  - $G^{\textrm{perceptrons}}$ is a acyclic layered networks whose individual nodes are [perceptrons](../../ch04/04/note.md#concept-perceptron).
+  - $VC(C_{G^{\textrm{perceptrons}}})$ : the VC dimension of $G^{\textrm{perceptrons}}$ represented by a concept class $C$ over $\mathbb{R}^r$
+- Result)
+  - The upper bound on sample complexity of a perceptron network is
+    - $m \ge \frac{1}{\epsilon} \left( 4\log_2{\frac{2}{\delta}} + 16(r+1)s\log(es)\log_2{\frac{13}{\epsilon}} \right)$
+- Derivation)
+  - Then, $VC(C_{G^{\textrm{perceptrons}}}) = r+1$
+    - why?)
+      - Recall the definition of the $r$ input perceptron.
+        - $`o(x_1, x_2, ..., x_r) = \left\lbrace \begin{array}{cl} 1 & if \space w_0+w_1x_1+w_2x_2+\cdots+w_rx_r \gt 0 \\ -1 & otherwise \end{array} \right.`$
+          - i.e.) it uses **linear** decision surfaces to represent boolean function over $\mathbb{R}^r$
+      - By [the property of the linear VC Dimension](#3-r-dimensional-space), the VC dimension of linear decision surfaces over $\mathbb{R}^r$ is $r+1$.
+  - Thus, we can bound the VC dimension of acyclic layered networks containing $s$ perceptrons, each with $r$ inputs, as
+    - $VC(C_G) \le 2ds\log(es) = 2(r+1)s\log(es)$
+  - Recall the [Upper Bound on Sample Complexity](#concept-upper-bound-on-sample-complexity) using $VC(H)$
+    - $m \ge \frac{1}{\epsilon} \left( 4\log_2{\frac{2}{\delta}} + 8VC(H)\log_2{\frac{13}{\epsilon}} \right)$
+  - Therefore, the upper bound on sample complexity of a perceptron network is
+    - $m \ge \frac{1}{\epsilon} \left( 4\log_2{\frac{2}{\delta}} + 16(r+1)s\log(es)\log_2{\frac{13}{\epsilon}} \right)$
+- Analysis)
+  - This bound cannot be applied to networks trained using [Backpropagation](../../ch04/05/note.md#452-the-backpropagation-algorithm).
+    - Why?)
+      1. This result applies to networks of perceptrons rather than networks of [sigmoid units](../../ch04/05/note.md#concept-sigmoid-unit) to which the Backpropagation algorithm applies.
+         - Prop.)
+           - The above bound on $m$ will be at least as large for acyclic layered networks of **sigmoid units**.
+             - why?)
+               - A sigmoid unit can approximate a perceptron to arbitrary accuracy by using sufficiently large weights.
+      3. It fails to account for the fact that Backpropagation trains a network by beginning with near-zero weights, then iteratively modifying these weights until an acceptable hypothesis is found.
+         - Thus, Backpropagation with a cross-validation stopping criterion exhibits an **inductive bias** in favor of networks with small weights. 
+         - This inductive bias, which reduces the effective VC dimension, is not captured by the above analysis. 
 
 <br>
 
