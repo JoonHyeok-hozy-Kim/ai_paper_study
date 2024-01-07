@@ -91,8 +91,7 @@ Utilities to simplify object-oriented programming in Jupyter notebooks.
                         ylim=None, xscale='linear', yscale='linear',
                         ls=['-', '--', '-.', ':'], colors=['C0', 'C1', 'C2', 'C3'],
                         fig=None, axes=None, figsize=(3.5, 2.5), display=True):
-               self.save_hyperparameters()
-       
+               self.save_hyperparameters()       
            def draw(self, x, y, label, every_n=1):
                raise NotImplemented
        ```
