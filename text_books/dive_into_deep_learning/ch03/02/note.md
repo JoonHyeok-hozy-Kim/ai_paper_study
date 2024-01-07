@@ -42,13 +42,22 @@ Utilities to simplify object-oriented programming in Jupyter notebooks.
           print('Class attribute "b" is', self.b)
        ```
    - e.g.)
-     ```python
-     class A:
-         def __init__(self):
-             self.b = 1
-     
-     a = A()
-     ```
+     - Declare a class.
+       ```python
+       class A:
+           def __init__(self):
+               self.b = 1
+       
+       a = A()
+       ```
+     - Add a method to the class.
+       ```python
+       @add_to_class(A)
+       def do(self):
+           print('Class attribute "b" is', self.b)
+       
+       a.do()
+       ```
      
 
 
