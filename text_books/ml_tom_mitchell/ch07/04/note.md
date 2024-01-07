@@ -208,10 +208,8 @@ $G\textrm{-composition of }C$ ($C_G$) is the class of all functions that can be 
   - This bound cannot be applied to networks trained using [Backpropagation](../../ch04/05/note.md#452-the-backpropagation-algorithm).
     - Why?)
       1. This result applies to networks of perceptrons rather than networks of [sigmoid units](../../ch04/05/note.md#concept-sigmoid-unit) to which the Backpropagation algorithm applies.
-         - Prop.)
-           - The above bound on $m$ will be at least as large for acyclic layered networks of **sigmoid units**.
-             - why?)
-               - A sigmoid unit can approximate a perceptron to arbitrary accuracy by using sufficiently large weights.
+         - Prop.) The above bound on $m$ will be at least as large for acyclic layered networks of **sigmoid units**.
+             - why?) A sigmoid unit can approximate a perceptron to arbitrary accuracy by using sufficiently large weights.
       3. It fails to account for the fact that Backpropagation trains a network by beginning with near-zero weights, then iteratively modifying these weights until an acceptable hypothesis is found.
          - Thus, Backpropagation with a cross-validation stopping criterion exhibits an **inductive bias** in favor of networks with small weights. 
          - This inductive bias, which reduces the effective VC dimension, is not captured by the above analysis. 
