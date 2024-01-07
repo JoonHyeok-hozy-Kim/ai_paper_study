@@ -43,7 +43,11 @@ Utilities to simplify object-oriented programming in Jupyter notebooks.
        ```
    - e.g.)
      ```python
+     class A:
+         def __init__(self):
+             self.b = 1
      
+     a = A()
      ```
      
 
