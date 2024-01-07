@@ -65,7 +65,7 @@
         <td>3-4</td><td><a href="./ch03/04/note.md">Functions of Random Variables</a></td><td>Method of Distribution Functions, Probability Integral Transformation, Multivariate Transformation</td>
     </tr>
     <tr>
-        <td>3-5</td><td><a href="./ch03/05/note.md">Limit Theorems</a></td><td>TBD</td>
+        <td>3-5</td><td><a href="./ch03/05/note.md">Limit Theorems</a></td><td>Chebyshev's Theorem, </td>
     </tr>
 </table>
 
