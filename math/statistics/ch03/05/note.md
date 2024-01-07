@@ -6,8 +6,10 @@
 - pf.)   
   ![](images/002.png)
 
+
 - Desc.)
   - Chebyshev’s inequality states that the probability that a random variable X differs from its mean by at least K standard deviations is less than or equal to $\frac{1}{K^2} (K\ge2)$.
+
 
 - Prop.)   
   ![](images/003.png)
