@@ -46,8 +46,10 @@ from d2l import torch as d2l
     data = SyntheticRegressionData(w=torch.tensor([2, -3.4]), b=4.2)
     print('features:', data.X[0],'\nlabel:', data.y[0])
     ```
-    ![](images/001.png)   
-    ![](images/003.png)
+
+
+![](images/001.png)   
+![](images/003.png)
 
 <br><br>
 
