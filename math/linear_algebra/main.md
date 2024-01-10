@@ -28,7 +28,7 @@
 ### 3. Determinants
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|3.1|[Cofactor Expansion](./ch03/01/note.md)||
+|3.1|[Cofactor Expansion](./ch03/01/note.md)|Determinant of a $n \times n$ Matrix<br>$(i,j)-$Cofactor, Cofactor Expansion|
 
 
 
