@@ -22,6 +22,11 @@ from d2l import torch as d2l
   - We generate each label by applying a *ground truth* linear function, corrupting them via additive noise $`\boldsymbol{\epsilon}`$, drawn independently and identically for each example:
     - $\mathbf{y}= \mathbf{X} \mathbf{w} + b + \boldsymbol{\epsilon}$
       - For convenience we assume that $`\boldsymbol{\epsilon} \sim N(0, 0.1^2)`$.
+
+![](images/002.png)
+
+
+
 - Implementation)
   ```python
   class SyntheticRegressionData(d2l.DataModule):  #@save
@@ -41,16 +46,71 @@ from d2l import torch as d2l
     data = SyntheticRegressionData(w=torch.tensor([2, -3.4]), b=4.2)
     print('features:', data.X[0],'\nlabel:', data.y[0])
     ```
-    ![]
+    ![](images/001.png)   
+    ![](images/003.png)
 
+<br><br>
 
+## 3.3.2 Reading the Dataset
+Training machine learning models often requires multiple passes over a dataset, grabbing one minibatch of examples at a time.   
 
+Let's trace each batch by implementing the ```get_dataloader``` method and registering it to the ```SyntheticRegression``` class via the ```add_to_class``` function.
+- More concise implementation for ```get_dataloader``` is provided [below](#333-concise-implementation-of-the-data-loader).
 
+```python
+@d2l.add_to_class(SyntheticRegressionData)
+def get_dataloader(self, train):
+    if train:
+        indices = list(range(0, self.num_train))
+        # The examples are read in random order
+        random.shuffle(indices)
+    else:
+        indices = list(range(self.num_train, self.num_train+self.num_val))
+    for i in range(0, len(indices), self.batch_size):
+        batch_indices = torch.tensor(indices[i: i+self.batch_size])
+        yield self.X[batch_indices], self.y[batch_indices]
+```
+- Test
+  ```python
+  # Training Data
+  X_train, y_train = next(iter(data.get_dataloader(1)))
+  print('X_train shape:', X_train.shape, '\ny_train shape:', y_train.shape)
 
+  # Validation Data
+  X_val, y_val = next(iter(data.get_dataloader(0)))
+  print('X_val shape:', X_val.shape, '\ny_val shape:', y_val.shape)
+  ```
+  ![](images/004.png)
 
+<br><br>
 
+## 3.3.3. Concise Implementation of the Data Loader
+Call the existing ```torch.utils.data.DataLoader``` API in a framework to load data, instead of writing our own iterator.
 
+```python
+@d2l.add_to_class(d2l.DataModule)  #@save
+def get_tensorloader(self, tensors, train, indices=slice(0, None)):
+    tensors = tuple(a[indices] for a in tensors)
+    dataset = torch.utils.data.TensorDataset(*tensors)
+    return torch.utils.data.DataLoader(dataset, self.batch_size,
+                                       shuffle=train)
 
+@d2l.add_to_class(SyntheticRegressionData)  #@save
+def get_dataloader(self, train):
+    i = slice(0, self.num_train) if train else slice(self.num_train, None)
+    return self.get_tensorloader((self.X, self.y), train, i)
+```
+- Test
+  ```python
+  # Training Data
+  X_train, y_train = next(iter(data.get_dataloader(1)))
+  print('X_train shape:', X_train.shape, '\ny_train shape:', y_train.shape)
+
+  # Validation Data
+  X_val, y_val = next(iter(data.get_dataloader(0)))
+  print('X_val shape:', X_val.shape, '\ny_val shape:', y_val.shape)
+  ```
+  ![](images/005.png)
 
 
 <br>
