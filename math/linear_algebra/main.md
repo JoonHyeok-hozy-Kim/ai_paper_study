@@ -23,6 +23,13 @@
 |2.7|[Linear Transformations and Matrices](./ch02/07/note.md)|Image, Domain, Codomain, Range, Matrix Transformation, Orthogonal Projection with Matrix Transformation, Shear Transformation, Linear Transformation, Standard Matrix|
 |2.8|[Composition and Invertibility of Linear Transformation](./ch02/08/note.md)|Range of a Linear Transformation, Onto Function, One-To-One Function, Null Space|
 
+<br>
+
+### 3. Determinants
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|3.1|[Cofactor Expansion](./ch03/01/note.md)||
+
 
 
 
