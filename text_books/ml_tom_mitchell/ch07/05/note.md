@@ -58,10 +58,67 @@
       |:-:|:-:|:-:|
       |Init|-|$(l_1 \wedge \neg l_1) \wedge(l_2 \wedge \neg l_2) \wedge(l_3 \wedge \neg l_3) \wedge(l_4 \wedge \neg l_4)$|
       |1|$l_1 \wedge \neg l_2 \wedge l_3 \wedge l_4$|$l_1 \wedge \neg l_2 \wedge l_3 \wedge l_4$|
-      |2|$l_1 \wedge \neg l_2 \wedge \neg l_3 \wedge l_4$|$l_1 \wedge \neg l_2 \wedge l_4$|
-      |3|$\neg l_1 \wedge \neg l_2 \wedge \neg l_3 \wedge l_4$|$\neg l_2 \wedge l_4$|
-      |4|$\neg l_1 \wedge l_2 \wedge \neg l_3 \wedge l_4$|$l_4$|
-      |5|$\neg l_1 \wedge l_2 \wedge \neg l_3 \wedge \neg l_4$|$\emptyset$|
+      |2|$l_1 \wedge \neg l_2 \wedge \mathbf{\neg l_3} \wedge l_4$|$l_1 \wedge \neg l_2 \wedge l_4$|
+      |3|$\mathbf{\neg l_1} \wedge \neg l_2 \wedge \neg l_3 \wedge l_4$|$\neg l_2 \wedge l_4$|
+      |4|$\neg l_1 \wedge \mathbf{l_2} \wedge \neg l_3 \wedge l_4$|$l_4$|
+      |5|$\neg l_1 \wedge l_2 \wedge \neg l_3 \wedge \mathbf{\neg l_4}$|$\emptyset$|
+
+<br><br>
+
+## 7.5.2 Mistake Bound for the Halving Algorithm
+- Ideation)
+  - Recall the [version space](../../ch02/05/note.md#concept-version-space).
+    - i.e.) the subset of $H$ that is consistent with the training examples in $D$.
+  - Consider an approach that an algorithm learns by maintaining the version space.
+    - e.g.)
+      - [List-Then-Eliminate](../../ch02/05/note.md#concept-list-then-elimination-algorithm)
+      - [Candidate-Elimination](../../ch02/05/note.md#254-candidate-elimination-learning-algorithm)
+  - How do we get the mistake bound for such algorithms?
+    - Use voting method!
+- Procedure)
+  - For each instance $x$, halve the hypotheses in $H$ depending on their predictions.
+    - Positive vs Negative
+  - Take the majority side, i.e. output the majority's prediction.
+    - If the prediction is wrong, discard the majority and take the minority side.
+      - MISTAKE!
+    - If the prediction is right, discard the minority.
+      - NO MISTAKE!
+- Analysis)
+  - The worst case mistake bound is $\lfloor \log_2 |H| \rfloor$.
+    - i.e.) Every majority predictions were wrong!
+  - Idealistically, if all the majorities' predictions were right, the mistake count is 0.
+
+
+<br><br>
+
+## 7.5.3 Optimal Mistake Bounds
+- Settings)
+  - $A$ : a learning algorithm
+  - $c$ : a target concept
+  - $M_A(c)$ : the maximum over all possible sequences of training examples of the number of mistakes made by $A$ to **exactly** learn $c$.
+  - $C$ : a concept class
+    - Assume the hypothesis class $H=C$.
+  - For any nonempty concept class $C$, let $M_A(C)\equiv \max_{c\in C} M_A(c)$.
+    - cf.)
+      - $M_{\textrm{Find-S}}(C) = n+1$
+      - $M_{\textrm{Halving}}(C) \le \log_2 |H|$
+- Def.)
+  - Let $C$ be an arbitrary nonempty concept class. The optimal mistake bound for $C$, denoted $Opt(C)$, is the minimum over all possible learning algorithms $A$ of $M_A(C)$.
+    - $Opt(C)\equiv \min_{A \in \lbrace \textrm{Learning Algorithms}\rbrace} M_A(C)$
+- Desc.)
+  - $Opt(C)$ is the number of mistakes made for the hardest target concept in $C$, using the hardest training sequence, by the best algorithm.
+- Prop.)
+  - Littlestone (1997)
+    - $VC(C) \le Opt(C) \le M_{\textrm{Halving}}(C) \le \log_2 |C|, \forall C$
+      - where $VC(C)$ is the [VC dimension](../04/note.md#def-the-vapnik-chervonenkis-dimension) of $C$.
+  - $\exists C, VC(C) = Opt(C) = M_{\textrm{Halving}}(C) = \log_2 |C|$
+    - e.g.)
+      - The powerset $C_P$ of any finite set of instances $X$.
+        - $VC(C_P)=|X|=\log_2|C_P|$
+
+
+
+
 
 
 <br>

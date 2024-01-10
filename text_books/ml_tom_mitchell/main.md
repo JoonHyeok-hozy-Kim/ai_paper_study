@@ -86,7 +86,7 @@
 |7.2|[Probably Learning an Approximately Correct Hypothesis](./ch07/02/note.md)|Probably Approximately Correct (PAC)<br> True Error / Training Error<br> PAC Learnability|
 |7.3|[Sample Complexity for Finite Hypothesis Spaces](./ch07/03/note.md)|Sample complexity<br> Consistent Learner<br> Exhausted Version Space<br> General Bound on the Number of Training Examples<br> Agnostic Learner, Hoeffding Bounds<br> **PAC-Learnability of Boolean Conjunctions** (O) / **Unbiased Learners** (X) / **k-Term DNF** (X) / **k-CNF** (O) |
 |7.4|[Sample Complexity for Infinite Hypothesis Spaces](./ch07/04/note.md)|Shattering a Set of Instances<br> Vapnik-Chervonenkis Dimension (VC Dimension)<br> Upper/Lower Bound on Sample Complexity using $VC(H)$<br> G-composition of C,<br> VC dimension of Layered Acyclic Networks (Perceptron)<br>|
-|7.5|[The Mistake Bound Model of Learning](./ch07/05/note.md)|The Mistake Bound Model<br>|
+|7.5|[The Mistake Bound Model of Learning](./ch07/05/note.md)|The Mistake Bound Model : Find-S, Halving Algorithm<br>Optimal Mistake Bound<br>|
 
 
 <br><br>
