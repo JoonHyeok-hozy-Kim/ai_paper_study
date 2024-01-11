@@ -88,6 +88,13 @@
 |7.4|[Sample Complexity for Infinite Hypothesis Spaces](./ch07/04/note.md)|Shattering a Set of Instances<br> Vapnik-Chervonenkis Dimension (VC Dimension)<br> Upper/Lower Bound on Sample Complexity using $VC(H)$<br> G-composition of C,<br> VC dimension of Layered Acyclic Networks (Perceptron)<br>|
 |7.5|[The Mistake Bound Model of Learning](./ch07/05/note.md)|The Mistake Bound Model : Find-S, Halving Algorithm<br>Optimal Mistake Bound<br> Weighted-Majority Algorithm : Mistake Bound $${\color{red}(\textrm{Verification Required!})}$$ <br>|
 
+<br>
+
+## 8. Instance-Based Learning
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|8.2|[k-Nearest Neighbor Learning](./ch08/02/note.md)||
+
 
 
 <br><br>
