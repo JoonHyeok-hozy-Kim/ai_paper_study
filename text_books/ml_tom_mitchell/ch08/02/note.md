@@ -39,7 +39,7 @@
    2. Classification Algorithm
       - Given a query instance $x_q$ to be classified,
         - Let $x_1, \cdots, x_k$ denote the $k$-nearest neighbor(s) from ```training_examples```.
-        - Return $\hat{f}(x_q) \leftarrow \argmax_{v\in V} \Sigma_{i=1}^k \delta(v, f(x_i))$
+        - Return $\hat{f}(x_q) \leftarrow \arg\max_{v\in V} \Sigma_{i=1}^k \delta(v, f(x_i))$
           - where $`\delta(a,b)= \left\lbrace\begin{array}{ll} 1 & \textrm{if } a=b \\ 0 & \textrm{otherwise} \end{array}\right.`$
 
 
