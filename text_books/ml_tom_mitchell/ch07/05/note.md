@@ -164,7 +164,7 @@
     - $\because$ We multiply $\beta=\frac{1}{2}$ when an algorithm makes mistake.
   - Put $W=\Sigma_{i=1}^n w_i$, the sum of all the weights associated with all $n$ algorithms in $A$.
     - Initially, $W=n \space (\because w_i=1, \forall a_i\in A)$.
-  - <span style="color: #03F3B3;">(Verification Required!)</span>
+  - $${\color{red}(\textrm{Verification Required!})}$$
     - The book says, 
       - Then for each mistake made by the Weighted-Majority algorithm, $W$ reduces to at least $\frac{3}{4}W$.
         - Worst Case)
