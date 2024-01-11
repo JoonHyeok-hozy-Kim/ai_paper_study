@@ -48,7 +48,7 @@
 |4.5|[Multilayer Networks and the Backpropagation Algorithm](./ch04/05/note.md)|Sigmoid Unit (logistic function), Momentum|
 |4.6|[Remarks on the Backpropagation Algorithm](./ch04/06/note.md)|Generalization Accuracy, Weight Decay, k-fold Cross-Validation Approach|
 |4.7|[An Illustrative Example: Face Recognition](./ch04/07/note.md)|1-of-n Output Encoding|
-|4.8|[Advanced Topics in Artificial Neural Networks](./ch04/08/note.md)|Various Error Functions (Penalty Term, Derivative{Slop}, Cross Entropy, Weight Sharing), Line Search, Conjugate Gradient, Recurrent Networks, CASCADE-CORRELATION algorithm|
+|4.8|[Advanced Topics in Artificial Neural Networks](./ch04/08/note.md)|Various Error Functions : Penalty Term, Derivative (Slope), Cross Entropy, Weight Sharing<br> Line Search<br> Conjugate Gradient<br> Recurrent Networks<br> Cascade-Corelation algorithm|
 
 <br>
 
@@ -93,7 +93,7 @@
 ## 8. Instance-Based Learning
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|8.2|[k-Nearest Neighbor Learning](./ch08/02/note.md)||
+|8.2|[k-Nearest Neighbor Learning](./ch08/02/note.md)|- k-Nearest Neighbor Algorithm : Discrete(Classification) / Continuous <br> - Decision Surface <br> - Distance-Weighted Nearest Neighbor Algorithm <br> - Global Method (Shepard's Method) / Local Method|
 
 
 

@@ -50,25 +50,59 @@ e.g.) Consider the case below.
   - $+$ : a positive training example
   - $-$ : a negative training example
   - $x_q$ : a queried instance
-- 1-Nearest Neighbor Algorithm
-  - $x_q$ will be classified positive.
-    - why?) The 1-nearest neighbor is a positive example.
-- 5-Nearest Neighbor Algorithm
-  - $x_q$ will be classified negative.
-    - why?) The majority of the 5-nearest neighbors, which are in the circle boundary, is negative.
+- Classification Results)
+  - 1-Nearest Neighbor Algorithm
+    - $x_q$ will be classified positive.
+      - why?) The 1-nearest neighbor is a positive example.
+  - 5-Nearest Neighbor Algorithm
+    - $x_q$ will be classified negative.
+      - why?) The majority of the 5-nearest neighbors are negative.
+
+
+<br>
+
+#### Concept) The decision surface induced by the 1-Nearest Neighbor algorithm   
+![](images/002.png)
+- Desc.)
+  - The decision surface is a combination of convex polyhedra surrounding each of the training examples. 
+  - For every training example, the polyhedron indicates the set of query points whose classification will be completely determined by that training example. 
+  - Query points outside the polyhedron are closer to some other training example. 
+  - This kind of diagram is often called the Voronoi diagram of the set of training examples.
+
 
 #### 2. Continuous Model
 - Target Function)
+   - $f:\mathbb{R}^n\rightarrow \mathbb{R}$
 - Algorithm)
+  - Similar to the [Discrete Model](#1-discrete-model-classification).
+  - Replace $\hat{f}$.
+    - $\hat{f}(x_q) \leftarrow \frac{\Sigma_{i=1}^k f(x_i)}{k}$
+      - i.e.) Calculate the mean value of the $k$-nearest training examples rather than their most common value.
 
+<br><br>
 
+### 8.2.1 Distance-Weighted Nearest Neighbor Algorithm
+- How?)
+  - Weight the contribution of each of the $k$-neighbors according to their distance to the query point $x_q$, giving greater weight to closer neighbors.
+- Models)
+  - Discrete Model
+    - $`\hat{f}(x_q) \leftarrow \left\lbrace \begin{array}{ll} f(x_i) & \textrm{if } \exists x_i\textrm{ such that } x_q=x_i \\ \arg\max_{v\in V} \Sigma_{i=1}^k w_i \delta(v, f(x_i)) & \textrm{otherwise} \end{array} \right.`$
+      - where $w_i \equiv \frac{1}{d(x_q,x_i)^2}$ : the weight
+        - $d(a,b)$ : the distance between $a$ and $b$
+      - If $x_q$ exactly matches $x_i$, assign $f(x_i)$ to prevent the zero-division error.
+        - why?) $d(x_q,x_i)=0$
+  - Continuous Model
+    - $\hat{f}(x_q) \leftarrow \frac{\Sigma_{i=1}^k w_i f(x_i)}{\Sigma_{i=1}^k w_i}$
+      - cf.) The denominator $\Sigma_{i=1}^k w_i$ is a constant that normalizes the contributions of the various weights.
+        - It assures that $\hat{f}(x_q) = c, \exists c \in \mathbb{R} \textrm{ if }f(x_i) = c, \forall x_i \in D$
 
+<br>
 
-
-
-
-
-
+#### Concept) Global Method vs Local Method
+- Global Method (Shepard's Method)
+  - Consider all training examples to classify a query point.
+- Local Method
+  - Consider only nearest training examples to classify a query point.
 
 
 
