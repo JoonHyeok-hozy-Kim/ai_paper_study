@@ -140,7 +140,7 @@ If the hypothesis space $H$ is finite, and $D$ is a sequence of $m \ge 1$ indepe
           - $E[S_n]=error_D(h)$ : the training error of an arbitrarily chosen single hypothesis $h$
           - $t=\epsilon \gt 0$ 
         - RHS : $e^{\frac{-2\epsilon^2}{m}}$
-          - Verification required!
+          - <span style="color: #03F3B3;">(Verification Required!)</span>
             - The book says it's $e^{-2m\epsilon^2}$ instead of $e^{\frac{-2\epsilon^2}{m}}$
             - But, considering the direction of the inequality operator, $e^{-2m\epsilon^2}$ seems more reasonable, setting the lower bound for $m$.
             - If we use $e^{-2m\epsilon^2}$, we may derive $m \le \textrm{(...)}$, which is the upper bound for $m$, non-sense!

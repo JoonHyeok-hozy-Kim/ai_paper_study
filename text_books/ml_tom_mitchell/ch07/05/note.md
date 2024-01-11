@@ -117,7 +117,59 @@
         - $VC(C_P)=|X|=\log_2|C_P|$
 
 
+<br><br>
 
+## 7.5.4 Weighted-Majority Algorithm
+### Concept) Weighted-Majority Algorithm
+- Desc.)
+  - A generalization of [the Halving algorithm](#752-mistake-bound-for-the-halving-algorithm)
+  - It makes predictions by taking a **weighted vote** among a pool of prediction algorithms and learns by altering the weight associated with each prediction algorithm.
+- Prop.)
+  - It is able to accommodate **inconsistent** training data.
+    - How?)
+      - It **reduces the weight** of a hypothesis that is found to be inconsistent.
+        - NOT eliminating it.
+  - We can bound the number of mistakes made by Weighted-Majority in terms of the number of mistakes committed by the best of the pool of prediction algorithms.
+- Def.)
+  - Settings)
+    - $a_i$ be the $i$-th prediction algorithm in the pool $A$ of algorithms.
+    - $w_i$ be  the weight associated with $a_i$.
+    - $0 \lt\beta \lt 1$
+  - Procedure)
+    1. For all $i$, initialize $w_i \leftarrow 1$.
+    2. For each training example $\langle x, c(x) \rangle$...
+       1. Initialize $q_0 \leftarrow 0$ and $q_1 \leftarrow 0$.
+       2. For each prediction algorithm $a_i$...
+          1. If $a_i(x) = 0$ then $q_0, \leftarrow q_0+w_i$
+             - Else, $q_1, \leftarrow q_1+w_i$
+       3. If $q_1 \gt q_0$, then predict $c(x)=1$.
+          - Else if $q_1 \lt q_0$, then predict $c(x)=0$.
+          - Else, predict 0 or 1 at random for $c(x)$.
+       4. For each prediction algorithm $a_i \in A$ do...
+          1. If $a_i(x) \ne c(x)$, then $w_i \leftarrow \beta w_i$
+
+<br>
+
+#### Theorem) Relative mistake bound for Weighted-Majority
+- Theorem)
+  - Let 
+    - $D$ be any sequence of training examples
+    - $A$ be any set of $n$ prediction algorithms
+    - $k$ be the minimum number of mistakes made by any algorithm in $A$ for the training sequence $D$. 
+  - Then the number of mistakes over $D$ made by the Weighted-Majority algorithm using $\beta = \frac{1}{2}$ is at most
+    - $2.4(k+\log_2 n)$
+- Proof)
+  - Let $a_j \in A$ be an algorithm with the optimal number $k$ of mistakes.
+  - Then the final weight will be $w_j=\left(\frac{1}{2}\right)^k$.
+    - $\because$ We multiply $\beta=\frac{1}{2}$ when an algorithm makes mistake.
+  - Put $W=\Sigma_{i=1}^n w_i$, the sum of all the weights associated with all $n$ algorithms in $A$.
+    - Initially, $W=n \space (\because w_i=1, \forall a_i\in A)$.
+  - <span style="color: #03F3B3;">(Verification Required!)</span>
+    - The book says, 
+      - Then for each mistake made by the Weighted-Majority algorithm, $W$ reduces to at least $\frac{3}{4}W$.
+        - Worst Case)
+          - Minimum number of the majority, which is $\frac{1}{2}$, makes mistake and is multiplied by $\beta=\frac{1}{2}$.
+    - In my opinion, 
 
 
 
