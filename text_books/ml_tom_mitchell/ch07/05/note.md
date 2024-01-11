@@ -139,6 +139,7 @@
     1. For all $i$, initialize $w_i \leftarrow 1$.
     2. For each training example $\langle x, c(x) \rangle$...
        1. Initialize $q_0 \leftarrow 0$ and $q_1 \leftarrow 0$.
+          - cf.) $q_0$ is the vote count of the false and $q_1$ is the vote count of the true.
        2. For each prediction algorithm $a_i$...
           1. If $a_i(x) = 0$ then $q_0, \leftarrow q_0+w_i$
              - Else, $q_1, \leftarrow q_1+w_i$
@@ -157,7 +158,9 @@
     - $A$ be any set of $n$ prediction algorithms
     - $k$ be the minimum number of mistakes made by any algorithm in $A$ for the training sequence $D$. 
   - Then the number of mistakes over $D$ made by the Weighted-Majority algorithm using $\beta = \frac{1}{2}$ is at most
-    - $2.4(k+\log_2 n)$
+    - $${\color{red}(\textrm{Verification Required!})}$$
+    - The book says, $2.4(k+\log_2 n)$
+    - In my opinion, it's $(k+\log_2 n)$
 - Proof)
   - Let $a_j \in A$ be an algorithm with the optimal number $k$ of mistakes.
   - Then the final weight will be $w_j=\left(\frac{1}{2}\right)^k$.
@@ -165,12 +168,29 @@
   - Put $W=\Sigma_{i=1}^n w_i$, the sum of all the weights associated with all $n$ algorithms in $A$.
     - Initially, $W=n \space (\because w_i=1, \forall a_i\in A)$.
   - $${\color{red}(\textrm{Verification Required!})}$$
-    - The book says, 
-      - Then for each mistake made by the Weighted-Majority algorithm, $W$ reduces to at least $\frac{3}{4}W$.
-        - Worst Case)
-          - Minimum number of the majority, which is $\frac{1}{2}$, makes mistake and is multiplied by $\beta=\frac{1}{2}$.
-    - In my opinion, 
-
+  - The book says, $\left(\frac{3}{4}W\right)$
+    - Then for each mistake made by the Weighted-Majority algorithm, $W$ reduces to at most $\frac{3}{4}W$.
+  - In my opinion, it's $\left(\frac{1}{2}W\right)$
+    - Then for each mistake made by the Weighted-Majority algorithm, $W$ reduces to at most $\frac{1}{2}W$.
+      - Why?) Consider the edge cases.
+        1. The **minimum** number of the majority, which is $\frac{1}{2}W$, makes mistake.
+           - Then the majority is multiplied by $\beta=\frac{1}{2}$.
+             - $W$ will be decreased into $\frac{3}{4}W$.
+        2. The **maximum** number of the majority, which is $W$, makes mistake.
+           - Then the majority is multiplied by $\beta=\frac{1}{2}$.
+             - $W$ will be decreased into $\frac{1}{2}W$.
+        3. The **minimum** number of the majority, which is $\frac{1}{2}W$, is correct.
+           - Then the minority of $\frac{1}{2}W$ is multiplied by $\beta=\frac{1}{2}$.
+             - $W$ will be decreased into $\frac{3}{4}W$.
+        4. The **maximum** number of the majority, which is $W$, is correct.
+           - Then the minority of $0$ is multiplied by $\beta=\frac{1}{2}$.
+           - Then, the $W$ will NOT decreased.
+      - i.e.) $\frac{1}{2}W_0 \le W_1 \le W_0$
+    - Thus, the final total weight $W$ is at most $n\left(\frac{1}{2}\right)^M$
+      - where $M$ is the total number of mistakes committed by Weighted-Majority for the training sequence $D$.
+    - Hence, $\left(\frac{1}{2}\right)^k \le n\left(\frac{1}{2}\right)^M \Rightarrow -k \le\log_2{n}-M \Rightarrow M\le k+\log_2{n}$
+- General Formula, *Littlestone and Warmuth (1991)*
+  - For $0 \le \beta \lt 1$, the bound is $\frac{k\log_2{\frac{1}{\beta}}+log_2{n}}{\log_2{\frac{2}{1+\beta}}}$
 
 
 <br>
