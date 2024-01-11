@@ -5,7 +5,7 @@
 #### Index
 1. Implementation
    1. [The Model](#341-defining-the-model)
-   2. [The Loss Function]()
+   2. [The Loss Function](#342-defining-the-loss-function)
    3. [A Minibatch Stochastic Gradient Descent Optimizer]()
    4. [The Training Function]()
 2. Test
@@ -19,7 +19,7 @@ import torch
 from d2l import torch as d2l
 ```
 
-<br>
+<br><br>
 
 ## 3.4.1. Defining the Model
 Implement the Model.
@@ -35,7 +35,7 @@ class LinearRegressionScratch(d2l.Module):  #@save
 ```
 - Set the parameters.
   - ```num_inputs``` : the number of inputs
-  - ```lr``` : 
+  - ```lr``` : the learning rate
   - ```sigma``` : the standard deviation
 
 <br>
@@ -47,8 +47,44 @@ Implement $\mathbf{y}= \mathbf{X} \mathbf{w} + b$ by adding the ```forward``` me
 def forward(self, X):
     return torch.matmul(X, self.w) + self.b
 ```
+- ```X``` : $n\times m$ matrix 
+  - $n$ : the number of examples
+  - $m$ : the number of features
+- ```self.w``` : $m$ vector
+- ```self.b``` : an integer, but [broadcasted](../../ch02/01/note.md#214-broadcasting) and can be added to the vector.
 
+<br><br>
 
+## 3.4.2 Defining the Loss Function
+Implement the loss function by adding the ```loss``` method.
+- In [the full script](scripts/LinearRegressionScratch.py#L20).
+```python
+@d2l.add_to_class(LinearRegressionScratch)  #@save
+def loss(self, y_hat, y):
+    l = (y_hat - y) ** 2 / 2
+    return l.mean()
+```
+
+<br><br>
+
+## 3.4.3 Defining the Optimization Algorithm
+Implement the Stochastic Gradient Descent in the ```SGD``` class inheriting [the ```d2l.HyperParameters``` class](../02/note.md#3212-a-class-that-extend-constructor-call-signatures-implicitly-without-additional-code).
+- In [the full script](scripts/LinearRegressionScratch.py#L26).
+```python
+class SGD(d2l.HyperParameters):  #@save
+    """Minibatch stochastic gradient descent."""
+    def __init__(self, params, lr):
+        self.save_hyperparameters()
+
+    def step(self):
+        for param in self.params:
+            param -= self.lr * param.grad
+
+    def zero_grad(self):
+        for param in self.params:
+            if param.grad is not None:
+                param.grad.zero_()
+```
 
 
 <br>

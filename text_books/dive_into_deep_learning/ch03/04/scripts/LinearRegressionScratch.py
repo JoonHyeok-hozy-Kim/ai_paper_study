@@ -15,3 +15,24 @@ class LinearRegressionScratch(d2l.Module): #@save
 @d2l.add_to_class(LinearRegressionScratch)  #@save
 def forward(self, X):
     return torch.matmul(X, self.w) + self.b
+
+
+@d2l.add_to_class(LinearRegressionScratch)  #@save
+def loss(self, y_hat, y):
+    l = (y_hat - y) ** 2 / 2
+    return l.mean()
+
+
+class SGD(d2l.HyperParameters):  #@save
+    """Minibatch stochastic gradient descent."""
+    def __init__(self, params, lr):
+        self.save_hyperparameters()
+
+    def step(self):
+        for param in self.params:
+            param -= self.lr * param.grad
+
+    def zero_grad(self):
+        for param in self.params:
+            if param.grad is not None:
+                param.grad.zero_()
