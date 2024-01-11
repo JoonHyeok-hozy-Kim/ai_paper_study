@@ -42,19 +42,20 @@
         - Return $\hat{f}(x_q) \leftarrow \argmax_{v\in V} \Sigma_{i=1}^k \delta(v, f(x_i))$
           - where $`\delta(a,b)= \left\lbrace\begin{array}{ll} 1 & \textrm{if } a=b \\ 0 & \textrm{otherwise} \end{array}\right.`$
 
-- e.g.) Consider the case below.   
-  ![](images/001.png)   
-  <img src="images/001.png">
-  - Settings)
-    - $+$ : a positive training example
-    - $-$ : a negative training example
-    - $x_q$ : a queried instance
-  - 1-Nearest Neighbor Algorithm
-    - $x_q$ will be classified positive.
-      - why?) The 1-nearest neighbor is a positive example.
-  - 5-Nearest Neighbor Algorithm
-    - $x_q$ will be classified negative.
-      - why?) The majority of the 5-nearest neighbors, which are in the circle boundary, is negative.
+
+e.g.) Consider the case below.   
+![](images/001.png)   
+
+- Settings)
+  - $+$ : a positive training example
+  - $-$ : a negative training example
+  - $x_q$ : a queried instance
+- 1-Nearest Neighbor Algorithm
+  - $x_q$ will be classified positive.
+    - why?) The 1-nearest neighbor is a positive example.
+- 5-Nearest Neighbor Algorithm
+  - $x_q$ will be classified negative.
+    - why?) The majority of the 5-nearest neighbors, which are in the circle boundary, is negative.
 
 #### 2. Continuous Model
 - Target Function)
