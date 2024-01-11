@@ -15,17 +15,32 @@
 
 ### Import Packages
 ```python
-
+import torch
+from d2l import torch as d2l
 ```
 
 <br>
 
 ## 3.4.1. Defining the Model
-- See [script](scripts/LinearRegressionScratch.py#L19C1-L19C1).
-- See [script](scripts/LinearRegressionScratch.py#3.4.2).
+- The Model
+  ```python
+  class LinearRegressionScratch(d2l.Module):  #@save
+      """The linear regression model implemented from scratch."""
+      def __init__(self, num_inputs, lr, sigma=0.01):
+          super().__init__()
+          self.save_hyperparameters()
+          self.w = torch.normal(0, sigma, (num_inputs, 1), requires_grad=True)
+          self.b = torch.zeros(1, requires_grad=True)
+  ```
+  - In [the full script](scripts/LinearRegressionScratch.py#L5).
 
-
-
+- Implement $\mathbf{y}= \mathbf{X} \mathbf{w} + b$ by adding the ```forward``` method to the ```LinearRegressionScratch``` class.
+  ```python
+  @d2l.add_to_class(LinearRegressionScratch)  #@save
+  def forward(self, X):
+      return torch.matmul(X, self.w) + self.b
+  ```
+  - In [the full script](scripts/LinearRegressionScratch.py#L15).
 
 
 

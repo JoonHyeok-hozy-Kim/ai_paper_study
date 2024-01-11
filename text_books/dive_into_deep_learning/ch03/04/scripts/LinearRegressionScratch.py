@@ -1,20 +1,6 @@
 import torch
 from d2l import torch as d2l
 
-a
-a
-a
-a
-a
-a
-
-a
-a
-a
-a
-a
-a
-
 
 # 3.4.1 Model
 class LinearRegressionScratch(d2l.Module): #@save
@@ -25,32 +11,7 @@ class LinearRegressionScratch(d2l.Module): #@save
         self.w = torch.normal(0, sigma, (num_inputs, 1), requires_grad=True) # Refer to Gradient Buffer
         self.b = torch.zeros(1, requires_grad=True)
 
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
 
-
-
-a
-a
-a
-a
-a
-a
-a
-a
-
-
-# 3.4.2 Model
+@d2l.add_to_class(LinearRegressionScratch)  #@save
+def forward(self, X):
+    return torch.matmul(X, self.w) + self.b
