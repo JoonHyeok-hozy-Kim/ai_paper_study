@@ -85,6 +85,20 @@ class SGD(d2l.HyperParameters):  #@save
             if param.grad is not None:
                 param.grad.zero_()
 ```
+- Desc.)
+  - ```step()``` : Update the parameters in the direction that may reduce the loss.
+  - ```zero()``` : Initialize all gradients to 0, before running the Backpropagation.
+
+<br>
+
+Add the ```configure_optimizers``` method to the ```LinearRegressionScratch``` so that it can run the Stochastic Gradient Descent by returning a ```SGD``` instance.
+- In [the full script](scripts/LinearRegressionScratch.py#L41).
+```python
+@d2l.add_to_class(LinearRegressionScratch)  #@save
+def configure_optimizers(self):
+    return SGD([self.w, self.b], self.lr)
+```
+
 
 
 <br>

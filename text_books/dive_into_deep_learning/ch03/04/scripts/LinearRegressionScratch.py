@@ -36,3 +36,8 @@ class SGD(d2l.HyperParameters):  #@save
         for param in self.params:
             if param.grad is not None:
                 param.grad.zero_()
+
+
+@d2l.add_to_class(LinearRegressionScratch)  #@save
+def configure_optimizers(self):
+    return SGD([self.w, self.b], self.lr)

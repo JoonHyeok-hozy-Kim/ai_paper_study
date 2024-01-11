@@ -68,7 +68,7 @@ Utilities to simplify object-oriented programming in Jupyter notebooks.
             raise NotImplemented
     ```
     - The exact implementation will be covered in Section 23.7.
-    - Currently, use the fully implemented HyperParameters class saved in ```d2l``package.
+    - Currently, use the fully implemented HyperParameters class saved in ```d2l```package.
 - Usage Example)
   - Define a class that inherits from ```HyperParameters``` and call```save_hyperparameters``` in the ```__init__``` method.
     ```python
