@@ -21,7 +21,7 @@
 <br>
 
 ## 3.4.1. Defining the Model
-- See [script](scripts/LinearRegressionScratch.py#3.4.1).
+- See [script](scripts/LinearRegressionScratch.py#L19C1-L19C1).
 - See [script](scripts/LinearRegressionScratch.py#3.4.2).
 
 
