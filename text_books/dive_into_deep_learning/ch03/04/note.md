@@ -99,6 +99,54 @@ def configure_optimizers(self):
     return SGD([self.w, self.b], self.lr)
 ```
 
+<br><br>
+
+## 3.4.4 Training
+- Procedure
+  1. Data Preparation
+     1. Training Data Generation
+     2. Validation Data Generation
+  2. Training
+     1. Initialize parameters $`(\mathbf{w}, b)`$
+     2. In each iteration, 
+        1. Grab a minibatch of training examples.
+        2. Compute its loss through the model’s ```training_step``` method. 
+        3. Compute the gradients w.r.t. each parameter. 
+           - $`\mathbf{g} \leftarrow \partial_{(\mathbf{w},b)} \frac{1}{|\mathcal{B}|} \sum_{i \in \mathcal{B}} l(\mathbf{x}^{(i)}, y^{(i)}, \mathbf{w}, b)`$
+        4. Call the optimization algorithm to update the model parameters.
+           - $`(\mathbf{w}, b) \leftarrow (\mathbf{w}, b) - \eta \mathbf{g}`$
+
+
+### 3.4.4.1 Data Preparation
+Use [the ```Trainer``` class](../02/note.md#324-training) and add the ```prepare_batch``` and ```fit_epoch``` methods to it.
+```python
+@d2l.add_to_class(d2l.Trainer)  #@save
+def prepare_batch(self, batch):
+    return batch
+
+@d2l.add_to_class(d2l.Trainer)  #@save
+def fit_epoch(self):
+    self.model.train()
+    for batch in self.train_dataloader:
+        loss = self.model.training_step(self.prepare_batch(batch))
+        self.optim.zero_grad()
+        with torch.no_grad():
+            loss.backward()
+            if self.gradient_clip_val > 0:  # To be discussed later
+                self.clip_gradients(self.gradient_clip_val, self.model)
+            self.optim.step()
+        self.train_batch_idx += 1
+    if self.val_dataloader is None:
+        return
+    self.model.eval()
+    for batch in self.val_dataloader:
+        with torch.no_grad():
+            self.model.validation_step(self.prepare_batch(batch))
+        self.val_batch_idx += 1
+```
+
+
+
 
 
 <br>
