@@ -118,7 +118,7 @@ def configure_optimizers(self):
 
 
 ### 3.4.4.1 Data Preparation
-Use [the ```Trainer``` class](../02/note.md#324-training) and add the ```prepare_batch``` and ```fit_epoch``` methods to it.
+Add the ```prepare_batch``` and ```fit_epoch``` methods to [the ```Trainer``` class](../02/note.md#324-training).
 ```python
 @d2l.add_to_class(d2l.Trainer)  #@save
 def prepare_batch(self, batch):
@@ -126,6 +126,7 @@ def prepare_batch(self, batch):
 
 @d2l.add_to_class(d2l.Trainer)  #@save
 def fit_epoch(self):
+    # Training
     self.model.train()
     for batch in self.train_dataloader:
         loss = self.model.training_step(self.prepare_batch(batch))
@@ -138,6 +139,8 @@ def fit_epoch(self):
         self.train_batch_idx += 1
     if self.val_dataloader is None:
         return
+
+    # Validating
     self.model.eval()
     for batch in self.val_dataloader:
         with torch.no_grad():
@@ -145,8 +148,18 @@ def fit_epoch(self):
         self.val_batch_idx += 1
 ```
 
-
-
+Train the model.
+```python
+model = LinearRegressionScratch(2, lr=0.03)
+data = d2l.SyntheticRegressionData(w=torch.tensor([2, -3.4]), b=4.2)
+trainer = d2l.Trainer(max_epochs=3)
+trainer.fit(model, data)
+```
+- Desc.)
+  - ```model``` : a ```LinearRegressionScratch``` instance with two features and the learning rate of 0.03
+  - ```data``` : a ```SyntheticRegressionData``` instance with parameters $\mathbf{w}=[2, -3.4] \textrm{ and } b=4.2$.
+  - ```trainer``` : a ```Trainer``` instance with ```max_epochs``` of three.
+    - Refer to the [the ```Trainer``` class](../02/note.md#324-training) implementation.
 
 
 <br>
