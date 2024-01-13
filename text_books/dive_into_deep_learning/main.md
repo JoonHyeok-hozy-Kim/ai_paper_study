@@ -29,7 +29,7 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 |3.2|[Object-Oriented Design for Implementation](./ch03/02/note.md)|Designing APIs (Module, DataModule, Trainer class)|
 |3.3|[Synthetic Regression Data](./ch03/03/note.md)|- Generating Dataset : ```SyntheticRegressionData``` <br> - Reading the Dataset : ```get_dataloader``` |
 |3.4|[Linear Regression Implementation from Scratch](./ch03/04/note.md)|- Defining the Model<br>- Defining the Loss Function<br>- Defining the Optimization Algorithm<br>- Training|
-|3.5|[Concise Implementation of Linear Regression](./ch03/05/note.md)||
+|3.5|[Concise Implementation of Linear Regression](./ch03/05/note.md)|Using high-level APIs|
 |3.6|[Generalization](./ch03/06/note.md)||
 
 

@@ -70,6 +70,18 @@
 </table>
 
 
+### 4. Sampling Distributions
+
+<table>
+    <tr>
+        <td>No.</td><td>Chapter</td><td>Keywords</td>
+    </tr>
+    <tr>
+        <td>4-2</td><td><a href="./ch04/02/note.md">Sampling Distributions Associated with Normal Populations</a></td><td>TBD</td>
+    </tr>
+</table>
+
+
 
 
 <br>

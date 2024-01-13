@@ -1,6 +1,6 @@
 * [Back to Dive into Deep Learning](../../main.md)
 
-# 3.6 Generalization
+# 1.1 Well-Posted Learing Problems
 
 ##
 
