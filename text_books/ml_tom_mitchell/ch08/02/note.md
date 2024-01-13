@@ -95,6 +95,8 @@ e.g.) Consider the case below.
     - $\hat{f}(x_q) \leftarrow \frac{\Sigma_{i=1}^k w_i f(x_i)}{\Sigma_{i=1}^k w_i}$
       - cf.) The denominator $\Sigma_{i=1}^k w_i$ is a constant that normalizes the contributions of the various weights.
         - It assures that $\hat{f}(x_q) = c, \exists c \in \mathbb{R} \textrm{ if }f(x_i) = c, \forall x_i \in D$
+- Props.)
+  - Refer to [the analysis below](#props-distance-weighted-nearest-neighbor-algorithm) for the properties of the Distance-Weighted Nearest Neighbor Algorithm.
 
 <br>
 
@@ -104,7 +106,51 @@ e.g.) Consider the case below.
 - Local Method
   - Consider only nearest training examples to classify a query point.
 
+<br><br>
 
+### 8.2.2 Remarks on k-Nearest Neighbor Algorithm
+#### Props.) Distance-Weighted Nearest Neighbor Algorithm
+- Inductive Bias)
+  - [An assumption](#concept-k-nearest-neighbor-algorithm) that the classification of an instance $x_q$, will be most similar to the classification of other instances that are nearby in Euclidean distance.
+- Advantages)
+  - Robust to noisy training data
+    - Soothes out the impact of isolated noisy training examples
+  - Effective when it is provided a sufficiently large set of training data
+- Disadvantages)
+  - **Curse of Dimensionality**
+    - k-Nearest Neighbor Algorithm may not work well when instances have many attributes but only a fraction of them are relevant to the classification.
+      - Why?)
+        - k-Nearest Neighbor Algorithm describes each instance with every attributes.
+        - In the above case, the Euclidean distance will be dominated by the large number of irrelevant attributes.
+    - cf.) Rules and decision trees consider only a subset of the instance attributes.
+    - Solution) [Stretching each axis by some constant factor](#tech-stretching-each-axis-by-some-constant-factor)
+  - Significant computation can be required to process each new query.
+    - Why?)
+      - We need to calculate the distances between $x_q$ and every other training examples.
+    - Solution) Efficient Memory Indexing
+      - e.g.)
+        - kd-tree (*Bentley 1975; Friedman et al. 1977*)
+
+<br>
+
+#### Tech.) Stretching each axis by some constant factor
+1. Weight the Attributes
+   - How?) A Cross-Validation Approach
+     - Put $z_1, \cdots, z_n$, the factors to minimize the true classification error of the learning algorithm.
+     - Train the model with the training data set.
+     - Using the cross validation data set, estimate the true error using the cross validation and determine the values of $z_1, \cdots, z_n$ that lead to the minimum error in classifying the remaining examples.
+2. Leave-One-Out Cross-Validation, *Moor and Lee (1994)*
+   - How?) Eliminate the least relevant attributes.
+     - The set of $m$ training instances is repeatedly divided into a training set of size $m - 1$ and test set of size $1$, in all possible ways.
+
+<br><br>
+
+### 8.2.3 A Note on Terminology
+|Term.|Desc.|
+|:-:|:-|
+|Regression|Approximating a real-valued function|
+|Residual|The error $\hat{f}(x)-f(x)$ in approximating the target function|
+|Kernel Function $K$|A function of distance that is used to determine the weight of each training example.<br> - e.g.) $w_i=K(d(x_i,x_q))$|
 
 
 <br>

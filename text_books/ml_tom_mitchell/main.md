@@ -93,7 +93,7 @@
 ## 8. Instance-Based Learning
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|8.2|[k-Nearest Neighbor Learning](./ch08/02/note.md)|- k-Nearest Neighbor Algorithm : Discrete(Classification) / Continuous <br> - Decision Surface <br> - Distance-Weighted Nearest Neighbor Algorithm <br> - Global Method (Shepard's Method) / Local Method|
+|8.2|[k-Nearest Neighbor Learning](./ch08/02/note.md)|- k-Nearest Neighbor Algorithm : Discrete(Classification) / Continuous <br> - Decision Surface <br> - Distance-Weighted Nearest Neighbor Algorithm <br> - Global Method (Shepard's Method) / Local Method <br> - Curse of Dimensionality <br> - kd-tree <br> - Terms) Regression, Residual, Kernel Function|
 
 
 
