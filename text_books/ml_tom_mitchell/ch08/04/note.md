@@ -8,11 +8,14 @@ approximations to the target function.
 - Def.)
   - $\hat{f}(x)=w_0 \Sigma_{u=1}^k w_uK_u(d(x_u,x))$
     - where
+      - $k$ : a user-provided constant that specifies the number of kernel functions to be included
+        - [Suggestions for choosing $k$](#tech-how-to-choose-the-number-of-hidden-units)
       - $x_u$ : an instance from $X$ 
       - $K_u(d(x_u,x))$ : the kernel function
         - $\frac{\partial \; K_u(d(x_u,x))}{\partial \; d(x_u,x)} \lt 0$
 
 
+#### Tech) How to Choose the Number of Hidden Units
 
 
 
