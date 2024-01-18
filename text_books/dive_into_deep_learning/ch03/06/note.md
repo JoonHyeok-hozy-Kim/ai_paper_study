@@ -56,7 +56,7 @@ A hypothesis that **could not explain** any observations we might conceivably ma
 ### Concept) Overfitting
 - Situation)
   - The training error is significantly lower than the validation error.
-- Prop.)
+- Props.)
   - Overfitting is not always a bad thing
     - In deep learning especially, the best predictive models often perform far better on training data than on holdout data.
     - Ultimately, we usually care about driving the generalization error lower, and only care about the generalization gap insofar as it becomes an obstacle to that end.
@@ -64,10 +64,49 @@ A hypothesis that **could not explain** any observations we might conceivably ma
 <br>
 
 ### 3.6.2.1 Polynomial Curve Fitting
-- Prop.)
+- Props.)
   - A higher-order polynomial function is more **complex** than a lower-order polynomial function, since the higher-order polynomial has more parameters and the model function’s selection range is wider.
   - Higher-order polynomial functions should always achieve lower (at worst, equal) training error relative to lower-degree polynomials.   
     ![](images/001.png)
+
+<br>
+
+### 3.6.2.2 Dataset Size
+- Props.)
+  - As we increase the amount of training data, the generalization error typically decreases.
+  - In general, more data never hurts.
+
+<br><br>
+
+## 3.6.3 Model Selection
+#### Concept) Model Selection
+- Choosing among many models is called model selection.
+  - Many Models?
+    - Different architectures, training objectives, selected features, data preprocessing, learning rates, and other hyper parameters
+- How do we choose?
+  - Split data into Training / Validation / Test dataset.
+  - Use validation set to choose the model.
+    - Why not use the test dataset?
+      - To prevent overfitting the test data
+      - Adopt a separate data set called the validation set to choose the best hyper parameters.
+
+
+<br>
+
+### 3.6.3.1 Cross-Validation
+- Why needed?)
+  - What if the training data is so scarce that we cannot afford a validation set separately?
+- e.g.) [K-Fold Cross Validation](#concept-k-fold-cross-validation)
+
+<br>
+
+#### Concept) K-Fold Cross Validation
+- Procedure)
+  - Split data into $K$ non-overlapping subsets.
+  - For each subset $i\in \lbrace 1, 2, \cdots, K\rbrace$...
+    - Use $i$-th subset on the validation and the rest $K-1$ subsets on training.
+  - Average over the results from the $K$ experiments.
+
 
 
 <br>
