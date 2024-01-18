@@ -75,13 +75,6 @@ A smooth linear combination of many local approximations to the target function.
      - More efficient than assigning kernel functions for every training examples.
 
 
-
-
-
-
-
-
-
 <br>
 
 * [Back to Machine Learning Tom Mitchell Main](../../main.md)
