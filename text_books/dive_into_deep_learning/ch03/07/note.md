@@ -10,9 +10,9 @@
    - The number of terms with degree $d$ blows up rapidly as $d$ grows larger.
      - e.g.)
        - Suppose $k$ variable are given.
-       - Then the number of monomials of degree $d$ is $_{k-1++d}C_{k-1}$
+       - Then the number of monomials of degree $d$ is ${}_{k-1++d}C_{k-1}$
          - where monomials are the natural extensions of polynomials to multivariate data.
-           - e.g.) monomials of degree 3 : $x_1x_2^2, \; x_4^3, \; x_5x_6x_7$
+           - e.g.) monomials of degree 3 : $x_1x_2^2, \;x_4^3, \;x_5x_6x_7$
 
 <br><br>
 
