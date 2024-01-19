@@ -27,7 +27,12 @@
   - There is no single right answer. 
     - In fact, entire branches of mathematics, including parts of functional analysis and the theory of Banach spaces, are devoted to addressing such issues.
 - Simpler Approach)
-  - Consider the norm of the weight vector : $||\mathbf{w}||^2$
+  - Consider the $`\ell_2`$ norm of the weight vector : $\|\mathbf{w}\|^2$
+  - Add the weight vector's norm as a penalty term to the problem of minimizing the loss.
+    - $`L(\mathbf{w}, b) + \frac{\lambda}{2} \|\mathbf{w}\|^2`$
+      - where 
+        - $`L(\mathbf{w}, b) = \frac{1}{n}\sum_{i=1}^n \frac{1}{2}\left(\mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)}\right)^2`$ is the loss function
+        - $\lambda \gt 0$ is the regularization constant which restrict the size of $\|\mathbf{w}\|^2$.
 
 
 
