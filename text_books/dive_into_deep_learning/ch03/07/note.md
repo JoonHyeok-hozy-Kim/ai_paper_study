@@ -16,7 +16,7 @@
 
 <br><br>
 
-## 3.7.2 Norms and Weight Decay
+## 3.7.1 Norms and Weight Decay
 ### Concept) Weight Decay
 - Intuition)
   - We want to restrict the values that the parameters can take.
@@ -28,18 +28,45 @@
     - In fact, entire branches of mathematics, including parts of functional analysis and the theory of Banach spaces, are devoted to addressing such issues.
 - Simpler Approach)
   - Consider the $`\ell_2`$ norm of the weight vector : $`\|\mathbf{w}\|^2`$
+    - cf.) [Why l_2, not l_1?](#analysis-l1-vs-l2)
+    - cf.) Should we include a penalty to the bias $b$?
+      - i.e.) $b^2$ in $\mathbf{w}$?
+      - The answer may vary across layers of a neural network.
+      - Often, we do not regularize the bias term.
   - Add the weight vector's norm as a penalty term to the problem of minimizing the loss.
     - $`L(\mathbf{w}, b) + \frac{\lambda}{2} \|\mathbf{w}\|^2`$
       - where 
         - $`L(\mathbf{w}, b) = \frac{1}{n}\sum_{i=1}^n \frac{1}{2}\left(\mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)}\right)^2`$ is the loss function
-        - $\lambda \gt 0$ is the regularization constant which restrict the size of $\|\mathbf{w}\|^2$.
+        - $\lambda \gt 0$ is the regularization constant which restrict the size of $`\|\mathbf{w}\|^2`$.
+  - Update $\mathbf{w}$ using minibatch stochastic gradient descent.
+    - $`\mathbf{w} \leftarrow \left(1- \eta\lambda \right) \mathbf{w} - \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}} \mathbf{x}^{(i)} \left(\mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)}\right)`$
+      - where $\eta$ is the learning rate
+    - cf.) The term *Weight Decay*
+      - We shrink the size of $\mathbf{w}$ towards zero.
+      - That is why the method is sometimes called “weight decay”: given the penalty term alone, our optimization algorithm decays the weight at each step of training.
 
+<br>
 
+#### Analysis) Why l_2, not l_1?
+- $`\ell_2`$-regularized linear models constitute the classic ridge regression algorithm
+  - It places an outsize penalty on large components of the weight vector.
+  - This biases our learning algorithm towards models that distribute weight evenly across a larger number of features.
+  - In practice, this might make them more **robust to measurement error in a single variable**.
+- $`\ell_1`$-regularized linear regression is a similarly fundamental method in statistics, popularly known as lasso regression.
+  - $`\ell_1`$ penalties lead to models that concentrate weights on a small set of features by clearing the other weights to zero.
+  - This gives us an effective method for feature selection, which may be desirable for other reasons.
+    - e.g.) If our model only relies on a few features, then we may not need to collect, store, or transmit data for the other (dropped) features.
 
+<br>
 
+## Implementation)
 
-
-
+- Import modules.
+  ```python
+  import torch
+  from torch import nn
+  from d2l import torch as d2l
+  ```
 
 
 
