@@ -25,7 +25,19 @@
   - where $\mu = \frac{1}{N}\Sigma c_i$ and $\sigma^2 = \frac{1}{N}\Sigma (c_i-\mu)^2$
 - If $X_1,\cdots,X_n$ is a sample of size $n$ from the population $\lbrace c_1, \cdots, c_N\rbrace$,
   - then $E(\bar{X}) = \mu$ and $Var(\bar{X})=\frac{\sigma^2}{n}\left(\frac{N-n}{N-1}\right)$
+    - cd.) $\frac{N-n}{N-1}$ : the finite population correction factor
+      - Close to 1 unless the sample amounts to a significant portion of the population
+      - Not used in the derivation of sampling distribution, unless it is absolutely necessary
 
+<br><br>
+
+### Theorem 4.2.1)
+- Let  
+  - $X_i \sim N(\mu_i, \sigma_i^2) \textrm{ for } i=1,2,\cdots,n$
+    - i.e.) $n$ independent random variables
+  - $`Y=\sum_{i=1}^n{a_iX_i}, \exists a_1, \;\cdots, a_n \in \mathbb{R}`$
+- Then $Y \sim N(\mu_Y, \sigma_Y^2)$
+  - where $\mu_Y=\sum_{i=1}^n{a_i\mu_i}$ and $\sigma_Y^2=\sum_{i=1}^n{a_i^2\sigma_i^2}$
 
 
 
