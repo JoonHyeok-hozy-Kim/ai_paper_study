@@ -16,6 +16,13 @@
     2. They typically consider **all attributes** of the instances when attempting to retrieve similar training examples from memory. 
        1. If the target concept depends on only a few of the many available attributes, then the instances that are truly most "similar" may well be a large distance apart.
 
+<br>
+
+#### Prop.) Three Key Props. of Instance-Based Methods
+1. They are **lazy** learning methods in that they defer the decision of how to generalize beyond the training data until a new query instance is observed. 
+2. They classify new query instances by analyzing similar instances while **ignoring instances that are very different from the query**. 
+3. They represent instances as real-valued points in an **n-dimensional Euclidean space**.
+
 <br><br>
 
 # 8.2 k-Nearest Neighbor Learning

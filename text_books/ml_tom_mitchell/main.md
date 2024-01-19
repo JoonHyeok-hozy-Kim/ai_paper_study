@@ -96,6 +96,7 @@
 |8.2|[k-Nearest Neighbor Learning](./ch08/02/note.md)|- k-Nearest Neighbor Algorithm : Discrete(Classification) / Continuous <br> - Decision Surface <br> - Distance-Weighted Nearest Neighbor Algorithm <br> - Global Method (Shepard's Method) / Local Method <br> - Curse of Dimensionality <br> - kd-tree <br> - Terms) Regression, Residual, Kernel Function|
 |8.3|[Locally Weighted Regression](./ch08/03/note.md)|- Locally Weighted Linear Regression|
 |8.4|[Radial Basis Functions (RBF)](./ch08/04/note.md)|- Kernel Function, Gaussian|
+|8.5|[Case-Based Reasoning (CBR)](./ch08/05/note.md)|The CADET System (Water Faucet)|
 
 
 
