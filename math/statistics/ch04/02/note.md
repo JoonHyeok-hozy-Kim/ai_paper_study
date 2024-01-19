@@ -38,8 +38,78 @@
   - $`\displaystyle Y=\sum_{i=1}^n{a_iX_i}, \exists a_1, \;\cdots, a_n \in \mathbb{R}`$
 - Then $Y \sim N(\mu_Y, \sigma_Y^2)$
   - where $\displaystyle \mu_Y=\sum_{i=1}^n{a_i\mu_i}$ and $\displaystyle\sigma_Y^2=\sum_{i=1}^n{a_i^2\sigma_i^2}$
+
+![](images/001.png)
+
+<br><br>
+
+### Corollary 4.2.2)
+- Let $X_1,\cdots,X_n \sim N(\mu, \sigma^2)$
+- Then $\displaystyle \bar{X}=\frac{1}{n}\sum_{i=1}^n{X_i} \sim N(\mu, \frac{\sigma^2}{n})$
 - pf.)
-  ![](images/001.png)
+  - From [Theorem 4.4.1](#theorem-421), put $a_i=\frac{1}{n}, \mu_i=\mu, \sigma_i=\sigma, \forall i$
+
+<br><br>
+
+## 4.2.1 Chi-Square Distribution
+- Recall that [the Chi-Square Distribution](../../ch03/02/note.md#concept-chi-square-distribution) was a special case of [a gamma distribution](../../ch03/02/note.md#concept-gamma-probability-distribution) with $\alpha = \frac{n}{2}$ and $\beta=2$ 
+  - where $n \gt 0$ was the degree of freedom.
+- The mgf was $M(t)=(1-2t)^{-\frac{n}{2}}$.
+- The mean was $n$ and the variance was $2n$.
+
+<br>
+
+### Theorem 4.2.3)
+- Let $X_i \sim \chi^2(n_i) \textrm{ for } i=1,2,\cdots k$ be the $k$ independent chi-square random variables.
+- Then $`\displaystyle V=\sum_{i=1}^k{X_i} \sim \chi^2\left(\sum_{i=1}^k{n_i}\right)`$
+
+![](images/002.png)
+
+<br>
+
+### Theorem 4.2.4)
+- Let
+  - $X_1$ and $X_2$ be independent random variables.
+  - $X_1 \sim \chi^2(n_1)$
+  - $`Y=X_1+X_2\sim \chi^2(n), \; n \gt n_1`$
+- Then $X_2 = Y-X_1 \sim \chi^2(n-n_1)$
+
+<br>
+
+### Theorem 4.2.5)
+- Let $X \sim \Gamma(\alpha, \beta)$.
+- Then $Y=\frac{2X}{\beta}\sim\chi^2(2\alpha)$
+
+![](images/003.png)
+
+<br>
+
+### Theorem 4.2.6)
+- Let $X \sim N(0,1^2)$.
+- Then $X^2\sim\chi^2(1)$
+
+![](images/004.png)   
+- Figure 4.1   
+  ![](images/005.png)   
+
+<br>
+
+### Theorem 4.2.7)
+- Let $X_i \sim^{iid} N(\mu, \sigma^2), \textrm{ for } i=1,2,\cdots, n$.
+- Then 
+  - $Z_i=\frac{X_i-\mu}{\sigma}\sim^{iid} N(0, 1^2)$
+  - $\displaystyle \sum_{i=1}^n Z_i^2=\sum_{i=1}^n \left(\frac{X_i-\mu}{\sigma}\right)^2 \sim^{iid} \chi^2(n)$ 
+
+<br>
+
+### Theorem 4.2.8)
+- If $X_i \sim^{iid} N(\mu, \sigma^2), \textrm{ for } i=1,2,\cdots, n$,
+- Then 
+  - (a) the random variable
+  - (b) $\displaystyle\frac{1}{\sigma^2}\sum_{i=1}^{n}(X_i-\bar{X})^2=\frac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1)$.
+  - (c) And $\bar{X}$ and $S^2$ are independent.
+
+![](images/006.png)
 
 
 <br><br>

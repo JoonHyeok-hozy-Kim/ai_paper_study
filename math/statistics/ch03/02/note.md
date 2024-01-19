@@ -110,6 +110,7 @@ Thus, we use Poisson probability distribution in rare events.
   - $E(X) = \mu$
   - $Var(X) = \sigma^2$
   - $M_X(t) = e^{t\mu + \frac{1}{2}t^2\sigma^2}$
+  - [The Relationship with the Chi-Square Distribution](../../ch04/02/note.md#421-chi-square-distribution)
 - When to use?)
   - Simply...
     1. The data can be capped with a bell-shaped curve.
@@ -210,6 +211,7 @@ Let $n$ be a positive integer. A random variable, $X$, is said to have a chi-squ
   - Mean : $E(X)=n$
   - Variance : $Var(X)=2n$
   - MGF : $M_X(t)=\frac{1}{(1-2t)^\frac{n}{2}}, t \lt \frac{1}{2}$
+  - [The Relationship with the Normal Distribution](../../ch04/02/note.md#421-chi-square-distribution)
 
 ![](images/010.png)
 
