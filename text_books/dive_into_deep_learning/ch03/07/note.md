@@ -27,7 +27,7 @@
   - There is no single right answer. 
     - In fact, entire branches of mathematics, including parts of functional analysis and the theory of Banach spaces, are devoted to addressing such issues.
 - Simpler Approach)
-  - Consider the $`\ell_2`$ norm of the weight vector : $\|\mathbf{w}\|^2$
+  - Consider the $`\ell_2`$ norm of the weight vector : $`\|\mathbf{w}\|^2`$
   - Add the weight vector's norm as a penalty term to the problem of minimizing the loss.
     - $`L(\mathbf{w}, b) + \frac{\lambda}{2} \|\mathbf{w}\|^2`$
       - where 
