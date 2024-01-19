@@ -37,7 +37,7 @@
     - i.e.) $n$ independent random variables
   - $`\displaystyle Y=\sum_{i=1}^n{a_iX_i}, \exists a_1, \;\cdots, a_n \in \mathbb{R}`$
 - Then $Y \sim N(\mu_Y, \sigma_Y^2)$
-  - where $\mu_Y=\Sigma_{i=1}^n{a_i\mu_i}$ and $\sigma_Y^2=\Sigma_{i=1}^n{a_i^2\sigma_i^2}$
+  - where $\displaystyle \mu_Y=\sum_{i=1}^n{a_i\mu_i}$ and $\displaystyle\sigma_Y^2=\sum_{i=1}^n{a_i^2\sigma_i^2}$
 - pf.)
   ![](images/001.png)
 
