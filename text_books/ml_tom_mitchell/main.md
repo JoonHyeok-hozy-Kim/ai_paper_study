@@ -97,6 +97,7 @@
 |8.3|[Locally Weighted Regression](./ch08/03/note.md)|- Locally Weighted Linear Regression|
 |8.4|[Radial Basis Functions (RBF)](./ch08/04/note.md)|- Kernel Function, Gaussian|
 |8.5|[Case-Based Reasoning (CBR)](./ch08/05/note.md)|The CADET System (Water Faucet)|
+|8.6|[Remarks on Lazy and Eager Learning](./ch08/06/note.md)|Lazy Learning Methods vs Eager Learning Methods|
 
 
 
