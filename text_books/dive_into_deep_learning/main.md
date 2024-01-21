@@ -31,7 +31,7 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 |3.4|[Linear Regression Implementation from Scratch](./ch03/04/note.md)|- Defining the Model<br>- Defining the Loss Function<br>- Defining the Optimization Algorithm<br>- Training|
 |3.5|[Concise Implementation of Linear Regression](./ch03/05/note.md)|Using high-level APIs|
 |3.6|[Generalization](./ch03/06/note.md)|Overfitting/Underfitting, Regularization, Polynomial Curve Fitting, Model Selection, Validation Set, K-fold Cross Validation|
-|3.7|[Weight Decay](./ch03/07/note.md)||
+|3.7|[Weight Decay](./ch03/07/note.md)|$\ell_2$ norm, ```torch.optim.SGD([{'weight_decay': self.wd}])```|
 
 
 
