@@ -70,12 +70,11 @@
              - ```for h in P ...```
                - Compute ```fitness(h)```
     - ```return``` the hypothesis from ```P``` that has the maximum ```fitness```
-  - Desc.)
-    - $\displaystyle Pr(h_i)=\frac{fitness(h_i)}{\sum_{h\in P} fitness(h)}$
-      - Prop.) The probability that a hypothesis will be selected is proportional to its own fitness and is inversely proportional to the fitness of the other competing hypotheses in the current population.
-    - The size of the next generation will be
-      - ```(1-r)*p``` + $`{}_{rp/2} C_{2}`$
 - Prop.)
+  - $\displaystyle Pr(h_i)=\frac{fitness(h_i)}{\sum_{h\in P} fitness(h)}$
+    - Prop.) The probability that a hypothesis will be selected is proportional to its own fitness and is inversely proportional to the fitness of the other competing hypotheses in the current population.
+  - The size of the next generation will be
+    - ```(1-r)*p``` + $`{}_{rp/2} C_{2}`$
   - This GA algorithm thus performs a randomized, parallel beam search for hypotheses
 
 <br><br>
