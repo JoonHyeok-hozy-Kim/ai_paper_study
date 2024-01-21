@@ -104,7 +104,7 @@
 ## 9. Genetic Algorithms
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|9.2|[Genetic Algorithms](./ch08/02/note.md)|Fitness|
+|9.2|[Genetic Algorithms](./ch09/02/note.md)|Fitness|
 
 
 
