@@ -99,6 +99,15 @@
 |8.5|[Case-Based Reasoning (CBR)](./ch08/05/note.md)|The CADET System (Water Faucet)|
 |8.6|[Remarks on Lazy and Eager Learning](./ch08/06/note.md)|Lazy Learning Methods vs Eager Learning Methods|
 
+<br>
+
+## 9. Genetic Algorithms
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|9.2|[Genetic Algorithms](./ch08/02/note.md)|Fitness|
+
+
+
 
 
 <br><br>
