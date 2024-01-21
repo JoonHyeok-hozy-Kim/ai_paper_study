@@ -33,6 +33,13 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 |3.6|[Generalization](./ch03/06/note.md)|Overfitting/Underfitting, Regularization, Polynomial Curve Fitting, Model Selection, Validation Set, K-fold Cross Validation|
 |3.7|[Weight Decay](./ch03/07/note.md)|$\ell_2$ norm, ```torch.optim.SGD([{'weight_decay': self.wd}])```|
 
+<br>
+
+## 4. Linear Neural Networks for Classification
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|4.1|[Softmax Regression](./ch04/01/note.md)||
+
 
 
 <br><br>
