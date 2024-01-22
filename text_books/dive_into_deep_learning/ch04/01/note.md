@@ -9,7 +9,7 @@
   - The component corresponding to a particular instance’s category is set to 1 and all other components are set to 0.
 - e.g.)
   - Suppose the label takes the value of either “cat”, “chicken”, or “dog”.
-  - Then $y \in \{(1, 0, 0), (0, 1, 0), (0, 0, 1)\}$
+  - Then $`y \in \{(1, 0, 0), (0, 1, 0), (0, 0, 1)\}`$
 
 
 
