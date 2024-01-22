@@ -57,9 +57,22 @@
     |$`\mathbf{X} \in \mathbb{R}^{n \times d}`$ | a minibatch|
     |$q$ | the number of categories|
     |$`\mathbf{W} \in \mathbb{R}^{d \times q}`$ | the weights|
-    |$`\mathbf{b} \in \mathbb{R}^{1\times q}`$ | the bias|
+    |$`\mathbf{b} \in \mathbb{R}^{1\times q}`$ | the bias, in the matrix form $`\mathbf{B} = \left[\begin{array}{c} \mathbf{b}\\\mathbf{b}\\\vdots\\\mathbf{b} \end{array}\right]\in \mathbb{R}^{n\times q}`$|
   - The Model)
-    - $`\begin{aligned} \mathbf{O} &= \mathbf{X} \mathbf{W} + \mathbf{b}, \\ \hat{\mathbf{Y}} & = \mathrm{softmax}(\mathbf{O}). \end{aligned}`$
+    - $\mathbf{O} = \mathbf{X} \mathbf{W} + \mathbf{B}$
+      - $`\displaystyle \left.\left[\begin{array}{cccc} o_{11}&o_{12}&\cdots&o_{1q}\\o_{21}&o_{22}&\cdots&o_{2q}\\\vdots&\vdots&\ddots&\vdots\\o_{n1}&o_{n2}&\cdots&o_{nq} \end{array}\right] = \left[\begin{array}{cccc} x_{11}&x_{12}&\cdots&x_{1d}\\x_{21}&x_{22}&\cdots&x_{2d}\\\vdots&\vdots&\ddots&\vdots\\x_{n1}&x_{n2}&\cdots&x_{nd} \end{array}\right] \left[\begin{array}{cccc} w_{11}&w_{12}&\cdots&w_{1q}\\w_{21}&w_{22}&\cdots&w_{2q}\\\vdots&\vdots&\ddots&\vdots\\w_{d1}&w_{d2}&\cdots&w_{dq}\end{array}\right] + \left[\begin{array}{c} \mathbf{b}\\\mathbf{b}\\\vdots\\\mathbf{b} \end{array}\right] \right\} n \textrm{ examples}`$
+        - where $`\mathbf{b} = \left[\begin{array}{cccc} b_{1}&b_{2}&\cdots&b_{q} \end{array}\right]`$
+    - $\hat{\mathbf{Y}} = \mathrm{softmax}(\mathbf{O})$
+      - $`\displaystyle \left[\begin{array}{c} \hat{\mathbf{y}_1} \\ \hat{\mathbf{y}_2} \\ \vdots \\ \hat{\mathbf{y}_n} \end{array}\right] = \left[\begin{array}{c} \mathrm{softmax}(\mathbf{o}_1) \\ \mathrm{softmax}(\mathbf{o}_2) \\ \vdots \\ \mathrm{softmax}(\mathbf{o}_n) \end{array}\right]`$
+        - where $`\mathbf{o}_i = \left[\begin{array}{cccc} o_{1}&o_{2}&\cdots&o_{q} \end{array}\right]`$
+- cf.)
+  - Care must be taken to avoid exponentiating and taking logarithms of large numbers, since this can cause numerical overflow or underflow.
+
+
+
+<br><br>
+
+## 4.1.2 Loss Function
 
 
 

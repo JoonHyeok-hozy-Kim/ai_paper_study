@@ -64,7 +64,7 @@ def summation_creator(bottom_text=None, top_text=None, right_text=None):
 if __name__ == '__main__':
     print('[Array Examples]')
     print(array_creator(3, 4))
-    print(array_creator(m=2,n=2,left_delimiter='.',right_delimiter='.',align_center=True))
+    print(array_creator(m=4,n=4,left_delimiter='[',right_delimiter=']',align_center=True))
     
     print('\n[Summation Examples]')
     print(summation_creator())
