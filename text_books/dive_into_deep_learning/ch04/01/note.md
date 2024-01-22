@@ -47,7 +47,7 @@
   - $\hat{\mathbf{y}} = \mathrm{softmax}(\mathbf{o}) \quad \textrm{where}\quad \hat{y}_i = \frac{\exp(o_i)}{\sum_j \exp(o_j)}$
 - Prop.)
   - The softmax operation preserves the ordering among its arguments.
-    - Thus, $\displaystyle\operatorname*{argmax}_j \hat y_j = \operatorname*{argmax}_j o_j$
+    - Thus, $\displaystyle{\arg\max}_j \hat y_j = {\arg\max}_j o_j$
 
 
 
