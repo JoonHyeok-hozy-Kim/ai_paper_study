@@ -48,6 +48,19 @@
 - Prop.)
   - The softmax operation preserves the ordering among its arguments.
     - Thus, $\displaystyle {\arg\max}_j \hat{y_j} = {\arg\max}_j o_j$
+- Vectorization)
+  - For
+    |Element|Desc.|
+    |:-:|:-|
+    |$n$ | the number of examples|
+    |$d$ | the dimensionality of the problem|
+    |$`\mathbf{X} \in \mathbb{R}^{n \times d}`$ | a minibatch|
+    |$q$ | the number of categories|
+    |$`\mathbf{W} \in \mathbb{R}^{d \times q}`$ | the weights|
+    |$`\mathbf{b} \in \mathbb{R}^{1\times q}`$ | the bias|
+  - The Model)
+    - $`\begin{aligned} \mathbf{O} &= \mathbf{X} \mathbf{W} + \mathbf{b}, \\ \hat{\mathbf{Y}} & = \mathrm{softmax}(\mathbf{O}). \end{aligned}`$
+
 
 
 
