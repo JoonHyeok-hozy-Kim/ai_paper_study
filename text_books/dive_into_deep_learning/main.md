@@ -38,7 +38,7 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 ## 4. Linear Neural Networks for Classification
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|4.1|[Softmax Regression](./ch04/01/note.md)||
+|4.1|[Softmax Regression](./ch04/01/note.md)|One-Hot Encoding|
 
 
 
