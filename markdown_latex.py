@@ -72,5 +72,5 @@ if __name__ == '__main__':
     
 
 
-    print(array_creator(m=2,n=2,left_delimiter=None,right_delimiter='.',align_center=True))
+    print(array_creator(m=2,n=9,left_delimiter='.',right_delimiter='.',align_center=True))
     
