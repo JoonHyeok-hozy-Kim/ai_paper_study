@@ -39,6 +39,14 @@
                 - $`\left\{\begin{array}{c}d_1=1-0=1\\d_2=8-5=3\end{array}\right.`$
                   - where $`\left\{\begin{array}{c}\ell_1\textrm{ : the rule boundary immediately left to }p_1\\\ell_2\textrm{ : the rule boundary immediately left to }p_2\end{array}\right.`$
         - Choose two points randomly from $h_2$, subject to the constraint that they must have the same $d_1,d_2$ value.
+          - The available cases will be...
+            1. $`p_1=1,\;p_2=3`$   
+               $`\displaystyle \left.\begin{array}{ccccccccc} &&a_2&a_2&c&&a_1&a_2&c\\h_2&:&10&01&1&&11&10&0\\&&\ell_{12}p_1&\textrm{-}p_2&\textrm{-}&&\textrm{-}\textrm{-}&\textrm{-}\textrm{-}&\textrm{-} \end{array}\right. `$
+            2. $`p_1=1,\;p_2=8`$   
+               $`\displaystyle \left.\begin{array}{ccccccccc} &&a_2&a_2&c&&a_1&a_2&c\\h_2&:&10&01&1&&11&10&0\\&&\ell_1p_1&\textrm{-}\textrm{-}&\textrm{-}&&\ell_2\textrm{-}&\textrm{-}p_2&\textrm{-} \end{array}\right. `$
+            3. $`p_1=6,\;p_2=8`$   
+               $`\displaystyle \left.\begin{array}{ccccccccc} &&a_2&a_2&c&&a_1&a_2&c\\h_2&:&10&01&1&&11&10&0\\&&\textrm{-}\textrm{-}&\textrm{-}\textrm{-}&\textrm{-}&&\ell_{12}p_1&\textrm{-}p_2&\textrm{-} \end{array}\right. `$
+          - Suppose $`p_1=1,\;p_2=3`$ is randomly chosen.
 
 
 
