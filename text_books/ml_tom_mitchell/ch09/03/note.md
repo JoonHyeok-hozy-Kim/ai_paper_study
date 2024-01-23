@@ -27,8 +27,7 @@
     - Crossover Operator
       - e.g.)
         - Let two parent hypotheses $h_1,h_2$ as follows.   
-          $`\displaystyle \left.\begin{array}{ccccccccc} &&a_2&a_2&c&&a_1&a_2&c\\h_1&:&10&01&1&&11&10&0 \end{array}\right. `$   
-          $`\displaystyle \left.\begin{array}{ccccccccc} &&a_2&a_2&c&&a_1&a_2&c\\h_2&:&01&11&0&&10&01&0 \end{array}\right. `$
+          $`\displaystyle \left.\begin{array}{ccccccccc} &&a_2&a_2&c&&a_1&a_2&c\\h_1&:&10&01&1&&11&10&0\\h_2&:&01&11&0&&10&01&0 \end{array}\right. `$
         - Choose two points randomly from $h_1$.
           - Suppose $`p_1=1,\;p_2=8`$ are chosen.   
             $`\displaystyle \left.\begin{array}{ccccccccc} &&a_2&a_2&c&&a_1&a_2&c\\h_1&:&10&01&1&&11&10&0\\&&*p_1&**&*&&**&*p_2&* \end{array}\right. `$
