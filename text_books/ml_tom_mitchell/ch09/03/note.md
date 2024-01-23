@@ -16,7 +16,10 @@
       - [Bit String Representation](../02/note.md#tech-bit-string-representation)
     - The **hypothesis space** of rule preconditions consists of a **conjunction** of constraints on a fixed set of attributes, as described in that earlier section.
       - i.e.) concatenating the individual rules represented in bit strings.
-      - e.g.) 
+      - e.g.)    
+        |Hypothesis|Individual Rules|Representation|
+        |-|-|-|
+        |$\textrm{IF } a_1=\textrm{True} \vee a_2=\textrm{False THEN } c=\textrm{True}$|$a_1=\textrm{True}$ : $10$<br>$a_2=\textrm{False}$ : $01$<br>$c=\textrm{True}$ : $1$|$`\displaystyle \left.\begin{array}{ccc} a_1&a_2&c\\10&01&1 \end{array}\right. `$|
         1. $\textrm{IF } a_1=\textrm{True} \vee a_2=\textrm{False THEN } c=\textrm{True}$
            - Individual Rules)
              - $a_1=\textrm{True}$ : $10$
