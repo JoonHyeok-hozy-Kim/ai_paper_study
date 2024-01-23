@@ -26,12 +26,12 @@
       - **A single bit** is chosen at random and replaced by its complement.
     - Crossover Operator
       - e.g.)
-        - Let two parent hypotheses $h_1,h_2$ as follows.
-          - $`\displaystyle \left.\begin{array}{ccccccccc} &&a_2&a_2&c&&a_1&a_2&c\\h_1&:&10&01&1&&11&10&0 \end{array}\right. `$
-          - $`\displaystyle \left.\begin{array}{ccccccccc} &&a_2&a_2&c&&a_1&a_2&c\\h_2&:&01&11&0&&10&01&0 \end{array}\right. `$
+        - Let two parent hypotheses $h_1,h_2$ as follows.   
+          $`\displaystyle \left.\begin{array}{ccccccccc} &&a_2&a_2&c&&a_1&a_2&c\\h_1&:&10&01&1&&11&10&0 \end{array}\right. `$   
+          $`\displaystyle \left.\begin{array}{ccccccccc} &&a_2&a_2&c&&a_1&a_2&c\\h_2&:&01&11&0&&10&01&0 \end{array}\right. `$
         - Choose two points randomly from $h_1$.
-          - Suppose $`p_1=1,\;p_2=8`$ are chosen.
-            - $`\displaystyle \left.\begin{array}{ccccccccc} &&a_2&a_2&c&&a_1&a_2&c\\h_1&:&10&01&1&&11&10&0\\&&*p_1&**&*&&**&*p_2&* \end{array}\right. `$
+          - Suppose $`p_1=1,\;p_2=8`$ are chosen.   
+            $`\displaystyle \left.\begin{array}{ccccccccc} &&a_2&a_2&c&&a_1&a_2&c\\h_1&:&10&01&1&&11&10&0\\&&*p_1&**&*&&**&*p_2&* \end{array}\right. `$
         - Let $d_1,d_2$ as...
           - $d_1$ : the distance from the **leftmost** of these two crossover points to the rule boundary immediately to its left.
           - $d_2$ : the distance from the **rightmost** of these two crossover points to the rule boundary immediately to its left.
