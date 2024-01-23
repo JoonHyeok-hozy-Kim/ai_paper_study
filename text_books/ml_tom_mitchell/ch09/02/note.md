@@ -77,6 +77,8 @@
     - ```(1-r)*p``` + $`{}_{rp/2} C_{2}`$
   - This GA algorithm thus performs a randomized, parallel beam search for hypotheses
   - This algorithm utilizes [Fitness Proportionate Selection (Roulette Wheel Selection)](#concept-fitness-function).
+  - It may be a general optimization method that searches a large space of candidate objects seeking one that performs best according to the fitness function.
+    - Although not guaranteed to find an optimal object, GAS often succeed in finding an object with high fitness.
 
 <br><br>
 
