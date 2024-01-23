@@ -20,20 +20,7 @@
         |Hypothesis|Individual Rules|Representation|
         |-|-|-|
         |$\textrm{IF } a_1=\textrm{True} \vee a_2=\textrm{False THEN } c=\textrm{True}$|$a_1=\textrm{True}$ : $10$<br>$a_2=\textrm{False}$ : $01$<br>$c=\textrm{True}$ : $1$|$`\displaystyle \left.\begin{array}{ccc} a_1&a_2&c\\10&01&1 \end{array}\right. `$|
-        1. $\textrm{IF } a_1=\textrm{True} \vee a_2=\textrm{False THEN } c=\textrm{True}$
-           - Individual Rules)
-             - $a_1=\textrm{True}$ : $10$
-             - $a_2=\textrm{False}$ : $01$
-             - $c=\textrm{True}$ : $1$
-           - Hypothesis)
-             - $`\displaystyle \left.\begin{array}{ccc} a_1&a_2&c\\10&01&1 \end{array}\right. `$
-        1. $\textrm{IF } a_2=\textrm{True THEN } c=\textrm{False}$
-           - Individual Rules)
-             - $a_1=\textrm{True} \wedge a_1=\textrm{False}$ : $11$
-             - $a_2=\textrm{True}$ : $10$
-             - $c=\textrm{True}$ : $0$
-           - Hypothesis)
-             - $`\displaystyle \left.\begin{array}{ccc} a_1&a_2&c\\11&10&0 \end{array}\right. `$
+        |$\textrm{IF } a_2=\textrm{True THEN } c=\textrm{False}$|$a_1=\textrm{True} \wedge a_1=\textrm{False}$ : $11$<br>$a_2=\textrm{True}$ : $10$<br>$c=\textrm{False}$ : $0$|$`\displaystyle \left.\begin{array}{ccc} a_1&a_2&c\\11&10&0 \end{array}\right. `$|
   - Genetic Operators)
     - Mutation Operator
       - **A single bit** is chosen at random and replaced by its complement.
