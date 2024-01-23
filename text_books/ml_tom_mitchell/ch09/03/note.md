@@ -76,7 +76,7 @@ Newly added genetic operators
      - This operator was applied on each generation with probability 0.60. 
    - e.g.)
      - Suppose $`\displaystyle \left.\begin{array}{cccccccccccc} &&a_2&a_2&c\\h_3&:&11&00&0 \end{array}\right. `$.
-     - Then the application of  ```add_alternative()``` on $a_2$ will be...
+     - Then the application of  ```drop_condition()``` on $a_2$ will be...
        - $`a_2 : 00 \rightarrow 11 \Rightarrow\displaystyle \left.\begin{array}{cccccccccccc} &&a_2&a_2&c\\h_3&:&11&11&0 \end{array}\right. `$
 
 
