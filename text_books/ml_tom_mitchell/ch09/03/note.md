@@ -35,11 +35,9 @@
           - $d_1$ : the distance from the **leftmost** of these two crossover points to the rule boundary immediately to its left.
           - $d_2$ : the distance from the **rightmost** of these two crossover points to the rule boundary immediately to its left.
             - Then we may get $d_1,d_2$ as follows.   
-              $`\displaystyle \left.\begin{array}{ccccccccc} &&a_2&a_2&c&&a_1&a_2&c\\h_1&:&10&01&1&&11&10&0\\&&\ell_1p_1&**&*&&\ell_2*&*p_2&* \end{array}\right. `$
-                - $d_1=1-0=1$
-                  - The rule boundary immediately left to $p_1$ is $\ell_1$.
-                - $d_2=8-5=3$
-                  - The rule boundary immediately left to $p_2$ is $\ell_2$.
+              $`\displaystyle \left.\begin{array}{ccccccccc} &&a_2&a_2&c&&a_1&a_2&c\\h_1&:&10&01&1&&11&10&0\\&&\ell_1p_1&\textrm{-}\textrm{-}&\textrm{-}&&\ell_2\textrm{-}&\textrm{-}p_2&\textrm{-} \end{array}\right. `$
+                - $\left\{\begin{array}{c}d_1=1-0=1\\d_2=8-5=3\end{array}\right.$
+                  - where $\left\{\begin{array}{c}\ell_1\textrm{ : the rule boundary immediately left to }p_1\\\ell_2\textrm{ : the rule boundary immediately left to }p_2\end{array}\right.$
         - Choose two points randomly from $h_2$, subject to the constraint that they must have the same $d_1,d_2$ value.
 
 
