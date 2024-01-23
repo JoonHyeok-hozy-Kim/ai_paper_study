@@ -44,11 +44,11 @@
           - Suppose $`p_1=1,\;p_2=3`$ is randomly chosen.
         - Crossover the partitions of $h_1,h_2$.
           - Recall that the partitions of $h_1,h_2$ are
-            - $h_1 \rightarrow [:1],[1:8],[8:]=[1],[0011111],[00]$
-            - $h_2 \rightarrow [:1],[1:3],[3:]=[0],[11],[1010010]$
+            - $h_1 \rightarrow [:1]+[1:8]+[8:]=[1],[0011111],[00]$
+            - $h_2 \rightarrow [:1]+[1:3]+[3:]=[0],[11],[1010010]$
           - Cross over as...
-            - $h_3 \leftarrow h_1[:1],h_2[1:3],h_1[8:]=[1],[11],[00]$
-            - $h_4 \leftarrow h_2[:1],h_1[1:8],h_2[3:]=[0],[0011111],[1010010]$
+            - $h_3 \leftarrow h_1[:1]+h_2[1:3]+h_1[8:]=[1],[11],[00]$
+            - $h_4 \leftarrow h_2[:1]+h_1[1:8]+h_2[3:]=[0],[0011111],[1010010]$
           - Then the result goes...   
             $`\displaystyle \left.\begin{array}{cccccccccccc} &&a_2&a_2&c&&a_1&a_2&c&&a_2&a_2&c\\h_3&:&11&10&0&&&&&&\\h_4&:&00&01&1&&11&11&0&&10&01&0 \end{array}\right. `$
 
