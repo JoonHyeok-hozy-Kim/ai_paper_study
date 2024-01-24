@@ -83,13 +83,15 @@
     - $\mathbf{W} \in \mathbb{R}^{d\times q}$.
 - Then $\hat{\mathbf{y}}^{(i)}$ can be interpreted as the (estimated) conditional probability of each class $1,2,\cdots, q$, given the $i$-th input $\mathbf{x}^{(i)}$.
   - i.e.) For $`\hat{\mathbf{y}}^{(i)} = \left[ \begin{array}{cccc} \hat{y}_{1}^{(i)}&\hat{y}_{2}^{(i)}& \cdots&\hat{y}_{q}^{(i)} \end{array} \right]`$
-    - $`\hat{y}_{j}^{(i)} = P\left(y_j=1|\mathbf{x}^{(i)}\right)`$
+    - $`\hat{y}_{j}^{(i)} = P\left(y_j|\mathbf{x}^{(i)}\right)`, j=1,2,\cdots, q$
   - why?)
     - We used one-hot encoding to represent a label y with $q$ multiple values into a vector $\mathbf{y} \in \mathbb{R}^q$.
-      - i.e.) $`y \in \{v_1, v_2, \cdot, v_q\} \rightarrow \mathbf{y} = \left[ \begin{array}{cccc} y_1&y_2& \cdots&y_q \end{array} \right]`$ where $`y_j \in \{0, 1\}, \forall j=1,2,\cdots, q`$
+      - i.e.) $`y \in \{v_1, v_2, \cdot, v_q\} \rightarrow \mathbf{y} = \left[ \begin{array}{cccc} y_1&y_2& \cdots&y_q \end{array} \right]`$ 
+        - where $`\displaystyle y_j \in \{0, 1\}, \sum_{j=1}^q{y_j}=1, \forall j=1,2,\cdots, q`$
     - Also, we normalized them using the softmax function.
+      - $\hat{\mathbf{y}} = \mathrm{softmax}(\mathbf{o}) \quad \textrm{where}\quad \hat{y}_i = \frac{\exp(o_i)}{\sum_j \exp(o_j)}$
     - Thus, $`\displaystyle \sum_{j=1}^q` \hat{y}_{j}^{(i)} = 1$, where $`\hat{\mathbf{y}}^{(i)} = \left[ \begin{array}{cccc} \hat{y}_{1}^{(i)}&\hat{y}_{2}^{(i)}& \cdots&\hat{y}_{q}^{(i)} \end{array} \right]`$.
-    - Also, $\hat{y}_{j}^{(i)}$ can be interpreted as the conditional probability that the label will have the value of $y_j$ given the $i$-th example : $`P\left(y_j=1|\mathbf{x}^{(i)}\right)`$
+    - Also, $\hat{y}_{j}^{(i)}$ can be interpreted as the conditional probability that the label will have the value of $y_j$ given the $i$-th example : $`P\left(y_j|\mathbf{x}^{(i)}\right)`$
   - e.g.) Suppose $y \in \lbrace \textrm{cat, dog}\rbrace$
     - Then $`\hat{y}_{\textrm{cat}} = P\left(y_{\textrm{cat}}|\mathbf{x}\right)`$
 - Thus, for the entire data set $\mathbf{X} \in \mathbb{R}^{n\times d}$ and the label $\mathbf{Y}\in\mathbb{R}^{n\times q}$,
@@ -97,9 +99,69 @@
   - We are allowed to use the factorization since we assume that each label is drawn independently from its respective distribution $P(\mathbf{y}|\mathbf{x}^{(i)})$
 - Hence, the negative log-likelihood goes...
   - $`\displaystyle -\log{P(\mathbf{Y}|\mathbf{X})}=\sum_{i=1}^n{-\log{P(\mathbf{y}^{(i)}|\mathbf{x}^{(i)})}} = \sum_{i=1}^n{l\left(\mathbf{y}^{(i)}, \hat{\mathbf{y}}^{(i)}\right)}`$
-    - where $`\displaystyle l\left(\mathbf{y}^{(i)}, \hat{\mathbf{y}}^{(i)}\right)=-\sum_{j=1}^q{y_j} \log{\hat{y}_j}`$ : the cross-entropy loss
+    - where $`\displaystyle l\left(\mathbf{y}^{(i)}, \hat{\mathbf{y}}^{(i)}\right)=-\sum_{j=1}^q{y_j} \log{\hat{y}_j}`$ : [the cross-entropy loss](#4133-cross-entropy-revisited)
   - Negative term used due to the loss minimization custom for optimization, instead of likelihood maximization problem.
+- The derivation continues [below](#4122-softmax-and-cross-entropy-loss).
 
+#### Prop.) 
+- Why do we use likelihood maximization to get the difference between the estimation and the observed data : $y-\hat{y}$?
+  - In any exponential family model, **the gradients of the log-likelihood** are given by precisely the difference between the probability assigned by our model and what actually happened.
+  - Check [the derivation below](#4122-softmax-and-cross-entropy-loss).
+- $`\displaystyle l\left(\mathbf{y}^{(i)}, \hat{\mathbf{y}}^{(i)}\right)`$ is bounded from below by $0$.
+  - why?) $`\displaystyle l\left(\mathbf{y}^{(i)}, \hat{\mathbf{y}}^{(i)}\right)=0 \iff \textrm{Prediction with certainty.}`$
+    - This can never happen for any finite setting of the weights because taking a softmax output towards 1 requires taking the corresponding input $o_i$ to infinity (or all other outputs $o_j$ for $j\ne i$ to negative infinity).
+
+<br>
+
+### 4.1.2.2. Softmax and Cross-Entropy Loss
+- Derivation)   
+  $`\displaystyle \begin{aligned} l(\mathbf{y}, \hat{\mathbf{y}}) &=  - \sum_{j=1}^q y_j \log \frac{\exp(o_j)}{\sum_{k=1}^q \exp(o_k)} \\ &= \sum_{j=1}^q y_j \log \sum_{k=1}^q \exp(o_k) - \sum_{j=1}^q y_j o_j \\ &= \log \sum_{k=1}^q \exp(o_k) \sum_{j=1}^q{y_j} - \sum_{j=1}^q y_j o_j \\ &= \log \sum_{k=1}^q \exp(o_k) - \sum_{j=1}^q y_j o_j \left(\because\sum_{j=1}^q{y_j}=1\right) \end{aligned}`$
+- Consider the derivative w.r.t. $o_j$.
+  - $`\begin{aligned} \partial_{o_j} l(\mathbf{y}, \hat{\mathbf{y}}) &= \partial_{o_j} \left( \log \sum_{k=1}^q \exp(o_k) - \sum_{j=1}^q y_j o_j \right) \\&= \frac{\exp(o_j)}{\sum_{k=1}^q \exp(o_k)} - y_j \\&= \mathrm{softmax}(\mathbf{o})_j - y_j \end{aligned}`$
+    - i.e.) The difference between the probability assigned by our model and what actually happened. 
+      - This is not a coincidence. In any exponential family model, **the gradients of the log-likelihood** are given by precisely this term. This fact makes computing gradients easy in practice.
+
+<br><br>
+
+## 4.1.3 Information Theory Basics
+### 4.1.3.1 Entropy
+The central idea in information theory is to quantify the amount of information contained in data. This places a limit on our ability to compress data. For a distribution $P$, its entropy $H[P]$ is defined as
+- $\displaystyle H[P] = \sum_j - P(j) \log P(j)$
+
+One of the fundamental theorems of information theory states that in order to encode data drawn randomly from the distribution $P$, we need at least $H[P]$ "nats" to encode it.
+- “nat” is the equivalent of bit but when using a code with base $e$ rather than the base of $2$.
+- Thus, one nat is $`\frac{1}{\log(2)} \approx 1.44`$ bit.
+
+<br><br>
+
+### 4.1.3.2 Surprisal
+#### Concept) Surprisal, *Shannon (1948)*
+- Def.)
+  - For an event $j$ having assigned with a (subjective) probability $P(j)$,
+  - the surprisal at observing an event $j$ is $\log \frac{1}{P(j)} = -\log P(j)$
+- Desc.)
+  - Imagine that we have a stream of data that we want to compress.
+  - If it is always easy for us to predict the next token, then this data is easy to compress.
+  - In the extreme case where every token in the stream always takes the same value, we do not have to transmit any information to communicate the contents of the stream.
+    - $P(j)=1 \Rightarrow -\log P(j) = 0$
+  - However if we cannot perfectly predict every event, then we might sometimes be **surprised**.
+  - Our surprise is greater when an event is assigned lower probability.
+    - $P(j)\approx1 \Rightarrow -\log P(j) \approx \infty$
+  - Claude Shannon settled on $\log \frac{1}{P(j)} = -\log P(j)$ to quantify one’s surprisal at observing an event $j$ having assigned it a (subjective) probability $P(j)$
+
+<br><br>
+
+### 4.1.3.3. Cross-Entropy Revisited
+#### Concept) Surprisal
+- Def.) $H(P,Q)$
+  - For 
+    - $j$ : an event
+    - $P(j)$ : the actual probability that $j$ may happen
+    - $H(j)$ : the subjective probability that $j$ may happen
+  - The Cross-Entropy from $P$ to $Q$ is the expected surprisal of an observer with subjective probabilities $Q$ upon seeing data that was actually generated according to probabilities $P$.
+    - $H(P,Q)\equiv\sum_j P(j)(-\log{Q(j)})$
+
+<br><br>
 
 
 <br>
