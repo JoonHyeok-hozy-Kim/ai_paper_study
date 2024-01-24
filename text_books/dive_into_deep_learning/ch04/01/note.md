@@ -73,7 +73,32 @@
 <br><br>
 
 ## 4.1.2 Loss Function
-
+### 4.1.2.1 Log-Likelihood
+#### Derivation)
+- Recall that $\hat{\mathbf{y}}^{(i)} = \textrm{softmax}(\mathbf{o}^{(i)}) = \textrm{softmax}(\mathbf{x}^{(i)}\mathbf{W}+\mathbf{b})$ 
+  - where 
+    - $i=1,2,\cdots, n$
+    - $\hat{\mathbf{y}}^{(i)}, \mathbf{o}^{(i)}, \mathbf{b} \in \mathbb{R}^q$.
+    - $\mathbf{x}^{(i)} \in \mathbb{R}^d$.
+    - $\mathbf{W} \in \mathbb{R}^{d\times q}$.
+- Then $\hat{\mathbf{y}}^{(i)}$ can be interpreted as the (estimated) conditional probability of each class $1,2,\cdots, q$, given the $i$-th input $\mathbf{x}^{(i)}$.
+  - i.e.) For $`\hat{\mathbf{y}}^{(i)} = \left[ \begin{array}{cccc} \hat{y}_{1}^{(i)}&\hat{y}_{2}^{(i)}& \cdots&\hat{y}_{q}^{(i)} \end{array} \right]`$
+    - $`\hat{y}_{j}^{(i)} = P\left(y_j=1|\mathbf{x}^{(i)}\right)`$
+  - why?)
+    - We used one-hot encoding to represent a label y with $q$ multiple values into a vector $\mathbf{y} \in \mathbb{R}^q$.
+      - i.e.) $`y \in \{v_1, v_2, \cdot, v_q\} \rightarrow \mathbf{y} = \left[ \begin{array}{cccc} y_1&y_2& \cdots&y_q \end{array} \right]`$ where $`y_j \in \{0, 1\}, \forall j=1,2,\cdots, q`$
+    - Also, we normalized them using the softmax function.
+    - Thus, $`\displaystyle \sum_{j=1}^q` \hat{y}_{j}^{(i)} = 1$, where $`\hat{\mathbf{y}}^{(i)} = \left[ \begin{array}{cccc} \hat{y}_{1}^{(i)}&\hat{y}_{2}^{(i)}& \cdots&\hat{y}_{q}^{(i)} \end{array} \right]`$.
+    - Also, $\hat{y}_{j}^{(i)}$ can be interpreted as the conditional probability that the label will have the value of $y_j$ given the $i$-th example : $`P\left(y_j=1|\mathbf{x}^{(i)}\right)`$
+  - e.g.) Suppose $y \in \lbrace \textrm{cat, dog}\rbrace$
+    - Then $`\hat{y}_{\textrm{cat}} = P\left(y_{\textrm{cat}}|\mathbf{x}\right)`$
+- Thus, for the entire data set $\mathbf{X} \in \mathbb{R}^{n\times d}$ and the label $\mathbf{Y}\in\mathbb{R}^{n\times q}$,
+  - $`\displaystyle P(\mathbf{Y}|\mathbf{X}) = \prod_{i=1}^n P(\mathbf{y}^{(i)}|\mathbf{x}^{(i)})`$ : the likelihood of $\mathbf{y}$
+  - We are allowed to use the factorization since we assume that each label is drawn independently from its respective distribution $P(\mathbf{y}|\mathbf{x}^{(i)})$
+- Hence, the negative log-likelihood goes...
+  - $`\displaystyle -\log{P(\mathbf{Y}|\mathbf{X})}=\sum_{i=1}^n{-\log{P(\mathbf{y}^{(i)}|\mathbf{x}^{(i)})}} = \sum_{i=1}^n{l\left(\mathbf{y}^{(i)}, \hat{\mathbf{y}}^{(i)}\right)}`$
+    - where $`\displaystyle l\left(\mathbf{y}^{(i)}, \hat{\mathbf{y}}^{(i)}\right)=-\sum_{j=1}^q{y_j} \log{\hat{y}_j}`$ : the cross-entropy loss
+  - Negative term used due to the loss minimization custom for optimization, instead of likelihood maximization problem.
 
 
 
