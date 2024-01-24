@@ -152,7 +152,7 @@ One of the fundamental theorems of information theory states that in order to en
 <br><br>
 
 ### 4.1.3.3. Cross-Entropy Revisited
-#### Concept) Surprisal
+#### Concept) Cross-Entropy
 - Def.) $H(P,Q)$
   - For 
     - $j$ : an event
