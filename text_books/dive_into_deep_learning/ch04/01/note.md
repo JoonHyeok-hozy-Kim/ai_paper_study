@@ -83,7 +83,7 @@
     - $\mathbf{W} \in \mathbb{R}^{d\times q}$.
 - Then $\hat{\mathbf{y}}^{(i)}$ can be interpreted as the (estimated) conditional probability of each class $1,2,\cdots, q$, given the $i$-th input $\mathbf{x}^{(i)}$.
   - i.e.) For $`\hat{\mathbf{y}}^{(i)} = \left[ \begin{array}{cccc} \hat{y}_{1}^{(i)}&\hat{y}_{2}^{(i)}& \cdots&\hat{y}_{q}^{(i)} \end{array} \right]`$
-    - $`\hat{y}_{j}^{(i)} = P\left(y_j|\mathbf{x}^{(i)}\right)`, j=1,2,\cdots, q$
+    - $`\hat{y}_{j}^{(i)} = P\left(y_j|\mathbf{x}^{(i)}\right), j=1,2,\cdots, q`$
   - why?)
     - We used one-hot encoding to represent a label y with $q$ multiple values into a vector $\mathbf{y} \in \mathbb{R}^q$.
       - i.e.) $`y \in \{v_1, v_2, \cdot, v_q\} \rightarrow \mathbf{y} = \left[ \begin{array}{cccc} y_1&y_2& \cdots&y_q \end{array} \right]`$ 
