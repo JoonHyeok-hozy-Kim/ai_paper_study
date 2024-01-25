@@ -31,8 +31,8 @@
     - i.e.) patterns that describe sets of bit strings.
 - Settings)
   - Schema
-    - A string composed of $0$s, $1$s, and $*$s.
-      - e.g.) $`0*10 \equiv \{0010, 0110\}`$
+    - A string composed of $0$s, $1$s, and $\ast$s.
+      - e.g.) $`0\ast10 \equiv \{0010, 0110\}`$
       - Prop.)
         - An individual $n$-length bit string is a representative of $2^n$ distinct schemas.
           - e.g.) $0010$ represents $0010, *010, 0*10, \cdots, 0***, ****$
