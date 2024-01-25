@@ -30,13 +30,32 @@
   - Based on the concept **schemas**
     - i.e.) patterns that describe sets of bit strings.
 - Settings)
-  - Schema
+  - Concept) Schema
     - A string composed of $`0`$s, $`1`$s, and $`*`$s.
       - e.g.) $`0*10 \equiv \{0010, 0110\}`$
       - Prop.)
         - An individual $n$-length bit string is a representative of $2^n$ distinct schemas.
-          - e.g.) $0010$ represents $`0010, *010, 0*10, \cdots, 0***, ****`$
-
+          - e.g.) $0010$ represents $`0010, *010, 0*10, \cdots, 0***, \textrm{ and } ****`$
+        - . Similarly, **a population of bit strings can be viewed in terms of the set of schemas that it represents and the number of individuals associated with each of these schema.**
+  - Notations)
+    - $s$ : a schema
+    - $t$ : a time or the $t$-th generation
+    - $m(s,t)$ :  the number of instances of schema $s$ in the population at time $t$ 
+      - cf.) The goal of this theorem is to describe $E[m(s,t+1)]$ in terms of $m(s,t)$
+    - $h$ : an individual bit string
+      - $h \in s\cap p_t$ where $p_t$ is the population at $t$
+        - i.e.) The individual $h$ is both a representative of schema $s$ and a member of the population at time $t$.
+    - $f(h)$ : the fitness of $h$
+    - $\bar{f}(t)$ : the average fitness of ALL individuals in the population at time $t$
+    - $n$ : the total number of individuals in the population
+    - $\hat{u}(s,t)$ : the average fitness of instances of schema $s$ in the population at time $t$
+- Objective) Calculate $E[m(s,t+1)]$
+    - Result) $E[m(s,t+1)]=\frac{\hat{u}(s,t)}{\bar{f}(t)}m(s,t)$
+- Derivation)
+  - The probability distribution for **selection** can be denoted as follows:
+    - $\displaystyle Pr(h) = \frac{f(h)}{\sum_{i=1}^n f(h_i)} = \frac{f(h)}{n\bar{f}(t)}$
+  - If we select one member for the new population according to this probability distribution, then the probability that we will select a representative of schema $s$ is
+    - $`\displaystyle Pr(h\in s) = \sum_{h \in s\cap p_t}Pr(h) = \sum_{h \in s\cap p_t}\frac{f(h)}{n\bar{f}(t)} = \frac{\hat{u}(s,t)\space m(s,t)}{n\bar{f}(t)} \; \left(\because\sum_{h \in s\cap p_t}f(h) = \hat{u}(s,t)\space m(s,t)\right)`$
 
 
 
