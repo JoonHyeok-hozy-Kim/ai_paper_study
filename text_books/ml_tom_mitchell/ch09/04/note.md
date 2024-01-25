@@ -77,8 +77,13 @@ $E[m(s,t+1)]=\frac{\hat{u}(s,t)}{\bar{f}(t)}m(s,t)$
   - $p_c$ : the probability that the **single-point crossover** operator will be applied to an arbitrary individual.
   - $p_m$ : the probability that an arbitrary bit of an arbitrary individual will be **mutated** by the mutation operator
   - $o(s)$ : the number of **defined bits** in schema $s$, where $0$ and $1$ are defined bits, but $`*`$ is not.
+  - $d(s)$ : the distance between the leftmost and rightmost defined bits in $s$
+  - $l$ : the distance between the leftmost and rightmost defined bits in
 - Result)
-  - $E[m(s,t+1)]\ge\frac{\hat{u}(s,t)}{\bar{f}(t)}m(s,t)\left(1-p_c\frac{d(s)}{l-1}\right)$
+  - $`\begin{align}
+    E[m(s,t+1)] \ge & \underbrace{\frac{\hat{u}(s,t)}{\bar{f}(t)}m(s,t)} \; & \underbrace{\left(1-p_c\frac{d(s)}{l-1}\right)} \; & \underbrace{(1-p_m)^{o(s)}} \\
+    & \textrm{selection} & \textrm{crossover} & \textrm{mutation} 
+  \end{align}`$
 
 
 <br>
