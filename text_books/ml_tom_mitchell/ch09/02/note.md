@@ -79,6 +79,10 @@
   - This algorithm utilizes [Fitness Proportionate Selection (Roulette Wheel Selection)](#concept-fitness-function).
   - It may be a general optimization method that searches a large space of candidate objects seeking one that performs best according to the fitness function.
     - Although not guaranteed to find an optimal object, GAS often succeed in finding an object with high fitness.
+  - [Additional Analysis](../04/note.md#analysis-ga)
+    - Summary
+      1. No Local Minimum
+      2. Crowding Problem
 
 <br><br>
 
