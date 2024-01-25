@@ -80,8 +80,16 @@ $E[m(s,t+1)]=\frac{\hat{u}(s,t)}{\bar{f}(t)}m(s,t)$
   - $d(s)$ : the distance between the leftmost and rightmost defined bits in $s$
   - $l$ : the distance between the leftmost and rightmost defined bits in
 - Result)
-  - $`\begin{aligned} E[m(s,t+1)] \ge & \underbrace{\frac{\hat{u}(s,t)}{\bar{f}(t)}m(s,t)} & \underbrace{\left(1-p_c\frac{d(s)}{l-1}\right)} \; & \underbrace{(1-p_m)^{o(s)}} \\  &\textrm{selection} & \textrm{crossover} \; & \textrm{mutation} \end{aligned}`$
-
+  - $`\begin{array}{cccc} E[m(s,t+1)] \ge & \underbrace{\frac{\hat{u}(s,t)}{\bar{f}(t)}m(s,t)} & \underbrace{\left(1-p_c\frac{d(s)}{l-1}\right)} & \underbrace{(1-p_m)^{o(s)}} \\  &\textrm{1. Selection} & \textrm{2. Crossover} & \textrm{3. Mutation} \end{array}`$
+    - Desc.)   
+      - The negative effects of single-point crossover and mutation **increase** with... 
+        1. the number of defined bits $o(s)$ in the schema 
+           - $\because 0 \le 1-p_m \le 1$
+        2. the distance $d(s)$ between the defined bits.
+     - i.e.) When schemas contain a **small number of defined bits** $\left(\textrm{low }o(s)\right)$ and these **defined bits are near one another** $\left(\textrm{low }d(s)\right)$ within the bit string, they will tend to grow in influence.
+- Limit)
+  - It fails to consider the (presumably) positive effects of crossover and mutation.
+    - cf.) *Whitley and Vose (1995)* and *Mitchell (1996)*. 
 
 <br>
 
