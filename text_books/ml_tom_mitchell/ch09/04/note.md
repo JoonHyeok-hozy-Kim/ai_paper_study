@@ -49,8 +49,9 @@
     - $\bar{f}(t)$ : the average fitness of ALL individuals in the population at time $t$
     - $n$ : the total number of individuals in the population
     - $\hat{u}(s,t)$ : the average fitness of instances of schema $s$ in the population at time $t$
-- Objective) Calculate $E[m(s,t+1)]$
-    - Result) $E[m(s,t+1)]=\frac{\hat{u}(s,t)}{\bar{f}(t)}m(s,t)$
+
+#### Result) 
+$E[m(s,t+1)]=\frac{\hat{u}(s,t)}{\bar{f}(t)}m(s,t)$
 - Derivation)
   - The probability distribution for **selection** can be denoted as follows:
     - $\displaystyle Pr(h) = \frac{f(h)}{\sum_{i=1}^n f(h_i)} = \frac{f(h)}{n\bar{f}(t)}$
