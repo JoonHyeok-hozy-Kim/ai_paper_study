@@ -80,7 +80,7 @@ $E[m(s,t+1)]=\frac{\hat{u}(s,t)}{\bar{f}(t)}m(s,t)$
   - $d(s)$ : the distance between the leftmost and rightmost defined bits in $s$
   - $l$ : the distance between the leftmost and rightmost defined bits in
 - Result)
-  - $`\begin{aligned} E[m(s,t+1)] \ge & \underbrace{\frac{\hat{u}(s,t)}{\bar{f}(t)}m(s,t)} \; & \underbrace{\left(1-p_c\frac{d(s)}{l-1}\right)} \; & \underbrace{(1-p_m)^{o(s)}} \\  &\textrm{selection} & \textrm{crossover} \; & \textrm{mutation} \end{aligned}`$
+  - $`\begin{aligned} E[m(s,t+1)] \ge & \underbrace{\frac{\hat{u}(s,t)}{\bar{f}(t)}m(s,t)} & \underbrace{\left(1-p_c\frac{d(s)}{l-1}\right)} \; & \underbrace{(1-p_m)^{o(s)}} \\  &\textrm{selection} & \textrm{crossover} \; & \textrm{mutation} \end{aligned}`$
 
 
 <br>
