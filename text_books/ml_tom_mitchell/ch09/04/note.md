@@ -56,11 +56,29 @@ $E[m(s,t+1)]=\frac{\hat{u}(s,t)}{\bar{f}(t)}m(s,t)$
   - The probability distribution for **selection** can be denoted as follows:
     - $\displaystyle Pr(h) = \frac{f(h)}{\sum_{i=1}^n f(h_i)} = \frac{f(h)}{n\bar{f}(t)}$
   - If we select one member for the new population according to this probability distribution, then the probability that we will select a representative of schema $s$ is
-    - $`\displaystyle Pr(h\in s) = \sum_{h \in s\cap p_t}Pr(h) = \sum_{h \in s\cap p_t}\frac{f(h)}{n\bar{f}(t)} = \frac{\hat{u}(s,t)\space m(s,t)}{n\bar{f}(t)} \; \left(\because\sum_{h \in s\cap p_t}f(h) = \hat{u}(s,t)\space m(s,t)\right)`$
+    - $`\displaystyle Pr(h\in s) = \sum_{h \in s\cap p_t}Pr(h) = \sum_{h \in s\cap p_t}\frac{f(h)}{n\bar{f}(t)} = \frac{\hat{u}(s,t)\space m(s,t)}{n\bar{f}(t)} \; \left(\because \textrm{by def. }\hat{u}(s,t) = \frac{\sum_{h \in s\cap p_t}f(h)}{\space m(s,t)}\right)`$
+  - Consider that every individual $h$ will go through the selection step.
+    - i.e.) There will be $n$ times of **independent** selection steps.
+  - Thus, the expected number of instances of $s$ resulting from $n$ independent selection steps is...
+    - $`n \cdot Pr(h\in s) = \frac{\hat{u}(s,t)\space m(s,t)}{\bar{f}(t)}`$
+  - This number of instances of $s$ will create the entire new generation.
+  - $\therefore E[m(s,t+1)] = \frac{\hat{u}(s,t)}{\bar{f}(t)}m(s,t)$
+- Props.)
+  - The expected number of instances of schema $s$ at generation $t + 1$, $E[m(s,t+1)]$, is...
+    1. **proportional** to the average fitness $\hat{u}(s,t)$ of instances of this schema at time $t$
+    2. **inversely proportional** to the average fitness $\bar{f}(t)$ of all members of the population at time $t$.
+  - Thus, we can expect **schemas with above average fitness** to be represented with increasing frequency on successive generations.
+    - i.e.) More fit schemas will grow in influence over time.
 
+<br>
 
-
-
+#### Extension) Considering Crossover and Mutation
+- Settings)
+  - $p_c$ : the probability that the **single-point crossover** operator will be applied to an arbitrary individual.
+  - $p_m$ : the probability that an arbitrary bit of an arbitrary individual will be **mutated** by the mutation operator
+  - $o(s)$ : the number of **defined bits** in schema $s$, where $0$ and $1$ are defined bits, but $`*`$ is not.
+- Result)
+  - $E[m(s,t+1)]\ge\frac{\hat{u}(s,t)}{\bar{f}(t)}m(s,t)\left(1-p_c\frac{d(s)}{l-1}\right)$
 
 
 <br>
