@@ -104,9 +104,11 @@
 ## 9. Genetic Algorithms
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|9.2|[Genetic Algorithms](./ch09/02/note.md)|- Bit String Representation <br> -  Crossover/Mutation Operator <br> - Fitness Function : Fitness Proportionate (Roulette Wheel) / Tournament / Rank Selection|
+|9.2|[Genetic Algorithms](./ch09/02/note.md)|- Genetic Algorithms (GA) <br>- Bit String Representation <br> -  Crossover/Mutation Operator <br> - Fitness Function : Fitness Proportionate (Roulette Wheel) / Tournament / Rank Selection|
 |9.3|[An Illustrative Example](./ch09/03/note.md)|- GABIL|
 |9.4|[Hypothesis Space Search](./ch09/04/note.md)|- Crowding Problem <br> - The Schema Theorem|
+|9.5|[Genetic Programming](./ch09/05/note.md)|- Genetic Programming (GP)|
+|9.6|[Models of Evolution and Learning](./ch09/06/note.md)|- |
 
 
 
