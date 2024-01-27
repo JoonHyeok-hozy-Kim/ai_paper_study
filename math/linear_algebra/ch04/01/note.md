@@ -53,9 +53,9 @@ The span of a finite nonempty subset of $\mathbb{R}^n$ is a subspace of $\mathbb
   - Let $V \in R^n$ and $`S=\{\mathbf{w}_1, \mathbf{w}_2, \cdots, \mathbf{w}_k\}`$ be the span of $V$.
   - Then by def., $`\displaystyle \sum_{i=1}^k 0\cdot\mathbf{w}_i = \mathbf{0} \in S`$.
   - Put $\mathbf{u}, \mathbf{v} \in S$ such that
-    - $`\mathbf{u}=\sum_{i=1}^k{a_i\mathbf{w}_i}, \mathbf{v}=\sum_{i=1}^k{b_i\mathbf{w}_i}, \exists a_i, b_i \in \mathbb{R}`$
-  - Then $\mathbf{u}+\mathbf{v}=\sum_{i=1}^k{(a_i+b_i)\mathbf{w}_i}\in S$.
-  - Also, $`\forall c \in \mathbb{R}, c\mathbf{u}=c\sum_{i=1}^k{a_i\mathbf{w}_i}=\sum_{i=1}^k{ca_i\mathbf{w}_i} \in S`$
+    - $`\displaystyle\mathbf{u}=\sum_{i=1}^k{a_i\mathbf{w}_i}, \mathbf{v}=\sum_{i=1}^k{b_i\mathbf{w}_i}, \exists a_i, b_i \in \mathbb{R}`$
+  - Then $\displaystyle\mathbf{u}+\mathbf{v}=\sum_{i=1}^k{(a_i+b_i)\mathbf{w}_i}\in S$.
+  - Also, $`\displaystyle\forall c \in \mathbb{R}, c\mathbf{u}=c\sum_{i=1}^k{a_i\mathbf{w}_i}=\sum_{i=1}^k{ca_i\mathbf{w}_i} \in S`$
 
 - e.g.) 
   - $`W = \left \{ \left[\begin{array}{c} 2a-3b \\ b \\ -a+4b \end{array} \right] \in \mathbb{R}^e : a,b\in \mathbb{R} \right\}`$ is a subspace of $\mathbb{R}^3$.
