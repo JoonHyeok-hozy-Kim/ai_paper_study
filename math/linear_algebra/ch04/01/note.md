@@ -43,7 +43,7 @@
      - Counter ex.)
        - Let $`\mathbf{u} = \left[\begin{array}{c} 1 \\ 1 \end{array} \right],\mathbf{v} = \left[\begin{array}{c} 1 \\ -1 \end{array} \right]`$.
        - Then $\mathbf{u}, \mathbf{v} \in W$.
-       - But $\mathbf{u}+\mathbf{v} = \left[\begin{array}{c} 2 \\ 0 \end{array} \right] \notin W$.
+       - But $`\mathbf{u}+\mathbf{v} = \left[\begin{array}{c} 2 \\ 0 \end{array} \right] \notin W`$.
 
 <br>
 
@@ -53,15 +53,15 @@ The span of a finite nonempty subset of $\mathbb{R}^n$ is a subspace of $\mathbb
   - Let $V \in R^n$ and $`S=\{\mathbf{w}_1, \mathbf{w}_2, \cdots, \mathbf{w}_k\}`$ be the span of $V$.
   - Then by def., $`\displaystyle \sum_{i=1}^k 0\cdot\mathbf{w}_i = \mathbf{0} \in S`$.
   - Put $\mathbf{u}, \mathbf{v} \in S$ such that
-    - $\mathbf{u}=\sum_{i=1}^k{a_i\mathbf{w}_i}, \mathbf{v}=\sum_{i=1}^k{b_i\mathbf{w}_i}, \exists a_i, b_i \in \mathbb{R}$
+    - $`\mathbf{u}=\sum_{i=1}^k{a_i\mathbf{w}_i}, \mathbf{v}=\sum_{i=1}^k{b_i\mathbf{w}_i}, \exists a_i, b_i \in \mathbb{R}`$
   - Then $\mathbf{u}+\mathbf{v}=\sum_{i=1}^k{(a_i+b_i)\mathbf{w}_i}\in S$.
-  - Also, $\forall c \in \mathbb{R}, c\mathbf{u}=c\sum_{i=1}^k{a_i\mathbf{w}_i}=\sum_{i=1}^k{ca_i\mathbf{w}_i} \in S$
+  - Also, $`\forall c \in \mathbb{R}, c\mathbf{u}=c\sum_{i=1}^k{a_i\mathbf{w}_i}=\sum_{i=1}^k{ca_i\mathbf{w}_i} \in S`$
 
 - e.g.) 
   - $`W = \left \{ \left[\begin{array}{c} 2a-3b \\ b \\ -a+4b \end{array} \right] \in \mathbb{R}^e : a,b\in \mathbb{R} \right\}`$ is a subspace of $\mathbb{R}^3$.
     - why?)
       - $`\left[\begin{array}{c} 2a-3b \\ b \\ -a+4b \end{array} \right] = a\left[\begin{array}{c} 2 \\ 0 \\ -1 \end{array} \right] + b\left[\begin{array}{c} -3 \\ 1 \\ 4 \end{array} \right]`$
-      - Thus, $W=Span\left(\left\{ \left[\begin{array}{c} 2 \\ 0 \\ -1 \end{array} \right], \left[\begin{array}{c} -3 \\ 1 \\ 4 \end{array} \right] \right\}\right)$.
+      - Thus, $`W=Span\left(\left\{ \left[\begin{array}{c} 2 \\ 0 \\ -1 \end{array} \right], \left[\begin{array}{c} -3 \\ 1 \\ 4 \end{array} \right] \right\}\right)`$.
       - By [the Theorem 4.1](#theorem-41), $W$ is a subspace of $\mathbb{R}^3$.
 
 <br><br>
