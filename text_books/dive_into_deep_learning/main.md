@@ -39,7 +39,7 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
 |4.1|[Softmax Regression](./ch04/01/note.md)|One-Hot Encoding, The Cross-Entropy Loss <br>Information Theroy : Entropy, Surprisal|
-|4.2|[The Image Classification Dataset](./ch04/02/note.md)||
+|4.2|[The Image Classification Dataset](./ch04/02/note.md)|- MNIST <br> - Fashion-MNIST Dataset Loading|
 
 
 
