@@ -36,7 +36,7 @@
 ### 4. Subspaces and Their Properties
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|4.1|[Subspaces](./ch04/01/note.md)|Subspace, Closure|
+|4.1|[Subspaces](./ch04/01/note.md)|Subspace, Closure, Zero/Nonzero Subspace|
 
 
 
