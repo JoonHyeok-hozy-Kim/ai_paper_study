@@ -5,6 +5,7 @@
 #### Tech.) MNIST  (LeCun et al., 1998)
 - Desc.)
   - A widely used dataset for image classification is the MNIST dataset of handwritten digits.
+    - $28 \times 28$
   - Today, MNIST serves as more of a sanity check than as a benchmark.
   - This article covers a smaller version of it : Fashion-MNIST dataset.
     - Xiao, H., Rasul, K., & Vollgraf, R. (2017). *Fashion-MNIST: a novel image dataset for benchmarking machine learning algorithms.*
