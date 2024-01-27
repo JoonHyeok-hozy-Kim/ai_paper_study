@@ -77,7 +77,7 @@ The span of a finite nonempty subset of $\mathbb{R}^n$ is a subspace of $\mathbb
 <br>
 
 ### Theorem 4.2)
-If $A$ is a $m \times n$ matrix, then Null$(A)$ is a subspace of $\mathbb{R}^n$.
+If $A$ is a $m \times n$ matrix, then Null$`(A)`$ is a subspace of $\mathbb{R}^n$.
 
 - pf.)   
   ![](images/003.png)
@@ -86,7 +86,7 @@ If $A$ is a $m \times n$ matrix, then Null$(A)$ is a subspace of $\mathbb{R}^n$.
 
 ### Concept) Column Space
 - Def.)
-  - The column space of a matrix $A$ is the span of its columns. It is denoted by Col$(A)$.
+  - The column space of a matrix $A$ is the span of its columns. It is denoted by Col$`(A)`$.
 
 <img src="images/004.png" width="400px"><img>
 
