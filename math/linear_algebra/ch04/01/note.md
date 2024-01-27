@@ -89,7 +89,7 @@ If $A$ is a $m \times n$ matrix, then Null$(A)$ is a subspace of $\mathbb{R}^n$.
   - The column space of a matrix $A$ is the span of its columns. It is denoted by Col$(A)$.
 
 - e.g.)   
-  <img src="images/004.png" width="400px">
+  <img src="images/004.png" width="400px"><img>
 
 
 
