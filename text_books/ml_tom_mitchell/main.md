@@ -108,8 +108,8 @@
 |9.3|[An Illustrative Example](./ch09/03/note.md)|- GABIL|
 |9.4|[Hypothesis Space Search](./ch09/04/note.md)|- Crowding Problem <br> - The Schema Theorem|
 |9.5|[Genetic Programming](./ch09/05/note.md)|- Genetic Programming (GP)|
-|9.6|[Models of Evolution and Learning](./ch09/06/note.md)|- |
-
+|9.6|[Models of Evolution and Learning](./ch09/06/note.md)|- Lamarckian Evolution <br> - Baldwin Effect|
+|9.7|[Parallelizing Genetic Algorithms](./ch09/07/note.md)|- Coarse Grain Approach, Fine Grain Approach|
 
 
 
