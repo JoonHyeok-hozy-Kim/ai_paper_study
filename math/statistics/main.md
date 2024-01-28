@@ -77,7 +77,7 @@
         <td>No.</td><td>Chapter</td><td>Keywords</td>
     </tr>
     <tr>
-        <td>4-2</td><td><a href="./ch04/02/note.md">Sampling Distributions Associated with Normal Populations</a></td><td>- Sample, Identical Distribution, Random Sample, Sample Statistic, Sampling Distribution, Standard Error of the Mean, Finite Population Correction Factor<br> - Normal, Chi-Square, Gamma Distribution for Sampling</td>
+        <td>4-2</td><td><a href="./ch04/02/note.md">Sampling Distributions Associated with Normal Populations</a></td><td>- Sample, Identical Distribution, Random Sample, Sample Statistic, Sampling Distribution, Standard Error of the Mean, Finite Population Correction Factor<br> - Normal, Chi-Square, Gamma Distribution for Sampling<br> - Student t-Distribution</td>
     </tr>
 </table>
 

@@ -110,7 +110,37 @@
   - (c) And $\bar{X}$ and $S^2$ are independent.
 
 ![](images/006.png)
+- Usage)   
+  ![](images/007.png)
+  - Sol)   
+    ![](images/008.png)
 
+
+<br><br>
+
+## 4.2.2 Student t-Distribution
+- Desc.)
+  - Let $X_1, \cdots, X_n \sim N(\mu, \sigma^2)$.
+  - If $\sigma$ is known, $\frac{\bar{X}-\mu}{\sigma\sqrt{n}} \sim N(0,1)$.
+  - Suppose $\sigma$ is not known.
+    - Then we should use the sample standard deviation, $s$.
+  - If the sample size is large enough, we may assume $\sigma \approx s$.
+  - However, if the sample size is small, $\frac{\bar{X}-\mu}{\sigma\sqrt{n}}$ is given by the Student t-Distribution
+
+#### Def. 4.2.2) Student t-Distribution
+- Let 
+  - $Y$ and $Z$ be independent random variables.
+  - $Y\sim\chi^2(n)$
+  - $Z\sim N(0,1)$
+- Then $T=\frac{Z}{\sqrt{Y/n}}$ is said to have a Student t-Distribution with $n$ degrees of freedom.
+  - $T\sim T_n$
+
+#### Props.)
+- The Probability Density of $T\sim T_n$ is given by
+  - $`\displaystyle f(t) = \frac{\Gamma\left(\frac{n+1}{2}\right)}{\Gamma\left(\frac{n}{2}\right)\sqrt{\pi n}}\left(1+\frac{t^2}{n}\right)^{-\frac{n+1}{2}}, -\infty \lt t \lt \infty`$
+
+- As the degree of freedom tends to infinity, the t-distribution tends to a standard normal distribution.
+  ![](images/009.png)
 
 <br><br>
 
