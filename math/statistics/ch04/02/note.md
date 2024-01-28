@@ -142,6 +142,16 @@
 - As the degree of freedom tends to infinity, the t-distribution tends to a standard normal distribution.
   ![](images/009.png)
 
+- Symmetric
+  - $E(T) = 0$
+- If $n \gt 2$, then $Var(T) = n/(n-2)$.
+
+<br>
+
+### Theorem 4.2.9)
+- If $\bar{X}$ and $S^2$ are the mean and the variance of a random sample of size $n$ from a normal population with the mean $\mu$ and variance $\sigma^2$
+- then $T=\frac{\bar{X}-\mu}{S/\sqrt{n}}$ has a t-distribution with $(n-1)$ degrees of freedom.
+
 <br><br>
 
 ### [Exercises](./exercises.md)
