@@ -51,7 +51,15 @@
 <br><br>
 
 ## 10.2.1 General to Specific Beam Search
-
+### Concept) General to Specific Search
+- Desc.)
+  - Organize the hypothesis space search in the same general fashion as the [ID3 algorithm](../../ch03/04/note.md#concept-the-id3-algorithm).
+  - Follow **only** the most promising branch in the tree at each step.
+    - **Differ from ID3** which grew a subtree that covers all possible values of the selected attribute.
+  - e.g.)   
+    ![](images/001.png)
+- Prop.)
+  - Greedy approach!
 
 
 <br>
