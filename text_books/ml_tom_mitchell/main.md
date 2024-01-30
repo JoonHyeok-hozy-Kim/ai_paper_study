@@ -111,6 +111,13 @@
 |9.6|[Models of Evolution and Learning](./ch09/06/note.md)|- Lamarckian Evolution <br> - Baldwin Effect|
 |9.7|[Parallelizing Genetic Algorithms](./ch09/07/note.md)|- Coarse Grain Approach, Fine Grain Approach|
 
+<br>
+
+## 10. Learning Sets of Rules
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|10.2|[Sequential Covering Algorithms](./ch10/02/note.md)|- First-Order Rule <br>|
+
 
 
 
