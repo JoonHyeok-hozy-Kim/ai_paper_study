@@ -151,6 +151,9 @@
           - Each time it learns a new rule, it selects a new positive example from those that are not yet covered, to act as a seed to guide the search for this new disjunct. 
 
 
+
+# ADD 10.3 TO 10.2!
+
 <br>
 
 * [Back to Machine Learning Tom Mitchell Main](../../main.md)
