@@ -9,7 +9,8 @@ from d2l import torch as d2l
 ```
 
 ## 4.4.1 The Softmax
-Use the built-in Softmax function. Below is to demonstrate how it works.
+Use [the built-in Softmax function](#eg-pytorch-built-in-softmax-example)!   
+Below is to demonstrate how it works.
 
 - Recall the sum operation along specific dimensions in a tensor.
   - Sum over elements in each column.
@@ -37,12 +38,13 @@ Use the built-in Softmax function. Below is to demonstrate how it works.
        - cf.)
          - Caution: the code above is not robust against very large or very small arguments.
          - Thus, we may use the built-in ```softmax()``` instead.
-  - Built-in ```softmax()``` example.
-    ```python
-    X = torch.rand((2, 5))
-    X_prob = softmax(X)
-    X_prob, X_prob.sum(1)
-    ```
+
+#### e.g.) PyTorch Built-in Softmax Example
+```python
+X = torch.rand((2, 5))
+X_prob = softmax(X)
+X_prob, X_prob.sum(1)
+```
 
 <br><br>
 
@@ -102,6 +104,23 @@ def forward(self, X):
   - The raw data consists of $n$ images of $28\times 28$ sizes.
   - Thus, it is the $n\times 28 \times 28$ tensor.
   - By applying ```X.reshape((-1, self.W.shape[0]))```, it becomes the $n\times 784$  matrix.
+
+<br><br>
+
+## 4.4.3 The Cross-Entropy Loss
+
+
+<br><br>
+
+## 4.4.4 Training
+
+
+
+<br><br>
+
+## 4.4.5 Prediction
+
+
 
 <br>
 
