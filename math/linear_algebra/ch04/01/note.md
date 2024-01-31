@@ -90,7 +90,19 @@ If $A$ is a $m \times n$ matrix, then Null$`(A)`$ is a subspace of $\mathbb{R}^n
 
 <img src="images/004.png" width="400px"><img>
 
+### Prop.) Column Space
+$\textrm{Col}(A) = \lbrace A\mathbf{v} : \mathbf{v} \in \mathbb{R}^n\rbrace$
+- pf)
+  - Let $`A=\left[\begin{array}{ccc} \mathbf{c}_1 & \cdots & \mathbf{c}_n \end{array}\right]`$  and $`\mathbf{v}=\left[\begin{array}{c} v_1 \\ \vdots \\ v_n\end{array}\right]`$
+    - where $`\mathbf{c}_k \in \mathbb{R}^m, v_k \in \mathbb{R}, k=1,2,\cdots,n`$
+  - Then $`\displaystyle A\mathbf{v}=\sum_{i=1}^n v_i\mathbf{c}_i \in \textrm{Span}(A)`$
 
+<br>
+
+#### Example Question)
+<img src="images/005.png" width="400px"><img>
+- Sol.)   
+  <img src="images/005.png" width="400px"><img>
 
 
 <br>
