@@ -90,6 +90,8 @@ If $A$ is a $m \times n$ matrix, then Null$`(A)`$ is a subspace of $\mathbb{R}^n
 
 <img src="images/004.png" width="400px"><img>
 
+<br>
+
 ### Prop.) Column Space
 $\textrm{Col}(A) = \lbrace A\mathbf{v} : \mathbf{v} \in \mathbb{R}^n\rbrace$
 - pf)
@@ -101,12 +103,45 @@ $\textrm{Col}(A) = \lbrace A\mathbf{v} : \mathbf{v} \in \mathbb{R}^n\rbrace$
 
 #### Example Question)
 <img src="images/005.png" width="400px"><img>
-- Sol.)   
-  <img src="images/005.png" width="400px"><img>
+- Sol.) No.   
+  <img src="images/006.png" width="700px"><img>
 
 
 <br>
 
+### Concept) Row Space
+- Def.)
+  - The row space of a matrix $A$ is the span of its rows. It is denoted by Row$`(A)`$.
+
+- e.g.)   
+ <img src="images/007.png" width="500px"><img>
+
+<br>
+
+### Prop.) Row Space and Column Space
+$`\textrm{Row}(A)=\textrm{Col}(A)^{\top}`$
+
+<br><br>
+
+## 4.1.2 Subspaces Associated with a Linear Transformation
+### Props.) The Range of a Linear Transformation
+1. **The range of a linear transformation** is the same as the **column space** of its standard matrix.
+   - Why?)
+     - [Recall](../../ch02/08/note.md#concept-the-range-of-a-linear-transformation) that the range of a linear transformation is the span of the columns of its standard matrix.
+     - Denoting the columns of its standard matrix with the Span of the matrix we can reformulate as above.
+2. The range of a linear transformation $T:\mathbb{R}^n\rightarrow\mathbb{R}^m$ is a subspace of $\mathbb{R}^m$.
+   - Why?)
+     - Column space is a subspace of $\mathbb{R}^m$.
+3. The null space of a linear transformation is the same as the null space of its standard matrix.
+   - Why?)
+     - [Recall](../../ch02/08/note.md#def-null-space) that the null space of a linear transformation is the solution set of $A\mathbf{x} = 0$, where $A$ is the standard matrix of $T$.
+4. The null space of a linear transformation $T : R^n \rightarrow R^m$ is a subspace of $R^n$.
+
+
+
+
+
+<br>
 
 ### [Exercises 4.1](./exercises.md)
 
