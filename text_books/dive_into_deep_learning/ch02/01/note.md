@@ -128,6 +128,23 @@ Pytorch
     - In the first and second row ```:2```, for every column ```:```, write 12.   
       ![](images/014.png)
 
+#### Tech.) Fancy Indexing
+- e.g.)
+  ```python
+  import torch
+  y = torch.tensor([0, 2])
+  y_hat = torch.tensor([[0.1, 0.3, 0.6], [0.3, 0.2, 0.5]])
+  y_hat[[0, 1], y]
+  ```
+  - Result)   
+    ![](images/027.png)
+    - Desc.)
+      - From ```y_hat[[0,1], y]```,
+      - ```[0,1]``` denotes the two row indices of y_hat : 0, 1
+      - ```y``` denotes the two column indices of y_hat : 0, 2
+      - Thus, the result consists of two elements : ```y_hat[0, 0]``` and ```y_hat[1, 2]```
+
+
 <br><br>
 
 ## 2.1.3 Operations
