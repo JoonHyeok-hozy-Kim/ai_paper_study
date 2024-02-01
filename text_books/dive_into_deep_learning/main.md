@@ -42,6 +42,7 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 |4.2|[The Image Classification Dataset](./ch04/02/note.md)|- MNIST <br> - Fashion-MNIST Dataset Loading|
 |4.3|[The Base Classification Model](./ch04/03/note.md)|```Classifier```, ```accuracy()```|
 |4.4|[Softmax Regression Implementation from Scratch](./ch04/04/note.md)|The Softmax Implementation, The Cross-Entropy Loss|
+|4.5|[Concise Implementation of Softmax Regression](./ch04/05/note.md)|Overflow/Under Flow Prevention|
 
 
 
