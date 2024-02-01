@@ -117,6 +117,7 @@
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
 |10.2|[Sequential Covering Algorithms](./ch10/02/note.md)|- First-Order Rule <br> - Sequential Covering Algorithm (Learn-One Rule)  <br>- General to Specific (Beam) Search : CN2, AQ|
+|10.3|[Learning Rule Sets : Summary](./ch10/02/note.md)|- Sequential-Covering Algorithm vs Decision Tree Learning Algorithms (ID3) <br>- Simultaneous Covering Algorithm<br>- Generate-Then-Test vs Example-Driven|
 |10.4|[Learning First-Order Rules](./ch10/04/note.md)|- |
 
 

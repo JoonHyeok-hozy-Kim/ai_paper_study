@@ -45,6 +45,7 @@
   - It reduces the problem of learning a disjunctive set of rules to a sequence of simpler problems, each requiring that a single conjunctive rule be learned.
   - It is not guaranteed to find the smallest or best set of rules that cover the training examples.
     - Why?) It performs a greedy search, formulating a sequence of rules without backtracking.
+  - [Comparison](../03/note.md#analysis-sequential-covering-algorithm-vs-decision-tree-learning-algorithms-id3) with the [Decision Tree Algorithms](../../ch03/04/note.md#34-the-basic-decision-tree-learning-algorithm)
 - Algorithm
   - ```sequential_covering(target_attribute, attributes, examples, threshold)```
     - ```learned_rules``` $\leftarrow$ ```{}```
@@ -158,9 +159,6 @@
           - In particular, it considers only those attributes satisfied by the positive example as it searches for progressively more specific hypotheses. 
           - Each time it learns a new rule, it selects a new positive example from those that are not yet covered, to act as a seed to guide the search for this new disjunct. 
 
-
-
-# ADD 10.3 TO 10.2!
 
 <br>
 
