@@ -112,9 +112,14 @@
 
 <br>
 
-#### Concept) m-Estimate of Accuracy
+#### Concept) Entropy
 - Def.)
   - $\displaystyle -\textrm{Entropy}(S)=\sum_{i=1}^c{p_i\log_2{p_i}}$
+    - where 
+      - $c$ : the number of distinct values the target function may take on
+      - $p_i$ : the proportion of examples from $S$ for which the target function takes on the $i$-th value.
+- Usage)
+  - [CN2](../02/note.md#eg-the-cn2-program)
 
 
 <br>
