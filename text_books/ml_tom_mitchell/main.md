@@ -116,7 +116,7 @@
 ## 10. Learning Sets of Rules
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|10.2|[Sequential Covering Algorithms](./ch10/02/note.md)|- First-Order Rule <br> - Sequential Covering Algorithm  <br>- General to Specific (Beam) Search : CN2, AQ|
+|10.2|[Sequential Covering Algorithms](./ch10/02/note.md)|- First-Order Rule <br> - Sequential Covering Algorithm (Learn-One Rule)  <br>- General to Specific (Beam) Search : CN2, AQ|
 |10.4|[Learning First-Order Rules](./ch10/04/note.md)|- |
 
 
