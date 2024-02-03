@@ -16,18 +16,26 @@
 
 <br><br>
 
+### Concept) Learn-One Rule
+- Desc.)
+  - A process in [the Sequential Covering Algorithms](#concept-sequential-covering-algorithms)
+  - Return a rule that has the highest **accuracy**.
+    - i.e.) The one that covers many of **positive examples**.
+- How?)
+  - Input : A set of positive/negative training examples
+  - Output : A single rule that covers many of the positive examples and few of the negative  examples.
+    - High accuracy is required.
+      - i.e.) Predictions should be CORRECT!
+    - Low coverage is fine.
+      - i.e.) The rule need NOT make predictions for every training examples.
+
+<br>
+
 ### Concept) Sequential Covering Algorithms
 - Def.)
   - A family of algorithms that learn rule sets based on the following strategy.
     - Iteratively invoke the following two processes until no training example remains.
-      1. **Learn-one-rule**.
-         - How?)
-           - Input : A set of positive/negative training examples
-           - Output : A single rule that covers many of the positive examples and few of the negative examples.
-             - High accuracy is required.
-               - i.e.) Predictions should be CORRECT!
-             - Low coverage is fine.
-               - i.e.) The rule need NOT make predictions for every training examples.
+      1. [Learn-one-rule](#concept-learn-one-rule)
       2. Remove the data it covers.
          - How?)
            - By the previous **Learn-one-rule** process, we obtained a rule.
@@ -37,6 +45,7 @@
   - It reduces the problem of learning a disjunctive set of rules to a sequence of simpler problems, each requiring that a single conjunctive rule be learned.
   - It is not guaranteed to find the smallest or best set of rules that cover the training examples.
     - Why?) It performs a greedy search, formulating a sequence of rules without backtracking.
+  - [Comparison](../03/note.md#analysis-sequential-covering-algorithm-vs-decision-tree-learning-algorithms-id3) with the [Decision Tree Algorithms](../../ch03/04/note.md#34-the-basic-decision-tree-learning-algorithm)
 - Algorithm
   - ```sequential_covering(target_attribute, attributes, examples, threshold)```
     - ```learned_rules``` $\leftarrow$ ```{}```
@@ -89,7 +98,7 @@
   - The CN2 Program used the an [General to Specific Beam Search](#concept-general-to-specific-beam-search) approach.
 - Algorithm)
   - ```entropy(examples, target_attribute)```
-    - Return the entropy w.r.t. target_attribute
+    - Return the entropy w.r.t. ```target_attribute```
   - ```performance(h, examples, target_attribute)```
     - ```h_examples``` $\leftarrow$ the subset of ```examples``` that match ```h```
     - Return ```entropy(h_examples)```
@@ -100,7 +109,7 @@
       1. Generate the next more specific ```candidate_hypothesis```.
          - ```all_constraints``` $\leftarrow$ the set of all constraints of the form $a=v$ 
            - where $a$ is a member of ```attributes```
-           - and $v$ is a value of a that occurs in the current set of ```examples```
+           - and $v$ is a value of $a$ that occurs in the current set of ```examples```
          - ```new_candidate_hypotheses``` $\leftarrow \emptyset$
          - ```for``` ```h``` in  ```candidate_hypothesis``` ```do```
            - ```for``` ```c``` in  ```all_constraints``` ```do```
@@ -150,9 +159,6 @@
           - In particular, it considers only those attributes satisfied by the positive example as it searches for progressively more specific hypotheses. 
           - Each time it learns a new rule, it selects a new positive example from those that are not yet covered, to act as a seed to guide the search for this new disjunct. 
 
-
-
-# ADD 10.3 TO 10.2!
 
 <br>
 
