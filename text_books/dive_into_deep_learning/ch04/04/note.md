@@ -108,23 +108,6 @@ def forward(self, X):
 <br><br>
 
 ## 4.4.3 The Cross-Entropy Loss
-
-
-<br><br>
-
-## 4.4.4 Training
-
-
-
-<br><br>
-
-## 4.4.5 Prediction
-
-
-
-<br>
-
-## 4.4.3 The Cross-Entropy Loss
 Recall that cross-entropy takes the negative log-likelihood of the predicted probability assigned to the true label.   
 Thus, Implement the ```cross_entropy``` function by averaging over (```mean()```) the logarithms (```-torch.log()```) of the selected probabilities.   
 - cf.)
