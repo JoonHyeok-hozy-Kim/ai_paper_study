@@ -10,12 +10,15 @@
 ## 10.4.1 First-Order Horn Clause
 #### E.g) Simple Target Concept Learning : Daughter
 - Settings)
+  - Person
+    - Each person is described by attributes : $\langle Name, Mother, Father, Male, Female \rangle$
+    - e.g.)
+      - $`x = \langle Sharon,\;Louise,\;Bob,\;False,\;True \rangle`$
+      - $`y = \langle Bob,\;Nora,\;Victor,\;True,\;False \rangle`$
   - Target Concept : $`Daughter(x,y)=\left\{\begin{array}{ll}True & \textrm{if } x \textrm{ is the daughter of }y \\False & \textrm{otherwise}\end{array}\right.`$
     - where $x$ and $y$ are people
-      - Each person is described by attributes : $\langle Name, Mother, Father, Male, Female \rangle$
-        - e.g.)
-          - $`\langle Sharon,\;Louise,\;Bob,\;False,\;True \rangle`$
-          - $`\langle Bob,\;Nora,\;Victor,\;True,\;False \rangle`$
+    - e.g.)
+      - $`Daughter(x,y)=True`$
 
 
 
