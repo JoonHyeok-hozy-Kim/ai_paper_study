@@ -32,7 +32,10 @@
 - A Program Using First-Order Representations)
   - Expected Result)
     - General rules.
-      - e.g.) $`\textrm{IF }Father(y, x) \wedge Female(y)\textrm{ THEN }Daughter(x,y), \forall x, y`$
+      - e.g.) 
+        - $`\textrm{IF }Father(y, x) \wedge Female(y)\textrm{ THEN }Daughter(x,y), \forall x, y`$
+    - Referring to variables in the preconditions that do not occur in the postconditions : $GrandDaughter()$
+      - $`\textrm{IF }Father(y, z) \wedge Mother(z, x) \wedge Female(y)\textrm{ THEN }GrandDaughter(x,y), \forall x, y`$
 
 
 
