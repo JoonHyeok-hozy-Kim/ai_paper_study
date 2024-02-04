@@ -26,6 +26,15 @@
   - Expected Result)
     - Collection of very specific Rules.
       - e.g) $`\textrm{IF } (Father_x=Bob)\wedge(Name_y=Bob)\wedge(Female_x=True)\textrm{ THEN }Daughter_{x,y}=True`$
+    - Although it is correct, this rule is so specific that it will rarely, if ever, be useful in classifying future pairs of people.
+  - Problem)
+    - Propositional representations offer no general way to describe the essential relations among the values of the attributes.
+- A Program Using First-Order Representations)
+  - Expected Result)
+    - General rules.
+      - e.g.) $`\textrm{IF }Father(y, x) \wedge Female(y)\textrm{ THEN }Daughter(x,y), \forall x, y`$
+
+
 
 
 <br>
