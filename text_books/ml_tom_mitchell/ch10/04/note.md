@@ -37,7 +37,32 @@
     - Referring to variables in the preconditions that do not occur in the postconditions : $GrandDaughter()$
       - $`\textrm{IF }Father(y, z) \wedge Mother(z, x) \wedge Female(y)\textrm{ THEN }GrandDaughter(x,y), \forall x, y`$
 
+<br><br>
 
+## 10.4.2 Terminology
+|Concept|e.g.|Desc.|
+|-|-|-|
+|Constants|$Bob, Louise$|- Capitalized symbols|
+|Variable|$x, y$|- Lowercase|
+|Predicate Symbols|$Married, Greater\_Than$|- Return boolean values<br>- Capitalized symbols|
+|Function Symbols|$age$|- Return constants<br>- Lowercase|
+|Term|$Bob, x, age(Bob)$|- Any constant, any variable, or any function applied to any term|
+|Literal|$Married(Bob, Louise), \neg Greater\_Than(age(Sue),20)$|- Any predicate or its negation applied to any term|
+|Clause||Any disjunction of literals, where all variables are assumed to be universally quantified.|
+|Horn clause|$H\vee\neg{L_1}\vee\cdots\vee\neg{L_n}$|A clause containing at most one positive literal|
+
+<br>
+
+### Prop.) Horn Clause Representation
+- Recall that a Horn clause can be represented as follows.
+  - $H\vee\neg{L_1}\vee\cdots\vee\neg{L_n}$
+- We can alternatively write the clause as follows.
+  - $H\leftarrow({L_1}\wedge\cdots\wedge{L_n})$
+    - why?)
+      1. $\neg A \vee \neg B = \neg(A\wedge B)$
+         - Then, $H\vee\neg{L_1}\vee\cdots\vee\neg{L_n} = H\vee\neg({L_1}\wedge\cdots\wedge{L_n})$
+      2. $A\vee\neg B = A \leftarrow B$
+         - Then, $H\vee\neg({L_1}\wedge\cdots\wedge{L_n}) = H\leftarrow({L_1}\wedge\cdots\wedge{L_n})$
 
 
 <br>
