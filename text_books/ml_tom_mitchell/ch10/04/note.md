@@ -63,11 +63,18 @@
          - Then, $H\vee\neg{L_1}\vee\cdots\vee\neg{L_n} = H\vee\neg({L_1}\wedge\cdots\wedge{L_n})$
       2. $A\vee\neg B = A \leftarrow B$ ([why?](pf.md))
          - Then, $H\vee\neg({L_1}\wedge\cdots\wedge{L_n}) = H\leftarrow({L_1}\wedge\cdots\wedge{L_n})$
+  - i.e.) $`\textrm{IF } {L_1}\wedge\cdots\wedge{L_n}\textrm{ THEN }H`$
+- Term)
+  - ${L_1}\wedge\cdots\wedge{L_n}$ : the clause body or the clause antecedents
+  - $
 
 ### Props.) First-Order Logic
 - Every well-formed expression is composed of constants, variables, predicates, and functions.
-- A term is any constant, any variable, or any function applied to any term. 
-
+- A **substitution** is any function that replaces variables by terms.
+  - e.g.) $`\{x/3, y/z\}`$
+    - It replaces $x$ and $y$ by $3$ and $z$ respectively.
+  - Notation) $L\theta$ : the result of substitution $\theta$ to $L$
+    - where $\theta$ is a substitution and $L$ is a literal. 
 
 
 
