@@ -13,6 +13,7 @@
       - They are illustrating a recursive function structure.
 - cf.)
   - First-order rules are much more expressive than propositional rules.
+  - More definitions and properties are covered in [Ch 10.4](../04/note.md#104-learning-first-order-rules).
 
 <br><br>
 
