@@ -47,7 +47,7 @@
 |Predicate Symbols|$Married, Greater\_Than$|- Return boolean values<br>- Capitalized symbols|
 |Function Symbols|$age$|- Return constants<br>- Lowercase|
 |Term|$Bob, x, age(Bob)$|- Any constant, any variable, or any function applied to any term|
-|Literal|$Married(Bob, Louise), \neg Greater\_Than(age(Sue),20)$|- Any predicate or its negation applied to any term|
+|Literal|$Married(Bob, Louise), \neg Greater\_Than(age(Sue),20)$|- Any predicate or its negation applied to any term<br>- A **ground literal** is a literal that does not contain any variables (e.g., $\neg Female(Joe)$).<br>- A **negative literal** is a literal containing a negated predicate (e.g., $\neg Female(Joe)$).<br>- A positive literal is a literal with no negation sign.|
 |Clause||Any disjunction of literals, where all variables are assumed to be universally quantified.|
 |Horn clause|$H\vee\neg{L_1}\vee\cdots\vee\neg{L_n}$|A clause containing at most one positive literal|
 
@@ -61,8 +61,16 @@
     - why?)
       1. $\neg A \vee \neg B = \neg(A\wedge B)$
          - Then, $H\vee\neg{L_1}\vee\cdots\vee\neg{L_n} = H\vee\neg({L_1}\wedge\cdots\wedge{L_n})$
-      2. $A\vee\neg B = A \leftarrow B$
+      2. $A\vee\neg B = A \leftarrow B$ ([why?](pf.md))
          - Then, $H\vee\neg({L_1}\wedge\cdots\wedge{L_n}) = H\leftarrow({L_1}\wedge\cdots\wedge{L_n})$
+
+### Props.) First-Order Logic
+- Every well-formed expression is composed of constants, variables, predicates, and functions.
+- A term is any constant, any variable, or any function applied to any term. 
+
+
+
+
 
 
 <br>

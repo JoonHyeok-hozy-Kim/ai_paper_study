@@ -23,5 +23,5 @@ $A \leftarrow B \Rightarrow A\vee\neg B$ 증명:
   1. B가 참
      - B가 참이므로, "만약 B라면 A"에 의해 A는 참이어야 합니다.
   2. B가 거짓
-    - "만약 B라면 A"는 조건문이므로, B가 거짓이면 A의 참 거짓에 영향을 미치지 않습니다.
+     - "만약 B라면 A"는 조건문이므로, B가 거짓이면 A의 참 거짓에 영향을 미치지 않습니다.
 - 따라서 두 경우 모두에서 $A\vee\neg B$는 참이므로, $A \leftarrow B \Rightarrow A\vee\neg B$임을 증명했습니다.
