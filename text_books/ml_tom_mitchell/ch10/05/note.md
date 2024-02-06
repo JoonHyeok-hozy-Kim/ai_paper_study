@@ -21,7 +21,7 @@
       - ```while new_rule_neg do```
         - Add a new literal to specialize ```new_rule```.
           - ```candidate_literals``` $\leftarrow$ generate candidates for ```new_rule``` based on ```predicates```
-          - ```best_literal``` $`\displaystyle\leftarrow \; {\arg\max}_{L\in\textrm{candidate_literals}}\textrm{foil_gain}(L, \textrm{new_rule})`$ 
+          - ```best_literal``` $`\displaystyle\leftarrow \; {\arg\max}_{L\in candidate\_ literals}foil \_ gain(L, new\_ rule)`$ 
 - Props.)
   - It employs an approach very similar to [the Sequential Covering](../02/note.md#concept-sequential-covering-algorithms) and [Learn-one-rule](../02/note.md#concept-learn-one-rule) algorithms.
 
