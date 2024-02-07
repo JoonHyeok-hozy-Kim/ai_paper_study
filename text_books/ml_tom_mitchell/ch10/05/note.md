@@ -54,7 +54,7 @@
   - FOIL's inner loop corresponds to a variant of [the Learn-one-rule algorithm](../02/note.md#concept-learn-one-rule).
 - Differences
   - In its general-to-specific search to each new rule, FOIL employs different detailed steps to generate candidate specializations of the rule.
-  - FOIL employs a performance measure ```foil_gain()```
+  - FOIL employs a performance measure ```foil_gain()``` which differs from [the entropy measure used for Learn-one-rule's general-to-specific beam search](../02/note.md#concept-general-to-specific-beam-search).
 
 <br>
 
