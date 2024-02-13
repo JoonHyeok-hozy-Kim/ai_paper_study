@@ -154,6 +154,46 @@
 
 <br><br>
 
+## 4.2.3 F-Distribution
+- Desc.)
+  - The F-distribution was developed by Fisher to study the behavior of two variances from random samples taken from two independent normal populations
+- Application)
+  - Find out whether the population variances are equal or not, based on the response of the random samples.
+
+### Def. 4.2.3) F-distribution
+- Def.)
+  - Let $U$ and $V$ be chi-square random variables with $n_1$ and $n_2$ degrees of freedom, respectively.
+  - Then if $U$ and $V$ are independent, $`\displaystyle F = \frac{U/n_1}{V/n_2}`$ is said to have an F-distribution with $n_1$ numerator degrees of freedom and $n_2$ denominator degrees of freedom.
+- Notation)
+  - $F\sim F(n_1, n_2)$
+- Props.)
+  - pdf function of a random variable $X\sim F(n_1, n_2)$
+    - $`\displaystyle f(x)=\left\{ \begin{array}{ll} \frac{\Gamma((n_1+n_2)/2)}{\Gamma(n_1/2)\Gamma(n_2/2)} \left(\frac{n_1}{n_2}\right)^{n_1/2} x^{\frac{n_1}{2}-1} \left(1+\frac{n_1}{n_2}x\right)^{-(n_1+n_2)/2} && x \gt 0 \\ 0 && \textrm{elsewhere} \end{array} \right.`$
+
+- pdf Graph   
+  ![](images/010.png)
+
+- F-table and F-stat   
+  ![](images/011.png)
+
+<br>
+
+### Prop.) 
+![](images/012.png)
+
+<br>
+
+### Theorem 4.2.10)
+![](images/013.png)
+
+<br>
+
+### Corollary 4.2.11)
+![](images/014.png)
+
+
+<br><br>
+
 ### [Exercises](./exercises.md)
 
 <br><br>
