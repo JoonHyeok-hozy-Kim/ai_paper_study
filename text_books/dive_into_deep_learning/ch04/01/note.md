@@ -115,7 +115,7 @@
 
 ### 4.1.2.2. Softmax and Cross-Entropy Loss
 - Derivation)   
-  $`\displaystyle \begin{aligned} l(\mathbf{y}, \hat{\mathbf{y}}) &=  - \sum_{j=1}^q y_j \log \frac{\exp(o_j)}{\sum_{k=1}^q \exp(o_k)} \\ &= \sum_{j=1}^q y_j \log \sum_{k=1}^q \exp(o_k) - \sum_{j=1}^q y_j o_j \\ &= \log \sum_{k=1}^q \exp(o_k) \sum_{j=1}^q{y_j} - \sum_{j=1}^q y_j o_j \\ &= \log \sum_{k=1}^q \exp(o_k) - \sum_{j=1}^q y_j o_j \left(\because\sum_{j=1}^q{y_j}=1\right) \end{aligned}`$
+  $`\displaystyle \begin{aligned} l(\mathbf{y}, \hat{\mathbf{y}}) &=  - \sum_{j=1}^q y_j \log \frac{\exp(o_j)}{\sum_{k=1}^q{\exp(o_k)}} \\ &= \sum_{j=1}^q y_j \log \sum_{k=1}^q \exp(o_k) - \sum_{j=1}^q y_j o_j \\ &= \log \sum_{k=1}^q \exp(o_k) \sum_{j=1}^q{y_j} - \sum_{j=1}^q y_j o_j \\ &= \log \sum_{k=1}^q \exp(o_k) - \sum_{j=1}^q y_j o_j \left(\because\sum_{j=1}^q{y_j}=1\right) \end{aligned}`$
 - Consider the derivative w.r.t. $o_j$.
   - $`\begin{aligned} \partial_{o_j} l(\mathbf{y}, \hat{\mathbf{y}}) &= \partial_{o_j} \left( \log \sum_{k=1}^q \exp(o_k) - \sum_{j=1}^q y_j o_j \right) \\&= \frac{\exp(o_j)}{\sum_{k=1}^q \exp(o_k)} - y_j \\&= \mathrm{softmax}(\mathbf{o})_j - y_j \end{aligned}`$
     - i.e.) The difference between the probability assigned by our model and what actually happened. 
