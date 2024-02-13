@@ -85,7 +85,7 @@
   - i.e.) For $`\hat{\mathbf{y}}^{(i)} = \left[ \begin{array}{cccc} \hat{y}_{1}^{(i)}&\hat{y}_{2}^{(i)}& \cdots&\hat{y}_{q}^{(i)} \end{array} \right]`$
     - $`\hat{y}_{j}^{(i)} = P\left(y_j|\mathbf{x}^{(i)}\right), j=1,2,\cdots, q`$
   - why?)
-    - We used one-hot encoding to represent a label y with $q$ multiple values into a vector $\mathbf{y} \in \mathbb{R}^q$.
+    - We used one-hot encoding to represent a label $y$ with $q$ multiple values into a vector $\mathbf{y} \in \mathbb{R}^q$.
       - i.e.) $`y \in \{v_1, v_2, \cdot, v_q\} \rightarrow \mathbf{y} = \left[ \begin{array}{cccc} y_1&y_2& \cdots&y_q \end{array} \right]`$ 
         - where $`\displaystyle y_j \in \{0, 1\}, \sum_{j=1}^q{y_j}=1, \forall j=1,2,\cdots, q`$
     - Also, we normalized them using the softmax function.
