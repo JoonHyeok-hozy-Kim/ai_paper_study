@@ -146,7 +146,7 @@ One of the fundamental theorems of information theory states that in order to en
     - $P(j)=1 \Rightarrow -\log P(j) = 0$
   - However if we cannot perfectly predict every event, then we might sometimes be **surprised**.
   - Our surprise is greater when an event is assigned lower probability.
-    - $P(j)\approx1 \Rightarrow -\log P(j) \approx \infty$
+    - $P(j)\approx 0 \Rightarrow -\log P(j) \approx \infty$
   - Claude Shannon settled on $\log \frac{1}{P(j)} = -\log P(j)$ to quantify one’s surprisal at observing an event $j$ having assigned it a (subjective) probability $P(j)$
 
 <br><br>
@@ -157,7 +157,7 @@ One of the fundamental theorems of information theory states that in order to en
   - For 
     - $j$ : an event
     - $P(j)$ : the actual probability that $j$ may happen
-    - $H(j)$ : the subjective probability that $j$ may happen
+    - $Q(j)$ : the subjective probability that $j$ may happen
   - The Cross-Entropy from $P$ to $Q$ is the expected surprisal of an observer with subjective probabilities $Q$ upon seeing data that was actually generated according to probabilities $P$.
     - $H(P,Q)\equiv\sum_j P(j)(-\log{Q(j)})$
 
