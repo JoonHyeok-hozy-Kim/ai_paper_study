@@ -56,6 +56,44 @@
   - In its general-to-specific search to each new rule, FOIL employs different detailed steps to generate candidate specializations of the rule.
   - FOIL employs a performance measure ```foil_gain()``` which differs from [the entropy measure used for Learn-one-rule's general-to-specific beam search](../02/note.md#concept-general-to-specific-beam-search).
 
+<br><br>
+
+## 10.5.1 Generating Candidate Specializations in FOIL
+- Settings)
+  - Suppose we want to learn the following rule.
+    - $P(x_1, \cdots, x_k) \leftarrow L_1 \cdots L_n$
+      - where 
+        - $L_1 \cdots L_n$ are literals forming the current rule preconditions.
+        - $P(x_1, \cdots, x_k)$ is the literal that forms the rule head or prepositions ($\textrm{IF}$).
+- Generation)
+  - [FOIL](#concept-foil) generates candidate specializations of this rule by considering new literals $L_{n+1}$ that fit one of the following forms.
+    1. $Q(v_1, \cdots, v_r)$
+       - where 
+         - $Q$ is any predicate name occurring in ```predicates```
+         - $v_i$ are either new variables or variables already present in the rule.
+           - At least one of the $v_i$ in the created literal must already exist as a variable in the rule.
+    2. $Equal(x_j, x_k)$
+       - where $x_j, x_k$ are variables already present in the rule
+    3. The negation of either of the above forms of literals. 
+- e.g.)
+  - Objective)
+    - Learning rules to predict the target literal $GrandDaughter(x,y) \leftarrow$
+  - Procedure)
+    1. [FOIL](#concept-foil) specialize the initial rule of $GrandDaughter(x,y) \leftarrow$ by generating the following literals as candidate additions to the rule preconditions :
+       - $Equal ( x , y ) , Female(x), Female(y), Father(x, y), Father(y, x), Father(x, z), Father(z, x), Father(y, z), Father(z, y)$
+         - cf.) $z$ is a new variable where $x,y$ already exists within the rule.
+       - And the negations of the above.
+         - e.g.) $\neg Equal ( x , y ) ,\neg Female(x), \cdots$
+    2. FOIL greedily selects a candidate.
+       - Suppose $Father(y,z)$ is chosen.
+       - Then a more specific rule is derived : $GrandDaughter(x,y) \leftarrow Father(y,z)$
+    3. Again FOIL generates candidates that specialize the current rule $GrandDaughter(x,y) \leftarrow Father(y,z)$.
+       - Candidates include...
+         - All of the literals from the previous step : $Equal ( x , y ) , Female(x), Female(y), \cdots$
+         - Additional literals and their negations : $Female(z), Equal(z, x), \cdots, \neg Female(z), \neg Equal(z, x), \cdots$
+
+
+
 <br>
 
 * [Back to Machine Learning Tom Mitchell Main](../../main.md)
