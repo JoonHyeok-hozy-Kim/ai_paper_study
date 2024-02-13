@@ -87,7 +87,7 @@
   - why?)
     - We used one-hot encoding to represent a label $y$ with $q$ multiple values into a vector $\mathbf{y} \in \mathbb{R}^q$.
       - i.e.) $`y \in \{v_1, v_2, \cdots, v_q\} \rightarrow \mathbf{y} = \left[ \begin{array}{cccc} y_1&y_2& \cdots&y_q \end{array} \right]`$ 
-        - where $`\displaystyle y_j \in \{0, 1\}, \sum_{j=1}^q{y_j}=1, \forall j=1,2,\cdots, q`$
+        - where $`\displaystyle y_j \in \{0, 1\} \textrm{ and } \sum_{j=1}^q{y_j}=1, \forall j=1,2,\cdots, q`$
     - Also, we normalized them using the softmax function.
       - $\hat{\mathbf{y}} = \mathrm{softmax}(\mathbf{o}) \quad \textrm{where}\quad \hat{y}_i = \frac{\exp(o_i)}{\sum_j \exp(o_j)}$
     - Thus, $`\displaystyle \sum_{j=1}^q` \hat{y}_{j}^{(i)} = 1$, where $`\hat{\mathbf{y}}^{(i)} = \left[ \begin{array}{cccc} \hat{y}_{1}^{(i)}&\hat{y}_{2}^{(i)}& \cdots&\hat{y}_{q}^{(i)} \end{array} \right]`$.
