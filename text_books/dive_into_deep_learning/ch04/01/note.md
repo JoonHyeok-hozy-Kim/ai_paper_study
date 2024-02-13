@@ -64,7 +64,7 @@
         - where $`\mathbf{b} = \left[\begin{array}{cccc} b_{1}&b_{2}&\cdots&b_{q} \end{array}\right]`$
     - $\hat{\mathbf{Y}} = \mathrm{softmax}(\mathbf{O})$
       - $`\displaystyle \left[\begin{array}{c} \hat{\mathbf{y}_1} \\ \hat{\mathbf{y}_2} \\ \vdots \\ \hat{\mathbf{y}_n} \end{array}\right] = \left[\begin{array}{c} \mathrm{softmax}(\mathbf{o}_1) \\ \mathrm{softmax}(\mathbf{o}_2) \\ \vdots \\ \mathrm{softmax}(\mathbf{o}_n) \end{array}\right]`$
-        - where $`\mathbf{o}_i = \left[\begin{array}{cccc} o_{1}&o_{2}&\cdots&o_{q} \end{array}\right]`$
+        - where $`\mathbf{o}_i = \left[\begin{array}{cccc} o_{i1}&o_{i2}&\cdots&o_{iq} \end{array}\right]`$
 - cf.)
   - Care must be taken to avoid exponentiating and taking logarithms of large numbers, since this can cause numerical overflow or underflow.
 

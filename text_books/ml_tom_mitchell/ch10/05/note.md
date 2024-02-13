@@ -91,7 +91,7 @@
        - Candidates include...
          - All of the literals from the previous step : $Equal ( x , y ) , Female(x), Female(y),  \cdots$
          - Additional literals and their negations : $Female(z), Equal(z, x), Equal(z, y), Father(z, w), Father(w, z), \neg Female(z), \neg Equal(z, x), \cdots, \neg Father(w, z)$
-           - cf.) $w$ is a new variable differ from $x,y,z$.
+           - cf.) $w$ is a new variable different from $x,y,z$.
     4. FOIL greedily select literals throughout the following iterations.
        - Suppose, $Father(z, x)$ and $Female(y)$ are chosen in the next two iterations.
        - Then we have $GrandDaughter(x,y) \leftarrow Father(y,z) \wedge Father(z, x) \wedge Female(y)$
