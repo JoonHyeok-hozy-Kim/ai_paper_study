@@ -37,7 +37,7 @@
   - If data is plentiful, choose the **Sequential Covering Algorithm**. 
     - Why?) It may support the larger number of independent decisions required by the algorithm.
       - For the attributes $a,b,c$ with $n_a, n_b, n_c$ values respectively...
-        - $"a=a_1"$ vs $\cdots$ vs $"a=a_{n_a}"$ vs $"b=b_1"$ vs $\cdots$ vs $"b=b_{n_b}"$ vs $"c=c_1"$ vs $\cdots$ vs $"c=c_{n_c}"$
+        - $(a=a_1)$ vs $\cdots$ vs $(a=a_{n_a})$ vs $(b=b_1)$ vs $\cdots$ vs $(b=b_{n_b})$ vs $(c=c_1)$ vs $\cdots$ vs $(c=c_{n_c})$
   - If data is scarce, choose the **Decision Tree Algorithms**.
     - Why?) The "sharing" of decisions regarding preconditions of different rules may be more effective.
       - For the attributes $a,b,c$ with $n_a, n_b, n_c$ values respectively...

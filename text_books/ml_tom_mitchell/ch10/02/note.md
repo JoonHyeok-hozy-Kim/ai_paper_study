@@ -98,12 +98,12 @@
 - Desc.)
   - The CN2 Program used the an [General to Specific Beam Search](#concept-general-to-specific-beam-search) approach.
 - Algorithm)
-  - ```entropy(examples, target_attribute)```
+  - ```def entropy(examples, target_attribute):```
     - Return the entropy w.r.t. ```target_attribute```
-  - ```performance(h, examples, target_attribute)```
+  - ```def performance(h, examples, target_attribute):```
     - ```h_examples``` $\leftarrow$ the subset of ```examples``` that match ```h```
     - Return ```entropy(h_examples)```
-  - ```learn_one_rule(target_attribute, attributes, examples, k)```
+  - ```def learn_one_rule(target_attribute, attributes, examples, k):```
     - ```best_hypothesis``` $\leftarrow \emptyset$
     - ```candidate_hypotheses``` $\leftarrow$ ```{best_hypothesis}```
     - ```while``` ```candidate_hypotheses``` is not empty ```do```
