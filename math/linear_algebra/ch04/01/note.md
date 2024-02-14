@@ -114,7 +114,8 @@ $\textrm{Col}(A) = \lbrace A\mathbf{v} : \mathbf{v} \in \mathbb{R}^n\rbrace$
   - The row space of a matrix $A$ is the span of its rows. It is denoted by Row$`(A)`$.
 
 - e.g.)   
- <img src="images/007.png" width="500px"><img>
+
+<img src="images/007.png" width="500px"><img>
 
 <br>
 
