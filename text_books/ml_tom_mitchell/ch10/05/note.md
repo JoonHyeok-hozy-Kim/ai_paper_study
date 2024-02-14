@@ -137,7 +137,25 @@
         - Refer to [Entropy and Surprisal (Shannon, 1948)](../../../dive_into_deep_learning/ch04/01/note.md#4131-entropy) for more description.
       - $`(B) \; -\log_2{\frac{p_1}{p_1+n_1}}`$ is the minimum number of bits needed to encode the classification of an arbitrary positive binding among the bindings covered by rule $R'$.
       - Hence, $`(B)-(A) \; \left(\log_2{\frac{p_0}{p_0+n_0}}-\log_2{\frac{p_1}{p_1+n_1}}\right)`$ is the amount of bits reduced by adding $L$ to $R$.
-  - 
+
+<br><br>
+
+## 10.5.3 Learning Recursive Rule Sets
+### Concept) Recursive Rules
+- Def.)
+  - Rules that use the same predicate in the body and the head of the rule.
+- Why does this happens?)
+  - Our FOIL may add the ```target_predicate``` to ```predicates```.
+  - Then, FOIL will consider it as well when generating candidate literals.
+- e.g.)   
+  $`\begin{array}{ll}
+    \textrm{IF } Parent(x,y) && \textrm{ THEN } Ancestor(x,y) \\ \textrm{IF } Parent(x,z) \wedge Ancestor(z,y) && \textrm{ THEN } Ancestor(x,y)
+  \end{array}`$
+- Problem)
+  - Learning rule sets may produce infinite recursion.
+    - Still, whether this particular rule would be learned or not depends on whether these particular literals outscore competing candidates during FOIL'S greedy search for increasingly specific rules. 
+- Sol.)
+  - *Cameron-Jones and Quinlan (1993)* discuss several examples in which FOIL has successfully discovered recursive rule sets.
 
 
 <br>
