@@ -49,6 +49,16 @@
     - Then, $n \approx 15,000$.
 - Refer to [Tom Mitchell](../../../ml_tom_mitchell/ch07/03/note.md#concept-hoeffding-bounds) for the further reading.
 
+<br><br>
+
+## 4.6.2. Test Set Reuse
+### Concept) Adaptive Overfitting
+- Desc.)
+  - Once information from the test set has leaked to the modeler, it can never be a true test set again in the strictest sense.
+  - Consider the case that we are testing the $k$ classifier models $f_1, f_2, \cdots, f_k$.
+    - Can we reuse the test set for $f_2$ that we have already used for $f_1$?
+    - No.
+- [Reference](https://d2l.ai/chapter_references/zreferences.html#id353)
 
 
 <br>
