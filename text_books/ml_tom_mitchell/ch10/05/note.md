@@ -33,6 +33,8 @@
       - i.e.) It increases the number of instances that are classified as positive.
       - cf.) It can be seen as a specific-to-general search through the space of hypothesis.
   - ```FOIL```'s inner loop performs a finer-grained search to determine the exact definition of each new rule.
+    - [How FOIL generates candidates](#1051-generating-candidate-specializations-in-foil)
+    - [```foil_gain``` : How FOIL choose the best literal](#1052-guiding-the-search-in-foil)
     - It searches a second hypothesis space, consisting of conjunctions of literals to find a conjunction that will form the preconditions for the new rule.
       - Recall $(L_1\wedge\cdots\wedge L_n)$ in [the Horn clause](../04/note.md#1041-first-order-horn-clause).
       - It conducts a general-to-specific, hill-climbing search.
@@ -97,6 +99,45 @@
        - Then we have $GrandDaughter(x,y) \leftarrow Father(y,z) \wedge Father(z, x) \wedge Female(y)$
     5. Above iteration will terminate when there is no positive example left.
 
+<br><br>
+
+## 10.5.2 Guiding the Search in FOIL
+### Concept) FOIL Gain
+- Desc.)
+  - **FOIL Gain** is the evaluation function used by FOIL to estimate the utility of adding a new literal is based on **the numbers of positive and negative bindings** covered before and after adding the new literal.
+    - Recall that FOIL repeatedly [generates candidates for the best specialization literal](#1051-generating-candidate-specializations-in-foil) by adding new literals to the existing rule.
+    - After generating the candidates, it evaluates them using the ```foil_gain``` function.
+- Notation)
+  - Concept) Binding
+    - Def.)
+      - Assigning constants to variables in a rule
+    - How?)
+      - Suppose we have a rule $GrandDaughter(x,y) \leftarrow$ and four constants $Victor, Sharon, Bob, \textrm{ and } Tom$
+      - Then, the rule has two variables $x$ and $y$, and they can be bound with four constants each.
+        - i.e.) 16 possible cases
+    - Notation)
+      - $`\{x/Victor, y/Sharon\}`$
+        - $x,y$ are bound with $Victor, Sharon$ respectively.
+- Def.)
+  - Let
+    - $R$ : a rule
+    - $L$ : a candidate literal that might be added to the body of $R$
+    - $R'$ : the rule created by adding literal $L$ to rule $R$
+    - $p_0$ : the number of positive bindings of rule $R$
+    - $n_0$ : the number of negative bindings of $R$
+    - $p_1$ : the number of positive bindings of rule $R'$
+    - $n_1$ : the number of negative bindings of $R'$
+    - $t$ : the number of positive bindings of rule $R$ that are still covered after adding literal $L$ to $R$
+  - Then 
+    - $`Foil\_Gain(L, R) \equiv t\left(\log_2{\frac{p_1}{p_1+n_1}}-\log_2{\frac{p_0}{p_0+n_0}}\right)`$
+- Prop.)
+  - $`Foil\_Gain(L, R)`$ can be seen as the reduction due to $L$ in the total number of bits needed to encode the classification of all positive bindings of $R$. 
+    - Why?)
+      - $`(A) \; -\log_2{\frac{p_0}{p_0+n_0}}`$ is the minimum number of bits needed to encode the classification of an arbitrary positive binding among the bindings covered by rule $R$.
+        - Refer to [Entropy and Surprisal (Shannon, 1948)](../../../dive_into_deep_learning/ch04/01/note.md#4131-entropy) for more description.
+      - $`(B) \; -\log_2{\frac{p_1}{p_1+n_1}}`$ is the minimum number of bits needed to encode the classification of an arbitrary positive binding among the bindings covered by rule $R'$.
+      - Hence, $`(B)-(A) \; \left(\log_2{\frac{p_0}{p_0+n_0}}-\log_2{\frac{p_1}{p_1+n_1}}\right)`$ is the amount of bits reduced by adding $L$ to $R$.
+  - 
 
 
 <br>
