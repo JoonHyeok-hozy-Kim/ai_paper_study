@@ -120,6 +120,7 @@
 |10.3|[Learning Rule Sets : Summary](./ch10/03/note.md)|- Sequential-Covering Algorithm vs Decision Tree Learning Algorithms (ID3) <br>- Simultaneous Covering Algorithm<br>- Generate-Then-Test vs Example-Driven <br>- Whether and how rules are post-pruned? <br>- Rule Performance Evaluation : Relative Frequency, m-Estimate of Accuracy, Entropy|
 |10.4|[Learning First-Order Rules](./ch10/04/note.md)|- Inductive Logic Program (ILP)<br>- First-Order Horn Clause and Terminologies|
 |10.5|[Learning Sets of First-Order Rules: FOIL](./ch10/05/note.md)|- FOIL : Foil_Gain, Recursive Rules <br>|
+|10.6|[Induction as Inverted Deduction](./ch10/06/note.md)|- |
 
 
 
