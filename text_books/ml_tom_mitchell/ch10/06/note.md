@@ -22,7 +22,7 @@
   - Then
     - $`(\forall \langle x_i, f(x_i) \rangle \in D) (B \wedge h \wedge x_i) \vdash f(x_i)`$
       - i.e.) Then **learning** is the problem of discovering a hypothesis $h$, such that the classification $f(x_i)$ of each training instance $x_i$ follows deductively from the hypothesis $h$, the description of $x_i$, and any other background knowledge $B$ known to the system.
-- e.g.)
+#### e.g.) Child(u,v)
   - Settings)
     - Suppose we want to learn a target concept...
       - $Child(u,v)$ : pairs of people $\langle u, v \rangle$ such that the child of $u$ is $v$
@@ -38,6 +38,28 @@
     - $`x_i : Male(Bob), Female(Sharon), Father(Sharon, Bob)`$
     - $`f(x_i) : Child(Bob, Sharon)`$
     - $`B : Parent(u,v) \leftarrow Father(u,v)`$
+  - Among many possible hypotheses, following two satisfy the constraint $(B \wedge h \wedge x_i) \vdash f(x_i)$
+    - $h_1 : Child(u,v)\leftarrow Father(v,u)$
+    - $h_2 : Child(u,v)\leftarrow Parent(v,u)$
+      - cf.) Refer to [Constructive Induction below](#concept-constructive-induction) for more description
+
+<br>
+
+### Concept) Constructive Induction
+- Def.)
+  - The process of augmenting the set of predicates, based on background knowledge
+- E.g.)
+  - Consider the case of learning $Child(u,v)$ [above](#eg-childuv).
+    - $h_1 : Child(u,v)\leftarrow Father(v,u)$
+      - cf.)
+        - Entailed by $h_1\wedge x_i$.
+        - $B$ not needed.
+    - $h_2 : Child(u,v)\leftarrow Parent(v,u)$
+      - cf.)
+        - Entailed by $B\wedge h_2 \wedge x_i$.
+        - Cannot be deducted solely from $h_2 \wedge x_i$.
+        - This is how the background knowledge expands the set of acceptable hypotheses for a given set of training data.
+
 
 <br>
 
