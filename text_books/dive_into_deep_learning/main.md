@@ -43,8 +43,8 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 |4.3|[The Base Classification Model](./ch04/03/note.md)|```Classifier```, ```accuracy()```|
 |4.4|[Softmax Regression Implementation from Scratch](./ch04/04/note.md)|The Softmax Implementation, The Cross-Entropy Loss|
 |4.5|[Concise Implementation of Softmax Regression](./ch04/05/note.md)|Overflow/Under Flow Prevention|
-|4.6|[Generalization in Classification](./ch04/06/note.md)|Empirical/Population Error <br> Hoeffding Bound|
-
+|4.6|[Generalization in Classification](./ch04/06/note.md)|- Empirical/Population Error <br>- Hoeffding Bound|
+|4.7|[Environment and Distribution Shift](./ch04/07/note.md)|- Distribution Shift : Covariate / Label / Concept Shift |
 
 
 <br><br>
