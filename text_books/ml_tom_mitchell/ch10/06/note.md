@@ -15,7 +15,7 @@
   - Let
     - $`D = \{\langle x_i, f(x_i) \rangle : \exists i\}`$ : some data
       - where 
-        - $x_i$ : the $i$th training instance
+        - $x_i$ : the $i$-th training instance
         - $f(x_i)$ : the target value of $x_i$
     - $B$ : some partial background knowledge
     - $h$ : the target hypothesis we want to learn
