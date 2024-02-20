@@ -83,12 +83,14 @@
   - Recall our model training process.
   - We iterate over features and associated labels of training data $`\{(\mathbf{x}_1, y_1), \ldots, (\mathbf{x}_n, y_n)\}`$.
   - Then, we update the parameters of a model $`f`$ after every minibatch by minimizing the loss by $`\displaystyle\textrm{minimize}_f \frac{1}{n} \sum_{i=1}^n l(f(\mathbf{x}_i), y_i)`$
+    - where $l$ is the loss function measuring how bad the prediction $f(\mathbf{x})$ is given the associated label $y_i$.
+  - However, in practice we typically cannot obtain the **entire population of data**. 
+  - Thus, empirical risk minimization, which is minimizing the [empirical risk](#concept-empirical-risk) in, is a practical strategy for machine learning, with the hope of approximately minimizing the [risk](#concept-risk).
 
 #### Concept) Risk
 - Def.)
   - The expectation of the loss over the entire population of data drawn from their true distribution $p(\mathbf{x},y)$.
     - i.e.) $`\displaystyle E_{p(\mathbf{x}, y)} [l(f(\mathbf{x}), y)] = \int\int l(f(\mathbf{x}), y) p(\mathbf{x}, y) \;d\mathbf{x}dy`$
-      - where $l$ is the loss function measuring how bad the prediction $f(\mathbf{x})$ is given the associated label $y_i$.
 
 #### Concept) Empirical Risk
 - Def.)
