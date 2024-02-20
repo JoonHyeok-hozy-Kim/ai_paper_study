@@ -121,7 +121,7 @@
 |10.4|[Learning First-Order Rules](./ch10/04/note.md)|- Inductive Logic Program (ILP)<br>- First-Order Horn Clause and Terminologies|
 |10.5|[Learning Sets of First-Order Rules: FOIL](./ch10/05/note.md)|- FOIL : Foil_Gain, Recursive Rules <br>|
 |10.6|[Induction as Inverted Deduction](./ch10/06/note.md)|- Constructive Induction : $`(\forall \langle x_i, f(x_i) \rangle \in D) (B \wedge h \wedge x_i) \vdash f(x_i)`$ <br>- Inverse Entailment Operator : $O(B, D)$|
-|10.7|[Inverting Resolution](./ch10/07/note.md)|- Resolution Rule <br> - Resolution Operator|
+|10.7|[Inverting Resolution](./ch10/07/note.md)|- Resolution Rule $`\left(\begin{array}{ccc} P & \vee & L \\ \neg L & \vee & R \\ \hline P & \vee & R \end{array}\right)`$, Resolution Operator <br> - Unifying Substitution, First-Order Resolution|
 
 
 

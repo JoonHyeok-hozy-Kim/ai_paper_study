@@ -60,13 +60,67 @@
   - By the definition of the resolution operator,
     1. Any literal occurred in $C$ but not in $C_1$ must be present in $C_2$.
     2. The **negation** of any literal occurred in $C_1$ but not in $C$ must be present in $C_2$.
-  - Then there can be multiple clauses that satisfies the condition of $C_2$.
+  - Then there can be multiple clauses that satisfy the condition of $C_2$.
     - $C_2=A \vee \neg D$
     - $C_2=A \vee \neg D \vee B$
   - A heuristic for choosing among the alternatives...
     - Prefer shorter clauses over longer clauses
     - Assume $C_2$ shares no literals in common with $C_1$
       - Thus, $C_2=A \vee \neg D$
+
+<br><br>
+
+## 10.7.1 First-Order Resolution
+- Objective)
+  - Extending the [resolution rule](#concept-resolution-rule) to [first-order expressions](../02/note.md#concept-first-order-rule).
+
+<br>
+
+#### Concept) Substitution
+- Def.)
+  - Mapping of variables to terms
+- e.g.)
+  - $`\theta = \left\{ x/Bob, y/z \right\}`$
+    - The variable $x$ is to be replaced with $Bob$. 
+    - The variable $y$ is to be replaced by the term $z$.
+- Notation)
+  - Let $W$ be an expression.
+  - Then, $W\theta$ denotes the result of applying the substitution $\theta$ to $W$.
+    - e.g.)
+      - Let $L$ is the literal $Father(x, Bill)$ and $`\theta = \left\{ x/Bob, y/z \right\}`$.
+      - Then, $L\theta = Father(Bob, Bill)$.
+
+<br>
+
+#### Concept) Unifying Substitution
+- Def.)
+  - $\theta$ is a **unifying substitution** for two literals $L_1$ and $L_2$, provided $L_1\theta = L_2\theta$.
+    - where $\theta$ is a [substitution](#concept-substitution).
+- e.g.)
+  - Let
+    - $L_1=Father(x,y)$
+    - $L_2=Father(Bill,z)$
+    - $`\theta=\{x/Bill,z/y\}`$
+  - Then $L_1\theta = Father(Bill, y) =L_2\theta$.
+  - Thus, $\theta$ is an unifying substitution.
+
+<br>
+
+### Tech) Resolution Rule with Unifying Substitution
+- Idea)
+  - Recall that we derived a resolvent $C$ from the clauses $C_1, C_2$ using the [resolution rule](#concept-resolution-rule).
+  - In first-order resolution, the [unifying substitution](#concept-unifying-substitution) generalizes to finding one literal $L_1$ from clause $C_1$ and one literal $L_2$ from $C_2$ for some unifying substitution $\theta$ such that $L_1\theta = \neg L_2\theta$.
+- How?)
+  - Let
+    - $C_1, C_2$ : clauses
+    - $L_1, L_2$ : literals from $C_1, C_2$
+    - $\theta$ : a substitution such that $L_1\theta = \neg L_2 \theta$
+  - Then, $`C=(C_1-\{L_1\})\theta \cup (C_2-\{L_2\})\theta`$
+- e.g.)
+  - Suppose
+    - $C_1=White(x)\leftarrow Swan(x)$
+    - $C_2=Swan(Fred)$
+  - Consider that $C_1=White(x)\leftarrow Swan(x)$ is [equivalent](../04/pf.md) to $C_1=White(x) \vee \neg Swan(x)$.
 
 
 <br>
