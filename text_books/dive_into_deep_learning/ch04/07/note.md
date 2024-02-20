@@ -6,6 +6,10 @@
 - Assumption)
   - The training data was sampled from some distribution $p_S(\mathbf{x}, y)$
   - The test data consists of unlabeled examples drawn from $p_T(\mathbf{x}, y)$
+- Types)
+  - [Covariate Shift](#4711-covariate-shift)
+  - [Label Shift](#4712-label-shift)
+  - [Concept Shift](#4713-concept-shift)
 
 ### 4.7.1.1 Covariate Shift
 - Assumption)
@@ -15,21 +19,80 @@
 - Prop.)
   - The problem arises due to a shift in the distribution of the covariates (features).
 - e.g.)
-  - The training set consists of photos, while the test set contains only cartoons.
-  - Training on a dataset with substantially different characteristics from the test set can spell trouble absent a coherent plan for how to adapt to the new domain.
+  1. The training set consists of photos, while the test set contains only cartoons.
+     - Training on a dataset with substantially different characteristics from the test set can spell trouble absent a coherent plan for how to adapt to the new domain.
+  2. [Medical Diagnostics](#4721-medical-diagnostics) below.
 
 
 ### 4.7.1.2 Label Shift
+- Assumption)
+  - The label marginal $P(y)$ can change but the class-conditional distribution $P(\mathbf{x}|y)$ remains fixed across domains.
+- Prop.)
+  - Label shift is applicable to cases when we believe that $y$ causes $\mathbf{x}$.
+- e.g.)
+  - Consider the case that we want to predict diagnoses given their symptoms.
+  - And the relative prevalence of diagnoses are changing over time.
+
+
 ### 4.7.1.3 Concept Shift
+- Assumption)
+  - The definitions of labels change.
+- e.g.)
+  - The distribution of names for soft drinks in the United States.
+    - In this case, if we were to build a machine translation system, the distribution $P(y|\mathbf{x})$ might be different depending on our location.
 
+<br><Br>
 
+## 4.7.2 Examples of Distribution Shift
+### 4.7.2.1 Medical Diagnostics
+- Situation)
+  - You are to develop a **blood test for a disease** that predominantly affects older men and hoped to study it using blood samples that they had collected from patients.
+  - You collect data from **healthy** and **sick** people and you train your algorithm.
+  - It is more difficult to obtain blood samples from healthy men than from sick patients already in the system.
+- Problem)
+  - It would \be easy to distinguish between the healthy and sick cohorts with near-perfect accuracy. 
+  - However, that is because the test subjects **differed in** age, hormone levels, physical activity, diet, alcohol consumption, and many more **factors unrelated to the disease**.
+  - This was unlikely to be the case with real patients. 
+  - Due to their sampling procedure, we could expect to encounter extreme [covariate shift](#4711-covariate-shift).
 
+<br>
 
+### 4.7.2.2 Detecting Tanks in the Forest
+- Situation)
+  - The US Army tried to detect tanks in the forest.
+  - They took aerial photographs of the forest without tanks, then drove the tanks into the forest and took another set of pictures.
+  - The classifier appeared to work perfectly.
+- Problem)
+  - Unfortunately, it had merely learned how to distinguish trees with shadows from trees without shadows—the first set of pictures was taken in the early morning, the second set at noon.
 
+<br>
 
+### 4.7.2.3 Nonstationary Distributions
+- Desc.)
+  - The distribution changes slowly (also known as nonstationary distribution) and the model is not updated adequately.
+- e.g.)
+  - We train a computational advertising model and then fail to update it frequently (e.g., we forget to incorporate that an obscure new device called an iPad was just launched).
+  - We build a spam filter. It works well at detecting all spam that we have seen so far. But then the spammers wise up and craft new messages that look unlike anything we have seen before.
+  - We build a product recommendation system. It works throughout the winter but then continues to recommend Santa hats long after Christmas.
 
+<br><br>
 
+## 4.7.3 Corrections of Distribution Shift
+### 4.7.3.1 Empirical Risk and Risk
+- Problem)
+  - Recall our model training process.
+  - We iterate over features and associated labels of training data $`\{(\mathbf{x}_1, y_1), \ldots, (\mathbf{x}_n, y_n)\}`$.
+  - Then, we update the parameters of a model $`f`$ after every minibatch by minimizing the loss by $`\displaystyle\textrm{minimize}_f \frac{1}{n} \sum_{i=1}^n l(f(\mathbf{x}_i), y_i)`$
 
+#### Concept) Risk
+- Def.)
+  - The expectation of the loss over the entire population of data drawn from their true distribution $p(\mathbf{x},y)$.
+    - i.e.) $`\displaystyle E_{p(\mathbf{x}, y)} [l(f(\mathbf{x}), y)] = \int\int l(f(\mathbf{x}), y) p(\mathbf{x}, y) \;d\mathbf{x}dy`$
+      - where $l$ is the loss function measuring how bad the prediction $f(\mathbf{x})$ is given the associated label $y_i$.
+
+#### Concept) Empirical Risk
+- Def.)
+  - An average loss over the training data for approximating the [risk](#concept-risk).
 
 
 
