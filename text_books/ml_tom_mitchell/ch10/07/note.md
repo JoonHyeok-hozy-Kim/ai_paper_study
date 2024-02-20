@@ -132,7 +132,7 @@
 <br><br>
 
 ## 10.7.2 Inverting Resolution: First-Order Case
-### Concept) Inverse Resolution
+### Concept) Inverse Resolution Rule for First-Order Logic
 - Def.)
   - $`C_2 = \left(C-\left(C_1-\{L_1\}\right)\theta_1\right)\theta_2^{-1} \cup \{\neg L_1 \theta_1 \theta_2^{-1}\}`$
     - where 
@@ -151,7 +151,45 @@
   - By the definition of the [resolution rule](#concept-resolution-operator), $L_2 = \neg L_1\theta_1\theta_2^{-1}$.
   - Thus,   
     $`\displaystyle\begin{array}{lll} & C-(C_1-\{L_1\})\theta_1=(C_2-\{L_2\})\theta_2 & \\ \Rightarrow & (C-(C_1-\{L_1\})\theta_1)\theta_2^{-1} = C_2-\{L_2\} & \\ \Rightarrow & (C-(C_1-\{L_1\})\theta_1)\theta_2^{-1} = C_2-\{\neg L_1\theta_1\theta_2^{-1}\} & \because L_2 = \neg L_1\theta_1\theta_2^{-1} \\ \Rightarrow & C_2 = (C-(C_1-\{L_1\})\theta_1)\theta_2^{-1} \cup \{\neg L_1\theta_1\theta_2^{-1}\} & \because C_2 \textrm{ contains no literals in common with } C_1 \end{array}`$
-
+- Prop.)
+  - This inverse entailment operator is nondeterministic.
+    - i.e.) In applying it, we may in general find multiple choices for the clause $C_1$ to be resolved and for the unifying substitutions $\theta_1$ and $\theta_2$.
+      - Each set of choices may yield a different solution for $C_2$.
+- e.g.)
+  - Suppose we wish to learn rules for the target predicate $GrandChild(y,x)$, 
+    - given 
+      - $D=GrandChild(Bob,Shannon)$ : the training data
+      - $`B=\{Father(Shannon, Tom), Father(Tom,Bob)\}`$ : the background information 
+    - Problem Setting)
+      - We want to get an hypothesis $h$ such that $`O(B,D)=h \textrm{ where }(\forall \langle x_i, f(x_i) \rangle \in D) (B \wedge h \wedge x_i) \vdash f(x_i)`$
+      - We may solve this problem by iteratively using the [inverse entailment operator](#tech-inverting-resolution-operator-to-form-inverse-entailment-operator) for each background knowledge in $B$.
+        1. Get $C_{21} = O(C_{11}, C)$ 
+           - where $C=B=GrandChild(Bob,Shannon)$
+           - and $C_{11} = Father(Shannon, Tom)$
+        2. Get $C_{22} = O(C_{12}, C_{21})$
+           - where $C_{12} = Father(Tom,Bob)$
+    - Sol.)
+      1. Get $C_{21} = O(C_{11}, C)$ where $C=B=GrandChild(Bob,Shannon)$ and $C_{11} = Father(Shannon, Tom)$
+         - We should find $L_{11}$ that appears in $C_{11}$ but not in $C$.
+           - $L_{11}=Father(Shannon, Tom)$ is the only choice for $L_{11}$.
+         - Suppose we choose the inverse substitutions as follows.
+           - $`\theta_{11}^{-1} = \{\}`$
+           - $`\theta_{12}^{-1} = \{Shannon/x\}`$
+         - Recall that $C_{21} = (C-(C_{11}-\{L_{11}\})\theta_{11})\theta_{12}^{-1} \cup \{\neg L_{11}\theta_{11}\theta_{12}^{-1}\}$.
+           1. $`\begin{array}{lll} (C-(C_{11}-\{L_{11}\})\theta_{11})\theta_{12}^{-1} & = C\theta_{12}^{-1} & \because C_{11} = L_{11} \\ &= GrandChild(Bob,x) \end{array}`$
+           2. $`\begin{array}{lll} \{\neg L_{11}\theta_{11}\theta_{12}^{-1}\} &= \{\neg L_{11}\theta_{12}^{-1}\} & \because \theta_{11} = \{\} \\ &= \neg Father(x, Tom) \end{array}`$
+         - Thus, $C_{21} = GrandChild(Bob,x) \vee \neg Father(x, Tom)$.
+      2. Get $C_{22} = O(C_{12}, C_{21})$ where $C_{12} = Father(Tom,Bob)$
+         - We should find $L_{21}$ that appears in $C_{12}$ but not in $C_{21}$.
+           - Again, $L_{21}= Father(Tom,Bob)$ is the only choice.
+         - Suppose we choose the inverse substitutions as follows.
+           - $`\theta_{21}^{-1} = \{\}`$
+           - $`\theta_{22}^{-1} = \{Bob/y, Tom/z\}`$
+         - Again, $C_{22} = (C_{21}-(C_{12}-\{L_{12}\})\theta_{21})\theta_{22}^{-1} \cup \{\neg L_{12}\theta_{21}\theta_{22}^{-1}\}$.
+           1. $`\begin{array}{lll} (C_{21}-(C_{12}-\{L_{12}\})\theta_{21})\theta_{22}^{-1} &= C_{21}\theta_{22}^{-1} & \because C_{12}=L_{12} \\&=GrandChild(y,x) \vee\neg Father(x,z) \end{array}`$
+           2. $`\begin{array}{lll} \{\neg L_{12}\theta_{21}\theta_{22}^{-1}\} &= \{\neg L_{12}\theta_{22}^{-1}\} & \because \theta_{21} = \{\} \\ &= \neg Father(z, y) \end{array}`$
+         - Thus, $`\begin{array}{lll} C_{22} &= GrandChild(y,x) \vee\neg Father(x,z) \vee \neg Father(z, y) &\\&= GrandChild(y,x) \vee (\neg Father(x,z) \vee \neg Father(z, y)) &\\&= GrandChild(y,x) \vee \neg(Father(x,z) \wedge Father(z, y)) &\\&= GrandChild(y,x) \leftarrow (Father(x,z) \wedge Father(z, y)) \end{array}`$.
+    - $\therefore GrandChild(y,x) \leftarrow (Father(x,z) \wedge Father(z, y))$
 
 
 <br>
