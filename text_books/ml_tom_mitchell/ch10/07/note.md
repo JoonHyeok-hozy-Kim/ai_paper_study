@@ -121,6 +121,13 @@
     - $C_1=White(x)\leftarrow Swan(x)$
     - $C_2=Swan(Fred)$
   - Consider that $C_1=White(x)\leftarrow Swan(x)$ is [equivalent](../04/pf.md) to $C_1=White(x) \vee \neg Swan(x)$.
+  - Now, put 
+    - $L_1 = \neg Swan(x)$
+    - $L_2 = Swan(x)$
+    - $`\theta=\{x/Fred\}`$
+  - Then $L_1\theta = \neg Swan(Fred) = \neg L_2\theta$.
+  - Thus, by the definition of the resolution rule, $`C = (C_1-\{L_1\}) \cup (C_2-\{L_2\}) = White(x)`$
+    - where $(C_1-\{L_1\}) = White(x)$ and $(C_2-\{L_2\}) = \emptyset$.
 
 
 <br>
