@@ -63,7 +63,7 @@
   - Then there can be multiple clauses that satisfy the condition of $C_2$.
     - $C_2=A \vee \neg D$
     - $C_2=A \vee \neg D \vee B$
-  - A heuristic for choosing among the alternatives...
+  - A **heuristic** for choosing among the alternatives...
     - Prefer shorter clauses over longer clauses
     - Assume $C_2$ shares no literals in common with $C_1$
       - Thus, $C_2=A \vee \neg D$
@@ -110,7 +110,7 @@
 - Idea)
   - Recall that we derived a resolvent $C$ from the clauses $C_1, C_2$ using the [resolution rule](#concept-resolution-rule).
   - In first-order resolution, the [unifying substitution](#concept-unifying-substitution) generalizes to finding one literal $L_1$ from clause $C_1$ and one literal $L_2$ from $C_2$ for some unifying substitution $\theta$ such that $L_1\theta = \neg L_2\theta$.
-- How?)
+- The Equation)
   - Let
     - $C_1, C_2$ : clauses
     - $L_1, L_2$ : literals from $C_1, C_2$
@@ -126,8 +126,32 @@
     - $L_2 = Swan(x)$
     - $`\theta=\{x/Fred\}`$
   - Then $L_1\theta = \neg Swan(Fred) = \neg L_2\theta$.
-  - Thus, by the definition of the resolution rule, $`C = (C_1-\{L_1\}) \cup (C_2-\{L_2\}) = White(x)`$
-    - where $(C_1-\{L_1\}) = White(x)$ and $(C_2-\{L_2\}) = \emptyset$.
+  - Thus, by the definition of the [resolution rule](#concept-resolution-operator), $`C = (C_1-\{L_1\})\theta \cup (C_2-\{L_2\})\theta = White(Fred)`$
+    - where $(C_1-\{L_1\}) = White(Fred)$ and $(C_2-\{L_2\}) = \emptyset$.
+
+<br><br>
+
+## 10.7.2 Inverting Resolution: First-Order Case
+### Concept) Inverse Resolution
+- Def.)
+  - $`C_2 = \left(C-\left(C_1-\{L_1\}\right)\theta_1\right)\theta_2^{-1} \cup \{\neg L_1 \theta_1 \theta_2^{-1}\}`$
+    - where 
+      - $\theta_1$ contains all **substitutions** involving variables from clause $C_1$.
+      - $\theta_2$ contains all **substitutions** involving variables from clause $C_2$.
+- Derivation)
+  - [Recall the equation](#tech-resolution-rule-with-unifying-substitution) $`C=(C_1-\{L_1\})\theta \cup (C_2-\{L_2\})\theta`$.
+  - Put $\theta_1, \theta_2$ such that $\theta_1\theta_2 = \theta$
+    - where 
+      - $\theta_1$ contains all **substitutions** involving variables from clause $C_1$.
+      - $\theta_2$ contains all **substitutions** involving variables from clause $C_2$.
+  - Then we can rewrite the equation as
+    - $`C=(C_1-\{L_1\})\theta_1 \cup (C_2-\{L_2\})\theta_2`$
+  - Now if we restrict inverse resolution to infer only clauses $C_2$ that contain no literals in common with $C_1$([the heuristic at the bottom](#tech-inverting-resolution-operator-to-form-inverse-entailment-operator)), then we can re-express the above as 
+    - $`C-(C_1-\{L_1\})\theta_1=(C_2-\{L_2\})\theta_2`$
+  - By the definition of the [resolution rule](#concept-resolution-operator), $L_2 = \neg L_1\theta_1\theta_2^{-1}$.
+  - Thus,   
+    $`\displaystyle\begin{array}{lll} & C-(C_1-\{L_1\})\theta_1=(C_2-\{L_2\})\theta_2 & \\ \Rightarrow & (C-(C_1-\{L_1\})\theta_1)\theta_2^{-1} = C_2-\{L_2\} & \\ \Rightarrow & (C-(C_1-\{L_1\})\theta_1)\theta_2^{-1} = C_2-\{\neg L_1\theta_1\theta_2^{-1}\} & \because L_2 = \neg L_1\theta_1\theta_2^{-1} \\ \Rightarrow & C_2 = (C-(C_1-\{L_1\})\theta_1)\theta_2^{-1} \cup \{\neg L_1\theta_1\theta_2^{-1}\} & \because C_2 \textrm{ contains no literals in common with } C_1 \end{array}`$
+
 
 
 <br>
