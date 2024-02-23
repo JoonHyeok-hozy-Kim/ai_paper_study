@@ -198,6 +198,53 @@
 
 ![](images/001.png)
 
+<br><br>
+
+## 10.7.4 Generalization, θ-Subsumption, and Entailment
+- Objective)
+  - Relationship between the [more-general-than](../../ch02/03/note.md#def-more-general-than-or-equal-to) relation, the [inverse entailment](../06/note.md#106-induction-as-inverted-deduction), and the [$\theta$-substitution](#concept-substitution)
+- Concepts)
+  - [more-general-than](../../ch02/03/note.md#def-more-general-than-or-equal-to) : $\ge_g$
+    - Def.)
+      - Let $h_j$ and $h_k$ be boolean-valued functions defined over $X$. Then $h_j$ is **more_general_than_or_equal_to** $h_k$ (written $h_j \ge_g h_k$) if and only if $(\forall x \in X)[(h_k(x) = 1) \rightarrow (h_j(x)=1)]$.
+  - $\theta$-Subsumption
+    - Def.)
+      - Let $C_j, C_k$ be clauses both from $H\vee L_1\vee\cdots L_n$
+        - where
+          - $H$ : a positive literal
+          - $L_i$ : arbitrary literals
+      - Clause $C_j$ is said to $\theta$-subsume clause $C_k$ iff. there exists a [substitution](#concept-substitution) $\theta$ such that $C_j\theta \subseteq C_k$.
+  - [Entailment](../06/note.md#106-induction-as-inverted-deduction)
+    - Def.)
+      - Let $C_j, C_k$ be clauses.
+      - Clause $C_j$ is said to **entail** clause $C_k$ iff. $C_k$ follows deductively from $C_j$.
+    - Notation)
+      - $C_j\vdash C_k$
+
+<br>
+
+#### Analysis) More-General-Than in First-Order Notation
+- Settings)
+  - $c(x)$ : some target concept
+  - $h(x)$ : a boolean-valued hypothesis for $c(x)$
+    - where $h(x)$ is expressed by a conjunction of literals
+- Analysis)
+  1. Re-expressing $\ge_g$ with First-Order Notation
+     - $c(x)\leftarrow h(x)$
+       - Assumptions)
+         - $x$ is classified a negative example if it cannot be proven to be a positive example.
+           - cf.) PROGOL
+       - Interpretation)
+         - $h(x)$ applies to the precondition of a [Horn clause](../04/note.md#prop-horn-clause-representation)
+         - $c(x)$ applies to the implicit postcondition of a Horn clause.
+           - Recall, $H\leftarrow(L_i\vee\cdots\vee L_n)$
+  2. Relationship between the [more-general-than($\ge_g$)](../../ch02/03/note.md#def-more-general-than-or-equal-to) relation and the [$\theta$-substitution](#concept-substitution)
+     - If $h_1 \ge_g h_2$, then the clause $C_1$ $\theta$-subsumes the clause $C_2$
+       - where $C_1: c(x)\leftarrow h_1(x)$
+         - and $C_2: c(x)\leftarrow h_2(x)$
+
+
+
 <br>
 
 * [Back to Machine Learning Tom Mitchell Main](../../main.md)
