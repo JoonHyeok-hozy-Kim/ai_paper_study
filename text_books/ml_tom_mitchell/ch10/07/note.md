@@ -203,6 +203,8 @@
 ## 10.7.4 Generalization, θ-Subsumption, and Entailment
 - Objective)
   - Relationship between the [more-general-than](../../ch02/03/note.md#def-more-general-than-or-equal-to) relation, the [inverse entailment](../06/note.md#106-induction-as-inverted-deduction), and the [θ-substitution](#concept-substitution)
+- Conclusion)
+  - More-general-than is a special case of $\theta$-subsumption, which is itself a special case of entailment.
 - Concepts)
   - [more-general-than](../../ch02/03/note.md#def-more-general-than-or-equal-to) : $\ge_g$
     - Def.)
@@ -224,8 +226,6 @@
 <br>
 
 #### Analysis) More-General-Than in First-Order Notation
-- Conclusion)
-  - More-general-than is a special case of $\theta$-subsumption, which is itself a special case of entailment.
 - Settings)
   - $c(x)$ : some target concept
   - $h(x)$ : a boolean-valued hypothesis for $c(x)$
