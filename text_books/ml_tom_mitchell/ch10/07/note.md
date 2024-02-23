@@ -254,7 +254,7 @@
          - i.e.) $`A\theta \subseteq B \Rightarrow A\vdash B`$
          - But the opposite is not true.
            - e.g.)
-             - $`\begin{array}{cll} A:& Elephant(father_of(x)) & \leftarrow Elephant(x) \\ B : & Elephant(father_of(father_of(y)))& \leftarrow Elephant(y) \end{array}`$
+             - $`\begin{array}{cll} A:& Elephant(father\_of(x)) & \leftarrow Elephant(x) \\ B : & Elephant(father\_of(father\_of(y)))& \leftarrow Elephant(y) \end{array}`$
                - Although $B$ can be proven by $A$, $\nexists\theta$ such that $`A\theta \subseteq B`$
 
 
