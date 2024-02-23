@@ -238,10 +238,24 @@
          - $h(x)$ applies to the precondition of a [Horn clause](../04/note.md#prop-horn-clause-representation)
          - $c(x)$ applies to the implicit postcondition of a Horn clause.
            - Recall, $H\leftarrow(L_1\vee\cdots\vee L_n)$
-  2. Relationship between the [more-general-than($\ge_g$)](../../ch02/03/note.md#def-more-general-than-or-equal-to) relation and the [$\theta$-substitution](#concept-substitution)
-     - If $h_1 \ge_g h_2$, then the clause $C_1$ $\theta$-subsumes the clause $C_2$
-       - where $C_1: c(x)\leftarrow h_1(x)$
-         - and $C_2: c(x)\leftarrow h_2(x)$
+  2. Relationship between the [more-general-than](../../ch02/03/note.md#def-more-general-than-or-equal-to) relation and the [θ-substitution](#concept-substitution)
+     1. For $C_1: c(x)\leftarrow h_1(x)$ and $C_2: c(x)\leftarrow h_2(x)$
+        - If $h_1 \ge_g h_2$, then the clause $C_1$ $\theta$-subsumes the clause $C_2$
+     2. $\theta$-subsumption holds even when the clauses have different heads.
+        - e.g.)
+          - $`\begin{array}{cll} A : & Mother(x,y) & \leftarrow Father(x,z) \wedge Spouse(z,y) \\ B : & Mother(x,Louise) & \leftarrow Father(x,Bob) \wedge Spouse(Bob,y) \wedge Female(x) \end{array}`$
+            - In the above case, $`A \; \theta\textrm{-subsumes } B`$.
+              - i.e.) $A$ is more general than $B$.
+            - why?)
+              - $A\theta \subseteq B$ if we choose $`\theta=\{y/Louise, z/Bob\}`$
+  3. Relationship between the [θ-substitution](#concept-substitution) and the entailment
+     - Prop.) 
+       - $\theta$-subsumption is a special case of entailment.
+         - i.e.) $`A\theta \subseteq B \Rightarrow A\vdash B`$
+         - But the opposite is not true.
+           - e.g.)
+             - $`\begin{array}{cll} A:& Elephant(father_of(x)) & \leftarrow Elephant(x) \\ B : & Elephant(father_of(father_of(y)))& \leftarrow Elephant(y) \end{array}`$
+               - Although $B$ can be proven by $A$, $\nexists\theta$ such that $`A\theta \subseteq B`$
 
 
 
