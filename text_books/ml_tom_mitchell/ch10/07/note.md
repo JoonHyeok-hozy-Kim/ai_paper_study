@@ -237,7 +237,7 @@
        - Interpretation)
          - $h(x)$ applies to the precondition of a [Horn clause](../04/note.md#prop-horn-clause-representation)
          - $c(x)$ applies to the implicit postcondition of a Horn clause.
-           - Recall, $H\leftarrow(L_i\vee\cdots\vee L_n)$
+           - Recall, $H\leftarrow(L_1\vee\cdots\vee L_n)$
   2. Relationship between the [more-general-than($\ge_g$)](../../ch02/03/note.md#def-more-general-than-or-equal-to) relation and the [$\theta$-substitution](#concept-substitution)
      - If $h_1 \ge_g h_2$, then the clause $C_1$ $\theta$-subsumes the clause $C_2$
        - where $C_1: c(x)\leftarrow h_1(x)$
