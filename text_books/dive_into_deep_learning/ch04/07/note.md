@@ -22,6 +22,7 @@
   1. The training set consists of photos, while the test set contains only cartoons.
      - Training on a dataset with substantially different characteristics from the test set can spell trouble absent a coherent plan for how to adapt to the new domain.
   2. [Medical Diagnostics](#4721-medical-diagnostics) below.
+- [Covariate Shift Correction](#4732-covariate-shift-correction)
 
 
 ### 4.7.1.2 Label Shift
@@ -32,6 +33,7 @@
 - e.g.)
   - Consider the case that we want to predict diagnoses given their symptoms.
   - And the relative prevalence of diagnoses are changing over time.
+- [Label Shift Correction](#4733-label-shift-correction)
 
 
 ### 4.7.1.3 Concept Shift
@@ -40,6 +42,7 @@
 - e.g.)
   - The distribution of names for soft drinks in the United States.
     - In this case, if we were to build a machine translation system, the distribution $P(y|\mathbf{x})$ might be different depending on our location.
+- [Concept Shift Correction](#4734-concept-shift-correction)
 
 <br><Br>
 
@@ -96,6 +99,31 @@
 - Def.)
   - An average loss over the training data for approximating the [risk](#concept-risk).
 
+<br>
+
+### 4.7.3.2 Covariate Shift Correction
+- Assumptions)
+  - Suppose we have labeled data $(\mathbf{x}_i, y_i)$.
+  - We want to estimate some dependency $P(y|\mathbf{x})$.
+  - However, the observations $\mathbf{x}_i$ are drawn from some source distribution $q(\mathbf{x})$.
+    - Not the target distribution $p(\mathbf{x})$ we are looking for.
+  - Still, the dependency assumption means that the conditional distribution does not change.
+    - Thus, $p(y|\mathbf{x})=q(y|\mathbf{x})$
+  - Thus, if $p\ne q$, we can correct this as follows.
+    - $`\begin{aligned} \int\int l(f(\mathbf{x}), y) p(y \mid \mathbf{x})p(\mathbf{x}) \;d\mathbf{x}dy = \int\int l(f(\mathbf{x}), y) q(y \mid \mathbf{x})q(\mathbf{x})\frac{p(\mathbf{x})}{q(\mathbf{x})} \;d\mathbf{x}dy\end{aligned}`$
+      - i.e.)
+        - Reweigh each data example by the **ratio** of the probability that it would have been drawn from the correct distribution to that from the wrong one.
+        - Ratio : $\displaystyle\beta_i \stackrel{\textrm{def}}{=} \frac{p(\mathbf{x}_i)}{q(\mathbf{x}_i)}$
+  - Then, with the weight $\beta_i$, we can train our model using weighted empirical risk minimization:
+    - $`\mathop{\mathrm{minimize}}_f \frac{1}{n} \sum_{i=1}^n \beta_i l(f(\mathbf{x}_i), y_i)`$
+
+<br>
+
+### 4.7.3.3 Label Shift Correction
+
+<br>
+
+### 4.7.3.4 Concept Shift Correction
 
 
 
