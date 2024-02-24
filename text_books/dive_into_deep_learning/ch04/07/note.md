@@ -115,7 +115,7 @@
         - Reweigh each data example by the **ratio** of the probability that it would have been drawn from the correct distribution to that from the wrong one.
         - Ratio : $\displaystyle\beta_i \stackrel{\textrm{def}}{=} \frac{p(\mathbf{x}_i)}{q(\mathbf{x}_i)}$
   - Then, with the weight $\beta_i$, we can train our model using weighted empirical risk minimization:
-    - $`\mathop{\mathrm{minimize}}_f \frac{1}{n} \sum_{i=1}^n \beta_i l(f(\mathbf{x}_i), y_i)`$
+    - $`\displaystyle\mathop{\mathrm{minimize}}_f \frac{1}{n} \sum_{i=1}^n \beta_i l(f(\mathbf{x}_i), y_i)`$
 
 <br>
 
