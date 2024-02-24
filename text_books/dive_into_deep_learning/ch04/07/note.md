@@ -102,7 +102,7 @@
 <br>
 
 ### 4.7.3.2 Covariate Shift Correction
-- Assumptions)
+- Desc.)
   - Suppose we have labeled data $(\mathbf{x}_i, y_i)$.
   - We want to estimate some dependency $P(y|\mathbf{x})$.
   - However, the observations $\mathbf{x}_i$ are drawn from some source distribution $q(\mathbf{x})$.
@@ -116,7 +116,42 @@
         - Ratio : $\displaystyle\beta_i \stackrel{\textrm{def}}{=} \frac{p(\mathbf{x}_i)}{q(\mathbf{x}_i)}$
   - Then, with the weight $\beta_i$, we can train our model using weighted empirical risk minimization:
     - $`\displaystyle\mathop{\mathrm{minimize}}_f \frac{1}{n} \sum_{i=1}^n \beta_i l(f(\mathbf{x}_i), y_i)`$
-
+  - But, we do not know $\beta_i$.
+    - Many methods are available
+      - e.g.)
+        - some fancy operator-theoretic approaches that attempt to recalibrate the expectation operator directly using a minimum-norm or a maximum entropy principle.
+      - Note that for any such approach, we need samples drawn from both distributions
+        1. The **true** $p$
+        2. The one used for generating the training set $q$ (trivially available)
+      - Note that we only need features $\mathbf{x}\sim p(\mathbf{x})$.
+        - We do not need to access labels $y\sim p(y)$.
+    - Use logistic regression.
+      - Why?)
+        - If it is impossible to distinguish between the two distributions, $p$ and $q$, then it means that the associated instances are equally likely to come from either one of those two distributions.
+          - On the other hand, any instances that can be well discriminated should be significantly overweighted or underweighted accordingly.
+      - How?)
+        - Assumption)
+          - For simplicity, assume that we have an equal number of instances from both distributions $p(\mathbf{x})$ and $q(\mathbf{x})$ respectively.
+          - Each data example in the target (e.g., test time) distribution had nonzero probability of occurring at training time.
+            - cf.) If we find a point where $p(\mathbf{x})\gt 0, q(\mathbf{x})=0$, then $\beta \rightarrow \infty$
+        - Settings)
+          - $`z= \left\lbrace \begin{array}{ll} 1 & \textrm{if data is drawn from } p \\ -1 & \textrm{else} \end{array} \right.`$
+            - $`\displaystyle P(z=1 \mid \mathbf{x}) = \frac{p(\mathbf{x})}{p(\mathbf{x})+q(\mathbf{x})} \textrm{ and hence } \frac{P(z=1 \mid \mathbf{x})}{P(z=-1 \mid \mathbf{x})} = \frac{p(\mathbf{x})}{q(\mathbf{x})}`$
+          - Logistic Regression Approach : $`\displaystyle P(z=1 \mid \mathbf{x})=\frac{1}{1+\exp(-h(\mathbf{x}))}`$
+            - Then, $`\displaystyle \beta_i = \frac{1/(1 + \exp(-h(\mathbf{x}_i)))}{\exp(-h(\mathbf{x}_i))/(1 + \exp(-h(\mathbf{x}_i)))} = \exp(h(\mathbf{x}_i))`$
+        - Training)
+          - Suppose we have 
+            - $`\{(\mathbf{x}_1, y_1), \cdots, (\mathbf{x}_n, y_n)\}`$ : a training set
+              - $`\mathbf{x}_i\sim q, \; 1\le i\le n`$ (i.e. drawn from the source distribution)
+            - $`\{\mathbf{u}_1, \cdots, \mathbf{u}_m\}`$ : an unlabeled test set 
+              - $`\mathbf{u}_i\sim p, \; 1\le i\le n`$ (i.e. drawn from the target distribution)
+          - Procedure)
+            1. Create a binary-classification training set:   
+              $`\{(\mathbf{x}_1, -1), \ldots, (\mathbf{x}_n, -1), (\mathbf{u}_1, 1), \ldots, (\mathbf{u}_m, 1)\}`$ 
+            2. Train a binary classifier using logistic regression to get the function $`h`$.
+            3. Weigh training data using $`\beta_i = \exp(h(\mathbf{x}_i))`$ or better $`\beta_i = \min(\exp(h(\mathbf{x}_i)), c)`$ for some constant $`c`$.
+            4. Use weights :math:`\beta_i` for training on $`\{(\mathbf{x}_1, y_1), \ldots, (\mathbf{x}_n, y_n)\}`$ in $`\displaystyle\mathop{\mathrm{minimize}}_f \frac{1}{n} \sum_{i=1}^n \beta_i l(f(\mathbf{x}_i), y_i)`$
+    
 <br>
 
 ### 4.7.3.3 Label Shift Correction
