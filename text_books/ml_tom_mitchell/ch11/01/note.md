@@ -60,8 +60,20 @@
       - However, in **practice** this calculation can be frustratingly complex and despite the fact that we humans ourselves possess this complete, perfect knowledge of chess, we remain unable to play the game optimally.
       - As a result, much of human learning in chess involves a long process of uncovering the consequences of our prior knowledge, guided by specific training examples encountered as we play the game.
 
+<br><br>
 
-
+## 11.1.1 Inductive and Analytical Learning Problems
+### Analysis) Inductive Learning Problem vs Analytical Learning Problem
+- Differences in Formulations of the Learning Problem
+  |IO|[Inductive Learning Program](../../ch10/04/note.md#concept-inductive-logic-program-ilp)|[Analytical Learning Program (EBL)](#concept-explanation-based-learning-ebl)|
+  |:-:|-|-|
+  |Input|- $H$ : a hypothesis space <br> - $`D=\{\langle x_1, f(x_1)\rangle, \cdots, \langle x_n, f(x_n)\rangle\}`$ : training examples|- $H$ : a hypothesis space <br> - $`D=\{\langle x_1, f(x_1)\rangle, \cdots, \langle x_n, f(x_n)\rangle\}`$ : training examples <br> - $B$ : a domain theory consisting of background knowledge that can be used to explain observed training examples.|
+  |Output|- $h\in H$ consistent with $D$|- $h\in H$ consistent with both $D$ and $B$|
+- Prop.)
+  - $H$ is defined to consist of sets of [Horn clauses](../../ch10/04/note.md#prop-horn-clause-representation).
+  - If $B$ does not entail the negation of $h$ $`(\textrm{i.e. } B \nvdash \neg h)`$, then $h$ is consistent with $B$.
+    - Effect)
+      - If the domain theory $B$ is correct, then it increases the accuracy of the output hypothesis.
 
 
 

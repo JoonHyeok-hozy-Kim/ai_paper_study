@@ -65,8 +65,7 @@
          - Then, $H\vee\neg({L_1}\wedge\cdots\wedge{L_n}) = H\leftarrow({L_1}\wedge\cdots\wedge{L_n})$
   - i.e.) $`\textrm{IF } {L_1}\wedge\cdots\wedge{L_n}\textrm{ THEN }H`$
 - Term)
-  - ${L_1}\wedge\cdots\wedge{L_n}$ : the clause body or the clause antecedents
-  - $
+  - ${L_1}\wedge\cdots\wedge{L_n}$ : the clause body or the clause antecedents.
 
 ### Props.) First-Order Logic
 - Every well-formed expression is composed of constants, variables, predicates, and functions.
@@ -76,8 +75,32 @@
   - Notation) $L\theta$ : the result of substitution $\theta$ to $L$
     - where $\theta$ is a substitution and $L$ is a literal. 
 
+<br>
 
-
+#### E.g.) Safe to Stack Learning
+- Settings)
+  - $X$ : an instance space
+  - $x\in X$ : an instance $x$ is a pair of physical objects.
+    - Each of two physical objects is described by the predicates $`Color, Volume, Owner, Material, Type, Density`$.
+    - The relationship between the two objects is described by the predicate $On$.
+  - $H$ : the hypothesis space
+    - Each hypothesis $h\in H$ is a set of Horn clause rules.
+      - The head of each Horn clause is a literal containing the target predicate $SafeToStack$.
+        - i.e.) $SafeToStack(x,y) \leftarrow (\textrm{Body})$
+      - The body of each Horn clause is a conjunction of... 
+        1. Literals based on the same predicates used to describe the instances : $`Color, Volume, Owner, Material, Type, Density`$
+        2. Other predicates : $LessThan, Equal, GreaterThan$
+        3. Functions : $plus, minus, times$
+      - e.g.)
+        - $SafeToStack(x, y) \leftarrow Volume(x, vx) \wedge Volume(y, vy) \wedge LessThan(vx, vy)$
+  - Target Concept)
+    - $SafeToStack(x,y)$ : pairs of physical objects, such that one can be stacked safely on the other
+  - $D$ : training examples
+    - $`D=\left\{\begin{array}{lll} On(Obj1, Obj2) & Owner(Obj1, Fred) & Type(Obj I, Box) \\ Owner(Obj2, Louise) & Type(Obj2, Endtable) & Density(Obj1 ,0.3) \\ Color(Obj1, Red) &Material(Obj1, Cardboard) & Color(Obj2, Blue) \\ Material (Obj2, Wood) & Volume(Objl,2) & \cdots \end{array} \right\}`$
+  - $B$ : the domain theory
+    - $`B=\left\{\begin{array}{l} SafeToStack(x,y) \leftarrow \neg Fragile(y) \\ SafeToStack(x,y) \leftarrow Lighter(x,y) \\ Lighter(x,y) \leftarrow Weight(x, wx) \wedge Weight(y,wy)\wedge LessThan(wx, wy) \\ Weight(x,w) \leftarrow Volume(x,v) \wedge Density(x,d) \wedge Equal(w,times(v,d)) \\ Weight(x,5) \leftarrow Type(x, Endtable) \\ Fragile(x) \leftarrow Material(x, Glass) \\ \vdots \end{array}\right\}`$
+- Determine)
+  - A hypothesis $h\in H$ consistent with the training examples and domain theory. 
 
 
 <br>
