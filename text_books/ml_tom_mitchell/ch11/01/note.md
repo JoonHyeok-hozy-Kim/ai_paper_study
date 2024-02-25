@@ -51,6 +51,14 @@
         - Humans provide the information needed to **rationally** generalize from the details of the training example to a correct general hypothesis.
           - Explanations **relevant** to the target concepts are mentioned.
           - Ones **irrelevant** to the target concepts are NOT mentioned.
+  - Then what is the prior knowledge?
+    - It is simply knowledge about the legal rules of chess: 
+      - Which moves are legal for the knight and other pieces. 
+      - Players must alternate moves in the game.
+      - To win the game, one player must capture his opponent's king.
+    - Given just this prior knowledge it is possible in **principle** to calculate the optimal chess move for any board position.
+      - However, in **practice** this calculation can be frustratingly complex and despite the fact that we humans ourselves possess this complete, perfect knowledge of chess, we remain unable to play the game optimally.
+      - As a result, much of human learning in chess involves a long process of uncovering the consequences of our prior knowledge, guided by specific training examples encountered as we play the game.
 
 
 
