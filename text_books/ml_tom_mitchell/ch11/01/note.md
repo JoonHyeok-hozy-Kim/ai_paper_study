@@ -36,12 +36,21 @@
   - Consider a chess program.
   - We want it to learn to recognize the target concept : "chessboard positions in which black will lose its queen within two moves"
     - e.g.)   
-      <img src="images/001.png" width="500px"></img>
+      <img src="images/001.png" width="300px"></img>
   - Learning such concept is complex in the inductive learning's perspective.
     - why?)
       - The chessboard is fairly complex.
       - The particular patterns that capture this concept are fairly subtle.
       - We would have to provide thousands of training examples similar to the one above to expect an inductively learned hypothesis to generalize correctly to new situations.
+  - But we humans learn such target concepts from just a handful of training examples.
+    - How humans can **generalize** so successfully from just few examples?
+      - People rely heavily on **explaining** the training example in terms of their **prior knowledge** about the legal moves of chess.
+        - e.g.)
+          - "Because white's knight is attacking both the king and queen, black must move out of check, thereby allowing the knight to capture the queen."
+      - i.e.)
+        - Humans provide the information needed to **rationally** generalize from the details of the training example to a correct general hypothesis.
+          - Explanations **relevant** to the target concepts are mentioned.
+          - Ones **irrelevant** to the target concepts are NOT mentioned.
 
 
 
