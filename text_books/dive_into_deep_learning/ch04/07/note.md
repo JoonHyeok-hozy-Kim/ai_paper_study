@@ -10,6 +10,9 @@
   - [Covariate Shift](#4711-covariate-shift)
   - [Label Shift](#4712-label-shift)
   - [Concept Shift](#4713-concept-shift)
+---
+
+<br><br>
 
 ### 4.7.1.1 Covariate Shift
 - Assumption)
@@ -24,6 +27,8 @@
   2. [Medical Diagnostics](#4721-medical-diagnostics) below.
 - [Covariate Shift Correction](#4732-covariate-shift-correction)
 
+<br><br>
+
 
 ### 4.7.1.2 Label Shift
 - Assumption)
@@ -35,6 +40,8 @@
   - And the relative prevalence of diagnoses are changing over time.
 - [Label Shift Correction](#4733-label-shift-correction)
 
+<br><br>
+
 
 ### 4.7.1.3 Concept Shift
 - Assumption)
@@ -44,7 +51,7 @@
     - In this case, if we were to build a machine translation system, the distribution $P(y|\mathbf{x})$ might be different depending on our location.
 - [Concept Shift Correction](#4734-concept-shift-correction)
 
-<br><Br>
+<br><br>
 
 ## 4.7.2 Examples of Distribution Shift
 ### 4.7.2.1 Medical Diagnostics
@@ -150,11 +157,26 @@
               $`\{(\mathbf{x}_1, -1), \ldots, (\mathbf{x}_n, -1), (\mathbf{u}_1, 1), \ldots, (\mathbf{u}_m, 1)\}`$ 
             2. Train a binary classifier using logistic regression to get the function $`h`$.
             3. Weigh training data using $`\beta_i = \exp(h(\mathbf{x}_i))`$ or better $`\beta_i = \min(\exp(h(\mathbf{x}_i)), c)`$ for some constant $`c`$.
-            4. Use weights :math:`\beta_i` for training on $`\{(\mathbf{x}_1, y_1), \ldots, (\mathbf{x}_n, y_n)\}`$ in $`\displaystyle\mathop{\mathrm{minimize}}_f \frac{1}{n} \sum_{i=1}^n \beta_i l(f(\mathbf{x}_i), y_i)`$
+            4. Use weights $`\beta_i`$ for training on $`\{(\mathbf{x}_1, y_1), \ldots, (\mathbf{x}_n, y_n)\}`$ in $`\displaystyle\mathop{\mathrm{minimize}}_f \frac{1}{n} \sum_{i=1}^n \beta_i l(f(\mathbf{x}_i), y_i)`$
     
 <br>
 
 ### 4.7.3.3 Label Shift Correction
+- Assumptions)
+  - Task : A classification task with $k$ categories
+  - $q$ : the source distribution
+  - $p$ : the target distribution
+  - The distribution of labels shifts over time : $q(y) \ne p(y)$
+  - The class-conditional distribution stays the same : $`q(\mathbf{x}|y) = p(\mathbf{x}|y)`$
+- Problem)
+  - The source distribution $q(y)$ is wrong!
+- Sol.)
+  - We can modify the identity that we derived from the [Covariate Shift Correction](#4732-covariate-shift-correction) above.
+    - $`\begin{aligned} \int\int l(f(\mathbf{x}), y) p(\mathbf{x} \mid y)p(y) \;d\mathbf{x}dy = \int\int l(f(\mathbf{x}), y) q(\mathbf{x} \mid y)q(y)\frac{p(y)}{q(y)} \;d\mathbf{x}dy\end{aligned}`$
+  - The new ratio : $\displaystyle\beta_i \stackrel{\textrm{def}}{=} \frac{p(y_i)}{q(y_i)}$
+
+
+
 
 <br>
 
