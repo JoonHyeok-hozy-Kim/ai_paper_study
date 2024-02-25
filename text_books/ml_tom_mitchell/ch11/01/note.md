@@ -25,8 +25,23 @@
 ### Concept) Explanation-Based Learning (EBL)
 - Desc.)
   - It uses prior knowledge to **explain** each training example in order to infer which example features are relevant to the target function and which are irrelevant.
-  - These explanations enable it to generalize more accurately than inductive systems that rely on the data alone.
-
+  - These **explanations** enable it to generalize more accurately than inductive systems that rely on the data alone.
+- Prop.) 
+  - Background Knowledge Usage Comparison with the [ILP](../../ch10/04/note.md#concept-inductive-logic-program-ilp)
+    - **ILP** used prior background knowledge to **increase** the complexity of the hypothesis space to be searched.
+      - How?)
+        - By infer features that augment the input descriptions of instances
+    - **EBL** uses prior knowledge to **reduce** the complexity of the hypothesis space to be searched, thereby reducing sample complexity and improving generalization accuracy of the learner. 
+- e.g.) Chess
+  - Consider a chess program.
+  - We want it to learn to recognize the target concept : "chessboard positions in which black will lose its queen within two moves"
+    - e.g.)   
+      <img src="images/001.png" width="500px"></img>
+  - Learning such concept is complex in the inductive learning's perspective.
+    - why?)
+      - The chessboard is fairly complex.
+      - The particular patterns that capture this concept are fairly subtle.
+      - We would have to provide thousands of training examples similar to the one above to expect an inductively learned hypothesis to generalize correctly to new situations.
 
 
 
