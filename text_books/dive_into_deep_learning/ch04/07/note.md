@@ -159,7 +159,7 @@
             3. Weigh training data using $`\beta_i = \exp(h(\mathbf{x}_i))`$ or better $`\beta_i = \min(\exp(h(\mathbf{x}_i)), c)`$ for some constant $`c`$.
             4. Use weights $`\beta_i`$ for training on $`\{(\mathbf{x}_1, y_1), \ldots, (\mathbf{x}_n, y_n)\}`$ in $`\displaystyle\mathop{\mathrm{minimize}}_f \frac{1}{n} \sum_{i=1}^n \beta_i l(f(\mathbf{x}_i), y_i)`$
     
-<br>
+<br><br>
 
 ### 4.7.3.3 Label Shift Correction
 - Assumptions)
@@ -173,17 +173,60 @@
 - Sol.)
   - We can modify the identity that we derived from the [Covariate Shift Correction](#4732-covariate-shift-correction) above.
     - $`\begin{aligned} \int\int l(f(\mathbf{x}), y) p(\mathbf{x} \mid y)p(y) \;d\mathbf{x}dy = \int\int l(f(\mathbf{x}), y) q(\mathbf{x} \mid y)q(y)\frac{p(y)}{q(y)} \;d\mathbf{x}dy\end{aligned}`$
-  - The new ratio : $\displaystyle\beta_i \stackrel{\textrm{def}}{=} \frac{p(y_i)}{q(y_i)}$
+      - The new ratio : $\displaystyle\beta_i \stackrel{\textrm{def}}{=} \frac{p(y_i)}{q(y_i)}$
+  - Now, in order to estimate $\beta_i$, we need to estimate $p(y)$ and $q(y)$.
+    1. Estimating $q(y)$
+       - Because we observe the labels on the source data, it is easy to estimate the distribution $q(y)$.
+    2. Estimating $p(y)$
+       - Concept) Confusion Matrix, $\mathbf{C}$
+         - Def.)
+           - $`\mathbf{C}=\left[ c_{ij} \right] \in \mathbb{R}^{k\times k}`$
+             - where
+               - $k$ : the number of label categories
+               - $c_{ij}$ : the fraction of total predictions on the validation set where the true label was $j$ and our model predicted $i$
+         - Prop.)
+           - We cannot calculate $\mathbf{C}$ on the target data directly.
+             - why?)
+               - We cannot see the labels for the examples that we see in the population, unless we implement a complex real-time annotation pipeline.
+           - Instead, average all of our model’s predictions at test time together.
+           - Yield the mean model outputs $`\mu(\hat{\mathbf{y}}) = \left[ \mu(\hat{y_1}) \; \cdots \; \mu(\hat{y_k}) \right]\in \mathbb{R}^k`$
+             - where $\mu(\hat{y_i})$ is the fraction of the total predictions on the test set that our model predicted $i$
+       - With the following additional assumptions...
+         1. Our classifier was reasonably accurate in the first place
+         2. The target data contains only categories that we have seen before.
+         3. The label shift assumption holds in the first place.
+       - We can estimate the test set label distribution by solving the following linear system.
+         - $\mathbf{C} p(\mathbf{y}) = \mu(\hat{\mathbf{y}})$
+           - How?)
+             - An estimate $`\displaystyle\mu(\hat{y_i}) = \sum_{j=1}^k{c_{ij}p(y_j)}`$ holds for all $i$
+               - where $`p(\mathbf{y}) = \left[ p(y_1) \; \cdots \; p(y_k) \right] \in \mathbb{R}^k`$
+         - Hence, we can finally get $p(\mathbf{y}) = \mathbf{C}^{-1}\mu(\hat{\mathbf{y}})$
+           - cf.) $\mathbf{C}$ is invertible if our classifier is sufficiently accurate.
+       - Therefore, estimate $p(\mathbf{y}) = \mathbf{C}^{-1}\mu(\hat{\mathbf{y}})$.
+  - With the estimated $\displaystyle\beta_i \stackrel{\textrm{def}}{=} \frac{p(y_i)}{q(y_i)}$, solve the weighted empirical risk minimization problem.
+    - $`\displaystyle\mathop{\mathrm{minimize}}_f \frac{1}{n} \sum_{i=1}^n \beta_i l(f(\mathbf{x}_i), y_i)`$
 
 
 
 
-<br>
+<br><br>
 
 ### 4.7.3.4 Concept Shift Correction
+- Assumption)
+  - [Concept shifts](#4713-concept-shift) take place gradually.
+    - e.g.) Real world cases...
+      - In computational advertising, new products are launched, old products become less popular. This means that the distribution over ads and their popularity changes gradually and any click-through rate predictor needs to change gradually with it.
+      - Traffic camera lenses degrade gradually due to environmental wear, affecting image quality progressively.
+      - News content changes gradually (i.e., most of the news remains unchanged but new stories appear).
+- Sol.)
+  - We can use the same approach that we used for training networks to make them adapt to the change in the data.
+    - i.e.) Use the existing network weights and simply perform a few update steps with the new data rather than training from scratch.
 
 
+<br><br>
 
+
+## 4.7.4 A Taxonomy of Learning Problems
 
 
 <br>
