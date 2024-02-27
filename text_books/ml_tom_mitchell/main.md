@@ -128,7 +128,15 @@
 ## 11. Analytical Learning
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|11.1|[Introduction](./ch11/01/note.md)|- Explanation-Based Learning (EBL)|
+|11.1|[Introduction](./ch11/01/note.md)|- Explanation-Based Learning (EBL) <br> - ILP vs EBL|
+|11.2|[Learning with Perfect Domain Theories : PROLOG-EBG](./ch11/02/note.md)|- Domain Theory <br> - PROLOG-EBG|
+
+<br>
+
+## 12. Combining Inductive and Analytical Learning
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|12.1|[Introduction](./ch12/01/note.md)|- |
 
 
 
