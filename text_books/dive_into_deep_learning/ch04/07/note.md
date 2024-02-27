@@ -227,6 +227,61 @@
 
 
 ## 4.7.4 A Taxonomy of Learning Problems
+### 4.7.4.1 Batch Learning
+- Training data will be given in a format $`\{(\mathbf{x}_1, y_1), \cdots, (\mathbf{x}_n, y_n)\}`$
+- We train a model $f(\mathbf{x})$.
+- Then, we deploy this model to score new data $(\mathbf{x},y)$ drawn from the same distribution.
+- This is the default assumption for any of the problems that we discuss here. 
+
+<br>
+
+### 4.7.4.2 Online Learning
+- Only one sample is provided each time.
+  - i.e.) Batches with the sizes of $1$.
+- Procedure)
+  - At a time period $t$, we have 
+    - $f_t$ : our model at $t$.
+    - $`(\mathbf{x}_t, y_t)`$ : a sample given
+  - Estimate $f_t(\mathbf{x}_t)$.
+  - Get loss $`l(y_t, f_t(\mathbf{x}_t))`$.
+  - Minimize the loss and update our model into $f_{t+1}$
+
+<br>
+
+### 4.7.4.3 Bandits
+- In a **bandit problem** we only have a finite number of arms that we can pull.
+  - i.e.) We can take a finite number of actions.
+  - cf.) In most learning problems we have a continuously parametrized function $f$ where we want to learn parameters.
+- Since the problem is simpler, it guarantees stronger theoretical optimality.
+- Bandit problem is often (confusingly) treated as if it were a distinct learning setting.
+
+<br>
+
+### 4.7.4.4 Control
+- In many cases the environment remembers what we did.
+- This is due to algorithms form a model of the environment in which they act so as to make their decisions appear less random.
+  - e.g.) PID (proportional-integral-derivative) controller algorithms
+- Recently, control theory (e.g., PID variants) has also been used to automatically tune hyperparameters to achieve better disentangling and reconstruction quality, and improve the diversity of generated text and the reconstruction quality of generated images.
+  - *ControlVAE: controllable variational autoencoder* (Shao et al., 2020)
+
+
+<br>
+
+### 4.7.4.5 Reinforcement Learning
+- Environments trying to cooperate with the users.
+  - e.g.) Chess, Go, Backgammon, and StarCraft
+
+<br>
+
+### 4.7.4.6 Considering the Environment
+- A strategy that might have worked throughout in the case of a stationary environment, might not work throughout in an environment that can adapt.
+  - e.g.) An arbitrage opportunity discovered by a trader is likely to disappear once it is exploited.
+- In such case, the speed and manner at which the environment changes determines to a large extent the type of algorithms that we can bring to bear.
+  - e.g.) If we know that things may only change slowly, we can force any estimate to change only slowly, too.
+
+<br><br>
+
+## 4.7.5 Fairness, Accountability, and Transparency in Machine Learning
 
 
 
