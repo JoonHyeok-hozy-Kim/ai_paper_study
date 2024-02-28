@@ -35,7 +35,14 @@ from d2l import torch as d2l
   - Goal)
     - Find the weight vector $\mathbf{w}$ and the bias term $b$ such that the new example’s label will (in expectation) be predicted with the smallest error, given features of a new data example sampled from the same distribution as $\mathbf{X}$.
 - Prop.)
+  - The above model is an [affine transformation of input features](#concept-affine-transformation-of-input-features).
   - Even when we are confident that the underlying relationship is linear, we will incorporate a noise term to account for errors.
+
+<br>
+
+#### Concept) Affine Transformation of Input Features
+- Def.)
+  - A transformation that preserves collinearity (i.e., all points lying on a line initially still lie on a line after transformation) and ratios of distances (e.g., the midpoint of a line segment remains the midpoint after transformation).
 
 
 <br>

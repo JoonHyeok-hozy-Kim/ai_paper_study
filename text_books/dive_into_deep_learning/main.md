@@ -25,7 +25,7 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 ## 3. Linear Neural Networks for Regression
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|3.1|[Linear Regression](./ch03/01/note.md)|Loss Function, Analytic Solution, Minibatch Stochastic Gradient Descent, Vectorization, Normal Distribution and Squared Loss|
+|3.1|[Linear Regression](./ch03/01/note.md)|- Affine Transformation <br> - Loss Function, Analytic Solution <br> - Minibatch Stochastic Gradient Descent <br> - Vectorization, Normal Distribution and Squared Loss|
 |3.2|[Object-Oriented Design for Implementation](./ch03/02/note.md)|Designing APIs (Module, DataModule, Trainer class)|
 |3.3|[Synthetic Regression Data](./ch03/03/note.md)|- Generating Dataset : ```SyntheticRegressionData``` <br> - Reading the Dataset : ```get_dataloader``` |
 |3.4|[Linear Regression Implementation from Scratch](./ch03/04/note.md)|- Defining the Model<br>- Defining the Loss Function<br>- Defining the Optimization Algorithm<br>- Training|
@@ -45,6 +45,13 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 |4.5|[Concise Implementation of Softmax Regression](./ch04/05/note.md)|Overflow/Under Flow Prevention|
 |4.6|[Generalization in Classification](./ch04/06/note.md)|- Empirical/Population Error <br>- Hoeffding Bound|
 |4.7|[Environment and Distribution Shift](./ch04/07/note.md)|- Distribution Shift (Covariate / Label / Concept Shift), Nonstationary Distributions <br> - Empirical Risk Minimization Problem <br>- Confusion Matrix <br> - Batch Learning, Online Learning, Bandit Problems, Reinforcement Learning <br> - Fairness, Accountability, Transparency|
+
+<br>
+
+## 5. Multilayer Perceptrons
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|5.1|[Multilayer Perceptrons](./ch05/01/note.md)|- |
 
 
 <br><br>
