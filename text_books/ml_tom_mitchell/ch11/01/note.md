@@ -32,7 +32,7 @@
       - How?)
         - By infer features that augment the input descriptions of instances
     - **EBL** uses prior knowledge to **reduce** the complexity of the hypothesis space to be searched, thereby reducing sample complexity and improving generalization accuracy of the learner. 
-- e.g.) Chess
+#### e.g.) Chess
   - Consider a chess program.
   - We want it to learn to recognize the target concept : "chessboard positions in which black will lose its queen within two moves"
     - e.g.)   
@@ -75,7 +75,37 @@
     - Effect)
       - If the domain theory $B$ is correct, then it increases the accuracy of the output hypothesis.
 
+<br>
 
+#### E.g.) Analytical Learning Problem : SafeToStack
+- Settings)
+  - $X$ : an instance space
+    - $x \in X$ : an instance describing a pair of objects represented by the predicates $Type, Color, Volume, Owner, Material, Density$, and $On$.
+  - $H$ : a hypothesis space
+    - $h\in H$ : a hypothesis consisting a set of Horn clause rules
+      - e.g.)
+        - $SafeToStack(x,y) \leftarrow Volume(x, vx) \wedge Volume(y, vy) \wedge LessThan(vx,vy)$
+      - Desc.)
+        - Head : $SafeToStack(x,y)$
+          - a literal containing the target predicate $SafeToStack$.
+        - Body : $Volume(x, vx) \wedge Volume(y, vy) \wedge LessThan(vx,vy)$
+          - a conjunction of literals based on the same **predicates** used to describe the instances, as well as the predicates LessThan, Equal, GreaterThan, and the **functions** plus, minus, and times.
+  - Target Concept : $SafeToStack(x,y)$
+  - $D$ : training examples
+    - e.g.) Typical Positive examples for $SafeToStack(x,y)$   
+      $`\begin{array}{lll} On(Obj1, Obj2) & Owner(Obj1, Fred) & Type(Obj1, Box) \\ Owner(Obj2, Louise)& Type(Obj2, Endtable)& Density(Obj1 ,0.3) \\ Color(Obj1, Red)& Material(Obj1, Cardboard)& Color(Obj2, Blue) \\ Material (Obj2, Wood)& Volume(Obj1,2)&\\ \end{array}`$
+  - $B$ : the domain theory
+    - e.g.)   
+      $`\begin{array}{l}
+        SafeToStack(x, y) \leftarrow \neg Fragile(y) \\
+        SafeToStack(x, y) \leftarrow Lighter(x, y) \\
+        Lighter(x, y) \leftarrow Weight(x, wx) \wedge Weight(y, wy) \wedge LessThan(wx, wy) \\
+        Weight(x, w) \leftarrow Volume(x, v) \wedge Density(x,d) \wedge Equal(w, times(v, d)) \\
+        Weight(x, 5) \leftarrow Type(x, Endtable) \\
+        Fragile(x) \leftarrow Material(x, Glass)\\
+      \end{array}`$
+- Determine)
+  - A hypothesis from $H$ consistent with the training examples $D$ and domain theory $B$.
 
 <br>
 
