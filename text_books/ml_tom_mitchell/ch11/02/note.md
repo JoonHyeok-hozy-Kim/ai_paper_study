@@ -129,8 +129,9 @@
       - ```body``` $\leftarrow$ ```body``` of ```rule```
       - ```theta_hl``` $\leftarrow$ the most general unifier of ```head``` with ```literal``` such that there exists a substitution ```theta_li``` for which ```theta_li(theta_hl(head))=theta_hi(head)```
       - return ```theta_hl(frontier - head + body)```
+  - Refer to the example below.
 - e.g.) The above [SafeToStack](#eg-explanation-for-safetostack-problem) problem continues...
-  - Refer to the image below.
+  - Refer to the [image](images/002.png) below.
   - Procedure)
     - Start from the root : $SafeToStack(x,y)$
       - Compute the weakest preimage of this frontier expression w.r.t. the final (top-most) inference rule in the explanation : $SafeToStack(x,y)\leftarrow Lighter(x,y)$
@@ -140,6 +141,20 @@
     - ...
     - Return the final set of generalized literals for the leaf nodes of the tree :
       - $`\{Volume(x,vx), Density(x,dx), Equal(wx,vx*dx), LessThan(wx,5), Type(y,Endtable)\}`$
+  - In the algorithm, the final proportion of the procedure goes as follows.
+    - Suppose
+      - ```fronter``` = $`\left\{\begin{array}{ll}
+        Volume(x,vx), Density(x,dx), Equal(wx,times(vx,dx)), \\
+        LessThan(wx,wy), Weight(y, wy)        
+      \end{array}\right\}`$
+      - ```rule``` = $`Weight(z, 5) \leftarrow Type(z, Endtable)`$
+      - ```literal``` = $Weight(y, wy)$
+      - ```theta_hi``` = $`\{z/Obj2\}`$
+    - Then
+      - ```head``` $\leftarrow Weight(z,5)$
+      - ```body``` $\leftarrow Type(z,Endtable)$
+      - ```theta_hl``` $`\leftarrow \{z/y, wy/5\}`$ where ```theta_li``` = $`\{y/Obj2\}`$
+    - Thus, ```return``` $`\{Volume(x,vx), Density(x,dx), Equal(wx,vx*dx), LessThan(wx,5), Type(y,Endtable)\}`$
 
 ![](images/002.png)
 
