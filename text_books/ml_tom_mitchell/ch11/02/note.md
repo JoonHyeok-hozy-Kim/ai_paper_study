@@ -70,7 +70,10 @@
     - Concept) Explanation Satisfying the Target Concept
       - If the domain theory is [correct and complete](#concept-domain-theory), this explanation constitutes a **proof** that the training example satisfies the target concept.
   - When dealing with **imperfect** prior knowledge, the notion of explanation must be extended to allow for **plausible, approximate arguments** rather than perfect proofs. 
-- e.g.) [SafeToStack](../01/note.md#eg-analytical-learning-problem--safetostack) Problem   
+
+#### e.g.) Explanation for SafeToStack Problem 
+- Recall the previous [SafeToStack](../01/note.md#eg-analytical-learning-problem--safetostack) problem.
+- Creating explanations   
   ![](images/001.png)
 - Prop.)
   - In the case of PROLOG-EBG, the explanation is generated using a backward chaining search as performed by PROLOG. 
@@ -81,6 +84,66 @@
 <br>
 
 ### 11.2.1.2 Analyze the Explanation
+- Objective)
+  - Among many features that happen to be true of the current training example, choose the one that is most generally relevant to the target concept.
+- How?)
+  - Compute the **weakest preimage** of the target concept w.r.t. the explanation, using a general procedure called [regression](#concept-regression) below.
+    - Def.) Weakest Preimage
+      - The **weakest preimage** of a conclusion $C$ with respect to a proof $P$ is the most general set of initial assertions $A$, such that $A$ entails $C$ according to $P$.
+    - e.g.) The above [SafeToStack](#eg-explanation-for-safetostack-problem) problem continues...
+      - Collect the features that are mentioned in the leaf nodes of the explanation.
+        - $Volume(Obj1, 2)$, $Density(Obj1, 0.3)$, and $Type(Obj2, Endtable)$
+          - cf.) Leaf nodes $Equal(0.6, times(2,0.3)$ and $LessThan(0.6,5)$ are omitted because they are by definition always satisfied, independent of $Obj1$ and $Obj2$.
+      - Substitute $Obj1$ and $Obj2$ with $x$ and $y$ respectively.
+      - Form a general rule that is justified by the domain theory:
+        - $SafeToStack(x,y) \leftarrow Volume(x,2) \wedge Density(x, 0.3) \wedge Type(y, Endtable)$
+      - More generalization is available:
+        - $`\begin{array}{lll}
+            SafeToStack(x,y) & \leftarrow & Volume(x,vx) \wedge Density(x,dx) \wedge \\
+            && Equal(wx, times(vx, dx)) \wedge LessThan(wx, 5) \\
+            && Type(y, Endtable)
+          \end{array}`$
+          - Not requiring the specific values for $Volume$ and $Density$ that were required by the first rule.
+
+<br>
+
+#### Concept) Regression
+*Waldinger, 1977*
+- Desc.)
+  - The regression procedure operates on a domain theory represented by an arbitrary set of Horn clauses.
+  - It works iteratively backward through the explanation by...
+    1. Compute the [weakest preimage](#11212-analyze-the-explanation) of the **target concept** with respect to the **final proof step** in the explanation.
+    2. Compute the [weakest preimage](#11212-analyze-the-explanation) of the **resulting expressions** with respect to the **preceding step**, and so on.
+    3. Terminate when it has iterated over all steps in the explanation, yielding **the weakest precondition of the target concept** with respect to the literals at the leaf nodes of the explanation.
+- Algorithm)
+  - Input parameters
+    - ```frontier``` : set of literals to be regressed through rule
+    - ```rule``` : a horn clause
+    - ```literal``` : a literal in ```frontier``` that is inferred by ```rule``` in the explanation
+    - ```theta_hi``` : the substitution that unifies the head of ```rule``` to the corresponding literal in the explanation
+  - Output
+    - the set of literals forming the weakest preimage of ```frontier``` w.r.t. ```rule```
+  - Function
+    - ```Regress(frontier, rule, literal, theta_hi)```
+      - ```head``` $\leftarrow$ ```head``` of ```rule```
+      - ```body``` $\leftarrow$ ```body``` of ```rule```
+      - ```theta_hl``` $\leftarrow$ the most general unifier of ```head``` with ```literal``` such that there exists a substitution ```theta_li``` for which ```theta_li(theta_hl(head))=theta_hi(head)```
+      - return ```theta_hl(frontier - head + body)```
+- e.g.) The above [SafeToStack](#eg-explanation-for-safetostack-problem) problem continues...
+  - Refer to the image below.
+  - Procedure)
+    - Start from the root : $SafeToStack(x,y)$
+      - Compute the weakest preimage of this frontier expression w.r.t. the final (top-most) inference rule in the explanation : $SafeToStack(x,y)\leftarrow Lighter(x,y)$
+    - The New Frontier : $`\{Lighter(x,y)\}`$
+      - Again, compute the weakest preimages resulting in the following regressed expressions.
+        - $`\{Weight(x, wx), LessThan(wx,wy), Weight(y,wy)\}`$
+    - ...
+    - Return the final set of generalized literals for the leaf nodes of the tree :
+      - $`\{Volume(x,vx), Density(x,dx), Equal(wx,vx*dx), LessThan(wx,5), Type(y,Endtable)\}`$
+
+![](images/002.png)
+
+
 
 <br>
  
