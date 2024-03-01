@@ -51,7 +51,7 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 ## 5. Multilayer Perceptrons
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|5.1|[Multilayer Perceptrons](./ch05/01/note.md)|- |
+|5.1|[Multilayer Perceptrons](./ch05/01/note.md)|- Multilayer Perceptron (MLP)|
 
 
 <br><br>
