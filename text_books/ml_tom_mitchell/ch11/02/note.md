@@ -156,20 +156,12 @@
       - ```theta_hl``` $`\leftarrow \{z/y, wy/5\}`$ where ```theta_li``` = $`\{y/Obj2\}`$
     - Thus, ```return``` $`\{Volume(x,vx), Density(x,dx), Equal(wx,vx*dx), LessThan(wx,5), Type(y,Endtable)\}`$
 
-![](images/002.png)
-
-
-
 <br>
+<img src="images/002.png" width="600px">
+
+<br><br>
  
 ### 11.2.1.3 Refine the Current Hypothesis
-
-<br>
-
-
-
-
-
 
 
 
