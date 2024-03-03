@@ -32,6 +32,8 @@
       - How?)
         - By infer features that augment the input descriptions of instances
     - **EBL** uses prior knowledge to **reduce** the complexity of the hypothesis space to be searched, thereby reducing sample complexity and improving generalization accuracy of the learner. 
+- Props.)
+  - Refer to [11.3](../03/note.md#props-experience-based-learning)
 #### e.g.) Chess
   - Consider a chess program.
   - We want it to learn to recognize the target concept : "chessboard positions in which black will lose its queen within two moves"

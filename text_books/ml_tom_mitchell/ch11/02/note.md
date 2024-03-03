@@ -60,6 +60,9 @@
          - ```new_horn_clause``` $\leftarrow$ "```target_concept``` $\leftarrow$ ```sufficient_conditions```"
          - ```learned_rules.add(new_horn_clause)```
     - ```return learned_rules```
+- Props.)
+  - Refer to [11.3](../03/note.md#props-prolog-ebg)
+
 
 <br><br>
 
@@ -162,8 +165,14 @@
 <br><br>
  
 ### 11.2.1.3 Refine the Current Hypothesis
-
-
+- Review)
+  - Through the [explanation](#11211-explain-the-training-example) and the [analysis](#11212-analyze-the-explanation) procedure...
+    1. The sequential covering algorithm picked a new positive example that was not yet covered by the current Horn clauses.
+    2. It explained this new example, and formulated a new rule.
+  - Here, only positive examples were covered in the algorithm as we had defined it, and the learned set of Horn clause rules predicted only positive examples.
+- Refinement)
+  - A new instance is classified as negative if the current rules fail to predict that it is positive.
+  - This is in keeping with the standard negation-as-failure approach used in Horn clause inference systems such as PROLOG. 
 
 
 
