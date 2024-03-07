@@ -13,6 +13,28 @@
 
 <br>
 
+#### Concept) Approximate Inductive Bias of PROLOG-EBG
+- Review)
+  - The [inductive bias](../../ch02/07/note.md#def-inductive-bias) of a learning algorithm is a set of assertions that, together with the training examples, deductively entail subsequent predictions made by the learner.
+- Desc.)
+  - Inductive Bias of PROLOG-EBG
+    1. The domain theory $B$
+       - Recall that PROLOG-EBG chooses a hypothesis $h$ where 
+         - $`(\forall\langle x_i, f(x_i)\rangle\in D) \; (h\wedge x_i)\vdash f(x_i)`$
+         - $`D\wedge B \vdash h`$
+    2. Sequential Covering Algorithm & The Greedy Method
+       - Recall that $h$ has many alternative sets of Horn clauses entailed by the domain theory.
+       - PROLOG-EBG has the bias of choosing $h$ among these alternatives.
+         1. [Sequential Covering Algorithm](../../ch10/02/note.md#concept-sequential-covering-algorithms)
+         2. The Greedy Method by [choosing the one with the weakest preimage](../02/note.md#11212-analyze-the-explanation).
+            - i.e.) The most general clause
+            - In fact, the greedy algorithm of PROLOG-EBG is only a heuristic **approximation** to the exhaustive search algorithm.
+              - Therefore, we can approximately characterize the bias as the **Approximate Inductive Bias of PROLOG-EBG**
+  - Approximate Inductive Bias of PROLOG-EBG
+    - The domain theory $B$, plus a preference for small sets of maximally general Horn clauses
+
+<br>
+
 #### Props.) Experience-Based Learning
 - EBL as **theory-guided generalization of examples**. 
   - EBL uses its given domain theory to **generalize** rationally from examples, distinguishing the relevant example attributes from the irrelevant, thereby allowing it to avoid the bounds on sample complexity that apply to purely inductive learning. 
@@ -38,8 +60,42 @@
 
 <br>
 
-## 11.3.1 Discovering New Features
+## 11.3.1 Comparison with the Inductive Learning Methods
+### 11.3.1.1 Discovering New Features
+Comparison with the the inductive derivation of new features in the hidden layer of **neural networks**
+- PROLOG-EBG
+  - It can formulate **new features** that are not explicit in the description of the training examples, but that are needed to describe the general rule underlying the training example.
+    - e.g.) Previous [SafeToStack example](../02/note.md#eg-the-above-safetostack-problem-continues)
+  - Source of Information
+    - Analysis of single examples using the domain theory
+- [Neural Network](../../main.md#4-artificial-neural-networks-anns)
+  - Recall that hidden layers could formulate a classifier after training.
+  - Source of Information
+    - Statistical regularities over many examples
 
+<br>
+
+### 11.3.1.2 Deductive Learning
+Comparison with the background knowledge of the ILP
+- PROLOG-EBG
+  - PROLOG-EBG uses its domain theory $B$ to **reduce** the set of acceptable hypotheses.
+    - Why?)
+      - It produces $h$ that follows deductively from the domain theory $B$.
+        - i.e.) $`\begin{array}{c}
+          (\forall\langle x_i, f(x_i)\rangle\in D) (h\wedge x_i)\vdash f(x_i) \\
+          D\wedge B\vdash h          
+        \end{array}`$
+      - The output hypothesis $h$ is further **constrained** so that it must follow from the domain theory and the data.
+        - i.e.) Reducing the ambiguity faced by the learner
+      - PROLOG-EBG assumes the domain theory $B$ entails the classifications of the instances in the training data.
+        - i.e.) $`(\forall\langle x_i, f(x_i)\rangle\in D) (B\wedge x_i)\vdash f(x_i)`$
+  - Thus, PROLOG-EBG has a **deductive** learning process.
+- [Inductive Logic Program (ILP)](../../ch10/04/note.md#concept-inductive-logic-program-ilp)
+  - ILP uses the background knowledge $B'$ to **enlarge** the set of hypotheses to be considered.
+    - i.e.) $`(\forall\langle x_i, f(x_i)\rangle\in D) (B'\wedge h\wedge x_i)\vdash f(x_i)`$
+  - Thus, ILP is an **inductive** system.
+
+<br>
 
 
 

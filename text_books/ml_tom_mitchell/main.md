@@ -130,7 +130,7 @@
 |:-:|:------|:-------|
 |11.1|[Introduction](./ch11/01/note.md)|- Explanation-Based Learning (EBL) <br> - ILP vs EBL|
 |11.2|[Learning with Perfect Domain Theories : PROLOG-EBG](./ch11/02/note.md)|- Domain Theory <br> - PROLOG-EBG : Explain, Analyze, and Refine<br> - Weakest Preimage, Regression|
-|11.3|[Remarks on Explanation-Based Learning](./ch11/03/note.md)|- |
+|11.3|[Remarks on Explanation-Based Learning](./ch11/03/note.md)|- Approximate Inductive Bias of PROLOG-EBG <br> - Comparison with the Inductive Learning Methods|
 
 <br>
 

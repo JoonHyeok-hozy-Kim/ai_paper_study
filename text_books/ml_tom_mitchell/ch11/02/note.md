@@ -62,6 +62,7 @@
     - ```return learned_rules```
 - Props.)
   - Refer to [11.3](../03/note.md#props-prolog-ebg)
+  - [Approximate Inductive Bias of PROLOG-EBG](../03/note.md#concept-approximate-inductive-bias-of-prolog-ebg)
 
 
 <br><br>
@@ -133,7 +134,8 @@
       - ```theta_hl``` $\leftarrow$ the most general unifier of ```head``` with ```literal``` such that there exists a substitution ```theta_li``` for which ```theta_li(theta_hl(head))=theta_hi(head)```
       - return ```theta_hl(frontier - head + body)```
   - Refer to the example below.
-- e.g.) The above [SafeToStack](#eg-explanation-for-safetostack-problem) problem continues...
+
+#### e.g.) Above SafeToStack problem continues...
   - Refer to the [image](images/002.png) below.
   - Procedure)
     - Start from the root : $SafeToStack(x,y)$
