@@ -38,7 +38,7 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 ## 4. Linear Neural Networks for Classification
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|4.1|[Softmax Regression](./ch04/01/note.md)|One-Hot Encoding, The Cross-Entropy Loss <br>Information Theroy : Entropy, Surprisal|
+|4.1|[Softmax Regression](./ch04/01/note.md)|One-Hot Encoding, The Cross-Entropy Loss <br>Information Theory : Entropy, Surprisal|
 |4.2|[The Image Classification Dataset](./ch04/02/note.md)|- MNIST <br> - Fashion-MNIST Dataset Loading|
 |4.3|[The Base Classification Model](./ch04/03/note.md)|```Classifier```, ```accuracy()```|
 |4.4|[Softmax Regression Implementation from Scratch](./ch04/04/note.md)|The Softmax Implementation, The Cross-Entropy Loss|
@@ -51,7 +51,7 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 ## 5. Multilayer Perceptrons
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|5.1|[Multilayer Perceptrons](./ch05/01/note.md)|- Multilayer Perceptron (MLP)|
+|5.1|[Multilayer Perceptrons](./ch05/01/note.md)|- Multilayer Perceptron (MLP) <br> - Activation Functions : ReLU, Sigmoid, Hyperbolic Tangent ($\tanh$)|
 
 
 <br><br>
