@@ -68,7 +68,7 @@ from d2l import torch as d21
 ## 5.1.2 Activation Functions
 ### 5.1.2.1 ReLu Function
 - Def.)
-  - $`\operatorname{ReLU}(x) = \max(x, 0)`$
+  - $`\textrm{ReLU}(x) = \max(x, 0)`$
 
 <br><br>
 
