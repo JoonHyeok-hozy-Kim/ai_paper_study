@@ -67,16 +67,20 @@ from d2l import torch as d21
 
 ## 5.1.2 Activation Functions
 ### 5.1.2.1 ReLu Function
+- Def.)
+  - $`\operatorname{ReLU}(x) = \max(x, 0)`$
 
 <br><br>
 
 
 ### 5.1.2.2 Sigmoid Function
 
+
 <br><br>
 
 
 ### 5.1.2.3 Hyperbolic Tangent(tanh) Function
+
 
 <br><br>
 
