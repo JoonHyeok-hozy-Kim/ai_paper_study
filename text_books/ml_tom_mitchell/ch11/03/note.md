@@ -95,9 +95,51 @@ Comparison with the background knowledge of the ILP
     - i.e.) $`(\forall\langle x_i, f(x_i)\rangle\in D) (B'\wedge h\wedge x_i)\vdash f(x_i)`$
   - Thus, ILP is an **inductive** system.
 
-<br>
+<br><br>
 
-
+## 11.3.4 Knowledge Level Learning
+### Concept) Knowledge Level Learning
+- Def.)
+  - A Learning method that its learned hypothesis entails predictions that go beyond those entailed by the domain theory.
+- Ideation)
+  1. Can PROLOG-EBG ever learn a hypothesis that goes beyond the knowledge that is already implicit in the domain theory?
+      - No.
+        - why?)
+          - Recall that $B\vdash h$.
+          - Thus, classification entailed by $h$ is also entailed by $B$.
+  2. Are analytical or deductive learning methods inherently limited to go beyond $B$?
+     - No.
+       - Counter Ex.) 
+         1. Case when $B\nvdash h$ but $D\wedge B \vdash h$
+            - Recall the [deductive learning property of PROLOG-EBG](#11312-deductive-learning) above.
+              - e.g.)
+                - $B$ contains the assertion that "If $x$ satisfies the target concept, then so will $g(x)$."
+                  - Taken alone, this assertion does not entail the classification of any instances.
+                  - However, once we observe a positive example, it allows generalizing deductively to other unseen instances.
+                  - e.g.)
+                    - Suppose $B$ includes the following assertion.   
+                      $`\begin{array}{ll}
+                       (\forall x) & \textrm{IF } (PlayTennis=Yes) \leftarrow (Humidity=x) \\
+                       & \textrm{THEN } (PlayTennis=Yes) \leftarrow (Humidity \le x)
+                      \end{array}`$
+                    - The domain theory does not entail any conclusions regarding which instances are positive or negative instances of $PlayTennis$.
+                    - Then suppose the learner observes a positive example for $(Humidity = 0.3)$ from $D$.
+                    - Then $B\wedge D \vdash h$ such that $`(PlayTennis=Yes) \leftarrow (Humidity \le 0.3)`$
+                    - Here,  $B\nvdash h$ but $D\wedge B \vdash h$!
+            - Prop.)
+              - In knowledge-level learning the deductive closure of $B$ is a proper subset of the deductive closure of $B + h$.
+                - cf.) Deductive Closure
+                  - The set of all predictions entailed by a set of assertions $Y$ is often called the deductive closure of $Y$. 
+         2. Determination, *Russell 1989*
+            - Concept) Determination
+              - Determinations assert that some attribute of the instance is fully **determined** by certain other attributes, **without** specifying the exact nature of the **dependence**.
+            - e.g.)
+              - Suppose learning the target concept ""people who speak Portuguese."
+              - $B$ : "The **language** spoken by a person is determined by their **nationality**."
+              - $D$ : "Joe, a 23-year-old left-handed Brazilian, speaks Portuguese" 
+                - A positive example
+              - Then the learner may generalize with $h$ such that "all Brazilians speak Portuguese."  
+                   
 
 
 
