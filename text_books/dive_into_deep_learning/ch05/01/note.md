@@ -69,17 +69,84 @@ from d2l import torch as d21
 ### 5.1.2.1 ReLu Function
 - Def.)
   - $`\textrm{ReLU}(x) = \max(x, 0)`$
+- Code Usage)
+  ```python
+  x = torch.arange(-8.0, 8.0, 0.1, requires_grad=True)
+  y = torch.relu(x)
+  d2l.plot(x.detach(), y.detach(), 'x', 'relu(x)', figsize=(5, 2.5))
+  ```
+- Prop.)
+  - Not differentiable when $x=0$.
+    - We may plot the derivative of ReLU as follows.
+      ```python
+      y.backward(torch.ones_like(x), retain_graph=True)
+      d2l.plot(x.detach(), x.grad, 'x', 'grad of relu', figsize=(5, 2.5))
+      ```
+      - Advantage)
+        - Its derivatives are particularly well behaved: either they vanish $(x\lt 0)$ or they just let the argument through $(x\gt 0)$.
+        - This makes optimization better behaved and it mitigated the well-documented problem of vanishing gradients that plagued previous versions of neural networks (more on this later).
+- cf.) Parametrized ReLU (pReLU) function
+  - $`\textrm{pReLU}(x) = \max(0, x) + \alpha \min(0, x)`$
+    - This variation adds a linear term to ReLU, so some information still gets through, even when the argument is negative.
+
 
 <br><br>
 
 
 ### 5.1.2.2 Sigmoid Function
+- Def.)
+  - $`\textrm{sigmoid}(x) = \frac{1}{1 + \exp(-x)}`$
+- Code Usage)
+  ```python
+  x = torch.arange(-8.0, 8.0, 0.1, requires_grad=True)
+  y = torch.sigmoid(x)
+  d2l.plot(x.detach(), y.detach(), 'x', 'sigmoid(x)', figsize=(5, 2.5))
+  ```
+- Prop.)
+  - It is a smooth, **differentiable** approximation to a thresholding unit.
+    - Appropriate for the Gradient-Based Learning.
+  - Useful when we want to interpret the outputs as **probabilities** for binary classification problems.
+    - $\textrm{sigmoid}(x) \in [0,1]$
+    - You can think of the sigmoid as a special case of the [softmax](../../ch04/01/note.md#4112-softmax-model).
+  - However, the sigmoid has largely been replaced by the simpler and more easily trainable ReLU for most use in hidden layers. 
+    - why?)
+      - Its gradient vanishes for large positive and negative arguments.
+  - The derivative of the sigmoid function is given by the following equation.
+    - $`\frac{d}{dx} \textrm{sigmoid}(x) = \frac{\exp(-x)}{(1 + \exp(-x))^2} = \textrm{sigmoid}(x)\left(1-\textrm{sigmoid}(x)\right)`$
+      - The derivative of the sigmoid function is plotted below. 
+        ```python
+        x.grad.data.zero_() # Clear out previous gradients 
+        y.backward(torch.ones_like(x),retain_graph=True)
+        d2l.plot(x.detach(), x.grad, 'x', 'grad of sigmoid', figsize=(5, 2.5))
+        ```
+      - Note that when the input is 0, the derivative of the sigmoid function reaches a maximum of 0.25. 
+      - As the input diverges from 0 in either direction, the derivative approaches 0.
 
 
 <br><br>
 
 
 ### 5.1.2.3 Hyperbolic Tangent(tanh) Function
+- Def.)
+  - $`\textrm{tanh}(x) = \frac{1 - \exp(-2x)}{1 + \exp(-2x)}`$
+- Code Usage)
+  ```python
+  x = torch.arange(-8.0, 8.0, 0.1, requires_grad=True)
+  y = torch.tanh(x)
+  d2l.plot(x.detach(), y.detach(), 'x', 'tanh(x)', figsize=(5, 2.5))
+  ```
+- Prop.)
+  - $\textrm{tanh}(x) \in [-1,1]$
+  - The derivative of the tanh function
+    - $\frac{d}{dx} \textrm{tanh}(x) = 1 - \textrm{tanh}^2(x)$
+      - As the input nears 0, the derivative of the tanh function approaches a maximum of 1. 
+      - And as we saw with the sigmoid function, as input moves away from 0 in either direction, the derivative of the tanh function approaches 0.
+      - Plotting
+        ```python
+        x.grad.data.zero_() # Clear out previous gradients
+        y.backward(torch.ones_like(x),retain_graph=True)
+        d2l.plot(x.detach(), x.grad, 'x', 'grad of tanh', figsize=(5, 2.5))
+        ```
 
 
 <br><br>
