@@ -140,7 +140,7 @@
 ## 12. Combining Inductive and Analytical Learning
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|12.1|[Introduction](./ch12/01/note.md)|- |
+|12.1|[Motivation](./ch12/01/note.md)|- |
 
 
 
