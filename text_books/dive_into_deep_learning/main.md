@@ -52,6 +52,7 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
 |5.1|[Multilayer Perceptrons](./ch05/01/note.md)|- Multilayer Perceptron (MLP) <br> - Activation Functions : ReLU, Sigmoid, Hyperbolic Tangent ($\tanh$)|
+|5.2|[Implementation of Multilayer Perceptrons](./ch05/02/note.md)|- MLP Implementation from Scratch|
 
 
 <br><br>
