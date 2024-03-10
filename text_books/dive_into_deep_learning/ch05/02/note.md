@@ -31,7 +31,7 @@ class MLPScratch(d2l.Classifier):
         self.W2 = nn.Parameter(torch.randn(num_hiddens, num_outputs) * sigma)
         self.b2 = nn.Parameter(torch.zeros(num_outputs))
 ```
-- Recall $`\begin{aligned}
+- [Recall](../01/note.md#51-multilayer-perceptrons) $`\;\;\begin{aligned}
         \mathbf{H} & = \mathbf{X} \mathbf{W}^{(1)} + \mathbf{b}^{(1)} \\
         \mathbf{O} & = \mathbf{H}\mathbf{W}^{(2)} + \mathbf{b}^{(2)}
     \end{aligned}, 
