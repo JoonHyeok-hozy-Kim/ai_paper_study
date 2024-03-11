@@ -14,7 +14,7 @@
            - $error_D(h)$ : the proportion of examples from $D$ that are misclassified by $h$.
            - $error_B(h)$ : the probability that $h$ will disagree with $B$ on the classification of a randomly drawn instance
          - Combination)
-           - $\displaystyle\textrm{argmin}_{h\in H} k_D \; error_D(h) + K_B \; error_B(h)$
+           - $`\displaystyle\textrm{argmin}_{h\in H} k_D \; error_D(h) + K_B \; error_B(h)`$
 
 
 
