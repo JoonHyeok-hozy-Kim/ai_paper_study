@@ -140,7 +140,8 @@
 ## 12. Combining Inductive and Analytical Learning
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|12.1|[Motivation](./ch12/01/note.md)|- |
+|12.1|[Motivation](./ch12/01/note.md)|- Inductive vs Analytical Learning Methods|
+|12.2|[Inductive-Analytical Approaches to Learning](./ch12/02/note.md)|- |
 
 
 
