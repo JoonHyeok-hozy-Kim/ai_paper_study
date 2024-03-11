@@ -141,7 +141,7 @@
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
 |12.1|[Motivation](./ch12/01/note.md)|- Inductive vs Analytical Learning Methods|
-|12.2|[Inductive-Analytical Approaches to Learning](./ch12/02/note.md)|- |
+|12.2|[Inductive-Analytical Approaches to Learning](./ch12/02/note.md)|- Problem Setting : $`\displaystyle \arg\min_{h\in H} k_D \; error_D(h) + k_B \; error_B(h)`$ <br>- |
 
 
 
