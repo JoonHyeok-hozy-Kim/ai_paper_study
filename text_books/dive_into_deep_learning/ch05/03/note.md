@@ -26,6 +26,7 @@
         - $\displaystyle s = \frac{\lambda}{2} \left(\|\mathbf{W}^{(1)}\|_\textrm{F}^2 + \|\mathbf{W}^{(2)}\|_\textrm{F}^2\right)$ : the regularization term
           - cf.) The Frobenius norm of the matrix is simply the $`\ell_2`$ norm applied after flattening the matrix into a vector.
 
+<br>
 
 #### Computational Graph of Forward Propagation
 ![](images/001.png)
