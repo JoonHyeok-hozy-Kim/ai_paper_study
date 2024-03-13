@@ -46,10 +46,9 @@
     - e.g.) $`Stable, \; Liftable, \; OpenVessel, \;`$ etc.
 - Objective)
   - Learn the target concept $`Cup`$ defined over physical objects.
-
-
 - Assumptions)   
-  ![](images/001.png)
+
+![](images/001.png)
 
 
 
