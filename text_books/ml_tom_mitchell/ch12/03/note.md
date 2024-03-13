@@ -1,7 +1,7 @@
 * [Back to Machine Learning Tom Mitchell Main](../../main.md)
 
 # 12.3 Using Prior Knowledge to Initialize the Hypothesis
-### Concept) KBANN (Knowledge-Based Artificial Neural Network)
+## Concept) KBANN (Knowledge-Based Artificial Neural Network)
 - Idea)
   - Use prior knowledge is to initialize the hypothesis to perfectly fit the domain theory.
     - The classification assigned by the initial network is constructed to be **identical to that assigned by the domain theory**.
@@ -39,14 +39,13 @@
 
 <br>
 
-#### E.g.) The Cup Learning Task
+### E.g.) The Cup Learning Task
 *Towell and Shavlik (1989)*
-- Objective)
+#### Objective)
   - Suppose each instance describes a physical object in terms of the material from which is made.
     - e.g.) $`Stable, \; Liftable, \; OpenVessel, \;`$ etc.
   - Learn the target concept $`Cup`$ defined over physical objects.
-- Assumptions)   
-
+#### Assumptions)   
 ![](images/001.png)
 
 - Desc.)
@@ -56,13 +55,17 @@
         - Our initial hypothesis will fail to classify this example as positive.
   - Nevertheless, the domain theory forms a useful **approximation** to the target concept.
 
-- Procedure)
-  - An initial network is constructed that is consistent with the domain theory.
-    - e.g.) The network constructed for Cup   
+#### Procedure)
+1. An initial network is constructed that is consistent with the domain theory.
+    - How?)
+      - In general, the network is constructed by creating a sigmoid threshold unit for each Horn clause in the domain theory.
+      - KBANN follows the convention that a sigmoid output value greater than 0.5 is interpreted as True and a value below 0.5 as False.
+        - Each unit is therefore constructed so that its output will be greater than 0.5 just in those cases where the corresponding Horn clause applies.
+    - e.g.) The network constructed for $Cup$   
 
 ![](images/002.png)
 
-
+2. For each antecedent to the Horn clause, an input is created to the corresponding sigmoid unit.
 
 
 
