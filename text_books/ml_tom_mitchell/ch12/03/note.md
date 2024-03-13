@@ -41,17 +41,25 @@
 
 #### E.g.) The Cup Learning Task
 *Towell and Shavlik (1989)*
-- Desc.)
-  - Each instance describes a physical object in terms of the material from which is made.
-    - e.g.) $`Stable, \; Liftable, \; OpenVessel, \;`$ etc.
 - Objective)
+  - Suppose each instance describes a physical object in terms of the material from which is made.
+    - e.g.) $`Stable, \; Liftable, \; OpenVessel, \;`$ etc.
   - Learn the target concept $`Cup`$ defined over physical objects.
 - Assumptions)   
 
 ![](images/001.png)
 
+- Desc.)
+  - The domain theory is not perfectly consistent with the training examples.
+    - e.g.)
+      - $\exists Cup \in Cups$ such that $\neg HasHandle \Rightarrow \neg Graspable \Rightarrow \neg Liftable$
+        - Our initial hypothesis will fail to classify this example as positive.
+  - Nevertheless, the domain theory forms a useful **approximation** to the target concept.
 
-
+- Procedure)
+  - An initial network is constructed that is consistent with the domain theory.
+    - e.g.) The network constructed for Cup   
+      ![](images/002.png)
 
 
 
