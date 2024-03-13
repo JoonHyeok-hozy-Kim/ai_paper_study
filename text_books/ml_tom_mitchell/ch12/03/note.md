@@ -45,7 +45,7 @@
   - Each instance describes a physical object in terms of the material from which is made.
     - e.g.) $`Stable, \; Liftable, \; OpenVessel, \;`$ etc.
 - Objective)
-  - Learn the target concept $Cup$ defined over physical objects.
+  - Learn the target concept $`Cup`$ defined over physical objects.
 
 
 - Assumptions)   
