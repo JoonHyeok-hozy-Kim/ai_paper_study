@@ -59,7 +59,8 @@
 - Procedure)
   - An initial network is constructed that is consistent with the domain theory.
     - e.g.) The network constructed for Cup   
-      ![](images/002.png)
+
+![](images/002.png)
 
 
 
