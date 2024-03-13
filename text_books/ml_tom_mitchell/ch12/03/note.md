@@ -27,11 +27,11 @@
          - Create a ```network_unit```.
          - Connect the inputs of ```network_unit``` to the attributes tested by the clause antecedents.
          - ```for``` each **non-negated antecedent** of the clause
-           - Assign a weight of ```W``` to the corresponding sigmoid unit input.
+           - Assign a weight of $W$ to the corresponding sigmoid unit input.
          - ```for``` each **negated antecedent** of the clause
-           - Assign a weight of ```-W``` tot the corresponding sigmoid unit input.
-         - Put ```n``` $\leftarrow$ (the number of **non-negated antecedents** of the clause).
-         - Set the threshold weight ```w0``` $\leftarrow$ ```-(n - 0.5) * W```.
+           - Assign a weight of $-W$ tot the corresponding sigmoid unit input.
+         - Put $n$ $\leftarrow$ (the number of **non-negated antecedents** of the clause).
+         - Set the threshold weight $w_0$ $\leftarrow$ $-(n - 0.5)W$.
        - Connect each network unit at depth $i$ from the input layer to all network units at depth $i+1$.
          - Assign random near-zero weights to these additional connections.
     2. Inductive Step : Refine the initial network
@@ -66,7 +66,12 @@
 ![](images/002.png)
 
 2. For each antecedent to the Horn clause, an input is created to the corresponding sigmoid unit.
-
+   - The weights of the sigmoid unit are then set so that it computes the logical AND of its inputs.
+     - For each input corresponding to a non-negated antecedent, the weight is set to some positive constant $W$.
+     - For each input corresponding to a negated antecedent, the weight is set to $-W$.
+     - The threshold weight of the unit, $w_0$ is then set to $-(n-0.5) W$, where $n$ is the number of non-negated antecedents.
+       - Why $-(n-0.5) W$?)
+         - When unit input values are $1$ or $0$, this assures that their weighted sum plus $w_0$ will be positive (and the sigmoid output will therefore be greater than $0.5$) if and only if all clause antecedents are satisfied.
 
 
 
