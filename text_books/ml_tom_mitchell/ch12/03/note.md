@@ -36,6 +36,15 @@
          - Assign random near-zero weights to these additional connections.
     2. Inductive Step : Refine the initial network
        - Apply the Backpropagation algorithm to adjust the initial network weights to fit the ```training_examples```.
+- Props.)
+  - Advantage)
+    - KBANN typically generalizes more accurately than Backpropagation when given an approximately correct domain theory
+      - especially when training data is scarce.
+  - Limitations)
+    - KBANN can accommodate only propositional domain theories.
+      - i.e.) collections of variable-free Horn clauses. 
+    - KBANN may be misled when given highly inaccurate domain theories, so that its generalization accuracy can deteriorate below the level of Backpropagation.
+
 
 <br>
 
