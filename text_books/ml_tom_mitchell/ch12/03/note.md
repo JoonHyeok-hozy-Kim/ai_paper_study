@@ -70,10 +70,28 @@
      - For each input corresponding to a non-negated antecedent, the weight is set to some positive constant $W$.
      - For each input corresponding to a negated antecedent, the weight is set to $-W$.
      - The threshold weight of the unit, $w_0$ is then set to $-(n-0.5) W$, where $n$ is the number of non-negated antecedents.
+       - Solid lines on the [above image](images/002.png)
+         - e.g.) $Liftable - Graspable$
        - Why $-(n-0.5) W$?)
          - When unit input values are $1$ or $0$, this assures that their weighted sum plus $w_0$ will be positive (and the sigmoid output will therefore be greater than $0.5$) if and only if all clause antecedents are satisfied.
+         - cf.) For sigmoid units at the second and subsequent layers, unit inputs will not necessarily be $1$ and $0$ and the above argument may not apply.
+         - However, if a sufficiently large value is chosen for $W$, this KBANN algorithm can correctly encode the domain theory for arbitrarily deep networks.
+           - *Towell and Shavlik (1994)* report using $W = 4.0$ in many of their experiments.
+     - Each sigmoid unit input is connected to the appropriate network input or to the output of another sigmoid unit, to mirror the graph of dependencies among the corresponding attributes in the domain theory. 
+     - As a final step many additional inputs are added to each threshold unit, with their weights set approximately to zero.
+       - Lightly shaded lines on the [above image](images/002.png)
+         - e.g.) $Stable - Expensive$
+       - The role of these additional connections is to enable the network to **inductively** learn additional dependencies beyond those suggested by the given domain theory.
 
+3. KBANN uses the training examples and the Backpropagation algorithm to refine the initial 
+network weights.
+   - Why needed?)
+     - Recall that the domain theory and training data are inconsistent.
+       - e.g.) $\exists Cup \in Cups$ such that $\neg HasHandle \Rightarrow \neg Graspable \Rightarrow \neg Liftable$
+     - This step alters the initial network weights.
 
+4. Result   
+   ![](images/003.png)
 
 <br>
 
