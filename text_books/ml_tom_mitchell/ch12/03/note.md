@@ -91,7 +91,8 @@ network weights.
      - This step alters the initial network weights.
 
 4. Result   
-   ![](images/003.png)
+
+![](images/003.png)
 
 <br>
 
