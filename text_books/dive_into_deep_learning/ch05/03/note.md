@@ -50,6 +50,17 @@
           - For higher dimensional tensors, we use the appropriate counterpart.
   - Recall our [objective function](#objective-function), $J = L+s$.
   - Then the objective of backpropagation is to calculate the gradients $`\displaystyle\frac{\partial J}{\partial \mathbf{W}^{(1)}}`$ and $`\displaystyle\frac{\partial J}{\partial \mathbf{W}^{(2)}}`$.
+    1. $`\displaystyle\frac{\partial J}{\partial \mathbf{W}^{(2)}}`$
+       - Since $J=L+s$, divide this into $`\displaystyle\frac{\partial L}{\partial \mathbf{W}^{(2)}}`$ and $`\displaystyle\frac{\partial s}{\partial \mathbf{W}^{(2)}}`$
+         1. $`\displaystyle\begin{array}{lll}
+          \frac{\partial L}{\partial \mathbf{W}^{(2)}} 
+          &= \\
+         \end{array}`$
+         2. $`\displaystyle\begin{array}{lll}
+          \frac{\partial s}{\partial \mathbf{W}^{(2)}} 
+          &= \lambda \mathbf{W}^{(2)} & \because s=\frac{\lambda}{2} \left(\|\mathbf{W}^{(1)}\|_\textrm{F}^2 + \|\mathbf{W}^{(2)}\|_\textrm{F}^2\right)\\
+         \end{array}`$
+    2. $`\displaystyle\frac{\partial J}{\partial \mathbf{W}^{(1)}}`$
 
 
 
