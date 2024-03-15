@@ -52,9 +52,9 @@
   - Then the objective of backpropagation is to calculate the gradients $`\displaystyle\frac{\partial J}{\partial \mathbf{W}^{(1)}}`$ and $`\displaystyle\frac{\partial J}{\partial \mathbf{W}^{(2)}}`$.
     1. $`\displaystyle\frac{\partial J}{\partial \mathbf{W}^{(2)}}`$
        - Since $J=L+s$, divide this into $`\displaystyle\frac{\partial L}{\partial \mathbf{W}^{(2)}}`$ and $`\displaystyle\frac{\partial s}{\partial \mathbf{W}^{(2)}}`$
-         1. $`\displaystyle\begin{array}{lll}
+         1. $`\displaystyle \begin{array}{lll}
           \frac{\partial L}{\partial \mathbf{W}^{(2)}} 
-          &= \\
+          &= \textrm{prod}\left(\displaystyle\frac{\partial \mathsf{L}}{\partial \mathbf{o}}, \frac{\partial \mathbf{o}}{\partial \mathbf{W}^{(2)}}\right)\\
          \end{array}`$
          2. $`\displaystyle\begin{array}{lll}
           \frac{\partial s}{\partial \mathbf{W}^{(2)}} 
