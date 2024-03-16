@@ -38,7 +38,7 @@
   - Backpropagation refers to the method of calculating the gradient of neural network parameters.
   - In short, the method traverses the network in **reverse order**, from the output to the input layer, according to the **chain rule** from calculus.
   - The algorithm stores any **intermediate variables** (partial derivatives) required while calculating the gradient with respect to some parameters.
-- e.g.)
+- Concept) Chain Rule
   - Assume that we have functions
     - $`\mathsf{Y}=f(\mathsf{X})`$
     - $`\mathsf{Z}=g(\mathsf{Y})`$
@@ -48,6 +48,7 @@
       - where $`\textrm{prod}`$ is an operator that multiplies its arguments after the necessary operations, such as transposition and swapping input positions.
         - e.g.) matrix-matrix multiplication
           - For higher dimensional tensors, we use the appropriate counterpart.
+- Optimizing the Objective Function)  
   - Recall our [objective function](#objective-function), $J = L+s$.
   - Then the objective of backpropagation is to calculate the gradients $`\displaystyle\frac{\partial J}{\partial \mathbf{W}^{(1)}}`$ and $`\displaystyle\frac{\partial J}{\partial \mathbf{W}^{(2)}}`$.
     1. $`\displaystyle\frac{\partial J}{\partial \mathbf{W}^{(2)}} = \displaystyle\frac{\partial \mathsf{L}}{\partial \mathbf{o}} \mathbf{h}^\top + \lambda \mathbf{W}^{(2)}`$
@@ -65,7 +66,15 @@
     2. $`\displaystyle\frac{\partial J}{\partial \mathbf{W}^{(1)}}`$
        - Why?) 
          - Divide the problem into $`\displaystyle\frac{\partial L}{\partial \mathbf{W}^{(1)}}`$ and $`\displaystyle\frac{\partial s}{\partial \mathbf{W}^{(1)}}`$
-
+           1. $`\displaystyle\begin{array}{lll}
+                  \displaystyle\frac{\partial J}{\partial \mathbf{W}^{(1)}}
+                  &= \textrm{prod}\left( \displaystyle\frac{\partial J}{\partial \mathbf{h}}, \frac{\partial \mathbf{h}}{\partial \mathbf{W}^{(1)}} \right) \\
+                \end{array}`$
+              - $`\displaystyle \frac{\partial J}{\partial \mathbf{h}} = \textrm{prod}\left( \frac{\partial J}{\partial \mathbf{o}}, \frac{\partial \mathbf{o}}{\partial \mathbf{h}} \right) = {\mathbf{W}^{(2)}}^\top \left( \frac{\partial J}{\partial \mathbf{o}} \right)`$
+           2. $`\displaystyle\begin{array}{lll}
+            \displaystyle\frac{\partial s}{\partial \mathbf{W}^{(1)}}
+            &= \lambda \mathbf{W}^{(1)} & \because s=\frac{\lambda}{2} \left(\|\mathbf{W}^{(1)}\|_\textrm{F}^2 + \|\mathbf{W}^{(2)}\|_\textrm{F}^2\right)
+           \end{array}`$
 
 
 
