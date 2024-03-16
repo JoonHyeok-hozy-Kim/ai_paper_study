@@ -82,8 +82,39 @@
 
 <br><br>
 
-## The EBNN Algorithm
+## Concept) The EBNN Algorithm (Explanation-Based Neural Network)
+*Mitchell and Thrun 1993a; Thrun 1996*
+- Desc.)
+  - Based on [TangentProp](#concept-the-tangentprop-algorithm) on two ways.
+    1. EBNN computes training derivatives itself for each observed training example.
+       - Recall that user provided the derivatives in TangentProp.
+       - These training derivatives are calculated by explaining each training example in terms of a given domain theory, then extracting training derivatives from this explanation.
+    2. EBNN addresses the issue of how to weight the relative importance of the inductive and analytical components of learning.
+       - i.e.) how to select the parameter $\mu$ in [the TangentProp Error equation](#model).
+       - The value of $\mu$ is chosen independently for each training example.
+         - Based on a heuristic that considers how accurately the domain theory predicts the training value for this particular example.
+         - Thus, the analytical component of learning is emphasized for those **training examples that are correctly explained by the domain theory** and de-emphasized for training examples that are poorly explained.
+- Objective)
+  - Learn **a new neural network** to describe the target function
+    - A.K.A. **target network**
+    - e.g.) $Cup_{\textrm{target}}$ in [the Cup example](#eg-cup-example).
+- Algorithm)
+  - Inputs)
+    - $X$ : a set of training examples
+      - $\langle x_i, f(x_i) \rangle \in X$
+        - cf.) No training derivative provided.
+    - $B$ : a domain theory represented by a set of previously trained neural networks
+      - cf.) Recall that [EBL](../../ch11/01/note.md#concept-explanation-based-learning-ebl) and [KBANN](../03/note.md#concept-kbann-knowledge-based-artificial-neural-network) incorporated domain theories consisting Horn clauses
+  - Output)
+    - A new neural network that approximates the target function $f$.
+      - This learned network is trained to fit both...
+        1. the training examples $\langle x_i, f(x_i) \rangle$
+           - Inductive Learning
+        2. the training derivatives of $f$ extracted from the domain theory
+           - Analytical Learning
 
+#### E.g.) Cup Example
+![](images/002.png)
 
 
 <br>

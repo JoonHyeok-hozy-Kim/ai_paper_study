@@ -142,8 +142,8 @@
 |:-:|:------|:-------|
 |12.1|[Motivation](./ch12/01/note.md)|- Inductive vs Analytical Learning Methods|
 |12.2|[Inductive-Analytical Approaches to Learning](./ch12/02/note.md)|- Problem Setting : $`\displaystyle \arg\min_{h\in H} k_D \; error_D(h) + k_B \; error_B(h)`$|
-|12.3|[Using Prior Knowledge to Initialize the Hypothesis](./ch12/03/note.md)|- KBANN (Knowledge-Based Artificial Neural Network) <br>- EBNN|
-|12.4|[Using Prior Knowledge to Alter the Search Objective](./ch12/04/note.md)|- TangentProp|
+|12.3|[Using Prior Knowledge to Initialize the Hypothesis](./ch12/03/note.md)|- KBANN (Knowledge-Based Artificial Neural Network)|
+|12.4|[Using Prior Knowledge to Alter the Search Objective](./ch12/04/note.md)|- TangentProp <br>- EBNN (Explanation-Based Neural Network)|
 |12.5|[Using Prior Knowledge to Augment Search Operators](./ch12/05/note.md)|- |
 
 
