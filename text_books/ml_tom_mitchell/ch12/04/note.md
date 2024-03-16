@@ -112,10 +112,68 @@
            - Inductive Learning
         2. the training derivatives of $f$ extracted from the domain theory
            - Analytical Learning
+  - Procedures)
+    - Given the training examples and domain theory, EBNN first creates a new, fully connected feedforward network to represent the target function.
+      - This target network is initialized with small random weights, just as in Backpropagation. 
+    - For each training example $\langle x_i, f(x_i) \rangle$, EBNN determines the corresponding training derivatives in a two-step process.
+      1. It uses the domain theory to predict the value of the target function for instance $x_i$.
+         - Let $A(x_i)$ denote this domain theory prediction for instance $x_i$.
+           - i.e.) $A(x_i)$ is the function defined by the composition of the domain theory networks forming the explanation for $x_i$.
+           - cf.) Extracting these derivatives follows a process very similar to calculating the $\delta$ terms in [the Backpropagation algorithm](../../ch04/05/note.md#concept-the-backpropagation-algorithm).
+      2. The weights and activations of the domain theory networks are analyzed to extract the derivatives of $A(x_i)$ w.r.t. each of the components of $x_i$.
+         - e.g.) [Cup Example](#eg-cup-example) below
+           - For an instance $x_i$, the partial derivatives are calculated as follows.
+             - $`\displaystyle\left[\frac{\partial Cup}{\partial BottomIsFlat}, \frac{\partial Cup}{\partial ConcavityPointsUp},\cdots, \frac{\partial Cup}{\partial MadeOfStyrofoam}\right]_{x=x_i}`$
+         - In the more general case where the target function has multiple output units, the gradient is computed for each of these outputs. 
+           - i.e.) the Jacobian of $A(x)$ evaluated at $x=x_i$
+         - cf.) Why calculating the partial derivatives?
+           - Depending on the value of the partial derivative $`\displaystyle\frac{\partial \textrm{(target function)}}{\partial \textrm{(current feature)}}`$...
+             1. $`\displaystyle\frac{\partial \textrm{(target function)}}{\partial \textrm{(current feature)}}=0`$
+                - It means that this feature is irrelevant to the target function.
+                  - i.e.) A change in the $`\textrm{(current feature)}`$ will have no impact on the predicted value of $`\textrm{(target function)}`$.
+             2. $`\displaystyle\frac{\partial \textrm{(target function)}}{\partial \textrm{(current feature)}}\ne 0`$
+                - The feature is highly relevant to determining the target value.
+    - Train the network to fit the following error function
+      - $`\displaystyle E = \sum_i \left[\left( f(x_i)-\hat{f}(X_i) \right)^2 - \mu_i\sum_j\left( \frac{\partial A(x)}{\partial x^j} - \frac{\partial \hat{f}(x)}{\partial x_j} \right)^2_{x=x_i}  \right]`$
+        - where
+          - $x_i$ : the $i$-th training instance
+          - $A(x)$ : the domain theory prediction for input $x$
+          - $x^j$ : the $j$-th component of the vector $x$
+          - $`\displaystyle \mu_i\equiv 1-\frac{|A(x_i)-f(x_i)|}{c}`$
+            - where 
+              - $c$ : a normalizing constant whose value is chosen to assure that $0 \le m_i \le 1, \forall i$
+            - Meaning)
+              - the discrepancy between the domain theory prediction $A(x_i)$ and the training value $f(x_i)$.
+- Prop.)
+  - For each training example EBNN uses its domain theory to explain the example, then extracts training derivatives from this explanation.
+    - Fitting the derivatives constrains the learned network to fit dependencies given by the domain theory, while fitting the training values constrains it to fit the observed data itself.
+    - The weight $\mu_i$ placed on fitting the derivatives is determined independently for each training example, based on how accurately the domain theory predicts the training value for this example. 
+  - Comparison with [PROLOG-EBG](../../ch11/02/note.md#concept-prolog-ebg)
+    - Recall that in **PROLOG-EBG**, the explanation is constructed from a domain theory consisting of **Horn clauses**, and the target hypothesis is refined by calculating the weakest conditions under which this explanation holds.
+      - Relevant dependencies in the explanation are thus captured in the learned Horn clause hypothesis.
+      - The natural way to represent dependencies in symbolic explanations or logical proofs is to describe the set of examples to which the proof applies.
+    - **EBNN** constructs an analogous explanation, but it is based on a domain theory consisting of **neural networks** rather than Horn clauses.
+      - As in PROLOG-EBG, relevant dependencies are then extracted from the explanation and used to refine the target hypothesis.
+      - However, these dependencies take the form of **derivatives** because derivatives are the natural way to represent dependencies in continuous functions such as neural networks.
+  - **EBNN accommodates imperfect domain theories**.
+    - why?)
+      - EBNN is built on the inductive mechanism of fitting the observed training values and uses the domain theory only as an additional constraint on the learned hypothesis.
+    - cf.) [EBL](../../main.md#11-analytical-learning)s couldn't!
+
+
+
 
 #### E.g.) Cup Example
 ![](images/002.png)
 
+- Desc.)
+  - Assumptions)
+    - Each rectangular block representing a distinct neural network in the domain theory.
+      - Input)
+        - the description of an instance
+      - Output)
+        - a value indicating whether the object has the labeled property.
+          - Typically $0.8$ for true and $0.2$ for false.
 
 <br>
 
