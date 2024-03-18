@@ -51,30 +51,24 @@
 - Optimizing the Objective Function)  
   - Recall our [objective function](#objective-function), $J = L+s$.
   - Then the objective of backpropagation is to calculate the gradients $`\displaystyle\frac{\partial J}{\partial \mathbf{W}^{(1)}}`$ and $`\displaystyle\frac{\partial J}{\partial \mathbf{W}^{(2)}}`$.
-    1. $`\displaystyle\frac{\partial J}{\partial \mathbf{W}^{(2)}} = \displaystyle\frac{\partial \mathsf{L}}{\partial \mathbf{o}} \mathbf{h}^\top + \lambda \mathbf{W}^{(2)}`$
-       - Why?) 
-         - Divide the problem into $`\displaystyle\frac{\partial L}{\partial \mathbf{W}^{(2)}}`$ and $`\displaystyle\frac{\partial s}{\partial \mathbf{W}^{(2)}}`$
-           1. $`\displaystyle \begin{array}{lll}
-            \displaystyle\frac{\partial L}{\partial \mathbf{W}^{(2)}} 
+    1. $`\displaystyle\frac{\partial J}{\partial \mathbf{W}^{(2)}} = \displaystyle\frac{\partial L}{\partial \mathbf{o}} \mathbf{h}^\top + \lambda \mathbf{W}^{(2)}`$
+       - Why?)   
+            $`\left\lbrace\begin{array}{lll}
+            (1)\;\displaystyle\frac{\partial L}{\partial \mathbf{W}^{(2)}} 
             &= \textrm{prod}\left(\displaystyle\frac{\partial L}{\partial \mathbf{o}}, \frac{\partial \mathbf{o}}{\partial \mathbf{W}^{(2)}}\right) & \because L = l(\mathbf{o}, y) \\
-            &= \displaystyle\frac{\partial \mathsf{L}}{\partial \mathbf{o}} \mathbf{h}^\top & \because \mathbf{o}= \mathbf{W}^{(2)} \mathbf{h}
-           \end{array}`$
-           2. $`\displaystyle\begin{array}{lll}
-            \displaystyle\frac{\partial s}{\partial \mathbf{W}^{(2)}} 
+            &= \displaystyle\frac{\partial \mathsf{L}}{\partial \mathbf{o}} \mathbf{h}^\top & \because \mathbf{o}= \mathbf{W}^{(2)} \mathbf{h} \\
+           (2)\;\displaystyle\frac{\partial s}{\partial \mathbf{W}^{(2)}} 
             &= \lambda \mathbf{W}^{(2)} & \because s=\frac{\lambda}{2} \left(\|\mathbf{W}^{(1)}\|_\textrm{F}^2 + \|\mathbf{W}^{(2)}\|_\textrm{F}^2\right)\\
-           \end{array}`$
-    2. $`\displaystyle\frac{\partial J}{\partial \mathbf{W}^{(1)}}`$
-       - Why?) 
-         - Divide the problem into $`\displaystyle\frac{\partial L}{\partial \mathbf{W}^{(1)}}`$ and $`\displaystyle\frac{\partial s}{\partial \mathbf{W}^{(1)}}`$
-           1. $`\displaystyle\begin{array}{lll}
-                  \displaystyle\frac{\partial J}{\partial \mathbf{W}^{(1)}}
-                  &= \textrm{prod}\left( \displaystyle\frac{\partial J}{\partial \mathbf{h}}, \frac{\partial \mathbf{h}}{\partial \mathbf{W}^{(1)}} \right) \\
-                \end{array}`$
-              - $`\displaystyle \frac{\partial J}{\partial \mathbf{h}} = \textrm{prod}\left( \frac{\partial J}{\partial \mathbf{o}}, \frac{\partial \mathbf{o}}{\partial \mathbf{h}} \right) = {\mathbf{W}^{(2)}}^\top \left( \frac{\partial J}{\partial \mathbf{o}} \right)`$
-           2. $`\displaystyle\begin{array}{lll}
-            \displaystyle\frac{\partial s}{\partial \mathbf{W}^{(1)}}
-            &= \lambda \mathbf{W}^{(1)} & \because s=\frac{\lambda}{2} \left(\|\mathbf{W}^{(1)}\|_\textrm{F}^2 + \|\mathbf{W}^{(2)}\|_\textrm{F}^2\right)
-           \end{array}`$
+           \end{array}\right.`$
+    2. $`\displaystyle\frac{\partial J}{\partial \mathbf{W}^{(1)}} = \displaystyle\frac{\partial L}{\partial \mathbf{z}} \mathbf{x}^\top + \lambda \mathbf{W}^{(1)}`$
+       - Why?)    
+           $`\left\lbrace\begin{array}{lll}
+              (1) \; \displaystyle\frac{\partial L}{\partial \mathbf{W}^{(1)}}
+              &= \displaystyle\frac{\partial L}{\partial \mathbf{z}} \frac{\partial \mathbf{z}}{\partial \mathbf{W}^{(1)}} = \displaystyle\frac{\partial L}{\partial \mathbf{z}} \mathbf{x}^\top & \because \mathbf{z}= \mathbf{W}^{(1)} \mathbf{x} \\
+              &= \displaystyle \left(\frac{\partial L}{\partial \mathbf{h}} \displaystyle\frac{\partial \mathbf{h}}{\partial \mathbf{z}}\right)\mathbf{x}^\top = \left(\frac{\partial L}{\partial \mathbf{h}} \phi'(\mathbf{z})\right)\mathbf{x}^\top & \because \mathbf{h}= \phi (\mathbf{z}) \\
+              &= \displaystyle \left(\left(\frac{\partial L}{\partial \mathbf{o}}\frac{\partial \mathbf{o}}{\partial \mathbf{h}} \right) \phi'(\mathbf{z}) \right) \mathbf{x}^\top = \displaystyle \left(\left(\frac{\partial L}{\partial \mathbf{o}} {\mathbf{W}^{(2)}}^\top \right) \phi'(\mathbf{z}) \right) \mathbf{x}^\top & \because \mathbf{o}= \mathbf{W}^{(2)} \mathbf{h} \\
+              (2) \; \displaystyle\frac{\partial s}{\partial \mathbf{W}^{(1)}} &= \lambda \mathbf{W}^{(1)} & \because s=\frac{\lambda}{2} \left(\|\mathbf{W}^{(1)}\|_\textrm{F}^2 + \|\mathbf{W}^{(2)}\|_\textrm{F}^2\right)
+             \end{array}\right.`$
 
 
 
