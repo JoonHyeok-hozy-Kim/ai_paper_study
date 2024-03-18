@@ -5,7 +5,7 @@
 - Def.)
   - A literal is **operational** if it is allowed to be used in describing an **output hypothesis**.
 - e.g.)
-  - In [the $Cup$ example](#eg-cup-example) below, we allow output hypotheses to refer only to the 12 attributes that describe the training examples.
+  - In the $Cup$ [example below](#eg-cup-example), we allow output hypotheses to refer only to the 12 attributes that describe the training examples.
     - e.g.) $`HasHandle, \; HandleOnTop, \cdots`$
   - Literals based on these 12 attributes are thus considered **operational**.
 #### Concept) **Nonoperational Literal**
@@ -39,6 +39,14 @@
         - $o_i$ : an initial conjunction of [operational literals](#concept-operational-literal) added one at a time by the first syntactic operator
         - $o_b$ : a conjunction of [operational literals](#concept-operational-literal) added in a single step based on the domain theory
         - $o_f$ : a final conjunction of [operational literals](#concept-operational-literal) added one at a time by the first syntactic operator
+- Props.)
+  - FOCL uses the domain theory to **increase the number of candidate specializations** considered at each step of the search for a single Horn clause.
+  - FOCL's theory-suggested specializations correspond to "macro" steps in FOIL'S search, in which several literals are added in a single step.
+    - i.e.) Promoting a hypothesis that might be considered later in the search to one that will be considered immediately
+  - FOCL uses both a **syntactic generation** of candidate specializations and a **domain theory driven generation** of candidate specializations at each step in the search.
+    - The algorithm chooses among these candidates based solely on their **empirical support** over the training data.
+
+<br>
 
 #### E.g.) Cup Example
 - cf.)
