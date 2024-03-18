@@ -134,7 +134,6 @@
 |11.4|[Explanation-Based Learning of Search Control Knowledge](./ch11/04/note.md)|- PRODIGY, SOAR|
 
 
-
 <br>
 
 ## 12. Combining Inductive and Analytical Learning
@@ -145,6 +144,14 @@
 |12.3|[Using Prior Knowledge to Initialize the Hypothesis](./ch12/03/note.md)|- KBANN (Knowledge-Based Artificial Neural Network)|
 |12.4|[Using Prior Knowledge to Alter the Search Objective](./ch12/04/note.md)|- TangentProp <br>- EBNN (Explanation-Based Neural Network)|
 |12.5|[Using Prior Knowledge to Augment Search Operators](./ch12/05/note.md)|- FOCL|
+
+
+<br>
+
+## 13. Reinforcement Learning
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|13.1|[](./ch13/01/note.md)|- |
 
 
 
