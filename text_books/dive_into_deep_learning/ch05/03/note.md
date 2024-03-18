@@ -33,7 +33,7 @@
 
 <br><br>
 
-## 5.3.3 Backpropagation
+## 5.3.2 Backpropagation
 - Desc.)
   - Backpropagation refers to the method of calculating the gradient of neural network parameters.
   - In short, the method traverses the network in **reverse order**, from the output to the input layer, according to the **chain rule** from calculus.
@@ -70,6 +70,22 @@
               (2) \; \displaystyle\frac{\partial s}{\partial \mathbf{W}^{(1)}} &= \lambda \mathbf{W}^{(1)} & \because s=\frac{\lambda}{2} \left(\|\mathbf{W}^{(1)}\|_\textrm{F}^2 + \|\mathbf{W}^{(2)}\|_\textrm{F}^2\right)
              \end{array}\right.`$
 
+<br><br>
+
+## 5.3.3 Training Neural Networks
+- Desc.)
+  - Forward and backward propagation depend on each other when training a neural network.
+    - For **forward propagation**, we traverse the computational graph in the direction of dependencies and compute all the variables on its path. 
+    - These are then used for **backpropagation** where the compute order on the graph is reversed.
+  - Procedure)
+    - Initialize the model parameters : $\mathbf{W}^{(1)}$, $\mathbf{W}^{(2)}$
+    - Alternate **forward propagation** with **backpropagation**
+      - i.e.) Update model parameters using gradients given by **backpropagation**
+        - cf.) **Backpropagation** reuses the stored intermediate values from forward propagation to avoid duplicate calculations.
+  - Consequence)
+    - We need to retain the intermediate values until backpropagation is complete.
+    - Training requires significantly more memory than plain prediction.
+      - Thus, training deeper networks using larger batch sizes more easily leads to out-of-memory errors.
 
 
 <br>
