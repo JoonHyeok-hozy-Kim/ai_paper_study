@@ -54,6 +54,11 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 |5.1|[Multilayer Perceptrons](./ch05/01/note.md)|- Multilayer Perceptron (MLP) <br> - Activation Functions : ReLU, Sigmoid, Hyperbolic Tangent ($\tanh$)|
 |5.2|[Implementation of Multilayer Perceptrons](./ch05/02/note.md)|- MLP Implementation from Scratch<br> - Concise MLP Implementation|
 |5.3|[Forward Propagation, Backward Propagation, and Computational Graphs](ch05/03/note.md)|- Forward Propagation <br>- Backpropagation|
+|5.4|[Numerical Stability and Initialization](ch05/04/note.md)|- |
+
+
+
+
 
 <br><br>
 
