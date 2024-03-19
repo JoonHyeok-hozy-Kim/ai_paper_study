@@ -33,8 +33,8 @@
               - $0\le\gamma\lt 1$ : a constant that determines the relative value of delayed vs. immediate reward is considered.
                 - $\gamma\rightarrow 0$ : The immediate reward is more considered.
                   - cf.) Other Total Reward Definitions
-                    - Finite Horizon Reward : $`\displaystyle\sum_{i=0}^h r_{t+i}`$
-                    - Average Reward : $`\displaystyle\lim_{h\rightarrow\infty}\frac{1}{h}\sum_{i=0}^h r_{t+i}`$
+                     - Finite Horizon Reward : $`\displaystyle\sum_{i=0}^h r_{t+i}`$
+                     - Average Reward : $`\displaystyle\lim_{h\rightarrow\infty}\frac{1}{h}\sum_{i=0}^h r_{t+i}`$
 
 
 
