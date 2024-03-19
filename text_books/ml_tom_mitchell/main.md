@@ -151,7 +151,7 @@
 ## 13. Reinforcement Learning
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|13.1|[](./ch13/01/note.md)|- |
+|13.1|[Introduction](./ch13/01/note.md)|- Target Function ($\pi : S \rightarrow A$)|
 
 
 
