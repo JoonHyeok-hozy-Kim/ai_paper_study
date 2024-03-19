@@ -40,7 +40,7 @@
     - Policy)
       - Use the optimal policy.
         - Concept) Optimal Policy
-          - $\pi^\ast$
+          - $\pi^\ast\equiv{\arg\max}_{\pi} V^\pi(s), \forall s$
 
 
 
