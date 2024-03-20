@@ -153,6 +153,7 @@
 |:-:|:------|:-------|
 |13.1|[Introduction](./ch13/01/note.md)|- Target Function ($\pi : S \rightarrow A$)|
 |13.2|[The Learning Task](./ch13/02/note.md)|- Markov Decision Process (MDP) <br> - Discounted Cumulative Reward (Finite Horizon, Average Reward)|
+|13.3|[Q-Learning](./ch13/03/note.md)|- |
 
 
 
