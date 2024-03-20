@@ -31,7 +31,8 @@ from d2l import torch as d2l
     - $\mathbf{h}^{(l)} = f_l(\mathbf{h}^{(l-1)})$ : the output of the layer $l$
 - Derivation)
     - Then, $\mathbf{o}$ can be denoted as $\mathbf{o} = f_L \circ\cdots\circ f_1(\mathbf{x})$
-    - Thus, the gradient of $\mathbf{o}$ is $`\begin{array}{lll}
+    - Thus, the gradient of $\mathbf{o}$ is   
+      $`\begin{array}{lll}
         \partial_{\mathbf{W}^{(l)}} \mathbf{o} 
         &= \underbrace{\partial_{\mathbf{h}^{(L-1)}} \mathbf{h}^{(L)}}_{ \mathbf{M}^{(L)} \stackrel{\textrm{def}}{=}} \; \cdots \; \underbrace{\partial_{\mathbf{h}^{(l)}} \mathbf{h}^{(l+1)}}_{ \mathbf{M}^{(l+1)} \stackrel{\textrm{def}}{=}} \; \underbrace{\partial_{\mathbf{W}^{(l)}} \mathbf{h}^{(l)}}_{ \mathbf{v}^{(l)} \stackrel{\textrm{def}}{=}} \\
         &= \mathbf{M}^{(L)} \; \cdots \; \mathbf{M}^{(l+1)} \; \mathbf{v}^{(l)}
