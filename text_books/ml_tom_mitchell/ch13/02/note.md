@@ -39,7 +39,7 @@
        - Concept) Finite Horizon Reward : $`\displaystyle\sum_{i=0}^h r_{t+i}`$
        - Concept) Average Reward : $`\displaystyle\lim_{h\rightarrow\infty}\frac{1}{h}\sum_{i=0}^h r_{t+i}`$
 
-#### The Optimal Policy)
+#### The Optimal Policy
 - Use the **optimal policy**.
   - Concept) Optimal Policy
     - $\pi^\ast\equiv{\arg\max}_{\pi} V^\pi(s), \forall s$
@@ -58,7 +58,7 @@
       - i.e.)
         - The agent can acquire the optimal policy by learning $V^\ast$, provided it has perfect knowledge of the immediate reward function $r$ and the state transition function $\delta$.
     - Props.)
-      - Learning $V\ast$ is a useful only when the agent has **perfect knowledge** of $r$ and $\delta$.
+      - Learning $V^\ast$ is a useful only when the agent has **perfect knowledge** of $r$ and $\delta$.
         - i.e.) Agent can perfectly predict the immediate result for every possible state-action transition
           - cf.) similar to [the perfect domain theory](../../ch11/02/note.md#concept-domain-theory) in [Experience-Based Learning](../../ch11/01/note.md#concept-explanation-based-learning-ebl)
         - IMPOSSIBLE in reality
