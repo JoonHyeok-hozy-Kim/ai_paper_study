@@ -116,7 +116,7 @@
   - Let $`\displaystyle \Delta_n \equiv \max_{s,a} \left| \hat{Q}_n(s,a) - Q(s,a) \right|`$ be the maximum error in $\hat{Q}_n$
     - where $\hat{Q}_n$ is the agent's table of estimated $Q$ values after $n$ updates.
   - Put $s' \equiv \delta(s,a)$.
-  - For any table entry $\hat{Q}_n(s,a)$ that is updated on iteration $n+1$, the magnitude of the error in the revised estimate $\hat{Q}_{n+1}(s,a)$ is...   
+  - For any table entry $`\hat{Q}_n(s,a)`$ that is updated on iteration $`n+1`$, the magnitude of the error in the revised estimate $`\hat{Q}_{n+1}(s,a)`$ is...   
     $`\begin{array}{lll}
       \left| \hat{Q}_{n+1}(s,a)-Q(s,a) \right| & = \displaystyle \left| (r + \gamma\max_{a'} \hat{Q}_n(s',a')) - (r + \gamma\max_{a'} Q(s',a')) \right| \\
       & = \displaystyle \gamma\left| \max_{a'} \hat{Q}_n(s',a') - \max_{a'} Q(s',a') \right| \\
