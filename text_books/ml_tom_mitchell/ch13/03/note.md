@@ -117,12 +117,12 @@
     - where $\hat{Q}_n$ is the agent's table of estimated $Q$ values after $n$ updates.
   - Put $s' \equiv \delta(s,a)$.
   - For any table entry $\hat{Q}_n(s,a)$ that is updated on iteration $n+1$, the magnitude of the error in the revised estimate $\hat{Q}_{n+1}(s,a)$ is...   
-    $\begin{array}{lll}
+    $`\begin{array}{lll}
       \left| \hat{Q}_{n+1}(s,a)-Q(s,a) \right| & = \displaystyle \left| (r + \gamma\max_{a'} \hat{Q}_n(s',a')) - (r + \gamma\max_{a'} Q(s',a')) \right| \\
       & = \displaystyle \gamma\left| \max_{a'} \hat{Q}_n(s',a') - \max_{a'} Q(s',a') \right| \\
       & \le \displaystyle \gamma \max_{a'} \left|\hat{Q}_n(s',a') - Q(s',a') \right| & \left( \because\textrm{Lemma 1} \right) \\
       & \le \displaystyle \gamma \max_{s'',a'} \left|\hat{Q}_n(s'',a') - Q(s'',a') \right| & \left( \because\textrm{Lemma 2} \right) \\
-    \end{array}$
+    \end{array}`$
   - Thus, $`\left| \hat{Q}_{n+1}(s,a)-Q(s,a) \right| \le \gamma\Delta_n`$.
   - Then the largest error in the initial table, $\Delta_0$ is bounded because the values of $\hat{Q}_0(s,a)$ and $Q(s,a)$ are bounded for all $s,a$.
   - After the first interval during which each $s,a$ are visited, the largest error in the table will be at most $\gamma\Delta_0$.
