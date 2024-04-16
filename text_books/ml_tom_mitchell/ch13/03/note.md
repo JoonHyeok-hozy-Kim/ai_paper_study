@@ -131,7 +131,7 @@
 
 <br>
 
-### Tech) Experimentation Strategies
+### Tech) Experimentation Strategies (Probabilistic Approach)
 - Question)
   - Recall the agent in the [MDP](../02/note.md#concept-markov-decision-process-mdp) process.
   - The agent in state $s$ selects the action $a$ that maximizes $\hat{Q}(s,a)$.
