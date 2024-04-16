@@ -129,6 +129,31 @@
   - After $k$ intervals, the error will be at most $\gamma^k\Delta_0$.
   - Since each state is visited **infinitely** often, the number of such intervals is **infinite**, and $n\rightarrow\infty \Rightarrow \Delta_n\rightarrow 0$
 
+<br>
+
+### Tech) Experimentation Strategies
+- Question)
+  - Recall the agent in the [MDP](../02/note.md#concept-markov-decision-process-mdp) process.
+  - The agent in state $s$ selects the action $a$ that maximizes $\hat{Q}(s,a)$.
+  - Then, is there a risk that it will overcommit to actions found during early training to have high $\hat{Q}$ values?
+  - Won't it fail to explore other actions that have even higher values?
+- Answer)
+  - Our previous [convergence theorem](#theorem-convergence-of-q-learning-for-deterministic-markov-decision-process) requires that each state-action transition occur infinitely often.
+  - However, in reality, this will not happen if the agent always selects actions that maximizes its **current** $\hat{Q}$.
+- Solution)
+  - Adapt probabilistic approach to the agent's selecting action.
+    - How?)
+      - Assign higher probabilities to higher $`\hat{Q}`$ values.
+        - $`\displaystyle P(a_i|s) = \frac{k^{\hat{Q}(s, a_i)}}{\sum_j k^{\hat{Q}(s,a_j)}}`$
+          - where 
+            - $`P(a_i|s)`$ : the probability of selecting action $`a_i`$
+            - $`k\gt 0`$ : a constant that determines how strongly the selection favors actions with high $`\hat{Q}`$ values.
+              - cf.)
+                - If $`k`$ is large, higher probabilities will be assigned to actions with above average $`\hat{Q}`$ values.
+                - If $`k`$ is small, other actions will have more opportunity to be explored by the agent.
+      - Every action is assigned a non-zero probability.
+    - Application) 
+      - In some cases, $`k`$ is varied with the number of iterations so that the agent favors exploration during early stages of learning, then gradually shifts toward a strategy of exploitation.
 
 
 <br>
