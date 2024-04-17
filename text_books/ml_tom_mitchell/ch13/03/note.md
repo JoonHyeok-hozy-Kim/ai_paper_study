@@ -131,7 +131,7 @@
 
 <br>
 
-### Tech) Experimentation Strategies (Probabilistic Approach)
+### Tech.) Experimentation Strategies (Probabilistic Approach)
 - Question)
   - Recall the agent in the [MDP](../02/note.md#concept-markov-decision-process-mdp) process.
   - The agent in state $s$ selects the action $a$ that maximizes $\hat{Q}(s,a)$.
@@ -140,7 +140,7 @@
 - Answer)
   - Our previous [convergence theorem](#theorem-convergence-of-q-learning-for-deterministic-markov-decision-process) requires that each state-action transition occur infinitely often.
   - However, in reality, this will not happen if the agent always selects actions that maximizes its **current** $\hat{Q}$.
-- Solution)
+- Sol.)
   - Adapt probabilistic approach to the agent's selecting action.
     - How?)
       - Assign higher probabilities to higher $`\hat{Q}`$ values.
@@ -154,6 +154,39 @@
       - Every action is assigned a non-zero probability.
     - Application) 
       - In some cases, $`k`$ is varied with the number of iterations so that the agent favors exploration during early stages of learning, then gradually shifts toward a strategy of exploitation.
+
+<br>
+
+### Tech.) Updating Sequence
+- Objective)
+  - Improving training efficiency without endangering final convergence.
+- Prop.)
+  - Recall that [Q Learning](#133-q-learning) does not require training on optimal action sequences in order to converge to the optimal policy.
+  - It can learn the [Q function](#concept-the-q-function) (and hence the optimal policy) while training from actions chosen completely at random at each step.
+    - Premise : The resulting training sequence should visit every state-action transition infinitely often.
+- Question)
+  - Can't we change the sequence of training example transitions in order to improve training efficiency without endangering final convergence?
+- Sols.)
+  1. Reverse Order
+     - Consider learning in an MDP with a single absorbing goal state.
+       - e.g.) [A Simple Deterministic World](../02/note.md#eg-a-simple-deterministic-world)
+     - Suppose, a new training episode begins by removing the agent from the goal state and placing it at a new random initial state.
+       - If we begin with all $\hat{Q}$ values initialized to zero, then after the first full episode only one entry in the agent's $\hat{Q}$ table will have been changed: the entry corresponding to the final transition into the goal state.
+       - Note that if the agent happens to follow the same sequence of actions from the same random initial state in its second full episode, then a second table entry would be made nonzero, and so on.
+       - If we run repeated identical episodes in this fashion, the frontier of nonzero $\hat{Q}$ values will creep backward from the goal state at the rate of one new state-action transition per episode.
+     - Now consider training on these same state-action transitions, but in reverse chronological order for each episode.
+       - i.e.) We apply the same update rule as below for each transition considered, but perform these updates in reverse order.
+         - Rule : $`\displaystyle \hat{Q}(s,a) \leftarrow r + \gamma \max_{a'} \hat{Q}(s',a')`$
+       - In this case, after the first full episode the agent will have updated its $\hat{Q}$ estimate for every transition along the path it took to the goal.
+     - This training process will clearly converge in **fewer iterations**, although it requires that the agent **use more memory** to store the entire episode before beginning the training for that episode.
+  2. Storing Past State-Action Transitions
+     - How?)
+       - Store past state-action transitions and the immediate reward that was received.
+       - Retrain on them periodically.
+     - Why retraining?)
+       - Recall that the updated $\hat{Q}(s,a)$ value is determined by the values $\hat{Q}(s',a)$ of the successor state $s'=\delta(s,a)$.
+       - Therefore, if subsequent training changes one of the $\hat{Q}(s',a)$ values, then retraining on the transition $\langle s,a \rangle$ may result in an altered value for $\hat{Q}(s,a)$.
+       - In general, the degree to which we wish to replay old transitions versus obtain new ones from the environment depends on the relative costs of these two operations in the specific problem domain.
 
 
 <br>
