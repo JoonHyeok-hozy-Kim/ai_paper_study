@@ -30,7 +30,7 @@
     - $`\displaystyle Q(s,a) \equiv r(s,a) + \gamma V^\ast \left( \delta(s,a) \right)= r(s,a) + \gamma\max_{a'} Q(s,a')`$
 - Settings)
   - $\hat{Q}$ : the learner's **estimate**, or hypothesis, of the actual $Q$ function
-    - $\hat{Q}$ is represented by a large table with a separate entry for each state action pair, $`\langle s, a \rangle`$.
+    - $\hat{Q}$ is represented by a large **table** with a separate entry for each state action pair, $`\langle s, a \rangle`$.
 - Algorithm)
   - For each $`\langle s, a \rangle`$, initialize the table entry $\hat{Q}(s,a)$ to zero.
   - Observe the current state $s$
@@ -45,6 +45,7 @@
           - Although $Q$ is described with the functions $\delta$ and $r$, the agent does not need to know them.
             - It only executes actions in its corresponding environments and observes the resulting new states and rewards.
             - It can be viewed as sampling $\delta$ and $r$ at the current values of $s$ and $a$.
+- [Limitations]()
 
 <br><br>
 
