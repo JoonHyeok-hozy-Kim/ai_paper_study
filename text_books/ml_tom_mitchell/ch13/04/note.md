@@ -20,8 +20,57 @@
 
 #### Optimization
 - Let's derive the optimal policy $\pi^\ast$.
+  - $\pi^\ast$ must maximize $V^\pi(s)$ for all states $s$.   
+- Result)   
+  $`Q(s,a) = E[r(s,a)] + \gamma \displaystyle\sum_{s'} P(s'|s,a) \max_{a'} Q(s',a')`$
+  - where
+    - $P(s'|s,a)$ is the probability that taking action $a$ in state $s$ will produce the next state $s'$.
+- Derivation)   
+  $`\begin{array}{ll}
+    Q(s,a) & \equiv E\left[ r(s,a) + \gamma V^\ast (\delta(s,a))\right] \\
+    & = E \left[ r(s,a) \right] + \gamma E\left[ V^\ast (\delta(s,a)) \right] \\
+    & = E \left[ r(s,a) \right] + \gamma \displaystyle \sum_{s'} P(s'|s,a) V^\ast(s') \\
+    & = E \left[ r(s,a) \right] + \gamma \displaystyle \sum_{s'} P(s'|s,a) \max_{a'} Q(s',a') \\
+  \end{array}`$
 
+#### Algorithm
+- Recall that we trained $\hat{Q}(s,a)$ table to approximate to the real $Q$ function.
+- However, in the non-deterministic MDP, the convergence of $\hat{Q}$ to $Q$ is not guaranteed.
+  - Why?)
+    - Our new $r(s,a)$ randomly generates different rewards each time the transition $\langle s,a \rangle$ is repeated.
+    - Thus, the training rule will repeatedly alter the values of $\hat{Q}(s,a)$ even if we initialize the $\hat{Q}$ to the correct $Q$ function.
+- Thus, we should modify the training rule so that it takes a decaying weighted average of the current $\hat{Q}$ value and the revised estimate.
+  - How?)
+    - $`\displaystyle\hat{Q}_n(s,a) \leftarrow (1-\alpha_n) \hat{Q}_{n-1}(s,a) + \alpha_n \left[ r + \gamma \max_{a'} \hat{Q}_{n-1}(s',a') \right]`$
+      - where
+        - $`\displaystyle\alpha_n = \frac{1}{1+\textrm{visits}_n(s,a)}`$
+        - $s$ and $a$ are the state and action updated during the $n$-th iteration.
+        - $\textrm{visits}_n(s,a)$ is the total number of times $\langle s,a \rangle$ has been visited up to including the $n$-th iteration.
+          - Prop.)
+            - $`\displaystyle\frac{\partial \alpha_n}{\partial n} \lt 0`$
+              - i.e.) Updates become smaller as training progresses.
+            - By reducing $\alpha$ at an appropriate rate during training, we can achieve convergence to the correct $Q$ function.
+    - Check [the theorem below](#theorem-convergence-of-q-learning-for-non-deterministic-markov-decision-processes) for the strict mathematics.
+- Prop.)
+  - Revisions to $\hat{Q}$ are made more gradually than in the deterministic case.
 
+<br>
+
+### Theorem) Convergence of Q Learning for Non-Deterministic Markov Decision Processes
+- Settings)
+  - A $Q$ learning agent in a non-deterministic MDP
+  - $`(\forall s,a) \; |r(s,a)|\le c`$ : Bounded rewards
+  - $`\displaystyle\hat{Q}_n(s,a) \leftarrow (1-\alpha_n) \hat{Q}_{n-1}(s,a) + \alpha_n \left[ r + \gamma \max_{a'} \hat{Q}_{n-1}(s',a') \right]`$ : the training rule of the agent.
+  - $`\hat{Q}(s,a)`$ table is initialized with arbitrary finite values.
+  - $`0 \le \gamma \lt 1`$ : the discount factor
+  - $n(i,s,a)$ : the iteration corresponding to the $i$-th time that action $a$ is applied to state $s$.
+- Theorem.)
+  - If
+    - $`0\le \alpha_n\lt 1`$
+    - $`\displaystyle\sum_{i=1}^\infty\alpha_{n(i,s,a)}=\infty`$
+    - $`\displaystyle\sum_{i=1}^\infty\left[\alpha_{n(i,s,a)}\right]^2\lt\infty`$
+  - Then
+    - $`(\forall s, a) \; n \rightarrow \infty \Rightarrow \hat{Q}_n(s,a) \rightarrow Q(s,a)`$
 
 
 <br>
