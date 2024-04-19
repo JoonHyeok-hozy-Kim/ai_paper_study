@@ -45,7 +45,7 @@
           - Although $Q$ is described with the functions $\delta$ and $r$, the agent does not need to know them.
             - It only executes actions in its corresponding environments and observes the resulting new states and rewards.
             - It can be viewed as sampling $\delta$ and $r$ at the current values of $s$ and $a$.
-- [Limitations]()
+- [Limits of Q Learning and Solutions](../06/note.md#prop-limits-of-q-learning-and-solutions)
 
 <br><br>
 
