@@ -115,20 +115,43 @@ print('after multiplying 100 matrices\n', M)
       - $`o_{i}`$ : the output
       - $`n_\textrm{in}`$ : the number of inputs
       - $`x_j`$ : the $j$-th input
+        - Further assume that all $`x_{j}`$ are drawn from the same distribution with **zero mean** and variance $\gamma^2$.
+        - Does not necessarily have to be Gaussian.
       - $`w_{ij}`$ : the $i$-th weight associated with $`x_j`$
         - Further assume that all $`w_{ij}`$ are drawn from the same distribution with **zero mean** and variance $\sigma^2$.
         - Does not necessarily have to be Gaussian.
-  - Then,   
-    $`\begin{aligned}
-      E[o_i] & = \sum_{j=1}^{n_\textrm{in}} E[w_{ij} x_j] \\&= \sum_{j=1}^{n_\textrm{in}} E[w_{ij}] E[x_j] \\&= 0, 
-    \end{aligned}`$
-    $`\begin{aligned}
-       \textrm{Var}[o_i] & = E[o_i^2] - (E[o_i])^2 \\
-           & = \sum_{j=1}^{n_\textrm{in}} E[w^2_{ij} x^2_j] - 0 \\
-           & = \sum_{j=1}^{n_\textrm{in}} E[w^2_{ij}] E[x^2_j] \\
-           & = n_\textrm{in} \sigma^2 \gamma^2.
-    \end{aligned}`$
-
+  - Then, $E[o_i] = 0$ and $\textrm{Var}[o_i] = n_\textrm{in} \sigma^2 \gamma^2$
+    - pf.)   
+      $`\begin{aligned}
+        E[o_i] & = \sum_{j=1}^{n_\textrm{in}} E[w_{ij} x_j] 
+        \\&= \sum_{j=1}^{n_\textrm{in}} E[w_{ij}] E[x_j] 
+        \\&= 0 & (\because E[w_{ij}]=0)
+      \end{aligned}`$    
+      $`\begin{aligned}
+         \textrm{Var}[o_i] & = E[o_i^2] - (E[o_i])^2 \\
+             & = \sum_{j=1}^{n_\textrm{in}} E[w^2_{ij} x^2_j] - 0 \\
+             & = \sum_{j=1}^{n_\textrm{in}} E[w^2_{ij}] E[x^2_j] \\
+             & = n_\textrm{in} \sigma^2 \gamma^2.
+      \end{aligned}`$
+- Intuition)
+  - Forward Propagation Perspective)
+    - Since $`\displaystyle o_{i} = \sum_{j=1}^{n_\textrm{in}} w_{ij} x_j`$ and $\textrm{Var}[o_i] = n_\textrm{in} \sigma^2 \gamma^2$, we may keep the variance of the output by setting $n_\textrm{in} \sigma^2=1$.
+      - why needed?)
+        - If weights are too small of too large, their [gradients may explode or vanish](#541-vanishing-and-exploding-gradients)!
+  - Backpropagation Perspective)
+    - Without the loss of generality, we may assume that we can fix the variance by setting $n_\textrm{out} \sigma^2=1$.
+  - However, satisfying the both conditions simultaneously is nearly impossible.
+- Sol.)
+  - Set the rule as below.
+    - $`\begin{aligned}
+   \frac{1}{2} (n_\textrm{in} + n_\textrm{out}) \sigma^2 = 1 \textrm{ or equivalently }
+   \sigma = \sqrt{\frac{2}{n_\textrm{in} + n_\textrm{out}}}.
+   \end{aligned}`$
+  - Or, we can use the uniform distribution as below.
+    - $`\displaystyle U\left(-\sqrt{\frac{6}{n_\textrm{in} + n_\textrm{out}}}, \sqrt{\frac{6}{n_\textrm{in} + n_\textrm{out}}}\right)`$
+      - why?)
+        - Recall that a uniform distribution of $U(-a, a)$ has the variance of $\displaystyle\frac{a^2}{3}$.
+        - Put $\displaystyle\frac{a^2}{3} = \sigma^2 = \frac{2}{n_\textrm{in} + n_\textrm{out}}$
 
 <br>
 
