@@ -36,6 +36,7 @@ from d2l import torch as d21
          - why?)
            - The input layer does not involve any calculations, producing outputs with this network requires implementing the computations for both the hidden and output layers.
 
+<br>
 
 - Notation) One-Hidden-Layer MLP
   - Suppose
