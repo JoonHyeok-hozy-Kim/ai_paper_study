@@ -121,7 +121,7 @@ print('after multiplying 100 matrices\n', M)
   - Then,   
     $`\begin{aligned}
       E[o_i] & = \sum_{j=1}^{n_\textrm{in}} E[w_{ij} x_j] \\&= \sum_{j=1}^{n_\textrm{in}} E[w_{ij}] E[x_j] \\&= 0, 
-    \end{aligned}`$   
+    \end{aligned}`$
     $`\begin{aligned}
        \textrm{Var}[o_i] & = E[o_i^2] - (E[o_i])^2 \\
            & = \sum_{j=1}^{n_\textrm{in}} E[w^2_{ij} x^2_j] - 0 \\
