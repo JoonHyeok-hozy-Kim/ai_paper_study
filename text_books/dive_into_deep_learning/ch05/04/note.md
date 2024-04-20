@@ -110,13 +110,24 @@ print('after multiplying 100 matrices\n', M)
 
 ### Tech.) Xavier Initialization
 - Settings)
-  - $`\displaystyle o_{i} = \sum_{j=1}^{n_\textrm{in}} w_{ij} x_j`$
+  - $`\displaystyle o_{i} = \sum_{j=1}^{n_\textrm{in}} w_{ij} x_j`$ : a fully connected layer **without nonlinearities**
     - where
-      - $`o_{i}`$ : the output for a fully connected layer without nonlinearities.
+      - $`o_{i}`$ : the output
       - $`n_\textrm{in}`$ : the number of inputs
       - $`x_j`$ : the $j$-th input
       - $`w_{ij}`$ : the $i$-th weight associated with $`x_j`$
         - Further assume that all $`w_{ij}`$ are drawn from the same distribution with **zero mean** and variance $\sigma^2$.
+        - Does not necessarily have to be Gaussian.
+  - Then,   
+    $`\begin{aligned}
+      E[o_i] & = \sum_{j=1}^{n_\textrm{in}} E[w_{ij} x_j] \\&= \sum_{j=1}^{n_\textrm{in}} E[w_{ij}] E[x_j] \\&= 0, 
+    \end{aligned}`$   
+    $`\begin{aligned}
+       \textrm{Var}[o_i] & = E[o_i^2] - (E[o_i])^2 \\
+           & = \sum_{j=1}^{n_\textrm{in}} E[w^2_{ij} x^2_j] - 0 \\
+           & = \sum_{j=1}^{n_\textrm{in}} E[w^2_{ij}] E[x^2_j] \\
+           & = n_\textrm{in} \sigma^2 \gamma^2.
+    \end{aligned}`$
 
 
 <br>
