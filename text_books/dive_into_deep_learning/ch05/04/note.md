@@ -54,6 +54,9 @@ from d2l import torch as d2l
     - Since early artificial neural networks were inspired by biological neural networks, the idea of neurons that fire either fully or not at all (like biological neurons) seemed appealing.
   - But due to the vanishing gradient problem, we should be careful using it.
     - Consequently, RELU became the default choice for practitioners.
+
+<br>
+
 - Simulation)
   ```python
   x = torch.arange(-8.0, 8.0, 0.1, requires_grad=True)
