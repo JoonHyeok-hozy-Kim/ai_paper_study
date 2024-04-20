@@ -35,6 +35,8 @@ from d2l import torch as d21
        - The number of layers in this MLP is two.
          - why?)
            - The input layer does not involve any calculations, producing outputs with this network requires implementing the computations for both the hidden and output layers.
+
+
 - Notation) One-Hidden-Layer MLP
   - Suppose
     - $`\mathbf{X} \in \mathbb{R}^{n \times d}`$ : a minibatch of $`n`$ examples
