@@ -89,23 +89,34 @@ print('after multiplying 100 matrices\n', M)
 
 ### 5.4.1.3 Breaking the Symmetry
 - Concept) Inherent Symmetry in Parametrization
-  - Desc.)
-    - xx
-  - e.g.)
-    - Assume a simple MLP with...
-      - One hidden layer
-        - Put $\mathbf{W}^{(1)}$ : the weights of the layer
-      - Two units
-    - Then differentiating the first and the second unit, there is a symmetry among the hidden units of each layer.
-    - Suppose we initialized all the parameters of the hidden layer as $`\mathbf{W}^{(1)}=c, \; c\in \mathbb{R}`$.
-    - Then, during **forward propagation** either hidden unit takes the same inputs and parameters producing the same activation which is fed to the output unit.
-    - During **backpropagation**, differentiating the output unit w.r.t. parameters $\mathbf{W}^{(1)}$ gives a gradient all of whose elements take the same value.
-    - Thus, after gradient-based iteration (e.g., minibatch stochastic gradient descent), all the elements of $\mathbf{W}^{(1)}$ still take the same value.
-    - Such iterations would never **break the symmetry**.
+  - e.g.) Permutation Symmetry Case
+     - Assume a simple MLP with...
+       - One hidden layer
+         - Put $\mathbf{W}^{(1)}$ : the weights of the layer
+       - Two units
+     - Then differentiating the first and the second unit, there is a symmetry among the hidden units of each layer.
+     - Suppose we initialized all the parameters of the hidden layer as $`\mathbf{W}^{(1)}=\left[c\right], \; c\in \mathbb{R}`$.
+     - Then, during **forward propagation** either hidden unit takes the same inputs and parameters producing the same activation which is fed to the output unit.
+     - During **backpropagation**, differentiating the output unit w.r.t. parameters $\mathbf{W}^{(1)}$ gives a gradient all of whose elements take the same value.
+     - Thus, after gradient-based iteration (e.g., minibatch stochastic gradient descent), all the elements of $\mathbf{W}^{(1)}$ still take the same value.
+     - Such iterations would never **break the symmetry**.
 
+<br><br>
 
+## 5.4.2 Parameter Initialization
+- Why needed?)
+  - One way of addressing the issues above...
+  - Along with the regularization
 
-
+### Tech.) Xavier Initialization
+- Settings)
+  - $`\displaystyle o_{i} = \sum_{j=1}^{n_\textrm{in}} w_{ij} x_j`$
+    - where
+      - $`o_{i}`$ : the output for a fully connected layer without nonlinearities.
+      - $`n_\textrm{in}`$ : the number of inputs
+      - $`x_j`$ : the $j$-th input
+      - $`w_{ij}`$ : the $i$-th weight associated with $`x_j`$
+        - Further assume that all $`w_{ij}`$ are drawn from the same distribution with **zero mean** and variance $\sigma^2$.
 
 
 <br>
