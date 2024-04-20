@@ -140,7 +140,7 @@ print('after multiplying 100 matrices\n', M)
         - If weights are too small of too large, their [gradients may explode or vanish](#541-vanishing-and-exploding-gradients)!
   - Backpropagation Perspective)
     - Without the loss of generality, we may assume that we can fix the variance by setting $n_\textrm{out} \sigma^2=1$.
-  - However, satisfying the both conditions simultaneously is nearly impossible.
+  - However, satisfying both conditions simultaneously is nearly impossible.
 - Sol.)
   - Set the rule as below.
     - $`\begin{aligned}
