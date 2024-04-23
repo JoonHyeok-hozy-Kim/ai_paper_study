@@ -56,7 +56,7 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 |5.3|[Forward Propagation, Backward Propagation, and Computational Graphs](ch05/03/note.md)|- Forward Propagation <br>- Backpropagation|
 |5.4|[Numerical Stability and Initialization](ch05/04/note.md)|- Exploding/Vanishing Gradient <br> - Inherent Symmetry in Parametrization <br> - Parameter Initialization : Xavier Initialization|
 |5.5|[Generalization in Deep Learning](ch05/05/note.md)|- Classical Learning vs Deep Learning <br> - Deep Learning vs Nonparametrics : Neural Tangent Kernel <br> - Early Stopping|
-|5.6|[Dropout](ch05/06/note.md)|- |
+|5.6|[Dropout](ch05/06/note.md)|- Co-Adaptation, Injecting Noise|
 
 
 
