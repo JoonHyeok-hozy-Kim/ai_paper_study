@@ -61,15 +61,15 @@
 
 <br>
 
-### Implementation
-#### Import Packages
+### Tech.) Implementation
+First, import packages
 ```python
 import torch
 from torch import nn
 from d2l import torch as d2l
 ```
 
-- Implementations
+- Implementation Types
   1. [Implementation from Scratch](#1-implementation-from-scratch)   
   2. [Concise Implementation](#2-concise-implementation)
 
@@ -108,8 +108,7 @@ def dropout_layer(X, dropout):
 2. Define the model.
 ```python
 class DropoutMLPScratch(d2l.Classifier):
-    def __init__(self, num_outputs, num_hiddens_1, num_hiddens_2,
-                 dropout_1, dropout_2, lr):
+    def __init__(self, num_outputs, num_hiddens_1, num_hiddens_2, dropout_1, dropout_2, lr):
         super().__init__()
         self.save_hyperparameters()
         self.lin1 = nn.LazyLinear(num_hiddens_1)
@@ -140,13 +139,34 @@ data = d2l.FashionMNIST(batch_size=256) # Sample data
 trainer = d2l.Trainer(max_epochs=10)
 trainer.fit(model, data)
 ```
-![](images/004.png)
+- Result)   
+  ![](images/004.png)
 
 
 
 <br>
 
 #### 2. Concise Implementation
+```python
+class DropoutMLP(d2l.Classifier):
+    def __init__(self, num_outputs, num_hiddens_1, num_hiddens_2, dropout_1, dropout_2, lr):
+        super().__init__()
+        self.save_hyperparameters()
+        self.net = nn.Sequential(
+            nn.Flatten(), nn.LazyLinear(num_hiddens_1), nn.ReLU(),
+            nn.Dropout(dropout_1), nn.LazyLinear(num_hiddens_2), nn.ReLU(),
+            nn.Dropout(dropout_2), nn.LazyLinear(num_outputs))
+```
+
+Training
+```python
+hparams = {'num_outputs':10, 'num_hiddens_1':256, 'num_hiddens_2':256, 'dropout_1':0.5, 'dropout_2':0.5, 'lr':0.1}
+model = DropoutMLP(**hparams)
+data = d2l.FashionMNIST(batch_size=256) # Sample data
+trainer.fit(model, data)
+```
+- Result)   
+  ![](images/005.png)
 
 
 <br>
