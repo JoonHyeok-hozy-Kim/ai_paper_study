@@ -157,6 +157,7 @@ class DropoutMLP(d2l.Classifier):
             nn.Dropout(dropout_1), nn.LazyLinear(num_hiddens_2), nn.ReLU(),
             nn.Dropout(dropout_2), nn.LazyLinear(num_outputs))
 ```
+- Use ```nn.Dropout()```.
 
 Training
 ```python
