@@ -57,6 +57,7 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 |5.4|[Numerical Stability and Initialization](ch05/04/note.md)|- Exploding/Vanishing Gradient <br> - Inherent Symmetry in Parametrization <br> - Parameter Initialization : Xavier Initialization|
 |5.5|[Generalization in Deep Learning](ch05/05/note.md)|- Classical Learning vs Deep Learning <br> - Deep Learning vs Nonparametrics : Neural Tangent Kernel <br> - Early Stopping|
 |5.6|[Dropout](ch05/06/note.md)|- Co-Adaptation, Injecting Noise|
+|5.7|[Project: Predicting House Prices on Kaggle](ch05/07/note.md)|- ```download(url, folder, sha1_hash=None)``` <br> - ```extract(filename, folder)``` <br> - |
 
 
 
