@@ -109,6 +109,107 @@ def extract(filename, folder):
     ```
     ![](images/003.png)
 
+<br>
+
+## 5.7.5 Error Measure
+- Why needed?)
+  - To evaluate a model's performance on the prediction $(\hat{y})$.
+- e.g.)
+  - Relative Error
+    - $\displaystyle\frac{y-\hat{y}}{y}$
+      - Why?) Relative instead of Absolute?
+        - Concept.) Absolute Error
+          - $y-\hat{y}$
+        - e.g.) If our prediction is off by $100,000 when estimating the price of a house in rural Ohio, where the value of a typical house is $125,000, then we are probably doing a horrible job. On the other hand, if we err by this amount in Los Altos Hills, California, this might represent a stunningly accurate prediction (there, the median house price exceeds $4 million).
+  - Discrepancy in the Logarithm
+    - $\displaystyle\sqrt{\frac{1}{n} \sum_{i=1}^{n} {(\log{y_i} - \log{\hat{y}_i})}^2}$
+      - Derivation)
+        - $`\exists \delta > 0 \textrm{ such that } |\log{y} - \log{\hat{y}}|\le\delta`$.
+        - Then, $`\displaystyle e^{-\delta}\le\frac{\hat{y}}{y}\le e^\delta`$, which is the relative difference between the data and the prediction.
+```python
+@d2l.add_to_class(KaggleHouse)
+def get_dataloader(self, train):
+    label = 'SalePrice'
+    data = self.train if train else self.val
+    if label not in data: return
+    get_tensor = lambda x: torch.tensor(x.values.astype(float), dtype=torch.float32)
+
+    # Logarithm of prices
+    tensors = (get_tensor(data.drop(columns=[label])),  # X
+               torch.log(get_tensor(data[label])).reshape((-1, 1)))  # log Y
+    return self.get_tensorloader(tensors, train)
+```
+
+<br>
+
+## 5.7.6 K-Fold Cross-Validation
+- Objective)
+  - Choosing the best-performative model.
+- Why $K$-fold Cross Validation?
+  - Of course $K$-fold Cross Validation is not the optimal solution.
+  - Here, we use this method for the simplicity of our code.
+```python
+def k_fold_data(data, k):
+    rets = []
+    fold_size = data.train.shape[0] // k
+    for j in range(k):
+        idx = range(j * fold_size, (j+1) * fold_size)
+        rets.append(
+            KaggleHouse(
+                data.batch_size, 
+                data.train.drop(index=idx),     # Training Data
+                data.train.loc[idx]             # Validation Data
+            )
+        )
+    return rets
+```
+- Desc.)
+  - Append the ```KaggleHouse``` objects with each $i$-th validation data to the returning ```list```.
+```python
+def k_fold(trainer, data, k, lr):
+    val_loss, models = [], []
+    for i, data_fold in enumerate(k_fold_data(data, k)):
+        model = d2l.LinearRegression(lr)        # Linear regression model as a benchmark
+        model.board.yscale='log'
+        if i != 0: model.board.display = False
+        trainer.fit(model, data_fold)           # Train the regression model with each of the K-fold data
+        val_loss.append(float(model.board.data['val_loss'][-1].y))
+        models.append(model)
+    print(f'average validation log mse = {sum(val_loss)/len(val_loss)}')    # Average losses of the K-fold regressions
+    return models
+```
+
+<br>
+
+## 5.7.7 Model Selection
+- Instantiate the ```Trainer``` object and call the ```k_fold``` function we created.
+```python
+trainer = d2l.Trainer(max_epochs=10)
+models = k_fold(trainer, data, k=5, lr=0.01)
+```
+- Interpretation of the result
+  - Case) The number of training errors for a set of hyperparameters is very low while the number of errors on $K$-fold cross-validation grows considerably higher.
+    - We should suspect the overfitting problem.
+
+<br>
+
+## 5.7.8 Submitting Predictions on Kaggle
+Generate a submission file with the name ```submission.csv``` with the following code.
+```python
+preds = [model(torch.tensor(data.val.values.astype(float), dtype=torch.float32))
+         for model in models]
+
+# Taking exponentiation of predictions in the logarithm scale
+ensemble_preds = torch.exp(torch.cat(preds, 1)).mean(1)
+submission = pd.DataFrame({'Id':data.raw_val.Id,
+                           'SalePrice':ensemble_preds.detach().numpy()})
+submission.to_csv('submission.csv', index=False)
+```
+
+Upload the file on Kaggle.   
+![](images/004.png)
+
+
 
 <br>
 
