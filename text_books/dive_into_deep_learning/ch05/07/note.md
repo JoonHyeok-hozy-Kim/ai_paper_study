@@ -185,7 +185,7 @@ def k_fold(trainer, data, k, lr):
 - Instantiate the ```Trainer``` object and call the ```k_fold``` function we created.
 ```python
 trainer = d2l.Trainer(max_epochs=10)
-models = k_fold(trainer, data, k=5, lr=0.01)
+models = k_fold(trainer, data, k=5, lr=0.01)2
 ```
 - Interpretation of the result
   - Case) The number of training errors for a set of hyperparameters is very low while the number of errors on $K$-fold cross-validation grows considerably higher.
