@@ -122,7 +122,28 @@
 
 ## 3. Constant Error Backprop
 ### 3.1 Exponentially Decaying Error
-#### 3.1.1 Conventional BPTT
+#### 3.1.1 Conventional BPTT (Back-Propagation Through Time)
+- e.g.) *Williams and Zipser 1992*
+- Model)
+  - Let
+    - $i,j$ : units
+      - where $j$ outputs to $i$
+    - $w_{ij}$ : the weight on the connection from unit $j$ to $i$
+    - $f_i$ : the differentiable activation function of $i$
+    - $y^i(t) = f_i\left(\textrm{net}_i(t)\right)$ : the activation of a non-input unit $i$ with differentiable activation function $f_i$ at time $t$
+      - where 
+        - $\displaystyle\textrm{net}_i(t) = \sum_j w_{ij} y^j (t-1)$ : unit $i$'s current net input
+  - Using mean squared error, unit $k$'s error signal goes
+    - $`\mathcal{v}_k(t) = f_k'\left(\textrm{net}_k(t)\right) \;\left(d_k(t)-y^k(t)\right)`$
+      - where
+        - $d_k(t)$ : Output unit $k$'s target at time $t$
+  - Thus, some non-output unit $j$'s backpropagated error signal is
+    - $`\displaystyle\mathcal{v}_j(t) = f_j'\left(\textrm{net}_j(t)\right)\sum_j w_{ij} \mathcal{v}_i(t+1)`$
+      - why?)
+        - Backpropagating from $i$ to $j$.
+  - Then, for an arbitrary unit $l$ connected to $j$
+    - $\alpha\mathcal{v}_j(t)y^l(t-1)$ : the corresponding contribution to $w_{jl}$'s total weight update
+      - where $\alpha$ is the learning rate
 
 
 <br>
