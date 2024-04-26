@@ -148,7 +148,8 @@
 
 <br>
 
-#### 3.1.2 Outline of Hochreiter's Analysis (1991, page 19-21)
+#### 3.1.2 Local Error Flow 
+*Outline of Hochreiter's Analysis (1991, page 19-21)*
 - Setting)
   - Consider a fully connected net whose non-input unit indices range from 1 to $n$.
 - Local Error Flow)
@@ -162,7 +163,7 @@
           f_v'(\textrm{net}_v(t-q)) \displaystyle\sum_{l=1}^n \frac{\partial \vartheta_l(t-q+1)}{\partial \vartheta_u(t)} & q \gt 1
         \end{cases}
       \end{aligned}`$
-  - Putting $l_q = v$ and $l_0 = u$, we obtain   
+  - Putting $l_q = v$ and $l_0 = u$, we obtain **the local error flow formula**   
     $`\displaystyle \frac{\partial \vartheta_v (t-q)}{\partial \vartheta_u(t)} = \sum_{l_1=1}^n \cdots \sum_{l_{q-1}=1}^n \prod_{m=1}^q f_{l_m}'\left(\textrm{net}_{l_m}(t-m)\right)w_{l_m l_{m-1}}`$
     - Here, the sum of all the $n^{q-1}$ terms $`\prod_{m=1}^q f_{l_m}'\left(\textrm{net}_{l_m}(t-m)\right)w_{l_m l_{m-1}}`$ determines the total error back flow.
       - cf.) Since the summation terms may have different signs, increasing the number of units $n$ does not necessarily increase error flow.
@@ -197,6 +198,66 @@
           3. Increasing learning rate does not help either.
              - Why?)
                - It will not change the ratio of long-range error flow and short-range error flow.
+
+<br>
+
+#### 3.1.3 Global Error Flow
+- The local error flow analysis above shows that global error flow vanishes too.
+  - How?)
+    - Compute the following.   
+      $`\displaystyle\sum_{u: \textrm{ output unit}}\frac{\partial\vartheta_v(t-q)}{\partial\vartheta_u(t)}`$
+
+<br>
+
+#### 3.1.4 Weak Upper Bound for Scaling Factor
+- The Weak Upper Bound)
+  - Settings)
+    - Let's rewrite [the local error flow formula](#312-local-error-flow) as the following.
+      - $`\displaystyle\left(W_{u^\top}\right)^\top F'(t-1) \prod_{m=2}^{q-1}\left(W F'(t-m)\right) W_v f_v'\left(\textrm{net}_v(t-q)\right)`$
+        - where
+          - $W$ : the weight **matrix** defined by $\left[W\right]_{ij}\equiv w_{ij}$
+          - $W_v$ : unit $v$'s outgoing weight **vector** defined by $\left[W_v\right]_{i}\equiv\left[W\right]_{iv}=w_{iv}$
+          - $W_{u^\top}$ : unit $u$'s incoming weight **vector** defined by $\left[W_{u^\top}\right]_{i}\equiv\left[W\right]_{ui}=w_{ui}$
+          - $`F'(t-m)`$ : the **diagonal matrix** of first order derivatives defined as   
+            - $`\begin{aligned}
+                \left[F'(t-m)\right]_{ij} = 
+                \begin{cases}
+                  0 & i \ne j \\
+                  f_i'(\textrm{net}_i(t-m)) & \textrm{otherwise}
+                \end{cases}
+            \end{aligned}`$
+        - Notations)
+          - $`\left[A\right]_{ij}`$ is the element in the $i$-th column and $j$-th row of matrix $A$.
+          - $`\left[x\right]_i`$ is the $i$-th component of vector $x$.
+    - Define $`f'_{\max}\equiv\max_{m=1,\cdots,q}\left\lbrace || F'(t-m) ||_A \right\rbrace`$.
+      - where
+        - $||\cdot||_A$ : a matrix norm compatible with vector norm $||\cdot||_x$
+  - The Bound)
+    - $`\begin{aligned}
+  \displaystyle\left|\frac{\partial\vartheta_v(t-q)}{\partial\vartheta_u(t)}\right| & \le & n(f_{\max}')^q \; || W_v ||_x \; || W_{u^\top} ||_x \; || W ||_A^{q-2} & \le & n\left(f_{\max}' ||W||_A\right)^q
+\end{aligned}`$
+  - How?)
+    - Consider the followings. 
+      - $`|x^\top y| \le n ||x||_x ||y||_y`$
+        - for $`\max_{i=1,\cdots,n}\left\lbrace |x_i| \right\rbrace \le ||x||_x`$
+      - $`|f_v'(\textrm{net}_v(t-q))| \le || F'(t-q) ||_A \le f_{\max}'`$.
+      - $`\begin{cases}
+        || W_v ||_x \; = || W_{e_v} ||_x \; \le || W ||_A \; || e_v ||_x \;  \le || W ||_A \; \\
+        || W_{u^\top} ||_x \; = || e_u W ||_x \; \le || W ||_A \; || e_u ||_x \;  \le || W ||_A \; 
+      \end{cases}`$
+        - where $e_k$ is the unit vector whose components are $0$ except for the $k$-th component, which is $1$.
+- Props.)
+  - This bound is a weak extreme case upper bound.
+    - It will be reached only if 
+      1. All $`|| F'(t-m) ||_A`$ take on maximal values 
+      2. The contribution of all paths across which error flows back from unit $u$ to unit $v$ have the same sign.
+    - However, large $||W||_A$ typically result in small values of $`|| F'(t-m) ||_A`$.
+      - *Hochreiter, 1991*
+      - e.g.)
+        - Suppose
+          - $``$
+          - $``$
+          - $``$
 
 
 
