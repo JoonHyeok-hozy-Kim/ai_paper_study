@@ -134,20 +134,34 @@
       - where 
         - $\displaystyle\textrm{net}_i(t) = \sum_j w_{ij} y^j (t-1)$ : unit $i$'s current net input
   - Using mean squared error, unit $k$'s error signal goes
-    - $`\mathcal{v}_k(t) = f_k'\left(\textrm{net}_k(t)\right) \;\left(d_k(t)-y^k(t)\right)`$
+    - $`\vartheta_k(t) = f_k'\left(\textrm{net}_k(t)\right) \;\left(d_k(t)-y^k(t)\right)`$
       - where
         - $d_k(t)$ : Output unit $k$'s target at time $t$
   - Thus, some non-output unit $j$'s backpropagated error signal is
-    - $`\displaystyle\mathcal{v}_j(t) = f_j'\left(\textrm{net}_j(t)\right)\sum_j w_{ij} \mathcal{v}_i(t+1)`$
+    - $`\displaystyle\vartheta_j(t) = f_j'\left(\textrm{net}_j(t)\right)\sum_j w_{ij} \vartheta_i(t+1)`$
       - why?)
         - Backpropagating from $i$ to $j$.
   - Then, for an arbitrary unit $l$ connected to $j$
-    - $\alpha\mathcal{v}_j(t)y^l(t-1)$ : the corresponding contribution to $w_{jl}$'s total weight update
+    - $\alpha\vartheta_j(t)y^l(t-1)$ : the corresponding contribution to $w_{jl}$'s total weight update
       - where $\alpha$ is the learning rate
 
 
 <br>
 
+#### 3.1.2 Outline of Hochreiter's Analysis (1991, page 19-21)
+- Setting)
+  - Consider a fully connected net whose non-input unit indices range from 1 to $n$.
+- Local Error Flow)
+  - Let $u$, $v$ be units of the net.
+  - Then the error occurring at an arbitrary unit $u$ at the time step $t$ is propagated "back into time$ for $q$ time steps to an arbitrary unit $v$.
+  - The factor that scales the error will be   
+    $`\begin{aligned}
+      \displaystyle\frac{\partial \vartheta_v (t-q)}{\partial \vartheta_u(t)} = 
+      \begin{cases}
+        f_v'(\textrm{net}_v(t-1)) w_{uv} & q=1 \\
+        f_v'(\textrm{net}_v(t-q)) \displaystyle\sum_{l=1}^n \frac{\partial \vartheta_l(t-q+1)}{\partial \vartheta_u(t)} & q \gt 1
+      \end{cases}
+    \end{aligned}`$
 
 
 ---
