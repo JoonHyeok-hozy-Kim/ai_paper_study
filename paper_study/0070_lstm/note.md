@@ -255,9 +255,14 @@
       - *Hochreiter, 1991*
       - e.g.)
         - Suppose
-          - $``$
-          - $``$
-          - $``$
+          - $`\displaystyle||W||_A \equiv \max_r\sum_s |w_{rs}|`$
+          - $`\displaystyle||x||_x \equiv \max_r|x_r|`$
+          - $`f_{\max}'= 0.25`$ for the logistic sigmoid function.
+        - The author observed that
+          - If $`\displaystyle|w_{ij}| \le w_{\max} \lt \frac{4.0}{n} \; \forall i, j`$
+            - then $||W||_A \le n w_{\max} \lt 4.0$ will result in exponential decay.
+          - By setting $\displaystyle\tau\equiv \frac{n w_{\max}}{4.0} \lt 1.0$,
+            - the author obtained $`\displaystyle \left|\frac{\partial\vartheta_v(t-q)}{\partial\vartheta_u(t)}\right| \le n(\tau)^q`$.
 
 
 
