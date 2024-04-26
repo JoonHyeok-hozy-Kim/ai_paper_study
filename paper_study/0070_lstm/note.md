@@ -153,15 +153,43 @@
   - Consider a fully connected net whose non-input unit indices range from 1 to $n$.
 - Local Error Flow)
   - Let $u$, $v$ be units of the net.
-  - Then the error occurring at an arbitrary unit $u$ at the time step $t$ is propagated "back into time$ for $q$ time steps to an arbitrary unit $v$.
-  - The factor that scales the error will be   
-    $`\begin{aligned}
-      \displaystyle\frac{\partial \vartheta_v (t-q)}{\partial \vartheta_u(t)} = 
-      \begin{cases}
-        f_v'(\textrm{net}_v(t-1)) w_{uv} & q=1 \\
-        f_v'(\textrm{net}_v(t-q)) \displaystyle\sum_{l=1}^n \frac{\partial \vartheta_l(t-q+1)}{\partial \vartheta_u(t)} & q \gt 1
-      \end{cases}
-    \end{aligned}`$
+  - Then the error occurring at an arbitrary unit $u$ at the time step $t$ is propagated "back into time" for $q$ time steps to an arbitrary unit $v$.
+    - The factor that scales the error will be   
+      $`\begin{aligned}
+        \displaystyle\frac{\partial \vartheta_v (t-q)}{\partial \vartheta_u(t)} = 
+        \begin{cases}
+          f_v'(\textrm{net}_v(t-1)) w_{uv} & q=1 \\
+          f_v'(\textrm{net}_v(t-q)) \displaystyle\sum_{l=1}^n \frac{\partial \vartheta_l(t-q+1)}{\partial \vartheta_u(t)} & q \gt 1
+        \end{cases}
+      \end{aligned}`$
+  - Putting $l_q = v$ and $l_0 = u$, we obtain   
+    $`\displaystyle \frac{\partial \vartheta_v (t-q)}{\partial \vartheta_u(t)} = \sum_{l_1=1}^n \cdots \sum_{l_{q-1}=1}^n \prod_{m=1}^q f_{l_m}'\left(\textrm{net}_{l_m}(t-m)\right)w_{l_m l_{m-1}}`$
+    - Here, the sum of all the $n^{q-1}$ terms $`\prod_{m=1}^q f_{l_m}'\left(\textrm{net}_{l_m}(t-m)\right)w_{l_m l_{m-1}}`$ determines the total error back flow.
+      - cf.) Since the summation terms may have different signs, increasing the number of units $n$ does not necessarily increase error flow.
+    - Intuitive Explanation)
+      - Explosive / Vanishing Error)
+        - If $`\left|f_{l_m}'\left(\textrm{net}_{l_m}(t-m)\right)w_{l_m l_{m-1}}\right| \gt 1.0`$ for all $m$
+          - then the largest product increases exponentially with $q$.
+          - i.e.) The error blows up.
+            - Conflicting error signals arriving at unit $v$ can lead to oscillating weights and unstable learning.
+        - If $`\left|f_{l_m}'\left(\textrm{net}_{l_m}(t-m)\right)w_{l_m l_{m-1}}\right| \lt 1.0`$ for all $m$
+          - then the largest product decreases exponentially with $q$.
+          - i.e.) The error vanishes.
+            - Nothing can be learned in acceptable time.
+    - Further Assumption)
+      - Suppose $f_{lm}$ is the logistic sigmoid function.
+        - Then the maximal value of $f_{lm}'$ is $0.25$.
+      - If $y^{l_{m-1}}$ is constant and not equal to zero then   
+        $`\begin{aligned}
+          \left|f_{l_m}'\left(\textrm{net}_{l_m}\right)w_{l_m l_{m-1}}\right|
+          \begin{cases}
+            \textrm{takes on maximal values} & \textrm{for } \displaystyle w_{l_m l_{m-1}} = \frac{1}{y^{l_{m-1}}} \coth\left(\frac{\textrm{net}_{l_m}}{2}\right) \\
+            \textrm{goes to zero} & \textrm{for }  \left|w_{l_m l_{m-1}}\right|\rightarrow\infty \\
+            \textrm{is less than } 1.0 & \textrm{for }\left|w_{l_m l_{m-1}}\right|\lt 4.0
+          \end{cases}
+        \end{aligned}`$ 
+
+
 
 
 ---
