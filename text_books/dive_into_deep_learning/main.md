@@ -59,6 +59,13 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 |5.6|[Dropout](ch05/06/note.md)|- Co-Adaptation, Injecting Noise|
 |5.7|[Project: Predicting House Prices on Kaggle](ch05/07/note.md)|- ```download(url, folder, sha1_hash=None)``` <br> - ```extract(filename, folder)``` <br> - |
 
+<br>
+
+## 6. Builder's Guide
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|6.1|[Layers and Modules](./ch06/01/note.md)|- Module <br> - ```Sequential``` (PyTorch)|
+
 
 
 
