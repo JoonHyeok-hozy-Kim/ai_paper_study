@@ -179,7 +179,7 @@
     - Further Assumption)
       - Suppose $f_{lm}$ is the logistic sigmoid function.
         - Then the maximal value of $f_{lm}'$ is $0.25$.
-      - If $y^{l_{m-1}}$ is constant and not equal to zero then   
+      - If $y^{l_{m-1}}$ is constant and not equal to zero then 
         $`\begin{aligned}
           \left|f_{l_m}'\left(\textrm{net}_{l_m}\right)w_{l_m l_{m-1}}\right|
           \begin{cases}
