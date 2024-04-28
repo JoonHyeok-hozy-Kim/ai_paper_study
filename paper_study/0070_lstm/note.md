@@ -293,8 +293,42 @@
   - There are problems when unit $j$ is connected to other units.
     1. Input weight conflict
        - Desc.)
-         - For simplicity, assume a single additional input weight $w_{ji}$.
+         - Assumptions)
+           - A single additional input weight $w_{ji}$ for simplicity.
+           - The total error can be reduced by 
+             - switching on unit $j$ in response to a certain input.
+             - keeping it active for a long time until it helps to compute a desired output.
+           - $i$ is non-zero.
+             - why?)
+               - The same incoming weight has to be used for both storing certain inputs and ignoring others.
+                 - $w_{ji}$ will often receive **conflicting weight update signals** during the storing phases.
+                 - $j$ was **linear**.
+         - Then, the **conflicting weight update signals** will attempt to make $w_{ji}$ participate in
+           1. storing the input by switching on $j$
+           2. protecting the input by preventing $j$ from being switched off by irrelevant later inputs.
+         - This conflict makes learning difficult.
+           - Thus, a more context-sensitive mechanism for controlling "**write operations**" through input weights.
     2. Output weight conflict
+       - Desc.)
+         - Assumptions)
+           - $j$ is switched on and currently stores some previous input.
+           - A single additional outgoing weight $w_{kj}$ for simplicity.
+             - $w_{kj}$ will be used for both
+               - retrieving $j$'s content at certain times
+               - preventing $j$ from disturbing $k$ at other times.
+             - Then, as long as, $j$ is non-zero, $w_{kj}$ will attract conflicting weight update signals generated during processing.
+               - These signals will attempt to make $w_{kj}$ participate in
+                 - accessing the information stored in $j$
+                 - protecting unit $k$ from being perturbed by $j$.
+               - Here is the conflict as well.
+                 - i.e.) We may reduce **short time lag errors** in early stages.
+                   - However, at later training stages $j$ may suddenly start to cause **long time lag errors**.
+
+<br>
+
+#### Analysis) Short Time Lag Errors vs Long Time Lag Errors
+- Input, output weight conflict can happen for both short time and long time lag errors.
+
 
 
 ---
