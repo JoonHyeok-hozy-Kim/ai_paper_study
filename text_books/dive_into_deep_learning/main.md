@@ -65,6 +65,8 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
 |6.1|[Layers and Modules](./ch06/01/note.md)|- Module <br> - ```Sequential``` (PyTorch)|
+|6.2|[Parameter Management](./ch06/02/note.md)|- |
+|6.3|[Parameter Initialization](./ch06/03/note.md)|- ```nn.init.normal_()```, ```nn.init.zeros_()```, ```nn.init.constant_()```, ```nn.init.xavier_uniform_()```|
 
 
 
