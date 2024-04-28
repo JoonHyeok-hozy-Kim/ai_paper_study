@@ -264,7 +264,37 @@
           - By setting $\displaystyle\tau\equiv \frac{n w_{\max}}{4.0} \lt 1.0$,
             - the author obtained $`\displaystyle \left|\frac{\partial\vartheta_v(t-q)}{\partial\vartheta_u(t)}\right| \le n(\tau)^q`$.
 
+<br><br>
 
+### 3.2 Constant Error Flow : Naive Approach
+- Why we need the constant error flow?)
+  - Recall that the error flow easily explodes or vanishes.
+  - In order to prevent this, we should get a constant error flow.
+  - How?)
+    - [Constant Error Carrousel (CEC)](#concept-constant-error-carrousel-cec)
+
+
+#### Concept) Constant Error Carrousel (CEC)
+- Settings)
+  - A Single Unit Connected to itself
+    - Suppose a unit $j$ is connected to itself.
+      - Then, $j$'s local error back flow goes as follows.
+        - $`\vartheta_j(t) = f_j'(\textrm{net}_j(t)) \; \vartheta_j(t+1) \; w_{jj}`$
+- Derivation)
+  - Recall that we want to enforce the error flow to be constant.
+    - i.e.) $`f_j'(\textrm{net}_j(t)) \; \; w_{jj} = 1`$
+  - Thus, $f_j$ has to be linear and unit $j$'s activation function should remain constant.
+    - i.e.) $y_j(t+1) = f_j(\textrm{net}_j(t+1)) = f_j(w_{jj} y^j(t)) = y^j(t)$
+  - In the experiments, this will be ensured by 
+    - using the identity function $f_j : f_j(x) = x, \forall x$
+    - setting $w_{jj}=1.0$
+  - The author refers to this the **Constant Error Carrousel**.
+- Props.)
+  - There are problems when unit $j$ is connected to other units.
+    1. Input weight conflict
+       - Desc.)
+         - For simplicity, assume a single additional input weight $w_{ji}$.
+    2. Output weight conflict
 
 
 ---
