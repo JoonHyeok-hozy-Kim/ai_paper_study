@@ -356,9 +356,9 @@
     - Input to $c_j$
       - $\textrm{net}_{c_j}$ : the net input to $c_j$.
       - $\textrm{out}_j$ : the [output gate unit](#concept-output-gate-unit)
-        - $y^{\textrm{out}_j}(t) = f_{\textrm{out}_j}(\textrm{net}_{\textrm{out}_j}(t))$ : $\textrm{out}_j$'s activation at time $t$
+        - $`y^{\textrm{out}_j}(t) = f_{\textrm{out}_j}(\textrm{net}_{\textrm{out}_j}(t))`$ : $\textrm{out}_j$'s activation at time $t$
       - $\textrm{in}_j$ : the [input gate unit](#concept-input-gate-unit)
-        - $y^{\textrm{in}_j}(t) = f_{\textrm{in}_j}(\textrm{net}_{\textrm{in}_j}(t))$ : $\textrm{in}_j$'s activation at time $t$
+        - $`y^{\textrm{in}_j}(t) = f_{\textrm{in}_j}(\textrm{net}_{\textrm{in}_j}(t))`$ : $\textrm{in}_j$'s activation at time $t$
 
 
 
