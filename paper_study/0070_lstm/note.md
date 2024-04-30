@@ -330,6 +330,40 @@
 - Input, output weight conflict can happen for both short time and long time lag errors.
 
 
+<br><br>
+
+## 4. Long Short-Term Memory
+### 4.1 Memory Cells and Gate Units
+#### Concept) Input Gate Unit
+- Feature)
+  - It protects the memory content stored in a [CEC](#concept-constant-error-carrousel-cec) from perturbation by irrelevant inputs.
+  - A multiplicative unit
+
+<br>
+
+#### Concept) Output Gate Unit
+- Feature)
+  - It protects other units from perturbation by currently irrelevant memory contents stored in a [CEC](#concept-constant-error-carrousel-cec).
+  - A multiplicative unit
+
+
+<br>
+
+#### Concept) Memory Cell
+- Desc.)
+  - $c_j$ : the $j$-th memory cell
+    - Each memory cell is built around [a central linear unit with a fixed self-connection (the CEC)](#concept-constant-error-carrousel-cec).
+    - Input to $c_j$
+      - $\textrm{net}_{c_j}$ : the net input to $c_j$.
+      - $\textrm{out}_j$ : the [output gate unit](#concept-output-gate-unit)
+        - $y^{\textrm{out}_j}(t) = f_{\textrm{out}_j}(\textrm{net}_{\textrm{out}_j}(t))$ : $\textrm{out}_j$'s activation at time $t$
+      - $\textrm{in}_j$ : the [input gate unit](#concept-input-gate-unit)
+        - $y^{\textrm{in}_j}(t) = f_{\textrm{in}_j}(\textrm{net}_{\textrm{in}_j}(t))$ : $\textrm{in}_j$'s activation at time $t$
+
+
+
+
+
 
 ---
 * [Back to Main](../../README.md)
