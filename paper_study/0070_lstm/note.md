@@ -338,6 +338,11 @@
 - Feature)
   - It protects the memory content stored in a [CEC](#concept-constant-error-carrousel-cec) from perturbation by irrelevant inputs.
   - A multiplicative unit
+- Notation)
+  - $\textrm{out}_j$ : the [output gate unit](#concept-output-gate-unit)
+    - where $j$ is a CEC unit.
+  - $`y^{\textrm{in}_j}(t) = f_{\textrm{in}_j}(\textrm{net}_{\textrm{in}_j}(t))`$ : $\textrm{in}_j$'s activation at time $t$
+    - where $`\displaystyle\textrm{net}_{\textrm{in}_j}(t) = \sum_u w_{\textrm{in}_j u} y^{u} (t-1)`$
 
 <br>
 
@@ -345,6 +350,11 @@
 - Feature)
   - It protects other units from perturbation by currently irrelevant memory contents stored in a [CEC](#concept-constant-error-carrousel-cec).
   - A multiplicative unit
+- Notation)
+  - $\textrm{in}_j$ : the [input gate unit](#concept-input-gate-unit)
+    - where $j$ is a CEC unit.
+  - $`y^{\textrm{out}_j}(t) = f_{\textrm{out}_j}(\textrm{net}_{\textrm{out}_j}(t))`$ : $\textrm{out}_j$'s activation at time $t$
+    - where $`\displaystyle\textrm{net}_{\textrm{out}_j}(t) = \sum_u w_{\textrm{out}_j u} y^{u} (t-1)`$
 
 
 <br>
@@ -354,11 +364,8 @@
   - $c_j$ : the $j$-th memory cell
     - Each memory cell is built around [a central linear unit with a fixed self-connection (the CEC)](#concept-constant-error-carrousel-cec).
     - Input to $c_j$
-      - $\textrm{net}_{c_j}$ : the net input to $c_j$.
-      - $\textrm{out}_j$ : the [output gate unit](#concept-output-gate-unit)
-        - $`y^{\textrm{out}_j}(t) = f_{\textrm{out}_j}(\textrm{net}_{\textrm{out}_j}(t))`$ : $\textrm{out}_j$'s activation at time $t$
-      - $\textrm{in}_j$ : the [input gate unit](#concept-input-gate-unit)
-        - $`y^{\textrm{in}_j}(t) = f_{\textrm{in}_j}(\textrm{net}_{\textrm{in}_j}(t))`$ : $\textrm{in}_j$'s activation at time $t$
+      - $`\displaystyle\textrm{net}_{c_j}(t) = \sum_u w_{c_j u} y^{u} (t-1)`$ : the net input to $c_j$.
+        - Here, $u$ includes the [input ($\textrm{in}_j$)](#concept-input-gate-unit) and [output ($\textrm{out}_j$)](#concept-output-gate-unit) gate units.
 
 
 
