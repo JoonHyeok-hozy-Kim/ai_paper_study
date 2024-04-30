@@ -333,7 +333,7 @@
 <br><br>
 
 ## 4. Long Short-Term Memory
-### 4.1 Memory Cells and Gate Units
+### 4.1 Gate Units
 #### Concept) Input Gate Unit
 - Feature)
   - It protects the memory content stored in a [CEC](#concept-constant-error-carrousel-cec) from perturbation by irrelevant inputs.
@@ -343,8 +343,6 @@
     - where $j$ is a CEC unit.
   - $`y^{\textrm{in}_j}(t) = f_{\textrm{in}_j}(\textrm{net}_{\textrm{in}_j}(t))`$ : $\textrm{in}_j$'s activation at time $t$
     - where $`\displaystyle\textrm{net}_{\textrm{in}_j}(t) = \sum_u w_{\textrm{in}_j u} y^{u} (t-1)`$
-
-<br>
 
 #### Concept) Output Gate Unit
 - Feature)
@@ -359,14 +357,31 @@
 
 <br>
 
+### 4.2 Memory Cells
 #### Concept) Memory Cell
 - Desc.)
   - $c_j$ : the $j$-th memory cell
     - Each memory cell is built around [a central linear unit with a fixed self-connection (the CEC)](#concept-constant-error-carrousel-cec).
-    - Input to $c_j$
+    - Input)
       - $`\displaystyle\textrm{net}_{c_j}(t) = \sum_u w_{c_j u} y^{u} (t-1)`$ : the net input to $c_j$.
         - Here, $u$ includes the [input](#concept-input-gate-unit) and [output](#concept-output-gate-unit) gate units
           - i.e.) $\textrm{in}_j$ and $\textrm{out}_j$
+          - e.g.) An input (output) gate may use inputs from other memory cells to decide whether to store (access) certain information in its memory cells.
+        - Any network topology is possible.
+          - e.g.) $w_{c_j c_j}$ : the recurrent self-connection
+    - Output)
+      - $`y^{c_j}(t) = y^{\textrm{out}_j}(t) \; h\left(s_{c_j}(t)\right)`$
+        - where
+          - $`\begin{aligned}
+            s_{c_j}(t) = 
+            \begin{cases}
+              0 & t=0 \\
+              s_{c_j}(t-1) + y^{\textrm{in}_j}(t) \; g\left(\textrm{net}_{c_j}(t)\right) & t \gt 0
+            \end{cases}
+          \end{aligned}`$ : the internal state
+          - $g$ : a differentiable function that squashes $`\textrm{net}_{c_j}`$
+          - $h$ : a differentiable function that scales memory cell outputs computed from the internal state $s_{c_j}$
+            
 
 
 
