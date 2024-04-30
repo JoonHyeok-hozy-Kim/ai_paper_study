@@ -365,7 +365,8 @@
     - Each memory cell is built around [a central linear unit with a fixed self-connection (the CEC)](#concept-constant-error-carrousel-cec).
     - Input to $c_j$
       - $`\displaystyle\textrm{net}_{c_j}(t) = \sum_u w_{c_j u} y^{u} (t-1)`$ : the net input to $c_j$.
-        - Here, $u$ includes the [input ($\textrm{in}_j$)](#concept-input-gate-unit) and [output ($\textrm{out}_j$)](#concept-output-gate-unit) gate units.
+        - Here, $u$ includes the [input](#concept-input-gate-unit) and [output](#concept-output-gate-unit) gate units
+          - i.e.) $\textrm{in}_j$ and $\textrm{out}_j$
 
 
 
