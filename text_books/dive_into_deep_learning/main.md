@@ -69,6 +69,8 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 |6.3|[Parameter Initialization](./ch06/03/note.md)|- ```nn.init.normal_()```, ```nn.init.zeros_()```, ```nn.init.constant_()```, ```nn.init.xavier_uniform_()```|
 |6.4|[Lazy Initialization](./ch06/04/note.md)|- |
 |6.5|[Custom Layers](./ch06/05/note.md)|- |
+|6.6|[File I/O](./ch06/06/note.md)|- Save and Load Parameters and Models|
+|6.7|[GPUs](./ch06/07/note.md)|- |
 
 
 
