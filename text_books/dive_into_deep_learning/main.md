@@ -72,6 +72,13 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 |6.6|[File I/O](./ch06/06/note.md)|- Save and Load Parameters and Models|
 |6.7|[GPUs](./ch06/07/note.md)|- |
 
+<br>
+
+## 7. Convolutional Neural Networks
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|7.1|[From Fully Connected Layers to Convolutions](./ch07/01/note.md)|- |
+
 
 
 
