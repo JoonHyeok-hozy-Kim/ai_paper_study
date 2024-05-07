@@ -84,6 +84,46 @@
 <br>
 
 ### 7.1.2.2 Locality
+- Desc.)
+  - Refer to [the Description above](#711-invariance).
+  - We will investigate the local range of the location $(i,j)$ to get relevant information to assess $\left[\mathbf{H}\right]_{i,j}$.
+- How?)
+  - Set $`\left[\mathbf{V}\right]_{a,b} = \begin{cases}
+    \left[\mathbf{V}\right]_{a,b} & |a| \le \Delta, |b| \le \Delta \\
+    0 & |a| \gt \Delta, |b| \gt \Delta
+  \end{cases}`$
+  - Then $`\displaystyle\left[\mathbf{H}\right]_{a,b} = u + \sum_{a=-\Delta}^\Delta \sum_{b=-\Delta}^\Delta \left[\mathbf{V}\right]_{a,b} \left[\mathbf{X}\right]_{i+a,j+b}`$
+- Why doing this?)
+  - We can reduce the number of parameters even more!
+    - e.g.) One-Mega-Pixel Input Case
+      - Recall that we reduced $10^{12}$ to $4\times 10^{6}$ with the [translation invariance](#7121-translation-invariance).
+      - By focusing on the locality we can reduce it to $4 \times \Delta^2$.
+        - Why?)
+          - Recall that One-Mega-Pixel was $1000 \times 1000 = 10^6$.
+          - By narrowing the range of $a$ and $b$ from $1000$ to $\Delta$ respectively, we get the new number of $\Delta^2$.
+            - i.e.) $`\displaystyle \sum_a\sum_b \rightarrow \sum_{a=-\Delta}^\Delta \sum_{b=-\Delta}^\Delta`$
+      - Typically, $\Delta \lt 10$.
+  - We call this the [convolutional layer](#concept-convolutional-layer).
+
+<br>
+
+#### Concept) Convolutional Layer
+- Desc.)
+  - A layer that the number of parameters are reduced with [translation invariance](#7121-translation-invariance) and [locality](#7122-locality).
+    - $`\displaystyle\left[\mathbf{H}\right]_{a,b} = u + \sum_{a=-\Delta}^\Delta \sum_{b=-\Delta}^\Delta \left[\mathbf{V}\right]_{a,b} \left[\mathbf{X}\right]_{i+a,j+b}`$
+  - Convolutional neural networks (CNNs) are a special family of neural networks that contain convolutional layers.
+  - In the deep learning research community, $\mathbf{V}$ is referred to as a **convolution kernel**, a **filter**, or simply the layer’s **weights** that are learnable parameters.
+- Prop.)
+  - Pros)
+    - Drastically reduces the size of a model
+    - It does NOT alter the dimensionality of either the inputs or the hidden representations.
+  - Cons)
+    - When determining the value of each hidden activation...
+      1. The features are [translation invariant](#7121-translation-invariance).
+      2. The layer can only incorporate [local](#7122-locality) information.
+  - All learning depends on imposing **inductive bias**.
+    - When that bias agrees with reality, we get sample-efficient models that generalize well to unseen data.
+    - If those biases do not agree with reality, our models might struggle even to fit our training data.
 
 
 
