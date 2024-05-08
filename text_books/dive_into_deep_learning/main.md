@@ -77,7 +77,7 @@ Visit [Dive into Deep Learning website](https://d2l.ai/index.html).
 ## 7. Convolutional Neural Networks
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|7.1|[From Fully Connected Layers to Convolutions](./ch07/01/note.md)|- |
+|7.1|[From Fully Connected Layers to Convolutions](./ch07/01/note.md)|- Translation Invariance <br> - Locality <br> - Convolutional Layer (Convolutional Kernel, Filter)|
 
 
 
