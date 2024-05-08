@@ -80,6 +80,7 @@
       - The model with $`\left[\mathsf{V}\right]_{i,j,a,b}`$ hidden layer required $10^{12}$ parameters.
       - The model with $`\left[\mathbf{V}\right]_{a,b}`$ hidden layer required $4\times 10^{6}$ parameters.
         - where $a,b \in (-1000,1000)$
+          - i.e.) $`2000 \times 2000 = 4\times 10^6`$
 
 <br>
 
