@@ -284,7 +284,7 @@
   - Recall that we want to enforce the error flow to be constant.
     - i.e.) $`f_j'(\textrm{net}_j(t)) \; \; w_{jj} = 1`$
   - Thus, $f_j$ has to be linear and unit $j$'s activation function should remain constant.
-    - i.e.) $y_j(t+1) = f_j(\textrm{net}_j(t+1)) = f_j(w_{jj} y^j(t)) = y^j(t)$
+    - i.e.) $`y_j(t+1) = f_j(\textrm{net}_j(t+1)) = f_j(w_{jj} y^j(t)) = y^j(t)`$
   - In the experiments, this will be ensured by 
     - using the identity function $f_j : f_j(x) = x, \forall x$
     - setting $w_{jj}=1.0$
