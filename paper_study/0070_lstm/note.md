@@ -215,9 +215,9 @@
     - Let's rewrite [the local error flow formula](#312-local-error-flow) as the following.
       - $`\displaystyle\left(W_{u^\top}\right)^\top F'(t-1) \prod_{m=2}^{q-1}\left(W F'(t-m)\right) W_v f_v'\left(\textrm{net}_v(t-q)\right)`$
         - where
-          - $W$ : the weight **matrix** defined by $\left[W\right]_{ij}\equiv w_{ij}$
-          - $W_v$ : unit $v$'s outgoing weight **vector** defined by $\left[W_v\right]_{i}\equiv\left[W\right]_{iv}=w_{iv}$
-          - $W_{u^\top}$ : unit $u$'s incoming weight **vector** defined by $\left[W_{u^\top}\right]_{i}\equiv\left[W\right]_{ui}=w_{ui}$
+          - $W$ : the weight **matrix** defined by $`\left[W\right]_{ij}\equiv w_{ij}`$
+          - $W_v$ : unit $v$'s outgoing weight **vector** defined by $`\left[W_v\right]_{i}\equiv\left[W\right]_{iv}=w_{iv}`$
+          - $W_{u^\top}$ : unit $u$'s incoming weight **vector** defined by $`\left[W_{u^\top}\right]_{i}\equiv\left[W\right]_{ui}=w_{ui}`$
           - $`F'(t-m)`$ : the **diagonal matrix** of first order derivatives defined as   
             - $`\begin{aligned}
                 \left[F'(t-m)\right]_{ij} = 
