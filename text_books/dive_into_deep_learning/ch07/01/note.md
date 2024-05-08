@@ -48,7 +48,7 @@
           \end{aligned}\right.`$
             - The indices $a$ and $b$ run over both positive and negative offsets, covering the entire image.
       - Meaning)
-        - For any location $(i,j)$, the value of $\left[\mathbf{H}\right]_{i,j}$ is computed by summing over pixels in $x\in\mathbf{X}$ centered around $(i,j)$ and weighted by $\left[\mathsf{V}\right]_{i,j,a,b}$.
+        - For any location $`(i,j)`$, the value of $`\left[\mathbf{H}\right]_{i,j}`$ is computed by summing over pixels in $`x\in\mathbf{X}`$ centered around $`(i,j)`$ and weighted by $`\left[\mathsf{V}\right]_{i,j,a,b}`$.
       - Prop.)
         - The size of the model is huge!
           - Why?)
