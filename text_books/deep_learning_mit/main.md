@@ -9,7 +9,7 @@
 ## 2. Linear Algebra
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|2.1|[Scalars, Vectors, Matrices, and Tensors](./ch02/01/note.md)||
+|2.1|[Scalars, Vectors, Matrices, and Tensors](ch02/01/note.md)||
 
 
 
