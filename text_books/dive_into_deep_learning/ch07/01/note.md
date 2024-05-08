@@ -54,7 +54,7 @@
           - Why?)
             - Suppose the input data is the one-mega-pixel image $(1000 \times 1000 = 1000000)$.
             - Recall that the hidden layer must have the same size as the input.
-            - Even for a single layer model, the hidden representation should have the size of $1000 \times 1000$.
+              - i.e.) Even for a single layer model, the hidden representation should have the size of $1000 \times 1000$.
             - Thus, the model requires $10^{12}$ parameters.
               - Far beyond the size we can handle.
           - Sol.)
@@ -79,8 +79,8 @@
     - How?)
       - The model with $`\left[\mathsf{V}\right]_{i,j,a,b}`$ hidden layer required $10^{12}$ parameters.
         - why?)
-          - $`i,j,a,b \in (0, 1000)`$
-          - Thus, $`(1000)^4 = 10^{12}`$
+          - $`i,j\textrm{(inputs), } a,b\textrm{(hiddens)} \in (0, 1000)`$
+          - Thus, $`(1000)^4 = 10^{3\times 4} = 10^{12}`$
       - The model with $`\left[\mathbf{V}\right]_{a,b}`$ hidden layer required $4\times 10^{6}$ parameters.
         - where $a,b \in (-1000,1000)$
           - i.e.) $`2000 \times 2000 = 4\times 10^6`$
