@@ -78,6 +78,9 @@
   - By emancipating $\mathsf{V}$ and $\mathbf{U}$ from $(i,j)$, we can drastically reduce the number of parameters.
     - How?)
       - The model with $`\left[\mathsf{V}\right]_{i,j,a,b}`$ hidden layer required $10^{12}$ parameters.
+        - why?)
+          - $`i,j,a,b \in (0, 1000)`$
+          - Thus, $`(1000)^4 = 10^{12}`$
       - The model with $`\left[\mathbf{V}\right]_{a,b}`$ hidden layer required $4\times 10^{6}$ parameters.
         - where $a,b \in (-1000,1000)$
           - i.e.) $`2000 \times 2000 = 4\times 10^6`$
