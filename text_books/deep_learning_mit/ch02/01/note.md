@@ -21,7 +21,7 @@
     - Suppose $`S=\left\lbrace 1,3,6 \right\rbrace`$
       - Then $`\textbf{\textit{x}}_S`$ is the vector containing $`x_1, x_3, x_6`$.
       - Then $`\textbf{\textit{x}}_{-S}`$ is the vector containing all of the elements of $`\textbf{\textit{x}}`$ except $`x_1, x_3, x_6`$.
-    - $`\textbf{\textit{x}}_{-1}`$ : the vector containing all elements of $`\textbf{\textit{x}}`$' except for $`x_1`$
+    - $`\textbf{\textit{x}}_{-1}`$ : the vector containing all elements of $`\textbf{\textit{x}}`$ except for $`x_1`$
 
 <br>
 
@@ -44,6 +44,31 @@
     A_{1,j} \\ A_{2,j} \\ \vdots \\ A_{m,j}
   \end{array}\right]`$
   - cf.) $`f(\textbf{\textit{A}})_{i,j}`$ : $`(i,j)`$-th element of matrix $`\textbf{\textit{A}}`$ computed by applying the function of $f$
+
+#### Operation) Transpose
+- Def.)
+  - An operation on matrices that mirrors image of the matrix across the main diagonal.
+- Notation)
+  - $`(\textbf{\textit{A}}^\top)_{i,j} = (\textbf{\textit{A}})_{j,i}`$
+
+#### Operation) Broadcasting
+- Def.)
+  - Implicitly copying elements of an array to many locations
+- e.g.)
+  - Matrix-Vector Addition)
+    - For $`C, A \in \mathbb{R}^{m\times n} \textrm{ and } b \in \mathbb{R}^{n}`$
+      - $`C = A+b`$ denotes $`C_{i,j} = A_{i,j}+b_{j}`$
+        - i.e.) The vector $`b`$ is added to each row of the matrix $`A`$.
+
+<br>
+
+### Concept) Tensors
+- Def.)
+  - An array of numbers arranged on a regular grid with a variable number of axes is known as a tensor.
+- Notation)
+  - $\mathsf{A}$
+
+<br>
 
 
 
