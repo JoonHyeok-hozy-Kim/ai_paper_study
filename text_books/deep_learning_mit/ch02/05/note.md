@@ -8,6 +8,13 @@
     1. $`f(x) = 0 \Rightarrow x = 0`$
     2. $`f(x+y) \le f(x) + f(y)`$ : the triangle inequality
     3. $`\forall \alpha\in\mathbb{R},\; f(\alpha x) = |\alpha| f(x)`$
+- Prop.)
+  - The dot product of two vectors can be rewritten in terms of norms.
+  - e.g.)
+    - For $`x,y \in \mathbb{R}^n`$, $`\theta`$ the angle between $`x`$ and $`y`$
+      - $`x^\top y = ||x||_2 ||y||_2 \cos\theta`$
+
+<br>
 
 - Concept) The $`L^p`$ Norm 
   - Def.)
@@ -32,13 +39,22 @@
         - The $L^1$ norm is commonly used in machine learning when the difference between zero and nonzero elements is very important.
 
 
+<br>
+
+#### Concept) Max Norm
+- Def.)
+  - The absolute value of the element with the largest magnitude in the vector.
+  - $`\displaystyle ||x||_\infty = \max_i |x_i|`$
 
 
+<br>
 
-
-
-
-
+#### Concept) Frobenius Norm
+- Def.)
+  - For a matrix $`A`$,
+    - $`\displaystyle||A||_F = \sqrt{\sum_{i,j} A_{i,j}^2}`$
+- Prop.)
+  - Measures the size of a matrix.
 
 
 
