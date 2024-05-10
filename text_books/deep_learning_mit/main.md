@@ -13,7 +13,9 @@
 |2.2|[Multiplying Matrices and Vectors](ch02/02/note.md)|- Hadamard Product <br> - Associative, Commutative <br> - System of Linear Equations|
 |2.3|[Identity and Inverse Matrices](ch02/03/note.md)|- |
 |2.4|[Linear Dependence and Span](ch02/04/note.md)|- Column Space, Singularity|
-|2.5|[Norms](ch02/05/note.md)|- The $L^p$ Norm|
+|2.5|[Norms](ch02/05/note.md)|- $L^p$ Norm, Max Norm, Frobenius Norm|
+|2.6|[Special Kinds of Matrices and Vectors](ch02/06/note.md)|- Diagonal Matrix, Symmetric Matrix <br> - Unit Vector <br> - Orthogonality, Orthonormality, Orthogonal Matrix|
+|2.7|[Eigendecomposition](ch02/07/note.md)|- |
 
 
 
