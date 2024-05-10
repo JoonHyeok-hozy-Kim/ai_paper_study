@@ -16,8 +16,11 @@
 |2.5|[Norms](ch02/05/note.md)|- $L^p$ Norm, Max Norm, Frobenius Norm|
 |2.6|[Special Kinds of Matrices and Vectors](ch02/06/note.md)|- Diagonal Matrix, Symmetric Matrix <br> - Unit Vector <br> - Orthogonality, Orthonormality, Orthogonal Matrix|
 |2.7|[Eigendecomposition](ch02/07/note.md)|- Eigenvector, Eigenvalue <br> - Positive Definite, Negative Definite|
-|2.8|[Singular Value Decomposition](ch02/08/note.md)|- |
-|2.9|[The Moore-Penrose Pseudoinverse](ch02/09/note.md)|- |
+|2.8|[Singular Value Decomposition](ch02/08/note.md)|- $`A = UDV^\top`$|
+|2.9|[The Moore-Penrose Pseudoinverse](ch02/09/note.md)|- $`\displaystyle A^{+} \equiv \lim_{\alpha\rightarrow 0} \left(A^\top A + \alpha I \right)^{-1} A^\top`$|
+|2.10|[The Trace Operator](ch02/10/note.md)|- |
+|2.11|[The Determinant](ch02/11/note.md)|- |
+|2.12|[](ch02/12/note.md)|- |
 
 
 
