@@ -1,4 +1,4 @@
-* [Back to Dive into Deep Learning](../../main.md)
+* [Back to Deep Learning MIT](../../main.md)
 
 # 2.6 Special Kinds of Matrices and Vectors
 
@@ -81,4 +81,4 @@
 
 <br>
 
-* [Back to Dive into Deep Learning](../../main.md)
+* [Back to Deep Learning MIT](../../main.md)

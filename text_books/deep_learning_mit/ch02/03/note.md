@@ -1,4 +1,4 @@
-* [Back to Dive into Deep Learning](../../main.md)
+* [Back to Deep Learning MIT](../../main.md)
 
 # 2.3 Identity and Inverse Matrices
 
@@ -21,4 +21,4 @@
 
 <br>
 
-* [Back to Dive into Deep Learning](../../main.md)
+* [Back to Deep Learning MIT](../../main.md)
