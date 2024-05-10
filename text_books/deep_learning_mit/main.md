@@ -15,7 +15,9 @@
 |2.4|[Linear Dependence and Span](ch02/04/note.md)|- Column Space, Singularity|
 |2.5|[Norms](ch02/05/note.md)|- $L^p$ Norm, Max Norm, Frobenius Norm|
 |2.6|[Special Kinds of Matrices and Vectors](ch02/06/note.md)|- Diagonal Matrix, Symmetric Matrix <br> - Unit Vector <br> - Orthogonality, Orthonormality, Orthogonal Matrix|
-|2.7|[Eigendecomposition](ch02/07/note.md)|- Eigenvector, Eigenvalue|
+|2.7|[Eigendecomposition](ch02/07/note.md)|- Eigenvector, Eigenvalue <br> - Positive Definite, Negative Definite|
+|2.8|[Singular Value Decomposition](ch02/08/note.md)|- |
+|2.9|[The Moore-Penrose Pseudoinverse](ch02/09/note.md)|- |
 
 
 
