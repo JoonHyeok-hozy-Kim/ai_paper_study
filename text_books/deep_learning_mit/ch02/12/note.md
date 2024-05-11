@@ -22,7 +22,7 @@
       - i.e.) We want to find $`D`$!
 - Assumption)
   - Minimizing the distance between $`x`$ and $`g(c)`$.
-    - Put $`\displaystyle c^\ast = {\argmin_c} {}`$
+    - Put $`\displaystyle c^\ast = {\arg\min}_c {}`$
   - There can be many $`D`$ that may sat
 
 
