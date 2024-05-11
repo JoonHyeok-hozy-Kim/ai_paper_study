@@ -23,6 +23,13 @@
 |2.12|[Principal Components Analysis](ch02/12/note.md)|- |
 
 
+## 3. Probability and Information Theory
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|3.1|[Why Probability?](ch03/01/note.md)|- |
+|3.2|[](ch03/02/note.md)|- |
+
+
 
 
 
