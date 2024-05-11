@@ -20,7 +20,7 @@
 |2.9|[The Moore-Penrose Pseudoinverse](ch02/09/note.md)|- $`\displaystyle A^{+} \equiv \lim_{\alpha\rightarrow 0} \left(A^\top A + \alpha I \right)^{-1} A^\top`$|
 |2.10|[The Trace Operator](ch02/10/note.md)|- |
 |2.11|[The Determinant](ch02/11/note.md)|- |
-|2.12|[](ch02/12/note.md)|- |
+|2.12|[Principal Components Analysis](ch02/12/note.md)|- |
 
 
 
