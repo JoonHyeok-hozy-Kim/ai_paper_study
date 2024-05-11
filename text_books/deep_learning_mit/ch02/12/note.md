@@ -27,8 +27,8 @@
       - We want to give a unique solution to the problem by setting all of the columns of $`D`$ to have unit norm.
         - Then, $`D^\top D = I_l \; (\because D \in \mathbb{R}^{n\times l})`$ 
 - Derivation)
-  - Optimizing $`c^\ast`$
-    - $`\begin{aligned}
+  - Optimizing $`c^\ast`$.   
+    $`\begin{aligned}
       \displaystyle c^\ast & = \arg\min_c \; ||x - g(c)||_2 & \\
       & = \arg\min_c \; (||x - g(c)||_2)^2 & \because ||x - g(c)||_2 \textrm{ is monotonically increasing.} \\
       & = \arg\min_c \; (x-g(x))^\top (x-g(c)) & \\
