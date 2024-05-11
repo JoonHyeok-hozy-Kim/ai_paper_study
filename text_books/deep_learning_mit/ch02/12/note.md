@@ -21,8 +21,9 @@
           - where $`D \in \mathbb{R}^{n\times l}`$
       - i.e.) We want to find $`D`$!
 - Assumption)
-  - Minimizing the distance between $`x`$ and $`g(c)`$.
-    - Put $`\displaystyle c^\ast = {\arg\min}_c {}`$
+  - Minimizing the distance between $`x`$ and $`g(c)`$ will be the optimal solution.
+    - We will use [the $`L^2`$ norm](../05/note.md#concept-norm) to measure the distance.
+    - Put $`\displaystyle c^\ast = {\arg\min_c} ||x - g(c)||_2`$
   - There can be many $`D`$ that may sat
 
 
