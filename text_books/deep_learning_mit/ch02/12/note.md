@@ -75,10 +75,23 @@
           \end{array} \right] \textrm{ where } {x^{(i)}} \in \mathbb{R}^n \textrm{ was the column vector.}`$
         - Then, we can rewrite $`d^\ast`$ as follows.    
            $`\begin{aligned}
-            \displaystyle d^\ast & = \arg\min_d \left(||X - Xdd^\top ||_F \right)^2 & \textrm{ subject to } d^\top d = 1 \\
+            \displaystyle d^\ast & = \arg\min_d \left(||X - Xdd^\top ||_F \right)^2 \; \textrm{ subject to } d^\top d = 1 \\
             & = \arg\min_d \textrm{Tr}\left(\left( X-Xdd^\top \right)^\top \left( X-Xdd^\top \right)\right) \\
-            & = \arg\min_d \textrm{Tr} \left(\right)
+            & = \arg\min_d \textrm{Tr} \left( X^\top X - X^\top X dd^\top -dd^\top X^\top X + dd^\top X^\top Xdd^\top \right) \\
+            & = \arg\min_d \textrm{Tr}(X^\top X) - \textrm{Tr}(X^\top X dd^\top) - \textrm{Tr}(dd^\top X^\top X) + \textrm{Tr}(dd^\top X^\top Xdd^\top) \\
+            & = \arg\min_d - \textrm{Tr}(X^\top X dd^\top) - \textrm{Tr}(dd^\top X^\top X) + \textrm{Tr}(dd^\top X^\top Xdd^\top) \; \because X^\top X \textrm{ is indep. of } d \\
+            &= \arg\min_d -2 \textrm{Tr}(X^\top X dd^\top) + \textrm{Tr}( X^\top Xdd^\top dd^\top) \; \because \textrm{Tr}(AB) = \textrm{Tr}(BA) \\
+            & (\textrm{Applying the constraint } d^\top d = 1) \\
+            &= \arg\min_d -2 \textrm{Tr}(X^\top X dd^\top) + \textrm{Tr}( X^\top Xdd^\top) \; \textrm{ subject to } d^\top d = 1 \\
+            &= \arg\min_d - \textrm{Tr}(X^\top X dd^\top) \; \textrm{ subject to } d^\top d = 1 \\
+            &= \arg\max_d \textrm{Tr}(X^\top X dd^\top) \; \textrm{ subject to } d^\top d = 1 \\
+            &= \arg\max_d \textrm{Tr}(d^\top X^\top X d) \; \textrm{ subject to } d^\top d = 1. \; (\because \textrm{Tr}(AB) = \textrm{Tr}(BA))  \\
           \end{aligned}`$
+        - Now we can solve the above problem with the [eigendecomposition](../07/note.md#concept-eigendecomposition).
+          - Why?)
+            - The optimal $`d`$ is given by the eigenvector of $`X^\top X`$ corresponding to the largest eigenvalue.
+      - Now consider $`l \gt 1`$.
+        - Then the matrix $`D`$ is given by the $`l`$ eigenvectors corresponding to the largest eigenvalues.
 
 
 
