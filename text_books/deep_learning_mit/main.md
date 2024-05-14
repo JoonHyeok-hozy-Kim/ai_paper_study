@@ -28,6 +28,9 @@
 |:-:|:------|:-------|
 |3.2|[Random Variables](ch03/02/note.md)|- |
 |3.3|[Probability Distributions](ch03/03/note.md)|- Probabilities Mass Function (PMF), Uniform Distribution <br> - Joint Probability Distribution <br>- Probabilities Density Function (PDF)|
+|3.4|[Marginal Probability](ch03/04/note.md)|- |
+|3.5|[Conditional Probability](ch03/05/note.md)|- The Chain Rule of Conditional Probabilities|
+|3.7|[Independence and Conditional Independence](ch03/07/note.md)|- |
 
 
 
