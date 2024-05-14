@@ -26,8 +26,8 @@
 ## 3. Probability and Information Theory
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|3.1|[Why Probability?](ch03/01/note.md)|- |
-|3.2|[](ch03/02/note.md)|- |
+|3.2|[Random Variables](ch03/02/note.md)|- |
+|3.3|[Probability Distributions](ch03/03/note.md)|- Probabilities Mass Function (PMF), Uniform Distribution <br> - Joint Probability Distribution <br>- Probabilities Density Function (PDF)|
 
 
 
