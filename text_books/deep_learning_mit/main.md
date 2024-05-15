@@ -33,7 +33,8 @@
 |3.7|[Independence and Conditional Independence](ch03/07/note.md)|- |
 |3.8|[Expectation, Variance, and Covariance](ch03/08/note.md)|- Covariance Matrix|
 |3.9|[Common Probability Distributions](ch03/09/note.md)|- Bernoulli,  Multinoulli (Cartegorical) <br> - Gaussian, Multivariate Normal Distribution <br> - Exponential, Laplace Distributions <br> - Dirac, Empirical Distribution <br> - Mixture Distribution, Latent Variable|
-|3.10|[Useful Properties of Common Functions](ch03/10/note.md)|- Logistic Sigmoid|
+|3.10|[Useful Properties of Common Functions](ch03/10/note.md)|- Logistic Sigmoid, Softplus|
+|3.11|[Bayes’ Rule](ch03/11/note.md)|- |
 
 
 
