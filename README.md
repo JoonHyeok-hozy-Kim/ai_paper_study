@@ -11,6 +11,7 @@
 * [Machine Learning by Tom Mitchell (1997, CMU)](text_books/ml_tom_mitchell/main.md)
 * [Dive into Deep Learning](text_books/dive_into_deep_learning/main.md)
 * [Deep Learning (2017, MIT)](text_books/deep_learning_mit/main.md)
+* [Elements of Information Theory (2006)](text_books/elmnts_info_theory/main.md)
 
 <br>
 
