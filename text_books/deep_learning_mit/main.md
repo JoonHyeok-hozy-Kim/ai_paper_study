@@ -35,6 +35,8 @@
 |3.9|[Common Probability Distributions](ch03/09/note.md)|- Bernoulli,  Multinoulli (Cartegorical) <br> - Gaussian, Multivariate Normal Distribution <br> - Exponential, Laplace Distributions <br> - Dirac, Empirical Distribution <br> - Mixture Distribution, Latent Variable|
 |3.10|[Useful Properties of Common Functions](ch03/10/note.md)|- Logistic Sigmoid, Softplus|
 |3.11|[Bayes’ Rule](ch03/11/note.md)|- |
+|3.12|[Technical Details of Continuous Variables](ch03/12/note.md)|- Measure Theory : Measure Zero, Almost Everywhere <br> - |
+|3.13|[Information Theory](ch03/12/note.md)|- Self-Information <br> - (Shannon) Entropy <br> - Kullback-Leiber (KL) Divergence <br> - Cross Entropy|
 
 
 
