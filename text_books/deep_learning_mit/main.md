@@ -22,6 +22,7 @@
 |2.11|[The Determinant](ch02/11/note.md)|- |
 |2.12|[Principal Components Analysis](ch02/12/note.md)|- |
 
+<br>
 
 ## 3. Probability and Information Theory
 |No.|Chapter|Keywords|
@@ -37,6 +38,7 @@
 |3.11|[Bayes’ Rule](ch03/11/note.md)|- |
 |3.12|[Technical Details of Continuous Variables](ch03/12/note.md)|- Measure Theory : Measure Zero, Almost Everywhere|
 |3.13|[Information Theory](ch03/13/note.md)|- Self-Information <br> - (Shannon) Entropy <br> - Kullback-Leiber (KL) Divergence <br> - Cross Entropy|
+|3.14|[Structured Probabilistic Models](ch03/14/note.md)|- Probability Distribution Factorization <br> - Structured Probabilistic Model (Graphical Model) : Directed/Undirected Model|
 
 
 
