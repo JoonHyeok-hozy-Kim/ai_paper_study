@@ -9,7 +9,7 @@
 ## 2. Entropy, Relative Entropy, and Mutual Information
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|2.1|[Entropy](ch02/01/note.md)|- |
+|2.1|[Entropy](ch02/01/note.md)|- Chain Rule|
 
 
 

@@ -40,7 +40,12 @@
 |3.13|[Information Theory](ch03/13/note.md)|- Self-Information <br> - (Shannon) Entropy <br> - Kullback-Leiber (KL) Divergence <br> - Cross Entropy|
 |3.14|[Structured Probabilistic Models](ch03/14/note.md)|- Probability Distribution Factorization <br> - Structured Probabilistic Model (Graphical Model) : Directed/Undirected Model|
 
+<br>
 
+## 4 Numerical Computation
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|4.1|[Overflow and Underflow](ch04/01/note.md)|- |
 
 
 
