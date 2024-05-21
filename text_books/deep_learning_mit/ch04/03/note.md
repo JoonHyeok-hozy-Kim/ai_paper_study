@@ -86,10 +86,30 @@
               - Evaluate $`f(x - \epsilon\nabla_x f(x))`$ for several values of $`\epsilon`$ and choose the one that results in the smallest objective function value.
     - Repeat the process until, $`\nabla_x f(x)=0`$ is accomplished.
 
+<br><br>
 
+## 4.3.3 Jacobian and Hessian Matrices
+### Concept) Jacobian Matrix
+- Def.)
+  - For $`f:\mathbb{R}^m\rightarrow\mathbb{R}^n`$
+  - the Jacobian Matrix $`J\in\mathbb{R}^{m\times n}`$ is defined as
+    - $`J_{i,j} = \frac{\partial}{\partial x_j} f(x)_i`$
 
+<br>
 
-
+### Concept) Second Derivative
+- Def.)
+  - For $`f:\mathbb{R}^n\rightarrow\mathbb{R}`$
+  - the second derivative can be defined as
+    - $`\frac{\partial^2}{\partial x_i \partial x_j} f`$
+- Prop.)
+  - The second derivative tells us **how the first derivative will change** as we vary the input.
+  - We can think of the second derivative as measuring **curvature**.
+    - e.g.) Quadratic Function
+      - If such a function has a **second derivative** of zero, then there is no curvature.
+      - If the **gradient** is $`1`$, then we can make a step of size $`\epsilon`$ along the negative gradient, and the cost function will decrease by $`\epsilon`$.
+        - If the **second derivative is negative**, the function curves downward, so the cost function will actually decrease by more than $`\epsilon`$.
+        - If the **second derivative is positive**, the function curves upward, so the cost function can decrease by less than $`\epsilon`$.
 
 <br>
 
