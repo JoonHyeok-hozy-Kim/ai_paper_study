@@ -1,3 +1,23 @@
 {
-    "markdown.extension.tableFormatter.enabled": false
+    "markdown.extension.tableFormatter.enabled": false, 
+
+    // "files.insertSnippet" 커맨드 정의
+    "commands": [
+      {
+        "command": "files.insertSnippet",
+        "args": {
+          "snippet": "$$" // 삽입할 텍스트
+        }
+      }
+    ],
+  
+    // 키바인딩 설정
+    "keyBindings": [
+      {
+        "key": "ctrl+shift+4", // 원하는 키 조합으로 변경 가능
+        "command": "files.insertSnippet",
+        "when": "editor focus"
+      }
+    ]
+  }
 }
