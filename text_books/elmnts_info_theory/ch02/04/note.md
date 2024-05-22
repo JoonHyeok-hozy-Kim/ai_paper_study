@@ -37,7 +37,7 @@
 <br>
 
 #### Analysis) Graphical Description on Entropy and Mutual Information
-![](images/001.png)
+<img src="images/001.png" width="600px">
 
 
 
