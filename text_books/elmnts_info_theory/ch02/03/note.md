@@ -37,6 +37,7 @@
 - Props.)
   - $`\displaystyle I(X;Y) = D(p(x,y)||p(x)p(y))`$
   - $`\displaystyle I(X;Y) = E_{p(x,y)}\log\frac{p(X,Y)}{p(X)p(Y)}`$
+  - [Theorems w.r.t. Entropy](../04/note.md#theorem-241)
 
 #### E.g.)
 - Settings)
