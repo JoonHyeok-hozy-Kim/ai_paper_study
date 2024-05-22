@@ -40,15 +40,6 @@
 <img src="images/001.png" width="600px">
 
 
-
-
-
-
-
-
-
-
-
 <br>
 
 * [Back to Elements of Information Theory](../../main.md)
