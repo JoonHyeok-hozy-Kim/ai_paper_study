@@ -18,6 +18,27 @@ Why needed?)
   - An **eigenvector** of a square matrix $`A`$ is a non-zero vector $`v`$ such that multiplication by $`A`$ alters only the scale of $`v`$ :
     - $`Av = \lambda v`$
   - The scalar $`\lambda`$ is known as the **eigenvalue** corresponding to this **eigenvector**.
+  
+#### e.g.) Calculating Eigenvector and Eigenvalue
+- Consider $`A = \begin{bmatrix} 4 & 2 \\ 3 & 5 \end{bmatrix}`$.
+- Put $`v = \begin{bmatrix} v_1 \\ v_2 \end{bmatrix}`$.
+- Calculating eigenvalues.
+  - Then by definition $`\begin{bmatrix} 4 & 2 \\ 3 & 5 \end{bmatrix}\begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = \lambda\begin{bmatrix} v_1 \\ v_2 \end{bmatrix} \Leftrightarrow \begin{bmatrix} 4-\lambda & 2 \\ 3 & 5-\lambda \end{bmatrix}\begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = 0`$.
+  - We want to find $`\lambda \in \mathbb{R}`$ such that the above linear system has a solution.
+  - Thus, $`\left|\begin{array}{cc} 4-\lambda & 2 \\ 3 & 5-\lambda \end{array}\right| = 0 \Rightarrow (4-\lambda)(5-\lambda)-2\cdot5 = 0`$.
+  - Hence, the eigenvalues of $`A`$ are $`2 \textrm{ and } 7`$.
+- Calculating eigenvectors
+  1. $`\lambda = 2`$
+     - By definition, $`\begin{bmatrix} 4-2 & 2 \\ 3 & 5-2 \end{bmatrix}\begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = 0 \Rightarrow \begin{bmatrix} 2 & 2 \\ 3 & 3 \end{bmatrix}\begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = 0`$
+     - Thus, $`\begin{bmatrix} 2v_1+2v_2 \\ 3v_1+3v_2 \end{bmatrix} = (v_1+v_2)\begin{bmatrix} 2 \\ 3 \end{bmatrix} = 0 \Rightarrow v_1 = -v_2`$
+     - Hence, $`\begin{bmatrix} v_1\\v_2 \end{bmatrix} = \begin{bmatrix} v_1\\-v_1 \end{bmatrix} = c_1\begin{bmatrix} 1\\-1 \end{bmatrix}, c_1\in\mathbb{R}`$
+  2. $`\lambda = 7`$
+     - By definition, $`\begin{bmatrix} 4-7 & 2 \\ 3 & 5-7 \end{bmatrix}\begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = 0 \Rightarrow \begin{bmatrix} -3 & 2 \\ 3 & -2 \end{bmatrix}\begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = 0`$
+     - Thus, $`\begin{bmatrix} -3v_1+2v_2 \\ 3v_1-2v_2 \end{bmatrix} = 0 \Rightarrow v_1 = \frac{2}{3}v_2`$
+     - Hence, $`\begin{bmatrix} v_1\\v_2 \end{bmatrix} = \begin{bmatrix} \frac{2}{3}v_2\\v_2 \end{bmatrix} = c_2\begin{bmatrix} 2\\3 \end{bmatrix}, c_2\in\mathbb{R}`$
+- Therefore,
+  - the eigenvalues are $`2 \textrm{ and } 7`$.
+  - the eigenvectors are $`c_1\begin{bmatrix} 1\\-1 \end{bmatrix}, c_2\begin{bmatrix} 2\\3 \end{bmatrix} \textrm{ where } c_1, c_2\in\mathbb{R}`$.
 
 #### cf.) Left Eigenvector
 - Def.)
@@ -45,6 +66,21 @@ Why needed?)
 - Prop.)
   - Not every matrix can be decomposed into eigenvalues and eigenvectors.
     - But we will focus on real symmetric matrices.
+
+#### E.g.) Eigendecomposition
+- For $`A = \begin{bmatrix} 4 & 2 \\ 3 & 5 \end{bmatrix}`$, we [calculated eigenvalues and eigenvectors as below](#eg-calculating-eigenvector-and-eigenvalue).
+  - the eigenvalues are $`2 \textrm{ and } 7`$.
+  - the eigenvectors are $`c_1\begin{bmatrix} 1\\-1 \end{bmatrix}, c_2\begin{bmatrix} 2\\3 \end{bmatrix} \textrm{ where } c_1, c_2\in\mathbb{R}`$.
+- Decompose $`A`$.
+  - By definition, $`\begin{cases}
+    \begin{bmatrix} 4 & 2 \\ 3 & 5 \end{bmatrix}\begin{bmatrix} 1\\-1 \end{bmatrix} = 2\begin{bmatrix} 1\\-1 \end{bmatrix} \\
+    \begin{bmatrix} 4 & 2 \\ 3 & 5 \end{bmatrix}\begin{bmatrix} 2\\3 \end{bmatrix} = 7\begin{bmatrix} 2\\3 \end{bmatrix} \\
+  \end{cases} \Rightarrow \begin{bmatrix} 4 & 2 \\ 3 & 5 \end{bmatrix}\begin{bmatrix} 1&2\\-1&3 \end{bmatrix} = \begin{bmatrix} 2 & 14\\-2 & 21 \end{bmatrix} = \begin{bmatrix} 1 & 2\\-1 & 3 \end{bmatrix}\begin{bmatrix} 2 & 0\\0 & 7 \end{bmatrix}`$
+  - Thus, $`\begin{bmatrix} 4 & 2 \\ 3 & 5 \end{bmatrix} = \begin{bmatrix} 1 & 2\\-1 & 3 \end{bmatrix}\begin{bmatrix} 2 & 0\\0 & 7 \end{bmatrix}\begin{bmatrix} 1 & 2\\-1 & 3 \end{bmatrix}^{-1}`$
+- Usage)
+  - $`\begin{bmatrix} 4 & 2 \\ 3 & 5 \end{bmatrix}^n = \begin{bmatrix} 1 & 2\\-1 & 3 \end{bmatrix}\begin{bmatrix} 2^n & 0\\0 & 7^n \end{bmatrix}\begin{bmatrix} 1 & 2\\-1 & 3 \end{bmatrix}^{-1}`$
+
+
 
 <br>
 
