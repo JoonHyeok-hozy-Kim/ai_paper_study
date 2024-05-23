@@ -305,6 +305,22 @@
   - A small change in the input made by an algorithm will have small change in the output.
   - Lipschitz continuity is also a fairly weak constraint, and many optimization problems in deep learning can be made Lipschitz continuous with relatively minor modifications.
 
+<br><br>
+
+### Concept) Convex Optimization
+- Desc.)
+  - Convex optimization algorithms are able to provide many more guarantees by making stronger restrictions.
+  - Convex optimization algorithms are applicable only to **convex functions**.
+    - Concept) Convex Function
+      - Functions for which the Hessian is [positive semi-definite](../../ch02/07/note.md#concept-positivenegative-definite) everywhere.
+      - Such functions are well-behaved because they lack **saddle points** and all of their local minima are necessarily global minima.
+  - However, most problems in deep learning are difficult to express in terms of convex optimization.
+    - Convex optimization is used only as a **subroutine** of some deep learning algorithms.
+    - Ideas from the analysis of convex optimization algorithms can be useful for proving the **convergence of deep learning algorithms**.
+    - However, in general, the importance of convex optimization is greatly diminished in the context of deep learning.
+
+
+
 <br>
 
 * [Back to Deep Learning MIT](../../main.md)

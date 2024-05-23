@@ -47,7 +47,7 @@
 |:-:|:------|:-------|
 |4.1|[Overflow and Underflow](ch04/01/note.md)|- Softmax Function|
 |4.2|[Poor Conditioning](ch04/02/note.md)|- Condition Number |
-|4.3|[Gradient-Based Optimization](ch04/03/note.md)|- Objective Function (Criterion), Loss Function (Cost Function, Error Function) <br> - Derivative, Critical Point (Stationary Point), Gradient $`\nabla_x f(x)`$ <br> - Method of Steepest Descent, Learning Rate, Line Search <br> - Jacobian, Second Derivative, Hessian <br> - Directional Second Derivative, Second Derivative Test <br> - The Newton's Method <br> - First/Second-Order Optimization Algorithm <br> - Lipschitz Continuous / Lipschitz Constant|
+|4.3|[Gradient-Based Optimization](ch04/03/note.md)|- Objective Function (Criterion), Loss Function (Cost Function, Error Function) <br> - Derivative, Critical Point (Stationary Point), Gradient $`\nabla_x f(x)`$ <br> - Method of Steepest Descent, Learning Rate, Line Search <br> - Jacobian, Second Derivative, Hessian <br> - Directional Second Derivative, Second Derivative Test <br> - The Newton's Method <br> - First/Second-Order Optimization Algorithm <br> - Lipschitz Continuous / Lipschitz Constant <br> - Convex Optimization / Convex Functions|
 
 
 
