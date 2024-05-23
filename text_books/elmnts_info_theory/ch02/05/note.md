@@ -61,7 +61,7 @@ $`\displaystyle I(X_1, X_2, \cdots, X_n; Y) = \sum_{i=1}^n I(X_i; Y|X_1, X_2, \c
   - By [the Chain Rule for Entropy](#theorem-251-chain-rule-for-entropy),   
     $`\displaystyle = \sum_{i=1}^n H(X_i|X_1, \cdots, X_{i-1}) - \sum_{i=1}^n H(X_i|X_1, \cdots, X_{i-1}, Y)`$
   - By the definition of [the Conditional Mutual Information](#concept-conditional-mutual-information),   
-    $`= \displaystyle = \sum_{i=1}^n I(X_i; Y|X_1, \cdots, X_{i-1})`$
+    $`\displaystyle = \sum_{i=1}^n I(X_i; Y|X_1, \cdots, X_{i-1})`$
 
 <br><br>
 
