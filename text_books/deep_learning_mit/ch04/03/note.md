@@ -102,6 +102,19 @@
               - Evaluate $`f(x - \epsilon\nabla_x f(x))`$ for several values of $`\epsilon`$ and choose the one that results in the smallest objective function value.
     - Repeat the process until, $`\nabla_x f(x)=0`$ is accomplished.
 
+#### Prop.) The Limit of Gradient Descent
+- When the [Hessian](#concept-hessian-matrix) has a poor condition number, gradient descent performs poorly.
+  - Why?)
+    - In multiple dimensions, there is a different [second derivative](#concept-second-derivative) for each [direction](#concept-directional-derivative) at a single point.
+    - The condition number of the Hessian at this point [measures](#concept-second-derivative-test) how much the second derivatives differ from each other.
+    - If the condition number of the Hessian is poor,
+      - then the derivative in one direction increases rapidly, while in another direction, it increases slowly.
+    - Meanwhile, the gradient descent is NOT aware of this change in derivative.
+    - Thus, it does not know that it needs to explore preferentially in the direction where the derivative remains negative for longer.
+    - Also, it also makes it difficult to choose a good step size $`\epsilon`$.
+      - The step size must be small enough to avoid overshooting the minimum and going uphill directions with strong positive curvature.
+  - Sol.) [Newton's Method](#concept-the-newtons-method)
+
 <br><br>
 
 ## 4.3.3 Jacobian and Hessian Matrices
@@ -201,6 +214,96 @@
                         - $`g^\top g = 1 \; (\because g \textrm{ is an unit vector.})`$
                         - $`g^\top H g = g^\top (\lambda_{\max})g = \lambda_{\max} g^\top g = \lambda_{\max}`$
 
+<br>
+
+#### Concept) Second Derivative Test
+- One-Dimensional Case)
+  - For a continuous and differentiable function $`f:\mathbb{R}\rightarrow \mathbb{R}`$,
+    - If $`f'(x) = 0 \wedge f''(x) \gt 0`$
+      - then $`x`$ is the local minimum.
+    - If $`f'(x) = 0 \wedge f''(x) \lt 0`$
+      - then $`x`$ is the local maximum.
+- Multi-Dimensional Case)
+  - For a continuous and differentiable function $`f:\mathbb{R}^n\rightarrow\mathbb{R}^n`$,
+  - Suppose $`\exists x\in\mathbb{R}^n`$ such that $`\nabla_x f(x) = 0`$.
+    - i.e.) $`x`$ is the critical point.
+  - Then,
+    1. If the [Hessian](#concept-hessian-matrix) matrix is [positive definite](../../ch02/07/note.md#concept-positivenegative-definite), the point is the local minimum.
+       - i.e.) All eigenvalues of the Hessian are positive.
+       - Why?)
+         - The [directional second derivative](#concept-directional-second-derivative) in any direction is positive.
+    2. If the [Hessian](#concept-hessian-matrix) matrix is [negative definite](../../ch02/07/note.md#concept-positivenegative-definite), the point is the local maximum.
+       - i.e.) All eigenvalues of the Hessian are negative.
+    3. Among the eigenvalues of the Hessian, if at least one is negative and at least one is positive, the point is the **saddle point**.
+  - Multi-Dimensional Test is **inconclusive**.
+    - If $`\lambda_i \ge 0 \vee \lambda_i \le 0, \forall i`$, the test **cannot** determine whether the point is a local minimum or maximum.
+
+<br>
+
+#### Concept) The Newton's Method
+- The Limit of the Gradient Descent Method)
+  - Recall that [the gradient descent performs poorly when the Hessian matrix has a poor condition number](#prop-the-limit-of-gradient-descent).
+- Ideation)
+  - Use information from the Hessian matrix to guide the search
+- How?)
+  - Approximate $`f(x)`$ near some point $`x^{(0)}`$ using the second order Taylor expansion.
+    - $`f(x) \approx f(x^{(0)}) + (x - x^{(0)})^\top \nabla_x f(x^{(0)}) + \frac{1}{2}(x - x^{(0)})^\top H(f)(x^{(0)}) (x - x^{(0)})`$
+      - where $`\nabla_x f(x)`$ is the [gradient](#concept-gradient) of $`f`$ at $`x`$.
+  - Solve the critical point $`x^\ast`$ as follows.
+    - $`x^\ast = x^{(0)} - H(f)(x^{(0)})^{-1} \nabla_x f(x^{(0)})`$
+      - Derivation)   
+        $`\begin{aligned}
+          \frac{d}{dx}f(x) &\approx \frac{d}{dx} \left(f(x^{(0)}) + (x - x^{(0)})^\top \nabla_x f(x^{(0)}) + \frac{1}{2}(x - x^{(0)})^\top H(f)(x^{(0)}) (x - x^{(0)})\right) & \\
+          &= \frac{d}{dx}\left( x^\top \nabla_x f(x^{(0)}) + \frac{1}{2}(x - x^{(0)})^\top H(f)(x^{(0)}) (x - x^{(0)}) \right) & \because \frac{\partial}{\partial x} x^\top a = a^\top \\
+          &= \nabla_x f(x^{(0)})^\top + \frac{1}{2}(x - x^{(0)})^\top \left( H(f)(x^{(0)})^\top + H(f)(x^{(0)}) \right) & \because \frac{\partial}{\partial x}x^\top Ax = x^\top(A^\top + A) \\
+          &= \nabla_x f(x^{(0)})^\top + (x - x^{(0)})^\top H(f)(x^{(0)})^\top & \because H \textrm{ is symmetric.}
+        \end{aligned}`$    
+        - Thus,    
+          $`\begin{aligned}
+            \frac{d}{dx}f(x) = 0 & \Rightarrow \nabla_x f(x^{(0)})^\top + (x - x^{(0)})^\top H(f)(x^{(0)})^\top = 0 \\
+            & \Rightarrow  \nabla_x f(x^{(0)}) + H(f)(x^{(0)})(x - x^{(0)}) = 0 \\
+            & \Rightarrow  x = x^{(0)} - H(f)(x^{(0)})^{-1} \nabla_x f(x^{(0)})\\
+          \end{aligned}`$
+  - Decision.
+    1. When $`f`$ is a positive definite quadratic function, apply the critical point once.
+       - i.e.) Jump to the local minimum of the function directly.
+    1. When $`f`$ is NOT a positive definite quadratic function but can be locally approximated as a positive definite quadratic, apply the critical point multiple times.
+       - i.e.) Iteratively update the approximation and jump to the minimum of the approximation.
+- Props.)
+  - When the current point is near the local minimum, the Newton's Method is faster than the [gradient descent method](#concept-gradient-descent-method-of-steepest-descent).
+  - **Harmful** when the point is near the saddle point!
+    - whereas gradient descent is not attracted to saddle points unless the gradient points toward them.
+    - Thus, use the Newton's Method only when the local critical point is the local minimum.
+
+
+<br><br>
+
+### Concept) First/Second-Order Optimization Algorithm
+- First-Order Optimization Algorithms
+  - Def.)
+    - Optimization algorithms that use only the [gradient](#concept-gradient)
+  - e.g.)
+    - [The Gradient Descent Method](#concept-gradient-descent-method-of-steepest-descent)
+- Second-Order Optimization Algorithms
+  - Def.)
+    - Optimization algorithms that use [the Hessian matrix](#concept-hessian-matrix)
+  - e.g.)
+    - [The Newton's Method](#concept-the-newtons-method)
+
+<br><br>
+
+### Concept) Lipschitz Continuous
+- Why needed?)
+  - We use optimization algorithms.
+  - However, there is no guarantee that our target function can apply such algorithms.
+  - Moreover, the family of functions used in deep learning is quite complicated.
+  - **Lipschitz Continuous** can guarantee that a function with such property has **Lipschitz continuous derivatives**.
+- Def.)
+  - $`\forall x, \forall y, |f(x) - f(y)| \le \mathcal{L} ||x-y||_2`$
+    - where $`\mathcal{L}\in \mathbb{R}`$ is the Lipschitz constant.
+- Prop.)
+  - A small change in the input made by an algorithm will have small change in the output.
+  - Lipschitz continuity is also a fairly weak constraint, and many optimization problems in deep learning can be made Lipschitz continuous with relatively minor modifications.
 
 <br>
 
