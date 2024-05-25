@@ -49,6 +49,18 @@
 |4.2|[Poor Conditioning](ch04/02/note.md)|- Condition Number |
 |4.3|[Gradient-Based Optimization](ch04/03/note.md)|- Objective Function (Criterion), Loss Function (Cost Function, Error Function) <br> - Derivative, Critical Point (Stationary Point), Gradient $`\nabla_x f(x)`$ <br> - Method of Steepest Descent, Learning Rate, Line Search <br> - Jacobian, Second Derivative, Hessian <br> - Directional Second Derivative, Second Derivative Test <br> - The Newton's Method <br> - First/Second-Order Optimization Algorithm <br> - Lipschitz Continuous / Lipschitz Constant <br> - Convex Optimization / Convex Functions|
 |4.4|[Constrained Optimization](ch04/04/note.md)|- Karush-Kuhn-Tucker (KKT) Condition <br> - Generalized Lagrangian|
+|4.5|[Example: Linear Least Squares](ch04/05/note.md)|- |
+
+<br>
+
+## 5. Machine Learning Basics
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|5.1|[Learning Algorithms](ch05/01/note.md)|- |
+
+
+
+
 
 
 
