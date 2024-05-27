@@ -10,7 +10,7 @@
   - $`f(x)`$ is convex over $`(a,b)`$
     - if $`f(\lambda x_1 + (1-\lambda)x_2) \le \lambda f(x_1) + (1-\lambda)f(x_2)`$
       - where
-        - $`\forall x_1, x_2 \in (a,b) \textrm`$
+        - $`\forall x_1, x_2 \in (a,b)`$
         - $` 0 \le \lambda \le 1`$
   - Moreover, $`f`$ is **strictly convex** if the equality holds only if $`\lambda = 0 \vee \lambda = 1`$.
 - e.g.)
