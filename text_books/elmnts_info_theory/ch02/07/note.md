@@ -41,19 +41,18 @@ $`D(p||q)`$ is convex in the pair $`(p,q)`$.
   - If $`(p_1, q_1)`$ and $`(p_2, q_2)`$ are two pairs of probability mass functions,
     - then $`D(\lambda p_1 + (1-\lambda)p_2 || \lambda q_1 + (1-\lambda)q_2) \le \lambda D(p_1||q_1) + (1-\lambda) D(p_2 || q_2)`$ 
       - $`\forall 0\le\lambda\le1`$
-- pf.)
-  - Recall the [Log Sum Inequality](#theorem-271-log-sum-inequality)
-    - Putting $`\begin{cases}
-        a_i = \lambda p_1(x) + (1-\lambda) p_2(x) \\
-        b_i = \lambda q_1(x) + (1-\lambda) q_2(x) \\
-    \end{cases}`$
-  - LHS   
-    $`\begin{aligned}
+- pf.)   
+  $`\begin{aligned}
         D(\lambda p_1 + (1-\lambda)p_2 || \lambda q_1 + (1-\lambda)q_2) &= \left( \lambda p_1(x) + (1-\lambda) p_2(x) \right) \log\frac{\lambda p_1(x) + (1-\lambda) p_2(x)}{\lambda q_1(x) + (1-\lambda) q_2(x)} \\
         &\le \lambda p_1(x)\log\frac{\lambda p_1(x)}{\lambda q_1(x)} + (1-\lambda) p_2(x)\log\frac{(1-\lambda) p_2(x)}{(1-\lambda) q_2(x)} & \because \textrm{Log Sum Inequality} \\
         &= \lambda p_1(x)\log\frac{p_1(x)}{q_1(x)} + (1-\lambda) p_2(x)\log\frac{p_2(x)}{q_2(x)} \\
         &= \lambda D(p_1(x) || q_1(x)) + (1-\lambda) D(p_2(x) || q_2(x)) \\
     \end{aligned}`$
+  - cf.) Recall the [Log Sum Inequality](#theorem-271-log-sum-inequality)
+    - Put $`\begin{cases}
+        a_i = \lambda p_1(x) + (1-\lambda) p_2(x) \\
+        b_i = \lambda q_1(x) + (1-\lambda) q_2(x) \\
+    \end{cases}`$
 
 <br><br>
 
