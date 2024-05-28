@@ -135,7 +135,7 @@ New bounds for the sample complexity using $VC(H)$ instead of $|H|$.
 
 
 - Usage)
-  - The Equation provides an **upper bound** on the number of training examples **necessary** to probably approximately learn any target concept in $C$, for any desired $\epsilon$ and $\delta$.
+  - The Equation provides an **lower bound** on the number of training examples **necessary** to probably approximately learn any target concept in $C$, for any desired $\epsilon$ and $\delta$.
   - cf.) The lower bound use $VC(C)$ instead of $VC(H)$ in [the upper bound](#concept-upper-bound-on-sample-complexity).
     - why?)
       - If we were to substitute $H$ for $C$ in the lower bound, this would result in a tighter bound on $m$ in the case $H \supset C$.
