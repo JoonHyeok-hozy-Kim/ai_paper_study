@@ -79,7 +79,100 @@
 <br>
 
 ## 5.1.3 The Experience
+- Concepts)
+  - The **experience** $`E`$ can categorize the ML into [supervised](#concept-supervised-learning-algorithms) and [unsupervised](#concept-unsupervised-learning-algorithms) learning.
+  - A **dataset** is a collection of many examples.
 
+<br>
+
+### Concept) Unsupervised Learning Algorithms
+- Desc.)
+  - **Unsupervised learning algorithms** experience a dataset containing many features, then learn useful properties of the structure of this dataset.
+- How?)
+  - Examples of random vector $`x`$ are provided.
+  - The algorithm should implicitly or explicitly learn the probability distribution $`p(x)`$.
+- e.g.)
+  - Deep Learning
+    - We want to learn the **probability distribution** that generated the dataset.
+      - explicit way : density estimation
+      - implicit way : synthesis, denoising
+  - Clustering
+
+
+<br>
+
+### Concept) Supervised Learning Algorithms
+- Desc.)
+  - **Supervised learning** algorithms experience a dataset containing features, but each example is also **associated with a label or target**.
+- How?)
+  - Examples of a random vector $`x`$ and an associated value or a vector $`y`$ are provided.
+  - The algorithm should estimate $`p(y|x)`$ to predict $`y`$ from $`x`$.
+
+
+<br>
+
+### Concept) Combination of Unsupervised and Supervised Learning
+- Many machine learning technologies can be used to perform both tasks.
+- e.g.)
+  - [Joint Probability Decomposition](../../../elmnts_info_theory/ch02/05/note.md#prop-general-multiplication-law-of-conditional-probabilities).
+    - Consider that $`\displaystyle p(x) = \prod_{i=1}^n p(x_i|x_1, \cdots, x_{i-1})`$.
+    - The LHS $`p(x)`$ is the joint probability, which is the target of the [unsupervised learning](#concept-unsupervised-learning-algorithms).
+    - Meanwhile, the RHS is the product of conditional probabilities, which is the target of the [supervised learning](#concept-supervised-learning-algorithms).
+    - Thus, this decomposition means that we can solve the unsupervised problem of modeling $`p(x)`$ by splitting it into $`n`$ supervised learning problems.
+  - Bayes Rule
+    - Recall that $`\displaystyle p(y|x) = \frac{p(x,y)}{\sum_{y'} p(x,y')}`$
+    - With the unsupervised learning, we can learn $`p(x,y)`$.
+    - Using this result, we can derive $`p(y|x)`$, which is the supervised learning problem.
+
+<br>
+
+### Concept) Design Matrix
+- Def.)
+  - A design matrix is a matrix containing a different example in each row.
+  - Each column denotes the features.
+- e.g.)
+  - 150 examples with four features : $`X\in \mathbb{R}^{150 \times 4}`$
+    - $`X_{i,j}`$ : the $`j`$-th feature of the $`i`$-th example.
+
+<br><br>
+
+## 5.1.4 Example: Linear Regression
+- Goal)
+  - Build a system that
+    - take a vector $`x\in\mathbb{R}^n`$ as input
+    - predict the value of a scalar $`y\in\mathbb{R}`$ as output
+- Settings)
+  - $`\hat{y} = w^\top x`$ : a linear function model
+    - where
+      - $`w \in \mathbb{R}^n`$ : a vector of parameters
+        - $`w_i`$ is the coefficient of the feature $`x_i`$
+          - $`w_i \lt 0`$ : Decreasing the value of $`x_i`$ decreases $`\hat{y}`$.
+          - $`w_i = 0`$ : $`x_i`$ has no impact on $`\hat{y}`$.
+          - $`w_i \gt 0`$ : Increasing the value of $`x_i`$ increases $`\hat{y}`$.
+  - $`X^{(\textrm{test})}`$ : a [design matrix](#concept-design-matrix) of test set.
+    - $`y^{(\textrm{test})}`$ : the vector with associated values of $`X^{(\textrm{test})}`$
+- Model)
+  - Minimize the mean squared error (MSE).
+    - $`\displaystyle\textrm{MSE} = \frac{1}{m} \sum_i (\hat{y} - y)^2_i`$
+      - which optimization problem is identical to $`\displaystyle\textrm{MSE} = \frac{1}{m} ||\hat{y} - y||^2_2`$ : the Euclidean distance between the prediction and the target.
+  - How?)
+    - Train the model with the training set.
+      - $`\displaystyle \min_w \textrm{MSE}_{(\textrm{train})} = \frac{1}{m} ||\hat{y}^{(\textrm{train})} - y^{(\textrm{train})}||^2_2`$
+        - How?)
+          - Get $`w`$ where its gradient is $`0`$.   
+            $`\begin{array}{ll}
+              \nabla_w \textrm{MSE}_{(\textrm{train})} = 0 \\
+              \Rightarrow \nabla_w \frac{1}{m} ||\hat{y}^{(\textrm{train})} - y^{(\textrm{train})}||^2_2 = 0 \\
+              \Rightarrow \nabla_w \frac{1}{m} ||X^{(\textrm{train})}w - y^{(\textrm{train})}||^2_2 = 0 \\
+              \Rightarrow \nabla_w \left( X^{(\textrm{train})}w - y^{(\textrm{train})} \right)^\top \left( X^{(\textrm{train})}w - y^{(\textrm{train})} \right) = 0 \\
+              \Rightarrow \nabla_w \left( w^\top {X^{(\textrm{train})}}^\top X^{(\textrm{train})}w -2w^\top {X^{(\textrm{train})}}^\top y^{(\textrm{train})} + {y^{(\textrm{train})}}^\top y^{(\textrm{train})} \right) = 0 \\
+              \Rightarrow 2 {X^{(\textrm{train})}}^\top X^{(\textrm{train})}w -2{X^{(\textrm{train})}}^\top y^{(\textrm{train})} = 0 \\
+              \Rightarrow w = {\left({X^{(\textrm{train})}}^\top X^{(\textrm{train})}\right)}^{-1} {X^{(\textrm{train})}}^\top y^{(\textrm{train})} \\
+            \end{array}`$
+        - One can add **bias** and by using an affine function.
+          - $`\hat{y} = w^\top x + b`$
+    - Test its performance with the test set.
+      - $`\displaystyle\textrm{MSE}_{(\textrm{test})} = \frac{1}{m} ||\hat{y}^{(\textrm{test})} - y^{(\textrm{test})}||^2_2`$
 
 
 

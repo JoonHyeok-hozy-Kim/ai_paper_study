@@ -56,7 +56,7 @@
 ## 5. Machine Learning Basics
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|5.1|[Learning Algorithms](ch05/01/note.md)|- |
+|5.1|[Learning Algorithms](ch05/01/note.md)|- Task $`(T)`$, Performance Measure $`(P)`$, Experience $`(E)`$ <br> - Supervised / Unsupervised Learning Algorithms <br> - Design Matrix|
 
 
 
