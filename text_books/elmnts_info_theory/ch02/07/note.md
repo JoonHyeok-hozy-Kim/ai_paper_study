@@ -18,7 +18,7 @@
   - Also, by the [Jensen's Inequality](../06/note.md#theorem-262-jensens-inequality),
     - for $`\alpha_i \ge 0, \sum_i \alpha_i = 1`$
       - $`\displaystyle\sum \alpha_i f(t_i) \ge f\left(\sum\alpha_i t_i \right)`$
-  - Putting $\displaystyle\alpha_i = \frac{b_i}{\sum_{j=1}^n b_j}`$ and $\displaystyle t_i = \frac{a_i}{b_i}`$
+  - Putting $`\displaystyle\alpha_i = \frac{b_i}{\sum_{j=1}^n b_j}`$ and $`\displaystyle t_i = \frac{a_i}{b_i}`$
     - LHS   
       $`\begin{aligned}
         \sum \alpha_i f(t_i) &= \sum \left(\frac{b_i}{\sum b_j}\right) \left(\frac{a_i}{b_i}\right) \left(\log\frac{a_i}{b_i}\right) \\
