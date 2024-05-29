@@ -17,6 +17,7 @@
 |2.6|[Jensen's Inequality and Its Consequences](ch02/06/note.md)|- Convexity / Concavity <br> - Jensen's Inequality <br> - Information Inequality <br> - Non-negativity of Mutual Information / Conditional Relative Entropy / Conditional Mutual Information <br> - Independence Bound on Entropy|
 |2.7|[Log Sum Inequality and its Applications](ch02/07/note.md)|- Log Sum Inequality <br> - Convexity of Relative Entropy <br> - Concavity of Entropy <br> - Convexity / Concavity of Mutual Information|
 |2.8|[Data-Processing Inequality](ch02/08/note.md)|- Markov Chain : $`X\rightarrow Y \rightarrow Z`$ <br> - Data-Processing Inequality|
+|2.9|[Sufficient Statistics](ch02/09/note.md)|- |
 
 
 
