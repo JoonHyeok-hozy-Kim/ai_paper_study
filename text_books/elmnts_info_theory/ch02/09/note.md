@@ -51,7 +51,7 @@
 
 ### Concept) Minimal Sufficient Statistic
 - Def.)
-  - A statistic $`T(X)`$ is a minimal sufficient statistic relative to $`\{f_\theta(x)\}`$
+  - A statistic $`T(X)`$ is a **minimal sufficient statistic** relative to $`\{f_\theta(x)\}`$
     - if $`T(X)`$ is a function of every other sufficient statistic $`U`$.
 - Prop.)
   - $`\theta\rightarrow T(X)\rightarrow U(X)\rightarrow X`$
