@@ -9,7 +9,7 @@
     - $`X`$ : a sample from a distribution in $`\{f_\theta(x)\}`$
     - $`T(X)`$ : any statistic
   - $`T(X)`$ is said to be a **sufficient statistic** relative to the family $`\{f_\theta(x)\}`$
-    - if $`\theta\rightarrow X\rightarrow T(X)`$
+    - if $`\theta\rightarrow T(X) \rightarrow X`$
       - i.e.) $`X`$ is independent of $`\theta`$ given $`T(X)`$ for any distribution on $`\theta`$
 - Meaning)
   - A statistic $`T(X)`$ is called sufficient for $`\theta`$ if it contains all the information in $`X`$ about $`\theta`$.
@@ -56,7 +56,7 @@
 - Prop.)
   - $`\theta\rightarrow T(X)\rightarrow U(X)\rightarrow X`$
 - Meaning)
-  - A minimal sufficient statistic maximally compresses the information about $\theta`$ in the sample.
+  - A minimal sufficient statistic maximally compresses the information about $\theta$ in the sample.
     - Other sufficient statistics may contain additional irrelevant information.
       - e.g.)
         - Let $`X\sim N(\theta, 1^2)`$
