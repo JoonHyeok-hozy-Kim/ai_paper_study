@@ -99,6 +99,41 @@
     - Any fixed parametric model with less than optimal capacity will asymptote to an error value that exceeds the Bayes error.
     - Note that it is possible for the model to have optimal capacity and yet still have a large gap between training and generalization error.
 
+<br><br>
+
+### Theorem) The No Free Lunch Theorem
+- Theorem)
+  - Averaged over all possible data generating distributions, every **classification algorithm** has the **same error rate** when classifying previously **unobserved points**.
+    - i.e.) No machine learning algorithm is universally any better than any other.
+- Props.)
+  - These results hold only when we average over **all** possible data generating distributions.
+    - Thus, if we make assumptions about the kinds of **probability distributions** we encounter in real-world applications, then we can design learning algorithms that perform well on these distributions.
+    - Hence, our goal is to understand 
+      - what kinds of **distributions** are relevant to the “real world” that an AI  agent experiences
+      - what kinds of machine learning **algorithms** perform well on data drawn from the kinds of data generating distributions we care about.
+
+
+<br><br>
+
+### Concept) Weight Decay
+- Desc.)
+  - To perform linear regression with weight decay, we minimize a sum comprising both the mean squared error (MSE) on the training and a criterion $`J(w)`$ that expresses a preference for the weights to have smaller squared $`L^2`$ norm.
+    - i.e.) $`J(w) = \textrm{MSE}_{\textrm{train}} + \lambda w^\top w`$
+      - where $`\lambda`$ : a hyperparameter that controls the strength of our preference for smaller weights
+  - Minimizing $`J(w)`$ results in a choice of weights that make a tradeoff between fitting the training data and being small.
+    - This gives us solutions that have a **smaller slope**, or put weight on fewer of the features.
+
+<img src="images/003.png" width="600px">
+
+<br>
+
+
+
+### Concept) Regularization
+
+
+
+
 
 
 <br>
