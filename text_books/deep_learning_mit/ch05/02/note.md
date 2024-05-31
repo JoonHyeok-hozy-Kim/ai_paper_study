@@ -108,6 +108,7 @@
 - Props.)
   - These results hold only when we average over **all** possible data generating distributions.
     - Thus, if we make assumptions about the kinds of **probability distributions** we encounter in real-world applications, then we can design learning algorithms that perform well on these distributions.
+      - i.e.) There is NO best machine learning algorithm.
     - Hence, our goal is to understand 
       - what kinds of **distributions** are relevant to the “real world” that an AI  agent experiences
       - what kinds of machine learning **algorithms** perform well on data drawn from the kinds of data generating distributions we care about.
@@ -115,7 +116,18 @@
 
 <br><br>
 
-### Concept) Weight Decay
+### Concept) 
+
+<br>
+
+### Concept) Regularization
+- Def.)
+  - Regularization is any modification we make to a learning algorithm that is intended to **reduce its generalization error** but **not its training error**.
+- Desc.)
+  - We can also give a learning algorithm a preference for one solution in its hypothesis space to another.
+    - i.e.) We can regularize a model that learns a function $`f(x;\theta)`$ by adding a penalty called a regularizer to the cost function.
+
+#### e.g.) Weight Decay
 - Desc.)
   - To perform linear regression with weight decay, we minimize a sum comprising both the mean squared error (MSE) on the training and a criterion $`J(w)`$ that expresses a preference for the weights to have smaller squared $`L^2`$ norm.
     - i.e.) $`J(w) = \textrm{MSE}_{\textrm{train}} + \lambda w^\top w`$
@@ -124,13 +136,6 @@
     - This gives us solutions that have a **smaller slope**, or put weight on fewer of the features.
 
 <img src="images/003.png" width="600px">
-
-<br>
-
-
-
-### Concept) Regularization
-
 
 
 
