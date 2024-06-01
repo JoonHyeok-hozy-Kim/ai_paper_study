@@ -75,12 +75,50 @@
       - Recall that $`H(P_e) + P_e\log{|\mathcal{X}|} \ge H(X|\hat{X}) \ge H(X|Y)`$.
       - Thus, $`P_e = 0 \Rightarrow H(P_e) + P_e\log{|\mathcal{X}|} = 0 \ge H(X|Y) = 0`$
 
+<br>
 
+#### Corollary 1)
+For any two random variables $`X, Y`$, let $`p = \textrm{Pr}(X\ne Y)`$.   
+Then $`H(p) + p\log|\mathcal{X}| \ge H(X|Y)`$
+- pf.)
+  - Put $`\hat{X} = Y`$ in [Fano's inequality](#theorem-2101-fanos-inequality).
 
+<br>
 
+#### Corollary 2) Slightly Stronger Inequality
+Let $`P_e = \textrm{Pr}(X\ne\hat{X})`$ and $`\hat{X}:\mathcal{Y}\rightarrow\mathcal{X}`$.   
+Then $`H(P_e) + P_e\log(|\mathcal{X}| - 1) \ge H(X|Y)`$.
+- pf.)
+  - Recall that we defined $`E = \begin{cases}
+        1 & \textrm{if } \hat{X} \ne X \\
+        0 & \textrm{if } \hat{X} = X \\
+    \end{cases}`$.
+  - Since $`\hat{X}:\mathcal{Y}\rightarrow\mathcal{X}`$, 
+    - if $`E=1`$, then the range of possible $`X`$ outcome is $`|\mathcal{X}|-1`$.
+  - Thus, upon proving [Fano's inequality](#theorem-2101-fanos-inequality), below part will be modified.   
+     $`\begin{aligned}
+      H(X|E,\hat{X}) &= \textrm{Pr}(E=0)\cdot H(X|\hat{X},E=0) + \textrm{Pr}(E=1)\cdot H(X|\hat{X},E=1) \\
+      &\le (1-P_e)\cdot 0 + P_e\log(|\mathcal{X}|-1)
+    \end{aligned}`$
 
+<br>
 
-
+#### Remark) No Knowledge Case
+- Ideation)
+  - Suppose that there is no knowledge of $`Y`$.   
+  - Thus, $`X`$ must be guessed without any information
+- Theorem)
+  - Let $`X \in \{1,2,\cdots, m\}`$
+    - where
+      - $`p_i`$ is the probability that $`X=i`$
+      - $`p_1 \ge p_2 \ge \cdots \ge p_m`$
+  - Then the best guess of $`X`$ is $`\hat{X} = 1`$, which has the highest probability of $`p_1`$.
+  - The resulting probability of error is $`P_e = 1-p_1`$.
+  - Thus, [Fano's inequality](#theorem-2101-fanos-inequality) goes
+    - $`H(P_e) + P_e \log(m-1) \ge H(X)`$.
+  - Also, the probability mass function below achieves this bound with equality.
+    - $`\displaystyle (p_1, p_2, \cdots, p_m) = \left( 1-P_e, \frac{P_e}{m-1}, \cdots, \frac{P_e}{m-1} \right)`$
+  - Therefore, [Fano's inequality](#theorem-2101-fanos-inequality) is sharp.
 
 
 
