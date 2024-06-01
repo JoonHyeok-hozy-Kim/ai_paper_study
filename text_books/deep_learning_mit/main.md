@@ -59,6 +59,7 @@
 |5.1|[Learning Algorithms](ch05/01/note.md)|- Task $`(T)`$, Performance Measure $`(P)`$, Experience $`(E)`$ <br> - Supervised / Unsupervised Learning Algorithms <br> - Design Matrix|
 |5.2|[Capacity, Overfitting and Underfitting](ch05/02/note.md)|- Generalization, Training Error vs Test Error, Data Generating Process (Distribution) <br> - Overfitting vs Underfitting, Capacity, Representational Capacity <br> - Non-Parametric Model <br> - Bayes Error <br> - The No Free Lunch Theorem <br> - Regularization: Weight Decay|
 |5.3|[Hyperparameters and Validation Sets](ch05/03/note.md)|- Cross-Validation|
+|5.4|[Estimators, Bias and Variance](ch05/04/note.md)|- Point Estimation, Function Estimation <br> - Bias, Variance, Standard Error, $`\textrm{MSE} = \textrm{Var} + \textrm{Bias}^2`$ <br> - Consistency|
 
 
 
