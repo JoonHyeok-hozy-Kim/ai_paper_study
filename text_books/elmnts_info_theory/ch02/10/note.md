@@ -24,7 +24,7 @@
       - we have $`H(P_e) + P_e\log{|\mathcal{X}|} \ge H(X|\hat{X}) \ge H(X|Y)`$.
   - This inequality can be weakened to
     - $`1+P_e\log{|\mathcal{X}|} \ge H(X|Y)`$
-    - $`\displaystyle P_e \ge \frac{H(X|Y) - 1}{\log |\mathcal{X}|`}`$
+    - $`\displaystyle P_e \ge \frac{H(X|Y) - 1}{\log |\mathcal{X}|}`$
 - pf.)
   - Define an error random variable
     - $`E = \begin{cases}
