@@ -7,7 +7,7 @@
   - Suppose that we **know** a random variable $`Y`$ and we wish to guess the value of a **correlated random variable** $`X`$.
   - We know that $`H(X|Y)= 0`$ iff. $`X`$ is a function of $`Y`$.
   - Hence, we can estimate $`X`$ from $`Y`$ with zero probability of error iff. $`H(X|Y)= 0`$.
-  - Extending this argument, we expect to be able to estimate $`X`$ with a  low probability of error only if the conditional entropy $`H(X|Y)`$ is small.
+  - Extending this argument, we expect to be able to estimate $`X`$ with a low probability of error $`(P_e)`$ only if the conditional entropy $`H(X|Y)`$ is small.
 - Theorem)
   - Let
     - $`X, Y`$ : random variables
@@ -42,14 +42,15 @@
          - Consider that [conditioning reduces entropy](../06/note.md#theorem-265-conditioning-reduces-entropy).
            - Thus, $`H(E|\hat{X}) \le H(E)`$
          - Also, $`E`$ is a binary random variable.
-           - Thus, $`H(E) = H(P_e)`$
+           - By [definition](../01/note.md#ex211), $`H(E) = H(P_e)`$
          - Finally,   
            $`\begin{aligned}
             H(X|E,\hat{X}) &= \textrm{Pr}(E=0) \cdot H(X|\hat{X}, E=0) + \textrm{Pr}(E=1) \cdot H(X|\hat{X}, E=1) \\
-            &\le (1-P_e) \cdot 0 + P_e \cdot \log{|\mathcal{X}|} \\
+            &\le (1-P_e) \cdot 0 + P_e \cdot \log{|\mathcal{X}|} & \because H(X) \le \log{|\mathcal{X}|} \\
             &= P_e \log{|\mathcal{X}|} \\
            \end{aligned}`$
            - where $`|\mathcal{X}|`$ is the number of possible outcomes.
+             - For the pf. of $`H(X) \le \log{|\mathcal{X}|}`$, refer to [Theorem 2.6.4](../06/note.md#theorem-264).
   - Combining the above two we can get   
       $`\begin{aligned}
       & H(X | \hat{X}) = H(E|\hat{X}) + H(X|E,\hat{X}) \le H(P_e) + P_e \log{|\mathcal{X}|} \\
@@ -77,7 +78,7 @@
 
 <br>
 
-#### Corollary 1)
+#### Corollary 1 of Theorem 2.10.1)
 For any two random variables $`X, Y`$, let $`p = \textrm{Pr}(X\ne Y)`$.   
 Then $`H(p) + p\log|\mathcal{X}| \ge H(X|Y)`$
 - pf.)
@@ -85,7 +86,7 @@ Then $`H(p) + p\log|\mathcal{X}| \ge H(X|Y)`$
 
 <br>
 
-#### Corollary 2) Slightly Stronger Inequality
+#### Corollary 2 of Theorem 2.10.1) Slightly Stronger Inequality
 Let $`P_e = \textrm{Pr}(X\ne\hat{X})`$ and $`\hat{X}:\mathcal{Y}\rightarrow\mathcal{X}`$.   
 Then $`H(P_e) + P_e\log(|\mathcal{X}| - 1) \ge H(X|Y)`$.
 - pf.)
@@ -119,6 +120,43 @@ Then $`H(P_e) + P_e\log(|\mathcal{X}| - 1) \ge H(X|Y)`$.
   - Also, the probability mass function below achieves this bound with equality.
     - $`\displaystyle (p_1, p_2, \cdots, p_m) = \left( 1-P_e, \frac{P_e}{m-1}, \cdots, \frac{P_e}{m-1} \right)`$
   - Therefore, [Fano's inequality](#theorem-2101-fanos-inequality) is sharp.
+
+<br><br>
+
+### Lemma 2.10.1) Inequality Relating Probability Error and Entropy
+If $`X`$ and $`X'`$ are i.i.d. with entropy $`H(X)`$,   
+Then $`\textrm{Pr}(X=X') \ge 2^{-H(X)}`$
+- pf.)
+  - Put $`p(x)`$ such that $`X, X' \stackrel{i.i.d}{\sim} p(x)`$
+  - Then,   
+    $`\begin{aligned}
+      \textrm{Pr}(X=X') &= \sum_x p^2(x) = \sum_x p(x) 2^{\log p(x)} \\
+      &\ge 2^{\sum p(x)\log{p(x)}} = 2^{-H(X)}
+    \end{aligned}`$.
+    - Why?)
+      - Put $`f(X) = 2^X`$.
+      - Then $`f`$ is a convex function.
+      - Thus, by [Jensen's Inequality](../06/note.md#theorem-262-jensens-inequality), $`Ef(X) \ge f(EX)`$.
+      - Hence, $`p(x) 2^{\log p(x)} \ge 2^{p(x) \log p(x)}`$.
+      - Therefore, $`\sum p(x) 2^{\log p(x)} \ge 2^{\sum p(x) \log p(x)}`$
+
+<br>
+
+#### Corollary 1 of Lemma 2.10.1) 
+Let $`\begin{cases} X \sim p(x) \\ X' \sim r(x) \end{cases}`$ be independent random variables such that $`x,x'\in\mathcal{X}`$.   
+Then $`\begin{cases}
+  \textrm{Pr}(X=X') \ge 2^{-H(p) - D(p||r)} \\
+  \textrm{Pr}(X=X') \ge 2^{-H(r) - D(r||p)} \\
+\end{cases}`$.
+- pf)    
+  $`\begin{aligned}
+    2^{-H(p) - D(p||r)} &= 2^{\sum p(x)\log p(x) + \sum p(x)\log\frac{r(x)}{p(x)}} \\
+    &= 2^{\sum p(x)\log r(x)} \\
+    &\le \sum p(x) 2^{\log r(x)} & \because \textrm{Jensen's Inequality} \\
+    &= \sum p(x)r(x) \\
+    &= \textrm{Pr}(X=X') & \because X, X' \textrm{ are iid.}
+  \end{aligned}`$
+
 
 
 
