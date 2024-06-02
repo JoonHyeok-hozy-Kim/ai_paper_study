@@ -40,6 +40,7 @@
     - Conditions)
       1. The true distribution $`p_{\textrm{data}}`$ lies within the model family $`p_{\textrm{model}}(\bullet; \theta)`$.
       2. The true distribution $`p_{\textrm{data}}`$ corresponds to exactly one value of $`\theta`$.
+    - **Cramer-Rao Lower Bound** shows that no consistent estimator has a lower mean squared error than the maximum likelihood estimator for large $`m`$.
 
 
 <br><br>
