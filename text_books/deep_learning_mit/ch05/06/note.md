@@ -32,11 +32,28 @@
         1. Difference in the way of making prediction
            - The **ML approach** makes predictions using a [point estimate](../04/note.md#541-point-estimation) of $`\theta`$.
              - By evaluating $`\theta`$'s variance
-           - The **Bayesian approach** is to make predictions using a full distribution over $`\theta`$.
+           - The **Bayesian approach** is to make predictions using a **full distribution** over $`\theta`$.
              - e.g.) 
-               - Suppose we observed $`m`$ examples.
+               - Suppose we observed i.i.d. $`m`$ examples.
                - Then we can predict the distribution over the next data sample $`x^{(m+1)}`$ as
                  - $`\displaystyle p(x^{(m+1)}|x^{(1)},\cdots, x^{(m)}) = \int p(x^{(m+1)}|\theta) p(\theta | x^{(1)},\cdots, x^{(m)}) d\theta`$
+                   - why?)      
+                     - Put 
+                       $`\begin{cases}
+                         p(X_1) = p(x^{(1)},\cdots, x^{(m)}) \\
+                         p(X_2) = p(x^{(m+1)}) \\
+                       \end{cases}`$
+                     - Then   
+                       $`p(x^{(m+1)}|x^{(1)},\cdots, x^{(m)}) = p(X_2|X_1)`$.
+                     - Consider that   
+                      $`\begin{aligned}
+                        p(X_2|X_1) &= \frac{p(X_1, X_2)}{p(X_1)} \\
+                        &= \int \frac{p(X_1,X_2|\theta)p(\theta)}{p(X_1)} d\theta &\because p(X) = \int p(X|\theta)p(\theta) d\theta \\
+                        &= \int \frac{p(X_2|\theta)p(X_1|\theta)p(\theta)}{p(X_1)} d\theta &\because \forall i, x^{(i)}\textrm{ is i.i.d.} \\
+                        &= \int \frac{p(X_2|\theta)p(\theta|X_1)p(X_1)}{p(X_1)} d\theta \\
+                        &= \int p(X_2|\theta)p(\theta|X_1) d\theta \\
+                        &= \int p(x^{(m+1)}|\theta) p(\theta | x^{(1)},\cdots, x^{(m)}) d\theta
+                      \end{aligned}`$   
                - Here each value of $`\theta`$ with positive probability density contributes to the prediction of the next example, with the contribution weighted by the posterior density itself.
              - Prop.)
                - Tends to protect well against overfitting.
@@ -93,11 +110,6 @@
     $`\begin{aligned}
         p(w|X,y) &\propto \exp \left( -\frac{1}{2}(w-\mu_m)^\top \Lambda_m^{-1} (w-\mu_m) + \frac{1}{2}\mu_m\right)
     \end{aligned}`$
-
-
-
-
-
 
 
 
