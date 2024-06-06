@@ -20,6 +20,12 @@
 |2.9|[Sufficient Statistics](ch02/09/note.md)|- Minimal Sufficient Statistic|
 |2.10|[Fano's Inequality](ch02/10/note.md)|- |
 
+<br>
+
+## 3. Asymptotic Equipartition Property
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|3.1|[Asymptotic Equipartition Property Theorem](ch03/01/note.md)|- Convergence of Random Variable<br>- Asymptotic Equipartition Property Theorem (AEP) <br>$`\displaystyle -\frac{1}{n}\log{p(X_1, X_2, \cdots, X_n)} \rightarrow H(X)`$  <br> - Typical Set : $`A_\epsilon^{(n)}`$|
 
 
 
