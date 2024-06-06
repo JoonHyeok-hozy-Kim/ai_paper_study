@@ -61,7 +61,7 @@
 |5.3|[Hyperparameters and Validation Sets](ch05/03/note.md)|- Cross-Validation|
 |5.4|[Estimators, Bias and Variance](ch05/04/note.md)|- Point Estimation, Function Estimation <br> - Bias, Variance, Standard Error, $`\textrm{MSE} = \textrm{Var} + \textrm{Bias}^2`$ <br> - Consistency|
 |5.5|[Maximum Likelihood Estimation](ch05/05/note.md)|- Maximum Likelihood Principle $`\theta_{\textrm{ML}}`$ <br> - Supervised Learning and Maximum Likelihood Estimation : MSE vs ML|
-|5.6|[Bayesian Statistics](ch05/06/note.md)|- |
+|5.6|[Bayesian Statistics](ch05/06/note.md)|- Maximum A Posteriori (MAP) Estimation <br>|
 
 
 

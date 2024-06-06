@@ -1,6 +1,17 @@
 * [Back to Deep Learning MIT](../../main.md)
 
 # 5.6 Bayesian Statistics
+### Review) Frequentist Statistics
+- Props.)
+  - $`\theta`$ is fixed but unknown.
+  - $`\hat{\theta}`$ is a random variable 
+    - i.e.) $`\hat{\theta}`$ is a function of the dataset.
+- e.g.)
+  - Linear Regression
+  - [Maximum Likelihood Estimation](../05/note.md#concept-maximum-likelihood-principle)
+
+<br>
+
 ### Concept) Bayesian Statistics
 - Desc.)
   - The Bayesian uses **probability** to reflect degrees of certainty of states of knowledge.
@@ -8,10 +19,6 @@
   - The true parameter $`\theta`$ 
     - Assumed to be unknown or uncertain
     - Represented as a random variable using the **prior probability distribution** $`p(\theta)`$.
-      - cf.) **Frequentist Statistics**
-        - $`\theta`$ is fixed but unknown.
-        - $`\hat{\theta}`$ is a random variable 
-          - i.e.) $`\hat{\theta}`$ is a function of the dataset.
   - The prior probability distribution $`p(\theta)`$ 
     - Generally, the machine learning practitioner selects a **prior distribution** that is quite broad.
       - i.e.) the distribution with high entropy.
@@ -74,7 +81,7 @@
           - where
             - $`y^{(\textrm{train})}, \hat{y}^{(\textrm{train})} \in \mathbb{R}^{m}`$
             - $`X^{(\textrm{train})} \in \mathbb{R}^{m\times n}`$
-    - Expressed as a Gaussian conditional distribution on $`y^{(\textrm{train})}`$,   
+    - Expressed as a Gaussian conditional distribution on $`y^{(\textrm{train})}`$, we can [normalize the Multivariate Gaussian](../../ch03/09/note.md#concept-multivariate-normal-distribution) as below:  
       $`\begin{aligned}
           p(y^{(\textrm{train})} | X^{(\textrm{train})}, w) &= \mathcal{N}(y^{(\textrm{train})}; X^{(\textrm{train})} w, I) \\
           &\propto \exp\left( -\frac{1}{2} \left(y^{(\textrm{train})} - X^{(\textrm{train})} w \right)^\top  \left(y^{(\textrm{train})} - X^{(\textrm{train})} w \right) \right) 
@@ -96,9 +103,9 @@
         - $`\mu_0 \in \mathbb{R}^n`$ : the prior distribution mean vector
         - $`\Lambda_0 \in \mathbb{R}^{n\times n}`$ : the prior distribution covariance matrix
 - Estimation)
-  - Since we determined the prior distributions $`p(y|Xw)`$ and $`p(w)`$, we can determine the **posterior distribution over the model parameters** as   
+  - Since we determined the prior distributions $`p(y|X,w)`$ and $`p(w)`$, we can determine the **posterior distribution over the model parameters** as   
     $`\begin{aligned}
-        p(w|X,y) &\propto p(y|Xw)p(w) \\
+        p(w|X,y) &\propto p(y|X,w)p(w) \\
         &\propto \exp\left( -\frac{1}{2} \left(y - Xw \right)^\top  \left(y - Xw \right) \right) \left( -\frac{1}{2} \left(w - \mu_0 \right)^\top \Lambda_0^{-1} \left(w - \mu_0 \right) \right) \\
         &\propto \exp\left( -\frac{1}{2} \left( \left(y - Xw \right)^\top  \left(y - Xw \right) + \left(w - \mu_0 \right)^\top \Lambda_0^{-1} \left(w - \mu_0 \right) \right) \right) \\
         &\propto \exp\left( -\frac{1}{2} \left( -2y^\top Xw + w^\top X^\top Xw + w^\top \Lambda_0^{-1}w -2\mu_0 \right) \right) \\
@@ -108,13 +115,38 @@
     - $`\mu_m = \Lambda_m(X^\top y + \Lambda_0^{-1}\mu_0)`$
   - Then   
     $`\begin{aligned}
-        p(w|X,y) &\propto \exp \left( -\frac{1}{2}(w-\mu_m)^\top \Lambda_m^{-1} (w-\mu_m) + \frac{1}{2}\mu_m\right)
+        p(w|X,y) &\propto \exp \left( -\frac{1}{2}(w-\mu_m)^\top \Lambda_m^{-1} (w-\mu_m) + \frac{1}{2}\mu_m \Lambda_m^{-1}\mu_m  \right) \\
+        &\propto \exp \left( -\frac{1}{2}(w-\mu_m)^\top \Lambda_m^{-1} (w-\mu_m)\right) \\
     \end{aligned}`$
+- Props.)
+  - Compared to the [Frequentist Statistics](#review-frequentist-statistics)...
+    - If $`\mu_0=0`$ and $`\Lambda_0 = \frac{1}{\alpha}I`$
+      - $`\mu_m`$ gives the same estimate of $`w`$ as the frequentist linear regression with the weight decay penalty of $`\alpha w^\top w`$.
+    - The Bayesian estimate is undefined if $'\alpha= 0`$.
+      - i.e.) Not allowed to begin the Bayesian learning process with an infinitely wide prior on $`w`$.
+    - The Bayesian estimate provides a covariance matrix, showing **how likely all the different values** of $`w`$ are, rather than providing only the estimate $`\mu_m`$
 
+<br>
 
-
-
-
+## 5.6.1 Maximum A Posteriori (MAP) Estimation
+- Why needed?)
+  - Recall that the Bayesian estimate provides a covariance matrix, showing **how likely all the different values** of $`w`$ are, rather than providing only the estimate $`\mu_m`$.
+  - However, such models are intractable.
+  - Instead, we need a point estimate that offers a tractable approximation.
+  - MAP can provide a point estimate using the Bayesian statistics.
+- Def.)
+  - The MAP estimate chooses the point of maximal posterior probability.
+    - $`\displaystyle\theta_{\textrm{MAP}} \equiv \arg\max_\theta p(\theta|x) = \arg\max_\theta \log{p(x|\theta)} + \log{p(\theta)}`$
+- Prop.)
+  - As with full Bayesian inference, MAP Bayesian inference has the advantage of leveraging **information that is brought by the prior** and **cannot be found in the training data**.
+    - This additional information helps to reduce the variance in the MAP point estimate.
+    - However, it does so at the price of increased bias
+  - Many **regularized** estimation strategies, such as maximum likelihood learning regularized with weight decay, can be interpreted as making the MAP approximation to Bayesian inference.
+    - e.g.)
+      - MAP Bayesian inference with a Gaussian prior on the weights corresponds to weight decay.
+        - Consider a linear regression model with a Gaussian prior on the weights $`w`$.
+        - If this prior is given by $`\mathcal{N}(w;0,\frac{1}{\lambda}I)`$
+          - then $`\log{p(x|\theta)} + \log{p(\theta)} \propto \lambda w^\top w`$.
 
 <br>
 
