@@ -43,7 +43,7 @@ then $`\displaystyle -\frac{1}{n}\log{p(X_1, X_2, \cdots, X_n)} \rightarrow H(X)
   - The **typical set** $`A_\epsilon^{(n)}`$ w.r.t. $`p(x)`$ is the set of sequences $`(x_1, x_2, \cdots, x_n)\in\mathcal{X}^n`$ with property
     - $`2^{-n(H(X)+\epsilon)} \le p(x_1, x_2, \cdots, x_n) \le 2^{-n(H(X)-\epsilon)}`$
 - Meaning)
-  - A set which the sample entropy is close to the true entropy.
+  - A set which sample entropy is close to its true entropy.
   - Any property that is proved for the typical sequences will then be **true with high probability** and will determine the average behavior of a large sample.
 
 <br>
