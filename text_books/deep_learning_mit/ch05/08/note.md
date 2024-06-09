@@ -39,18 +39,17 @@
     - $`\displaystyle\textrm{Var}[x] = \frac{1}{m-1}X^\top X`$ : the unbiased sample covariance matrix associated with $`X`$
   - The Representation) 
     - $`z = x^\top W`$
-      - where 
-        - $`\textrm{Var}[z]`$ is diagonal.
-          - pf.)
-            - Using the [Singular Value Decomposition (SVD)](../../ch02/08/note.md#concept-singular-value-decomposition-svd) we may get
-              - $`X = U\Sigma W^\top`$
-                - where
-                  - $`U`$ : An orthogonal matrix which columns are the **left singular vectors** of $`X`$
-                    - The **left singular vectors** of $`X`$ are the eigenvectors of $`X^\top X`$
-                  - $`\Sigma`$ : A diagonal matrix which diagonal values are the **singular values** of $`X`$
-                    - The non-zero **singular values** of $`X`$ are the square roots of the eigenvalues of $`XX^\top`$ and $`X^\top X`$
-                  - $`W`$ : A orthogonal matrix which columns are the **right singular vectors** of $`X`$
-                    - The **right singular vectors** of $`X`$ are the eigenvectors of $`XX^\top`$
+      - where $`\textrm{Var}[z]`$ is diagonal.
+        - pf.)
+          - Using the [Singular Value Decomposition (SVD)](../../ch02/08/note.md#concept-singular-value-decomposition-svd) we may get
+            - $`X = U\Sigma W^\top`$
+              - where
+                - $`U`$ : An orthogonal matrix which columns are the **left singular vectors** of $`X`$
+                  - The **left singular vectors** of $`X`$ are the eigenvectors of $`X^\top X`$
+                - $`\Sigma`$ : A diagonal matrix which diagonal values are the **singular values** of $`X`$
+                  - The non-zero **singular values** of $`X`$ are the square roots of the eigenvalues of $`XX^\top`$ and $`X^\top X`$
+                - $`W`$ : A orthogonal matrix which columns are the **right singular vectors** of $`X`$
+                  - The **right singular vectors** of $`X`$ are the eigenvectors of $`XX^\top`$
 
 
 
