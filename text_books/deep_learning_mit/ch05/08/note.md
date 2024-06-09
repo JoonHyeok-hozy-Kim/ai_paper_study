@@ -90,7 +90,26 @@
 <br><br>
 
 ## 5.8.2 k-means Clustering
-
+- Desc.)
+  - Divide the training set into $`k`$ different clusters of examples that are near each other.
+  - Or, it can be interpreted as providing a $`k`$-dimensional one-hot code vector $`h`$ representing an input $`x`$.
+    - e.g.)
+      - If $`x`$ belongs to cluster $`i`$, then $`h_i = 1`$ and all other entries of the representation $`h`$ is zero.
+- Algorithm)
+  - Initialize $`k`$ different centroids $`\{\mu^{(1)}, \cdots, \mu^{(k)}\}`$ to different values.
+  - Alternate between two different steps until convergence.
+    - Step 1)
+      - Assign each training example to cluster $`i`$, where $`i`$ is the index of the nearest centroid $`\mu^{(i)}`$.
+    - Step 2)
+      - Update each centroid $`\mu^{(i)}`$ to the mean of all training examples $`x^{(j)}`$
+- Prop.)
+  - There is no single criterion that measures how well a clustering of the data corresponds to the real world.
+    - e.g.) red vehicles, red trucks, gray vehicles, and gray trucks
+      - Depending on the number of $`k`$
+        - **Reds** vs **Grays**
+        - **Vehicles** vs **Trucks**
+        - **Red Vehicle** vs **Red Trucks** vs **Gray Vehicle** vs **Gray Trucks**
+      - The algorithm never knows which clustering corresponds to the properties of the real world.
 
 
 
