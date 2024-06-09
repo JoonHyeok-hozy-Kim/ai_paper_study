@@ -63,6 +63,7 @@
 |5.5|[Maximum Likelihood Estimation](ch05/05/note.md)|- Maximum Likelihood Principle $`\theta_{\textrm{ML}}`$ <br> - Supervised Learning and Maximum Likelihood Estimation : MSE vs ML|
 |5.6|[Bayesian Statistics](ch05/06/note.md)|- Maximum A Posteriori (MAP) Estimation|
 |5.7|[Supervised Learning Algorithms](ch05/07/note.md)|- Probabilistic Linear Regression, Logistics Regression <br> - Kernel Function, Gaussian Kernel (Radial Basis Function, RBF) <br> - Support Vector Machines (SVM) <br> - k-Nearest Neighbors <br> - Decision Tree|
+|5.8|[Unsupervised Learning Algorithms](ch05/08/note.md)|- Principal Component Analysis (PCA) <br> - |
 
 
 

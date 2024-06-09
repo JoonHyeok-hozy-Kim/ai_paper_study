@@ -12,7 +12,7 @@
   - $`c^{(i)} \in \mathbb{R}^l`$ : the code vector corresponding with $`x^{(i)} \in \mathbb{R}^l`$
     - where
       - $`l \lt n`$ : $`c^{(i)}`$ becomes the lower-dimensional version of $`x^{(i)}`$.
-  - $`f(x) = c`$ : the encoding function
+  - $`f(x) = c \in \mathbb{R}^l`$ : the encoding function
   - $`g(f(x)) \approx x`$ : the decoding function
     - Put $`g(c) = Dc`$
       - where $`D \in \mathbb{R}^{n\times l}`$
