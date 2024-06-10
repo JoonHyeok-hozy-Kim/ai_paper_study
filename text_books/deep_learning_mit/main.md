@@ -64,6 +64,9 @@
 |5.6|[Bayesian Statistics](ch05/06/note.md)|- Maximum A Posteriori (MAP) Estimation|
 |5.7|[Supervised Learning Algorithms](ch05/07/note.md)|- Probabilistic Linear Regression, Logistics Regression <br> - Kernel Function, Gaussian Kernel (Radial Basis Function, RBF) <br> - Support Vector Machines (SVM) <br> - k-Nearest Neighbors <br> - Decision Tree|
 |5.8|[Unsupervised Learning Algorithms](ch05/08/note.md)|- Principal Component Analysis (PCA) <br> - k-means Clustering|
+|5.9|[Stochastic Gradient Descent](ch05/09/note.md)|- Minibatch|
+|5.10|[Building a Machine Learning Algorithm](ch05/10/note.md)|- Combination of (Dataset / Cost Function / Optimization Procedure / Model)|
+|5.11|[Challenges Motivating Deep Learning](ch05/11/note.md)|- The Curse of Dimensionality <br> - Local Constancy, Smoothness Regulation|
 
 
 
