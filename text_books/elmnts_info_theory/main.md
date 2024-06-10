@@ -26,7 +26,8 @@
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
 |3.1|[Asymptotic Equipartition Property Theorem](ch03/01/note.md)|- Convergence of Random Variable<br>- Asymptotic Equipartition Property Theorem (AEP) <br>$`\displaystyle -\frac{1}{n}\log{p(X_1, X_2, \cdots, X_n)} \rightarrow H(X)`$  <br> - Typical Set : $`A_\epsilon^{(n)}`$|
-|3.2|[Consequences of the AEP : Data Compression](ch03/02/note.md)|- |
+|3.2|[Consequences of the AEP : Data Compression](ch03/02/note.md)|- $`\displaystyle E\left[ \frac{l(X^n)}{n} \right] \le H(X) + \epsilon`$ for sufficiently large $`n`$|
+|3.3|[High-Probability Sets and the Typical Set](ch03/03/note.md)|- |
 
 
 
