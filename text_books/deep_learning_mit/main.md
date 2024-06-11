@@ -66,7 +66,7 @@
 |5.8|[Unsupervised Learning Algorithms](ch05/08/note.md)|- Principal Component Analysis (PCA) <br> - k-means Clustering|
 |5.9|[Stochastic Gradient Descent](ch05/09/note.md)|- Minibatch|
 |5.10|[Building a Machine Learning Algorithm](ch05/10/note.md)|- Combination of (Dataset / Cost Function / Optimization Procedure / Model)|
-|5.11|[Challenges Motivating Deep Learning](ch05/11/note.md)|- The Curse of Dimensionality <br> - Local Constancy, Smoothness Regulation|
+|5.11|[Challenges Motivating Deep Learning](ch05/11/note.md)|- The Curse of Dimensionality <br> - Prior Belief, Local Constancy, Smoothness Regulation|
 
 
 
