@@ -68,6 +68,14 @@
 |5.10|[Building a Machine Learning Algorithm](ch05/10/note.md)|- Combination of (Dataset / Cost Function / Optimization Procedure / Model)|
 |5.11|[Challenges Motivating Deep Learning](ch05/11/note.md)|- The Curse of Dimensionality <br> - Prior Belief, Local Constancy, Smoothness Regulation <br> - Manifold Learning|
 
+<br>
+
+## 6. Deep Feedforward Networks
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|6.0|[Deep Feedforward Networks](ch06/00/note.md)|- Deep Feedforward Network (Multilayer Perceptron, MLP) : layer, unit, depth, width, output layer, hidden layer|
+|6.1|[Example: Learning XOR](ch06/01/note.md)|- |
+
 
 
 
