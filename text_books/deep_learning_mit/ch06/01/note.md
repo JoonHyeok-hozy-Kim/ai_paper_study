@@ -30,7 +30,7 @@ Let's compare a [linear model](#linear-model-case) and a [feedforward network](#
 
 <br>
 
-### Simple Feedforward Network
+### Simple Feedforward Network)
 - Structure)
   - The Whole Model)
     - One hidden layer containing two hidden units.
