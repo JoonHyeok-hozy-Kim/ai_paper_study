@@ -36,6 +36,7 @@
 |:-:|:------|:-------|
 |4.1|[Markov Chains](ch04/01/note.md)|- Markov Chain (Markov Process) <br> - Time Invariant Markov Chain : State, Probability Transition Matrix <br> - Irreducible / Aperiodic Markov Chain <br> - Stationary Distribution|
 |4.2|[Entropy Rate](ch04/02/note.md)|- $`\displaystyle H(\mathcal{X}) = \lim_{n\rightarrow\infty} \frac{H(X_1, X_2,\cdots, X_n)}{n}`$ <br> - $`\displaystyle H'(\mathcal{X}) = \lim_{n\rightarrow\infty} H(X_n\|X_1, X_2,\cdots, X_{n-1})`$ <br> - Cesaro mean|
+|4.3|[](ch04/03/note.md)|- |
 
 
 
