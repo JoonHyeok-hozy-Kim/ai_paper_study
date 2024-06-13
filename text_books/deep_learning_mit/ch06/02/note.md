@@ -52,22 +52,118 @@
     - Most models cannot do this.
       - e.g.) Logistic Regression cannot assign $`p\approx 0 \vee p\approx 1`$.
 
-
-
 <br>
 
 ### 6.2.1.2 Learning Conditional Statistics
+- Desc.)
+  - Learning just one conditional statistic of $`y`$ given $`x`$
+    - e.g.) Predicting $`\mathbb{E}(y)`$
+- How?)
+  - Use **functional** as the cost function
+    - Def.) Functional
+      - A mapping from functions to real numbers.
+    - Meaning)
+      - Learning is choosing a **function** rather than merely choosing a set of parameters.
+    - Why is it possible?)
+      - Recall that the neural network can represent any function $f$ from a wide class of functions.
+        - where this class is 
+          - limited only by features such as continuity and boundedness.
+          - not limited to have a specific parametric form
+      - Thus, we can design our **cost functional** to have its minimum occur at some specific function we desire.
+    - e.g.)
+      - Design a **cost functional** that has its minimum lie on the function that maps $`x`$ to $`\mathbb{E}(y|x)`$.
+      - Using calculus of variations, we can optimize the following two problems.
+        1. $`f^\ast = \arg\min_f \mathbb{E}_{\mathbf{x, y}\sim p_{\textrm{data}}} ||y-f(x)||^2`$ 
+           - yields $`f^\ast(x) = \mathbb{E}_{\mathbf{y}\sim p_{\textrm{data}}(y|x)} [y]`$
+           - meaning that if we could train on infinitely many samples from the true data generating distribution, minimizing the MSE cost function gives a function that predicts the mean of $`y`$ for each value of $`x`$.
+        2. $`f^\ast = \arg\min_f \mathbb{E}_{\mathbf{x, y}\sim p_{\textrm{data}}} ||y-f(x)||_1`$ 
+           - yields a function that predicts the median value of $`y`$ for each $`x`$.
+           - This cost function is commonly called **mean absolute error**.
+      - Unfortunately, **mean squared error** and **mean absolute error** often lead to poor results when used with gradient-based optimization.
+      - Some output units that saturate produce very small gradients when combined with these cost functions. 
+      - This is one reason that the cross-entropy cost function is more popular than mean squared error or mean absolute error, even when it is not necessary to estimate an entire distribution $`p(y | x)`$.
 
 
 <br><br>
 
 ## 6.2.2 Output Units
+- Desc.)
+  - The choice of [cost function](#621-cost-functions) is tightly coupled with the choice of **output unit**.
+    - e.g.)
+      - Most of the time, we simply [use the cross-entropy](#6211-learning-conditional-distributions-with-maximum-likelihood) between the data distribution and the model distribution.
+      - The choice of **how to represent the output** then determines the form of the cross-entropy function.
+  - Any kind of neural network unit that may be used as an output can also be used as a hidden unit.
+  - Assumption
+    - The feedforward network provides a **set of hidden features** defined by $`h = f(x;\theta)`$.
+    - The role of the **output layer** is then to provide some additional transformation from the features to complete the task that the network must perform.
 
+### 6.2.2.1 Linear Units for Gaussian Output Distributions
+- Structure)
+  - Given features $`h`$, a layer of linear output unit produce the a vector
+    - $`\hat{y} = W^\top h + b`$
+  - Linear output layers are often used to produce the mean of a conditional Gaussian distribution:
+    - $`p(y|x) = \mathcal{N}(y;\hat{y}, I)`$
+  - Optimization) 
+    - Maximizing the log-likelihood is then equivalent to minimizing the MSE.
 
+<br>
 
-
-
-
+### 6.2.2.2 Sigmoid Units for Bernoulli Output Distributions
+- Problem)
+  - Predicting the value of a **binary** variable $`y`$
+- Choosing the Cost Function)
+  - The maximum-likelihood approach is to define a Bernoulli distribution over $`y`$ conditioned on $`x`$.
+    - i.e.) Predicting a single number $`P(y=1|x) \in [0,1]`$
+  - Thus, the model **output** should be in the interval of $`[0,1]`$
+- Output Candidates)
+  1. Linear Unit : $`P(y=1|x) = \max\left\{ 0, \min\{1, w^\top h + b\} \right\}`$
+     - Draw back)
+       - Whenever $`w^\top h + b \notin [0,1]`$, the gradient of the output will be $`0`$.
+       - Thus, the gradient descent will be very ineffective.
+  2. Sigmoid Unit
+     - Derivation)
+       - Recall the [Logistic Sigmoid](../../ch03/10/note.md#concept-logistic-sigmoid) function $`\hat{y} = \sigma\left(w^\top h + b\right)`$
+       - The above can be decomposed into the following two:
+         1. A linear layer computing $`z = w^\top h + b`$.
+            - The $`z`$ variable defining such a distribution over binary variables is called a **logit**.
+         2. The sigmoid activation to convert $`z`$ into a probability.
+       - Assume that the unnormalized log probabilities are linear in $`y`$ and $`z`$.
+       - Then   
+         $`\begin{aligned}
+           \log \tilde{P}(y) &= yz \\
+           \Rightarrow \tilde{P}(y) &= \exp(yz) \\
+           \Rightarrow P(y) &= \frac{\exp(yz)}{\sum_{y'=0}^1 \exp(y'z)} & \textrm{: the normalized prob.} \\
+           &= \sigma((2y-1)z) 
+         \end{aligned}`$
+- Back to the Cost Function)
+  - Using the sigmoid unit, the loss function goes as   
+    $`\begin{aligned}
+      J(\theta) &= -\log p(y|x) \\
+      &= -\log\sigma((2y-1)z) \\
+      &= \varsigma((1-2y)z) & \textrm{Refer to the softplus function.}
+    \end{aligned}`$
+    - cf.) [Softplus function](../../ch03/10/note.md#concept-softplus)
+- Analysis)
+  - $`J(\theta)`$ saturates only when $`(1-2y)z \rightarrow -\infty`$
+    - Meaning)
+      - [Saturation](#6211-learning-conditional-distributions-with-maximum-likelihood) thus occurs only when the model already has the right answer.   
+        $`\begin{cases}
+          y=1 \wedge z \rightarrow \infty \\
+          y=0 \wedge z \rightarrow -\infty \\
+        \end{cases}`$
+  - When $`z`$ has the wrong sign, $`(1-2y)z`$ may be simplified to $`|z|`$.
+    - Then $`|z|\rightarrow\infty \Rightarrow \varsigma((1-2y)z) \rightarrow \textrm{sign}(z)`$.
+      - Meaning)
+        - In the limit of extremely incorrect $`z`$, the [softplus function](../../ch03/10/note.md#concept-softplus) does not shrink the gradient at all.
+        - This property is very useful because it means that gradient-based learning can act to quickly correct a mistaken $`z`$. 
+          - cf.) MSE saturates when $`\sigma(z)`$ saturates.
+  - Analytically, the logarithm of the sigmoid is always defined and finite.
+    - Why?)
+      - The sigmoid returns values restricted to the open interval $`(0,1)`$
+    - cf.)
+      - In SW implementations, to avoid numerical problems, it is best to write the negative log-likelihood as a function of $`z`$, rather than as a function $`\hat{y}=\sigma(z)`$.
+        - Why?)
+          - $`\sigma(z) \rightarrow 0 \Rightarrow \log{\hat{y}}\rightarrow -\infty`$.
 
 
 <br>
