@@ -75,6 +75,7 @@
 |:-:|:------|:-------|
 |6.0|[Deep Feedforward Networks](ch06/00/note.md)|- Deep Feedforward Network (Multilayer Perceptron, MLP) : layer, unit, depth, width, output layer, hidden layer|
 |6.1|[Example: Learning XOR](ch06/01/note.md)|- |
+|6.2|[Gradient-Based Learning](ch06/02/note.md)|- |
 
 
 
