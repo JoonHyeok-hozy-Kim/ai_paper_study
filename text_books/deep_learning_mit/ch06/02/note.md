@@ -96,6 +96,12 @@
   - Assumption
     - The feedforward network provides a **set of hidden features** defined by $`h = f(x;\theta)`$.
     - The role of the **output layer** is then to provide some additional transformation from the features to complete the task that the network must perform.
+- Types Covered
+  - [Linear Units](#6221-linear-units-for-gaussian-output-distributions) for Gaussian Output Distributions
+  - [Sigmoid Units](#6222-sigmoid-units-for-bernoulli-output-distributions) for Bernoulli Output Distributions
+  - [Softmax Units](#6223-softmax-units-for-multinoulli-output-distributions) for Multinoulli Output Distributions
+
+<br>
 
 ### 6.2.2.1 Linear Units for Gaussian Output Distributions
 - Structure)
@@ -103,8 +109,8 @@
     - $`\hat{y} = W^\top h + b`$
   - Linear output layers are often used to produce the mean of a conditional Gaussian distribution:
     - $`p(y|x) = \mathcal{N}(y;\hat{y}, I)`$
-  - Optimization) 
-    - Maximizing the log-likelihood is then equivalent to minimizing the MSE.
+- Optimization) 
+  - Maximizing the log-likelihood is then equivalent to minimizing the MSE.
 
 <br>
 
@@ -164,6 +170,58 @@
       - In SW implementations, to avoid numerical problems, it is best to write the negative log-likelihood as a function of $`z`$, rather than as a function $`\hat{y}=\sigma(z)`$.
         - Why?)
           - $`\sigma(z) \rightarrow 0 \Rightarrow \log{\hat{y}}\rightarrow -\infty`$.
+
+<br>
+
+### 6.2.2.3 Softmax Units for Multinoulli Output Distributions
+#### Concept) Softmax Unit
+- Usage)
+  - Multinoulli problem
+    - Representing a probability distribution over a discrete variable with $`n`$ possible values (classes).
+  - **Softmax function** can be used for that purpose.
+    - Def.)
+      - $`\displaystyle \textrm{softmax}(z)_i = \frac{\exp(z_i)}{\sum_j\exp(z_j)}`$
+    - Prop.)
+      - A generalization of the **sigmoid function** used to representing a probability distribution over a binary variable
+      - As with the [logistic sigmoid](#6222-sigmoid-units-for-bernoulli-output-distributions), the use of the $`\exp`$ function works very well when training the **softmax** to output a target value $`y`$ using maximum log-likelihood.
+- Model)
+  - Goal) 
+    - Getting an estimator for a discrete variable with $`n`$ possible classes
+  - Estimator)  
+    - $`\hat{y}\in\mathbb{R}^n`$
+      - where $`\hat{y}_i = P(y=i|x)`$
+  - Just like the [sigmoid unit](#6222-sigmoid-units-for-bernoulli-output-distributions), softmax unit can be decomposed into following two part:
+    1. Generating the argument $`z\in\mathbb{R}^n`$ for the **softmax function**.
+       - $`z = W^\top h + b`$
+         - where $`h`$ is the input
+    2. **Softmax Function** exponentiating and normalizing $`z`$ to obtain $`\hat{y}`$
+       - Target)     
+         Maximize $`\begin{aligned}
+           \log{P(y=i;z)} &= \log{\textrm{softmax}(z)_i} \\
+           &= z_i -\log\sum_j\exp(z_i) \\
+         \end{aligned}`$
+- Props.)
+  - $`z_i`$ cannot saturate.
+  - The above maximization problem can be modified to the negative log likelihood minimization problem.
+    - $`\arg\min_z -\log{\textrm{softmax}(z)_i} = \arg\min_z -z_i +\log\sum_j\exp(z_i)`$
+  - The negative log-likelihood cost function always strongly penalizes the most active incorrect prediction.
+    - why?)
+      - Consider that $`\log\sum_j\exp(z_i) \approx \max_j z_j`$.
+        - Why?) 
+          - $`|\max_j z_j - z_k| \le |\exp(\max_j z_j) - \exp(z_k)|`$
+          - Consider the amplifying property of the $`\exp`$ function.
+      - Thus, if the correct answer already has the largest input to the softmax, then the $`-z_i`$ term and the $`\log\sum_j\exp(z_j) \approx \max_j z_j = z_j`$ will roughly cancel out each other.
+      - Hence, this example will then contribute little to the overall training cost, which will be dominated by other examples that are not yet correctly classified.
+  - Softmax activation can saturate when the differences between input values become extreme.
+    - cf.) Recall the case of the [sigmoid function](#6222-sigmoid-units-for-bernoulli-output-distributions) with extremely positive or negative inputs.
+    - When the softmax saturates, many cost functions based on the softmax also saturate, unless they are able to invert the saturating activating function.
+  - The softmax function provides a **continuous** and **differentiable** version of the $`\arg\max`$.
+    - where $`\arg\max`$ result is represented as a one-hot vector, which is not **continuous** nor **differentiable**.
+
+<br>
+
+### 6.2.2.4 Other Output Types
+
 
 
 <br>
