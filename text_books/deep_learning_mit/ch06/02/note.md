@@ -221,7 +221,70 @@
 <br>
 
 ### 6.2.2.4 Other Output Types
+- Common Assumption
+  - $`p(y|x;\theta)`$ : a conditional distribution
+  - $`-\log{p(y|x;\theta)}`$ : the cost function under the principle of maximum likelihood
+  - $`f(x;\theta)`$ : a neural network model
+    - where $`\omega = f(x;\theta)`$ : the output provides the parameters for a distribution over $`y`$
+      - e.g.) $`\mu, \sigma^2`$
+    - Thus, our loss function can be interpreted as $`-\log{p(y|\omega(x))}`$
 
+#### Concept) Heteroscedastic Model
+- Def.)
+  - A model that predicts a different amount of variance in $`y`$ for different values of $`x`$.
+  - The specification of variance is the output of the function $`f(\mathbf{x}|\theta)`$
+- Tech.) How to represent the variance?
+  1. Diagonal precision matrix $`\textrm{diag}(\beta)`$ where $`\beta = \frac{1}{\sigma^2}`$
+     - The covariance matrix must be ensured to be [positive definite](../../ch02/07/note.md#concept-positivenegative-definite).
+       - Why?)
+         - The eigenvalues of the precision matrix are the reciprocals of the eigenvalues of the covariance matrix.
+         - i.e.) The precision matrix should be positive as well.
+     - e.g.) 
+       - Suppose $`a`$ is the raw activation of the model used to determine the diagonal precision.
+       - Then, we can use the softplus function to obtain a positive precision vector $`\beta = \varsigma(a)`$
+  2. Non-Diagonal Case
+     - If the covariance is full and conditional, then a parametrization must be chosen that guarantees positive definiteness of the predicted covariance matrix.
+       - i.e.) $`\Sigma(x) = B(x)B^\top(x)`$ where $`B`$ is an unconstrained square matrix
+     - In this case, since the matrix is full ranked, the computation of the likelihood is costly.
+       - e.g.) $`d\times d`$ requires $`O(d^3)`$ computation for... 
+         - the determinant
+         - the inverse of $`\Sigma(x)`$
+         - the eigenvalue decomposition of $`B(x)`$.
+
+<br>
+
+#### Concept) Gaussian Mixture
+- Def.)
+  - A representation for a conditional distribution $`p(y|x)`$ that can have several different peaks in $`y`$ space for the same value of $`x`$
+    - $`\displaystyle p(y|x) = \sum_{i=1}^n p(c=i|x) \mathcal{N}(y;\mu^{(i)},\Sigma^{(i)}(x))`$
+      - where $`n`$ is the number of mixture components $`p(c=i|x)`$
+
+#### Concept) Mixture Density Network
+- Def.)
+  - A neural network with [Gaussian Mixture](#concept-gaussian-mixture) as its output.
+- Props.)
+  - It must have three outputs.
+    1. A vector defining $`p(c=i|x)`$
+    2. A matrix providing $`\mu^{(i)}(x)`$
+    3. A tensor providing $`\Sigma^{(i)}(x)`$
+  - Constraints
+    - Mixture components $`p(c=i|x)`$
+      - They must form a multinoulli distribution over the $`n`$ different components associated with latent variable $`c`$.
+      - Thus, they can be simply obtained by a [softmax](#6223-softmax-units-for-multinoulli-output-distributions) over an $`n`$-dimensional vector.
+    - Means $`\mu^{(i)}(x)`$
+      - They indicate the mean associated with the $`i`$-th Gaussian components.
+      - They are unconstrained.
+      - For $`y\in\mathbb{R}^d`$, $`\mu^{(i)}(x) \in \mathbb{R}^{n\times d}`$
+      - In practice, we do not know which component produced each observation. 
+      - The expression for the negative log-likelihood naturally weights each example’s contribution to the loss for each component by the probability that the component produced the example.
+    - Covariances $`\Sigma^{(i)}(x)`$
+      - We typically use a diagonal matrix to avoid needing to compute determinants. 
+      - As with learning the means of the mixture, maximum likelihood is complicated by needing to assign partial responsibility for each point to each mixture component. 
+      - Gradient descent will automatically follow the correct process if given the correct specification of the negative log-likelihood under the mixture model.
+  - Gradient-based optimization of conditional Gaussian mixtures (on the output of neural networks) can be unreliable, in part because one gets divisions (by the variance) which can be numerically unstable (when some variance gets to be small for a particular example, yielding very large gradients). 
+    - Sols.)
+      - Clip gradients (cf. 10.11.1) 
+      - Scale the gradients heuristically
 
 
 <br>
