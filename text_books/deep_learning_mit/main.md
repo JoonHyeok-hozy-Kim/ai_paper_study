@@ -76,7 +76,7 @@
 |6.0|[Deep Feedforward Networks](ch06/00/note.md)|- Deep Feedforward Network (Multilayer Perceptron, MLP) : layer, unit, depth, width, output layer, hidden layer|
 |6.1|[Example: Learning XOR](ch06/01/note.md)|- |
 |6.2|[Gradient-Based Learning](ch06/02/note.md)|- Cost Functions : Maximum Likelihood, Conditional Statistics <br> - Cost Functional, Calculus of Variation, Mean Absolute Error <br> - Output Units : Linear, Sigmoid, Softmax, Mixture Density Network (Gaussian Mixture)|
-|6.3|[Hidden Units](ch06/03/note.md)|- |
+|6.3|[Hidden Units](ch06/03/note.md)|- Rectified Linear Unit (ReLU) : Absolute Value Rectification, Leaky ReLU, Maxout Unit <br> - Logistic Sigmoid $`(\sigma)`$ and Hyperbolic Tangent $`(\tanh)`$ <br> - Linear Hidden Unit, Softmax Unit, Radial Basis Function (RBF) Unit, Softplus Unit, Hard $`\tanh`$|
 
 
 
