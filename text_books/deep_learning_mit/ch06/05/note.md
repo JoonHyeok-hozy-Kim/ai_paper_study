@@ -57,7 +57,7 @@ Use computational graph language to describe the [back-propagation](#concept-bac
 (b) $`\hat{y} = x^\top w + b`$ <br>
 (c) $`H = \max(0, XW + b)`$ <br>
 (d) $`\begin{cases}
-    \hat{y} = x^\top x & \textrm{the prediction} \\
+    \hat{y} = x^\top w & \textrm{the prediction} \\
     u^{(3)} = \lambda \sum_i w_i^2 & \textrm{the weight decay} \\
 \end{cases}`$ <br>
 
@@ -66,6 +66,46 @@ Use computational graph language to describe the [back-propagation](#concept-bac
 <br><br>
 
 ## 6.5.2 Chain Rule of Calculus
+#### Concept) Scalar Chain Rule
+- Let
+  - $`f,g: \mathbb{R} \rightarrow \mathbb{R}`$
+  - $`y = g(x)`$
+  - $`z = f(y)`$
+- Then the chain rule states that
+  - $`\displaystyle \frac{dz}{dx} = \frac{dz}{dy} \frac{dy}{dx}`$
+
+<br>
+
+
+#### Concept) Vector Chain Rule
+- Let
+  - $`g: \mathbb{R}^m \rightarrow \mathbb{R}^n`$
+  - $`f: \mathbb{R}^n \rightarrow \mathbb{R}`$
+  - $`y = g(x)`$
+  - $`z = f(y)`$
+- Then the chain rule states that
+  - $`\displaystyle \frac{dz}{dx_i} = \sum_j \frac{dz}{dy_j} \frac{dy_j}{dx_i}`$
+  - Equivalently in vector notation,
+    - $`\displaystyle \nabla_{x}z = \left( \frac{dy}{dx} \right)^\top \nabla_{y}z`$
+      - where $`\displaystyle \left( \frac{dy}{dx} \right)`$ is the $`m\times n`$ Jacobian matrix of $`g`$.
+
+<br>
+
+
+#### Concept) Tensor Chain Rule
+- Let
+  - $`\mathsf{X}`$ : a tensor
+    - where a single variable $`i`$ indices all the elements of $`\mathsf{X}`$.
+  - $`\mathsf{Y} = g(\mathsf{X})`$
+  - $`z = f(\mathsf{Y})`$
+- Then
+  - $`\displaystyle \frac{\partial z}{\partial \mathsf{X}}_i = \left( \nabla_\mathsf{X} z \right)_i`$
+- Thus,
+  - $`\displaystyle \nabla_\mathsf{X} z = \sum_j \left( \nabla_\mathsf{X} \mathsf{Y}_j \right) \frac{\partial z}{\partial \mathsf{Y}_j}`$
+
+<br><br>
+
+## 6.5.3 Recursively Applying the Chain Rule to Obtain Backprop
 
 
 
