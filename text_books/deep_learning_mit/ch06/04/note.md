@@ -40,6 +40,20 @@
           - Consider that there are $`2^{2^n}`$ possible binary functions on vectors $`v\in\{0,1\}^n`$.
           - Then, selecting one of such functions requires $`2^n`$ bits.
           - Thus, it requires $`O(2^n)`$ degrees of freedom.
+    - i.e.) A feedforward network with a single layer is sufficient to represent any function, but the layer may be infeasibly large and may fail to learn and generalize correctly. 
+  - In many circumstances, using **deeper models** can reduce...
+    - the number of units required to represent the desired function 
+    - the amount of generalization error.
+  - A sufficiently **wide** [rectifier](../03/note.md#concept-rectified-linear-unit-relu) network can represent any function.
+  - *Montufar et al., 2014*
+    - Functions representable with a **deep** [rectifier](../03/note.md#concept-rectified-linear-unit-relu) net can require an **exponential** number of hidden units with a shallow (one hidden layer) network.
+    - Piecewise linear networks can represent functions with a number of regions that is **exponential** in the depth of the network.
+    - The number of linear regions carved out by a deep rectifier network with $`d`$ inputs, depth $`l`$, and $`n`$ units per hidden layer is
+      - $`O\left( \begin{pmatrix}n \\ d\end{pmatrix}^{d(l-1)} n^d \right)`$
+        - i.e.) exponential in the depth $`l`$.
+    - In the case of [maxout](../03/note.md#model-maxout-unit) networks with filters per $`k`$ unit, the number of linear regions is
+      - $`O\left( k^{(l-1) + d} \right)`$
+        - Still, there is no guarantee that the kinds of functions we want to learn in applications of machine learning (and in particular for AI) share such a property.
 
 
 
