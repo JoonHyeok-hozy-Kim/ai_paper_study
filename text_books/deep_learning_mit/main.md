@@ -78,6 +78,7 @@
 |6.2|[Gradient-Based Learning](ch06/02/note.md)|- Cost Functions : Maximum Likelihood, Conditional Statistics <br> - Cost Functional, Calculus of Variation, Mean Absolute Error <br> - Output Units : Linear, Sigmoid, Softmax, Mixture Density Network (Gaussian Mixture)|
 |6.3|[Hidden Units](ch06/03/note.md)|- Rectified Linear Unit (ReLU) : Absolute Value Rectification, Leaky ReLU, Maxout Unit <br> - Logistic Sigmoid $`(\sigma)`$ and Hyperbolic Tangent $`(\tanh)`$ <br> - Linear Hidden Unit, Softmax Unit, Radial Basis Function (RBF) Unit, Softplus Unit, Hard $`\tanh`$|
 |6.4|[Architecture Design](ch06/04/note.md)|- Universal Approximation Theorem|
+|6.5|[Back-Propagation and Other Differentiation Algorithms](ch06/05/note.md)|- |
 
 
 

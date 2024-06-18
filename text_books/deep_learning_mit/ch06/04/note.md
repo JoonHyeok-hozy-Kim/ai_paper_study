@@ -7,7 +7,8 @@
   - Overall structure of the network.
     - the number of units
     - the connections between units
-    - layer arrangements
+      - depth of the network
+      - width of each layer
 
 <br>
 
@@ -54,12 +55,6 @@
     - In the case of [maxout](../03/note.md#model-maxout-unit) networks with filters per $`k`$ unit, the number of linear regions is
       - $`O\left( k^{(l-1) + d} \right)`$
         - Still, there is no guarantee that the kinds of functions we want to learn in applications of machine learning (and in particular for AI) share such a property.
-
-
-
-
-
-
 
 
 <br>
