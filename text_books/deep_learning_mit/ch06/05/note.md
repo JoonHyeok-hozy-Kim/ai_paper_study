@@ -165,14 +165,25 @@ def forward_computation(x, U, F):
         - $`\displaystyle\frac{\partial u^{(n)}}{\partial u^{(j)}} = \sum_{i:j\in \textrm{Parent}(u^{(i)})} \frac{\partial u^{(n)}}{\partial u^{(i)}} \cdot \frac{\partial u^{(i)}}{\partial u^{(j)}}`$
           - i.e.) $`i`$ is a child of $`j`$.
     - $`\mathcal{B}`$ contains exactly one edge for each edge from node $`u^{(j)}`$ to node $`u^{(i)}`$ of $`\mathcal{G}`$ associated with $`\displaystyle\frac{\partial u^{(i)}}{\partial u^{(j)}}`$
-- Props.)
-  - d
 ```python
 from collections import defaultdict
 
-def back_propagation(U):
+def back_propagation(x, U):
+
+    def partial_derivative(x, y):
+        result = 0 # Calculate the partial derivative dx/dy
+        return result
+
     grad_table = defaultdict(float)
-    grad_table
+    grad_table[U[-1]] = 1
+
+    for j in range(len(U)-1, 0, -1):
+        temp =[]
+        for i in parents(j):
+            temp.append(partial_derivative(i,j))
+        grad_table[U[j]] = temp
+    
+    return grad_table[:len(x)]
 ```
 
 <br><br>
@@ -251,7 +262,10 @@ An application of the [Algorithm 2](#algorithm-2-back-propagation).
 - e.g.)
   - Theano
   - TensorFlow
-
+- Props.)
+  - The primary advantage of this approach is that the derivatives are described in the same language as the original expression.
+  - The description of the symbol-to-symbol based approach subsumes the [symbol-to-number approach](#concept-symbol-to-number-differentiation).
+    - where the symbol-to-number approach does not expose the graph.
 
 <br>
 
