@@ -391,16 +391,16 @@ An application of the [Algorithm 2](#algorithm-2-back-propagation).
         - i.e.) No bias and activation using [ReLU](../03/note.md#concept-rectified-linear-unit-relu)
       - $`X`$ : minibatch examples from the training set formatted as a design matrix
       - $`y`$ : a vector of class labels associated with $`X`$
-
-
-![](images/003.png)
-
-
 - Cost Function)
   - $`\displaystyle J = J_{\textrm{MLE}} + \lambda\left( \sum_{i,j} \left( W^{(1)}_{i,j} \right)^2 + \sum_{i,j} \left( W^{(2)}_{i,j} \right)^2 \right)`$
     - where
       - $`J_{\textrm{MLE}} = H(y, \hat{y}) = \mathsf{cross\_entropy}(y, \hat{y})`$
       - $`\lambda \in \mathbb{R}`$ : the hyperparameter for the weight decay
+
+
+<img src="images/003.png" width="700px">
+
+
 
 
 
