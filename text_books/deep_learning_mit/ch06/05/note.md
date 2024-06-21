@@ -374,6 +374,34 @@ An application of the [Algorithm 2](#algorithm-2-back-propagation).
     - By filling in these table entries in order, back-propagation avoids repeating many common subexpressions.
     - This table-filling strategy is sometimes called **dynamic programming**.
 
+<br><br>
+
+## 6.5.7 Example: Back-Propagation for MLP Training
+- Settings)
+  - A simple [MLP](../../ch06/00/note.md#concept-deep-feedforward-network-multilayer-perceptron-mlp) with a single hidden layer
+  - Optimization with the Minibatch [Stochastic Gradient Descent](../../ch05/09/note.md#59-stochastic-gradient-descent)
+  - Operations)
+    - `relu` : the [ReLU](../03/note.md#concept-rectified-linear-unit-relu) operation that can compute $`\max\{ 0,Z \}`$ element-wise.
+    - `cross_entropy` : an operation that computes the [cross-entropy](../../ch03/13/note.md#concept-cross-entropy) 
+      - Evaluation of $`\hat{y}`$ : Evaluate the cross entropy between the targets $`y`$ and a probability distribution defined by $`\hat{y}`$
+- Model)
+  - $`\hat{y} = HW^{(2)}`$ : the predictions of the unnormalized log probabilities over classes
+    - where
+      - $`H = \max\{0, XW^{(1)}\}`$ : the output of the hidden layer
+        - i.e.) No bias and activation using [ReLU](../03/note.md#concept-rectified-linear-unit-relu)
+      - $`X`$ : minibatch examples from the training set formatted as a design matrix
+      - $`y`$ : a vector of class labels associated with $`X`$
+
+
+![](images/003.png)
+
+
+- Cost Function)
+  - $`\displaystyle J = J_{\textrm{MLE}} + \lambda\left( \sum_{i,j} \left( W^{(1)}_{i,j} \right)^2 + \sum_{i,j} \left( W^{(2)}_{i,j} \right)^2 \right)`$
+    - where
+      - $`J_{\textrm{MLE}} = H(y, \hat{y}) = \mathsf{cross\_entropy}(y, \hat{y})`$
+      - $`\lambda \in \mathbb{R}`$ : the hyperparameter for the weight decay
+
 
 
 <br>
