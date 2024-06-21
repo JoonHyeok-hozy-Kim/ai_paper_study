@@ -175,6 +175,83 @@ def back_propagation(U):
     grad_table
 ```
 
+<br><br>
+
+## 6.5.4 Back-Propagation Computation in Fully-Connected MLP
+### E.g.) Example Fully-Connected MLP Back-Propagation
+- Settings)
+  - $`(x,y)`$ : a training example
+  - $`\hat{y}`$ : the output of the neural network when $`x`$ is provided in input.
+  - $`L(\hat{y}, y)`$ : the supervised loss
+
+#### Algorithm 3) Forward propagation
+An application of the [Algorithm 1](#algorithm-1-forward-computation).
+- Settings)
+  - Input Parameters)
+    - $`l`$ : the depth of the network
+    - $`W^{(i)}, i\in\{1,2,\cdots,l\}`$ : the weight matrices of the model
+    - $`b^{(i)}, i\in\{1,2,\cdots,l\}`$ : the bias parameters of the model
+    - $`x`$ : the input to process
+    - $`y`$ : the target output
+  - $`\Omega(\theta)`$ : a regularizer
+    - where $`\theta`$ contains all the parameters (weights and losses)
+- Algorithm)
+  - $`h^{(0)} = x`$
+  - `for` $`k=1,2,\cdots,l`$ `do`
+    - $`a^{(k)} = b^{(k)} + W^{(k)}h^{(k-1)}`$
+    - $`h^{(k)} = f\left(a^{(k)}\right)`$
+  - `end for`
+  - $`\hat{y} = h^{(l)}`$
+  - $`J = L(\hat{y}, y) + \lambda\Omega(\theta)`$
+
+
+<br>
+
+#### Algorithm 3) Back-propagation
+An application of the [Algorithm 2](#algorithm-2-back-propagation).
+- Objective)
+  - Yield the gradients on the activations $`a^{(k)}`$ for each layer $`k`$
+- Algorithm)
+  - $`g \leftarrow \nabla_{\hat{y}} J = \nabla_{\hat{y}} L(\hat{y}, y) \; \left(\because \frac{\partial \lambda\Omega(\theta)}{\partial \hat{y}} = 0\right)`$
+  - `for` $`k=l, l-1, \cdots, 1`$ `do`
+    - Convert the gradient on the layer's output into a gradient into the pre-nonlinearity activation:
+      - $`g\leftarrow\nabla_{a^{(k)}} J = g \odot f'\left(a^{(k)}\right)`$
+    - Compute gradients on weights and biases:
+      - $`\nabla_{b^{(k)}} J = g + \lambda\nabla_{b^{(k)}}\Omega(\theta)`$
+      - $`\nabla_{W^{(k)}} J = g\;(h^{(k-1)})^\top + \lambda\nabla_{W^{(k)}}\Omega(\theta)`$
+    - Propagate the gradients w.r.t. the next lower-level hidden layer's activations:
+      - $`g\leftarrow\nabla_{h^{(k-1)}}J = {W^{(k)}}^\top g`$
+  - `end for`
+
+<br><br>
+
+## 6.5.5 Symbol-to-Symbol Derivatives
+### Concept) Symbolic Representation
+- Desc.)
+  - Algebraic expressions and computational graphs both operate on symbols, or variables that **do not have specific values**. 
+  - These algebraic and graph-based representations are called **symbolic representations**.
+  - When we actually use or train a neural network, we must **assign specific values** to these symbols.
+    - How?) Replace a symbolic input to the network $`x`$ with a specific numeric value, such as $`[1.2, 3.764, -1.8]^\top`$.
+
+### Concept) Symbol-to-Number Differentiation
+- Procedure)
+  1. Take a computational graph and a set of numerical values for the inputs to the graph
+  2. Return a set of numerical values describing the gradient at those input values.
+- e.g.)
+  - Torch
+  - Caffe
+
+<br>
+
+### Concept) Symbol-to-Symbol Differentiation
+- Procedure)
+  1. Take a computational graph.
+  2. Add additional nodes to the graph that provide a symbolic description of the desired derivatives.   
+     ![](images/002.png)
+- e.g.)
+  - Theano
+  - TensorFlow
+
 
 <br>
 
