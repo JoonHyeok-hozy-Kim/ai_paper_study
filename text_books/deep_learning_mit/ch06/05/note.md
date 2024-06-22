@@ -401,6 +401,62 @@ An application of the [Algorithm 2](#algorithm-2-back-propagation).
 <img src="images/003.png" width="700px">
 
 
+- Training)
+  - Objective)
+    - Compute $`\nabla_{W^{(1)}} J \textrm{ and } \nabla_{W^{(2)}} J`$ using the back-propagation.
+  - Back-Propagation)
+    - $`\nabla_{W^{(1)}} J = X^\top G' + 2\lambda W^{(1)}`$
+      - Cross Entropy Path)
+        - Let $`G`$ be the gradient on the unnormalized log probabilities $`U^{(2)}`$ provided by the `cross_entropy` operation.
+        - Then $`\nabla_H J_{\textrm{MLE}} = G \left({W^{(2)}}\right)^\top`$
+        - Next, `relu` zeroes out components of the gradient corresponding to entries of $`U^{(1)}`$ that are less than $`0`$.
+          - Put its result $`G'`$
+        - Hence, $`\nabla_{W^{(1)}} J_{\textrm{MLE}} = X^\top G'`$.
+        - Add $`X^\top G'`$ to the gradient on $`W^{(1)}`$
+      - Weight Decay Path)
+        - Add $`\nabla_{W^{(1)}} u^{(8)} = 2\lambda W^{(1)}`$ to the gradient on $`W^{(1)}`$
+    - $`\nabla_{W^{(2)}} J = H^\top G + 2\lambda W^{(2)}`$
+      - Cross Entropy Path)
+        - Let $`G`$ be the gradient on the unnormalized log probabilities $`U^{(2)}`$ provided by the `cross_entropy` operation.
+        - Then $`\nabla_{W^{(2)}} J = H^\top G`$.
+        - Thus, add $`H^\top G`$ to the gradient on $`W^{(2)}`$
+      - Weight Decay Path)
+        - Add $`\nabla_{W^{(2)}} u^{(8)} = 2\lambda W^{(2)}`$ to the gradient on $`W^{(2)}`$
+- Analysis)
+  - The **computational cost** is dominated by the cost of matrix multiplication.
+    - In the forward propagation stage, it takes $`O(w)`$ multiply-adds where $`w`$ is the number of weights.
+    - In the backward-propagation, we multiply by the transpose of each weight matrix, which also takes $`O(w)`$.
+  - The main **memory cost** of the algorithm is that we need to store the input to the nonlinearity of the hidden layer.
+    - This value is stored from the time it is computed until the backward pass has returned to the same point.
+    - The memory cost is $`O(m n_h)`$
+      - where 
+        - $`m`$ : the number of examples in the minibatch
+        - $`n_h`$ : the number of hidden units
+
+<br><br>
+
+## 6.5.8 Complications
+- In practice, the back-propagation is more complicated than [our example above](#657-example-back-propagation-for-mlp-training).
+- How?)
+  - Our [operation](#concept-operation) was defined to return a single tensor.
+    - Most software implementations need to support operations that can return more than one tensor.
+      - e.g.) If we wish to compute both the **maximum value** in a tensor and the **index** of that value, it is best to compute both in a single pass through memory.
+        - Why?) It is most efficient to implement this procedure as a single operation with two outputs.
+  - We have not described how to control the **memory consumption** of back-propagation.
+    - Back-propagation often involves summation of many tensors together.
+    - In the naive approach, each of these tensors would be computed separately, then all of them would be added in a second step.
+      - This can cause high memory bottleneck.
+  - Real-world implementations of back-propagation need to handle various data types.
+    - e.g.) 32/64-bit floating point, integer values
+      - The policy for handling each of these types takes special care to design.
+  - Some operations have undefined gradients.
+    - It is important to track these cases and determine whether the gradient requested by the user is undefined.
+
+<br><br>
+
+## 6.5.9 Differentiation outside the Deep Learning Community
+
+
 
 
 
