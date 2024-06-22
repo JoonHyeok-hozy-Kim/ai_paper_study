@@ -394,7 +394,7 @@ An application of the [Algorithm 2](#algorithm-2-back-propagation).
 - Cost Function)
   - $`\displaystyle J = J_{\textrm{MLE}} + \lambda\left( \sum_{i,j} \left( W^{(1)}_{i,j} \right)^2 + \sum_{i,j} \left( W^{(2)}_{i,j} \right)^2 \right)`$
     - where
-      - $`J_{\textrm{MLE}} = H(y, \hat{y}) = \mathsf{cross\_entropy}(y, \hat{y})`$
+      - $`J_{\textrm{MLE}} = H(y, \hat{y}) = -\sum_i y_i\log{\hat{y}_i} = \mathsf{cross\_entropy}(y, \hat{y})`$
       - $`\lambda \in \mathbb{R}`$ : the hyperparameter for the weight decay
 
 
@@ -455,9 +455,56 @@ An application of the [Algorithm 2](#algorithm-2-back-propagation).
 <br><br>
 
 ## 6.5.9 Differentiation outside the Deep Learning Community
+- The field of **automatic differentiation** is concerned with how to compute derivatives algorithmically.
+  - The [back-propagation](#concept-back-propagation) is a special case of a broader class of techniques called **reverse mode accumulation**.
+  - Other approaches evaluate the subexpressions of the [chain rule](#652-chain-rule-of-calculus) in different orders.
+- In general, determining the order of evaluation that results in the lowest computational cost is a difficult problem.
+  - Finding the optimal sequence of operations to compute the gradient is NP-complete.
+  - e.g.)
+    - Suppose
+      - $`p_1, \cdots, p_n`$ : the probabilities
+      - $`z_1, \cdots, z_n`$ : the unnormalized log probabilities
+      - $`\displaystyle q_i \equiv \frac{\exp(z_i)}{\sum_i \exp(z_i)}`$
+      - $`\displaystyle J = -\sum_i p_i \log q_i`$ : the cross-entropy loss
+    - We easily know that $`\displaystyle\frac{\partial J}{\partial z_i} = -\sum_i p_i(1 -q_i)`$.
+      - Why?)   
+        $`\begin{aligned}
+          \frac{\partial J}{\partial z_i} &= -\sum_i \frac{p_i}{q_i} \frac{\partial q_i}{\partial z_i} \\
+          &= -\sum_i \frac{p_i}{q_i} \left( \frac{\exp(z_i)}{\sum_i \exp(z_i)} - \frac{\exp(z_i)^2}{\left(\sum_i \exp(z_i)\right)^2} \right) \\
+          &= -\sum_i \frac{p_i}{q_i} (q_i - q_i^2) \\
+          &= -\sum_i p_i(1 -q_i)
+        \end{aligned}`$
+    - The back-propagation algorithm explicitly propagate gradients through all of the logarithm and exponentiation operations in the original graph.
+      - Still, **back-propagation** guarantees that the number of computations for the gradient computation is of the same order as the number of computations for the forward computation.
+        - Why?) [Recall](#algorithm-2-back-propagation) that each local derivative $`\frac{\partial u^{(i)}}{\partial u^{(j)}}`$ needs to be computed only once along with an associated multiplication and addition for the recursive chain-rule formulation
+        - i.e.) The overall computation is $`O(E)`$ where $`E`$ is the number of edges.
+    - Implementations such as **Theano** and **TensorFlow** use heuristics based on matching known simplification patterns in order to iteratively attempt to simplify the graph.
 
+### Concept) Forward Mode Accumulation
+- Desc.)
+  - It obtains real-time computation of gradients in recurrent networks
+  - It is used when the number of outputs of the graph is larger than the number of inputs.
+    - e.g.) Consider the matrix multiplication of $`ABCD`$
+      - If the number of rows in $`A`$ is less than the number of columns in $`D`$, it is cheaper to run the multiplications left-to-right, corresponding to the forward mode.
 
+<br><br>
 
+## 6.5.10 Higher-Order Derivatives
+- Recall that Theano and TensorFlow support the [Symbol-to-Symbol Differentiation](#concept-symbol-to-symbol-differentiation).
+  - They support the higher order derivatives using that way.
+- In case of the second derivative, we use the properties of the [Hessian matrix](../../ch04/03/note.md#concept-hessian-matrix).
+  - However, directly calculating the Hessian matrix is too costly.
+    - It takes $`O(n^2)`$ where $`n`$ denotes the number of features.
+  - Instead, we may use [Krylov methods](#concept-krylov-methods) below.
+
+#### Concept) Krylov Methods
+- Desc.)
+  - **Krylov methods** are a set of iterative techniques for performing various operations like approximately inverting a matrix or finding approximations to its eigenvectors or eigenvalues, without using any operation other than matrix-vector products.
+  - In order to use Krylov methods on the Hessian, we only need to be able to compute the product between the Hessian matrix $`H`$ and an arbitrary vector $`v`$.
+    - i.e.) Compute $`Hv = \nabla_x \left[ {(\nabla_x f(x))}^\top v \right]`$
+      - If $`v`$ is itself a vector produced by a computational graph, it is important to specify that the automatic differentiation software should not differentiate through the graph that produced $`v`$.
+  - While computing the Hessian is usually not advisable, it is possible to do with Hessian vector products.
+    - i.e.) $`He^{(i)}, i=1,2,\cdots,n \textrm{ where } e^{(i)} \textrm{ is the one-hot vector with }e_i^{(i)}=1 \textrm{ and otherwise } 0`$.
 
 
 <br>
