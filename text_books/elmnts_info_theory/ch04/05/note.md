@@ -2,7 +2,7 @@
 
 # 4.5 Functions of Markov Chains
 
-### Theorem) Upper and Lower Bound of the Function of the Markov Process
+### Theorem 4.5.1) Upper and Lower Bound of the Function of the Markov Process
 - Theorem)
   - Let
     - $`X_1, X_2, \cdots, X_n`$ form a stationary Markov chain
@@ -75,10 +75,14 @@
     \end{aligned}`$.
   - $`\displaystyle \therefore H(Y_n | Y_{n-1}, \cdots, Y_1) - H(Y_n | Y_{n-1}, \cdots, Y_1, X_1) \rightarrow 0`$
 
+<br><br>
 
-
-
-
+### Concept) Hidden Markov Model (HMM)
+- Consider the case where $`Y_i`$ is a stochastic function of $`X_i`$
+  - i.e.) Each $`Y_i`$ is drawn according to $`p(y_i|x_i) \textrm{ for } i=1,2,\cdots,n`$, conditionally independent of all the other $`X_j, j\ne i`$.
+  - i.e.) $`\displaystyle p(x^n, y^n) = p(x_1)\prod_{i=1}^{n-1}p(x_{i+1}|x_i) \prod_{i=1}^{n}p(y_i|x_i)`$
+  - cf.) Previously, in [Theorem 4.5.1](#theorem-451-upper-and-lower-bound-of-the-function-of-the-markov-process), $`Y_i`$ was a deterministic function of $`X_i`$.
+- We can lower bound the entropy rate of a hidden Markov model by conditioning it on the underlying Markov state.
 
 
 
