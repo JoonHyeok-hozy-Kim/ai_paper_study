@@ -38,6 +38,7 @@
 |4.2|[Entropy Rate](ch04/02/note.md)|- $`\displaystyle H(\mathcal{X}) = \lim_{n\rightarrow\infty} \frac{H(X_1, X_2,\cdots, X_n)}{n}`$ <br> - $`\displaystyle H'(\mathcal{X}) = \lim_{n\rightarrow\infty} H(X_n\|X_1, X_2,\cdots, X_{n-1})`$ <br> - Cesaro mean|
 |4.3|[Example: Entropy Rate of a Random Walk on a Weighted Graph](ch04/03/note.md)|- |
 |4.4|[Second Law of Thermodynamics](ch04/04/note.md)|- |
+|4.5|[Functions of Markov Chains](ch04/05/note.md)|$`\begin{aligned} \textrm{For } &Y_i = \phi(X_i) \\ (1) &H(Y_n \| Y_{n-1}, \cdots, Y_1, X_1) \le H(\mathcal{Y}) \le H(Y_n \| Y_{n-1}, \cdots, Y_1) \\ (2)&\lim_{n\rightarrow\infty} H(Y_n \| Y_{n-1}, \cdots, Y_1, X_1) = H(\mathcal{Y}) = \lim_{n\rightarrow\infty} H(Y_n \| Y_{n-1} \cdots, Y_1) \\ \end{aligned}`$|
 
 
 
