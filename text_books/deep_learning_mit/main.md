@@ -85,7 +85,7 @@
 ## 7. Regularization for Deep Learning
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|7.1|[Parameter Norm Penalties](ch07/01/note.md)|- |
+|7.1|[Parameter Norm Penalties](ch07/01/note.md)|- Parameter Norm Penalty <br> - $`L^2`$ Parameter Regularization (Weight Decay)|
 
 
 
