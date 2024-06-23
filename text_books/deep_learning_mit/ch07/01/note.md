@@ -58,18 +58,18 @@
   - Tikhonov Regularization
 - Props.)
   - It **multiplicatively shrink the weight vector** by a constant factor on each step, just before performing the usual gradient update.
-    - Refer to $`(1-\epsilon\alpha)`$ from [Analysis 1](#analysis-1-weight-decreasing-effect-in-gradient-descent).
-    - Refer to $`\frac{\lambda_i}{\lambda_i + \alpha}`$ from [Analysis 2](#analysis-2-quadratic-approximation-to-the-objective-function)
+    - Refer to $`(1-\epsilon\alpha)`$ from [Analysis 7.1.1.1](#analysis-7111-weight-decreasing-effect-in-gradient-descent).
+    - Refer to $`\frac{\lambda_i}{\lambda_i + \alpha}`$ from [Analysis 7.1.1.2](#analysis-7112-quadratic-approximation-to-the-objective-function)
   - It decays away the unimportant directions in the weight vector.
     - Desc.)
       - Only directions along which the parameters contribute significantly to reducing the objective function are preserved relatively intact.
       - In directions that do not **contribute to reducing the objective function**, a small eigenvalue of the Hessian tells us that **movement in this direction will not significantly increase the gradient**.
       - Components of the weight vector corresponding to such unimportant directions are decayed away through the use of the regularization throughout training.
-    - Refer to [Analysis 3](#analysis-3-decaying-the-unimportant-direction) for the graphical description.
+    - Refer to [Analysis 7.1.1.3](#analysis-7113-decaying-the-unimportant-direction) for the graphical description.
 
 <br>
 
-### Analysis 1) Weight Decreasing Effect in Gradient Descent
+### Analysis 7.1.1.1) Weight Decreasing Effect in Gradient Descent
 - Consider an objective function $`\tilde{J} = \frac{\alpha}{2} w^\top x + J(w;X,y)`$.
 - The corresponding parameter gradient can be calculated as
   - $`\nabla_w \tilde{J} = \alpha w + \nabla_w J(w;X,y)`$.
@@ -79,7 +79,7 @@
 
 <br>
 
-### Analysis 2) Quadratic Approximation to the Objective Function
+### Analysis 7.1.1.2) Quadratic Approximation to the Objective Function
 - Objective)
   - We will use the quadratic approximation to derive the equation that explains the relationship between the nonregularized optimal weight $`(w^\ast)`$ and the $`L^2`$ regularized optimal weights $`(\tilde{w})`$.
     - $`\tilde{w} = (H+\alpha I)^{-1}Hw^\ast`$
@@ -131,7 +131,7 @@
 
 <br>
 
-### Analysis 3) Decaying the Unimportant Direction
+### Analysis 7.1.1.3) Decaying the Unimportant Direction
 <img src="images/001.png" width="400px">
 
 - Assumptions)
@@ -148,6 +148,28 @@
   - Because **the objective function (1)** does not express a strong preference along the $`w_1`$ direction, **the regularizer (2)** has a strong effect on this axis.
     - Thus, **the regularizer (2)** pulls $`w_1`$ close to zero.
   - In the $`w_2`$ direction, **weight decay (2)** affects the position of $`w_2`$ relatively little.
+
+<br>
+
+### Analysis 7.1.1.4) L2 Regularization in Linear Regression
+- Nonregularized Case)
+  - The cost function goes $`(Xw-y)^\top (Xw-y)`$.
+    - where
+      - $`X`$ : the input design matrix
+      - $`y`$ : the target
+      - $`w`$ : the weights
+  - Then, the normal equation can be derived as
+    - $`w = (X^\top X)^{-1} X^\top y`$
+- $`L^2`$ Regularized Case)
+  - The cost function goes $`(Xw-y)^\top (Xw-y) + \frac{\alpha}{2}w^\top w`$.
+  - Then the normal equation goes
+    - $`w = (X^\top X + \alpha I)^{-1} X^\top y`$
+- Comparison)
+  - The $`X^\top X`$ terms in both normal equations are proportional to the covariance matrix $`\frac{1}{m}X^\top X`$.
+    - where $`m`$ is the number of training examples.
+  - In the regularized case, the constant $`\alpha`$ is added to the diagonal of $`X^\top X`$.
+  - Since the diagonal entries of $`X^\top X`$ are the variances of the features, $`L^2`$ regularization causes the learning algorithm to “perceive” the input $`X`$ as having **higher variance**.
+  - Thus, the regularization makes **it shrink the weights on features whose covariance with the output target is low** compared to this added variance.
 
 
 
