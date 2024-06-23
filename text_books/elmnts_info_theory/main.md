@@ -40,6 +40,13 @@
 |4.4|[Second Law of Thermodynamics](ch04/04/note.md)|- |
 |4.5|[Functions of Markov Chains](ch04/05/note.md)|- Deterministic Function of Markov Chain <br> $`\begin{aligned} \textrm{For } &Y_i = \phi(X_i) \\ (1) &H(Y_n \| Y_{n-1}, \cdots, Y_1, X_1) \le H(\mathcal{Y}) \le H(Y_n \| Y_{n-1}, \cdots, Y_1) \\ (2)&\lim_{n\rightarrow\infty} H(Y_n \| Y_{n-1}, \cdots, Y_1, X_1) = H(\mathcal{Y}) = \lim_{n\rightarrow\infty} H(Y_n \| Y_{n-1} \cdots, Y_1) \\ \end{aligned}`$ <br> - Hidden Markov Model (HMM)|
 
+<br>
+
+## 5. Data Compression
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|5.1|[Examples of Codes](ch05/01/note.md)|- Source Code : $`C`$ <br> - Expected Length : $`L(C) = El(X)`$ <br> - Non-Singularity <br> - Extension of a Code : $`C^\ast`$ <br> - Unique Decodability <br> - Prefix Code (Instantaneous Code)|
+
 
 
 <br><br>
