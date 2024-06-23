@@ -80,6 +80,13 @@
 |6.4|[Architecture Design](ch06/04/note.md)|- Universal Approximation Theorem|
 |6.5|[Back-Propagation and Other Differentiation Algorithms](ch06/05/note.md)|- Forward Propagation / Back-Propagation <br> - Computational Graph : Node, Operation <br> - Chain Rule : Scalar, Vector, Tensor <br>- Symbol-to-Number Differentiation / Symbol-to-Symbol Differentiation <br> - General Back-Propagation, Time Complexity of the Back-Propagation Algorithm, Dynamic Programming <br> - [Back-Propagation Example with a Diagram](ch06/05/note.md#657-example-back-propagation-for-mlp-training) <br> - Automatic Differentiation : Reverse/Forward Mode Accumulation <br> - Krylov Methods|
 
+<br>
+
+## 7. Regularization for Deep Learning
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|7.1|[Parameter Norm Penalties](ch07/01/note.md)|- |
+
 
 
 
