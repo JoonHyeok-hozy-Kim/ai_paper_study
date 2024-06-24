@@ -27,12 +27,14 @@
         &\vdots \\
         D^{l_{\max} - i} \textrm{ descendants} &\textrm{ at level } l_{\max} \\
       \end{aligned}`$
-  - Hence, 
-
-
-
-
-
+  - Also, these descendant sets must be **disjoint**.
+    - e.g.) In the above image, the set of $`0`$'s descendants and that of $`10`$ are disjoint.
+  - Hence, summing over all the codewords,
+    - $`\displaystyle \sum_i D^{l_{\max} - l_i} \le D^{l_{\max}}`$
+      - Why?)
+        - $`\sum_i D^{l_{\max} - l_i}`$ is equal to the number of all nodes in this tree.
+        - Since it is $`D`$-ary tree, the number of all nodes is $`\displaystyle\sum_{k=1}^{l_{\max}} D^{k-1} = \frac{D^{l_{\max}}-1}{D-1} \lt D^{l_{\max}}`$
+        - $`\therefore \displaystyle \sum_i D^{l_{\max} - l_i} = \sum_{k=1}^{l_{\max}} D^{k-1}\le D^{l_{\max}}`$
 
 
 
