@@ -171,6 +171,95 @@
   - Since the diagonal entries of $`X^\top X`$ are the variances of the features, $`L^2`$ regularization causes the learning algorithm to “perceive” the input $`X`$ as having **higher variance**.
   - Thus, the regularization makes **it shrink the weights on features whose covariance with the output target is low** compared to this added variance.
 
+<br><br>
+
+## 7.1.2 L1 Regularization
+- Def.)
+  - $`\displaystyle \Omega(\theta) = ||w||_1 = \sum_i |w_i|`$
+    - where $`w`$ is the model parameter vector
+- Props.)
+  - Its gradient does not provide clean algebraic solution quadratic approximations.
+    - Refer to [Analysis 7.1.2.1](#analysis-7121-weight-decreasing-effect-in-gradient-descent)
+  - Comparison with $`L^2 Regularization`$ : [Analysis 7.1.2.3](#analysis-7123-comparison-with-l2-regularization)
+
+
+<br>
+
+### Analysis 7.1.2.1) Weight Decreasing Effect in Gradient Descent
+- Settings)
+  - $`\tilde{J}(w;X,y) = \alpha||w||_1 + J(w;X,y)`$
+    - where $`J(w;X,y)`$ is the nonregularized cost.
+    - Refer to [parameter norm penalty](#concept-parameter-norm-penalty).
+- Optimization)
+  - The corresponding gradient can be computed as
+    - $`\nabla_w \tilde{J}(w;X,y) = \alpha \; \textrm{sign}(w) + \nabla_w J(w;X,y)`$
+      - where $`\textrm{sign}(w)`$ is the sign of $`w`$ applied element-wise.
+- Analysis)
+  - The regularization is a constant factor with a sign equal to $`\textrm{sign}(w_i)`$.
+    - Recall that [Weigh Decay (L2) linearly scaled the gradient](#analysis-7111-weight-decreasing-effect-in-gradient-descent).
+- Prop.)
+  - The gradient does not provide clean algebraic solutions to quadratic approximations of $`J(w;X,y)`$
+  - Instead, we apply Taylor approximation [in Analysis 7.1.2.2](#analysis-7122-taylor-approximation-to-the-objective-function).
+
+
+<br>
+
+### Analysis 7.1.2.2) Taylor Approximation to the Objective Function
+- Settings)
+  - $`\nabla_w \hat{J} = H(w-w^\ast)`$ : the gradient
+    - where $`H`$ is the Hessian matrix of $`J`$ w.r.t. $`w`$ evaluated at $`w^\ast`$
+    - Refer to [Analysis 7.1.1.2](#analysis-7112-quadratic-approximation-to-the-objective-function) for the notations.
+  - Further assume that $`H`$ is diagonal.
+    - i.e.) $`H = \textrm{diag}\left( [H_{1,1}, \cdots, H_{n,n}] \right)`$
+      - where $`H_{i,i} \gt 0`$
+    - Why doing this?)
+      - The $`L^1`$ penalty does not admit clean algebraic expressions in the case of fully general Hessian.
+      - This assumption holds if the data for the linear regression problem has been preprocessed to remove all correlation between the input features.
+        - e.g.) [PCA](../../ch05/08/note.md#581-principal-component-analysis-pca)
+- The Approximation at $`w = w^\ast`$
+  - $`\displaystyle \hat{J}(w;X,y) = J(w^\ast; X, y) + \sum_i \left[ \frac{1}{2} H_{i,i} \left( w_i - w_i^\ast \right)^2 + \alpha|w_i| \right]`$
+- Solution)
+  - $`\displaystyle w_i = \textrm{sign}(w_i^\ast) \max\left\{ |w_i^\ast| - \frac{\alpha}{H_{i,i}} , \; 0 \right\}`$ for each dimension $`i`$
+- Analysis)
+  - Consider the case that $`w_i^\ast \gt 0, \forall i`$.
+    - There can be two possible outcomes.
+      1. $`\displaystyle w_i^\ast \le \frac{\alpha}{H_{i,i}}`$
+         - Then, the optimal value is $`w_i = 0`$.
+           - i.e.) The $`L^1`$ regularization overwhelms the contribution of $`J`$ to $`\tilde{J}`$
+      2. $`\displaystyle w_i^\ast \gt \frac{\alpha}{H_{i,i}}`$
+         - Then, the $`L^1`$ regularization shifts the optimal value of $`w_i`$ in that direction by a distance equal to $`\displaystyle\frac{\alpha}{H_{i,i}}`$.
+
+
+<br>
+
+### Analysis 7.1.2.3) Comparison with L2 Regularization
+1. The $`L^1`$ regularization results in more **sparse** solutions.
+   - Concept) Sparsity
+     - Some parameters have an optimal value of zero.
+   - Why?)
+     - [Recall that the solution](#analysis-7112-quadratic-approximation-to-the-objective-function) of the $`L^2`$ regularization was given by 
+       - $`\tilde{w} = Q(\Lambda + \alpha I) \Lambda Q^\top w^\ast`$
+     - Applying the [diagonal assumption](#analysis-7122-taylor-approximation-to-the-objective-function) and [positive definite](../../ch02/07/note.md#concept-positivenegative-definite) Hessian $`H`$ to the $`L^1`$ regularization we can get
+       - $`\displaystyle \tilde{w}_i = \frac{H_{i,i}}{H_{i,i} + \alpha} w^\ast_i`$
+         - Here, if $`w^\ast_i`$ is nonzero, $`\tilde{w}_i`$ remains nonzero.
+         - Thus, $`L^1`$ regularization may cause the parameters to become sparse.
+   - Application)
+     - Sparsity can be extensively used for the **feature selection** mechanism.
+       - cf.) **Feature selection** simplifies a machine learning problem by choosing which subset of the available features should be used.
+       - e.g.) LASSO (Least Absolute Shrinkage and Selection Operator)
+         - It integrates an $`L^1`$ penalty with a linear model and a least squares cost function.
+         - The $`L^1`$ penalty causes a subset of the weights to become zero.
+           - i.e.) Discard the corresponding feature.
+2. Relationship with [MAP Bayesian Inference](../../ch05/06/note.md#561-maximum-a-posteriori-map-estimation)
+   - $`L^2`$ regularization
+     - [Recall](../../ch05/06/note.md#561-maximum-a-posteriori-map-estimation) that $`L^2`$ regularization was equivalent to MAP Bayesian inference with a Gaussian prior on weights.
+   - $`L^1`$ regularization
+     - The penalty $`\alpha\Omega(w) = \alpha\sum_i |w_i|`$ used to regularize a cost function is  equivalent to the log-prior term that is maximized by MAP Bayesian inference when the prior is an isotropic [Laplace distribution](../../ch03/09/note.md#concept-laplace-distribution) over $`w\in\mathbb{R}^n`$    
+       $`\begin{aligned}
+        p(w) &= \sum_i\log\textrm{Laplace}\left(w_i; 0, \frac{1}{\alpha}\right) \\
+        &= -\alpha||w||_1 + n\log\alpha - n\log2
+       \end{aligned}`$
+       - From the point of view of learning via maximization w.r.t. $`w`$, we can ignore $`n\log\alpha - n\log2`$ terms, which are independent of $`w`$.
 
 
 <br>
