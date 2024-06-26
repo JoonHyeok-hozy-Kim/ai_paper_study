@@ -86,6 +86,7 @@
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
 |7.1|[Parameter Norm Penalties](ch07/01/note.md)|- Parameter Norm Penalty <br> - $`L^2`$ Parameter Regularization (Weight Decay, Ridge Regression, Tikhonov Regularization) <br> - $`L^1`$ Regularization : Sparsity, Feature selection (LASSO)|
+|7.2|[Norm Penalties as Constrained Optimization](ch07/02/note.md)|- Explicit Constraints instead of Penalties|
 
 
 
