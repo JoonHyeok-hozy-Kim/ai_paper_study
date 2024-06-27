@@ -3,6 +3,8 @@
 # 5.2 Kraft Inequality
 
 ### Theorem 5.2.1) Kraft Inequality
+- Why needed?)
+  - A sufficient condition for the existence of a codeword set with the specified set of codeword lengths.
 - Theorem)
   - For any [instantaneous code (prefix code)](../01/note.md#concept-prefix-code-instantaneous-code) over an alphabet of size $`D`$, the codeword lengths $`l_1, l_2, \cdots, l_m`$ must satisfy the inequality
     - $`\displaystyle \sum_i D^{-l_i} \le 1`$

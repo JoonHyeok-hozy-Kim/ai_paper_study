@@ -46,7 +46,8 @@
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
 |5.1|[Examples of Codes](ch05/01/note.md)|- Source Code : $`C`$ <br> - Expected Length : $`L(C) = El(X)`$ <br> - Non-Singularity <br> - Extension of a Code : $`C^\ast`$ <br> - Unique Decodability <br> - Prefix Code (Instantaneous Code)|
-|5.2|[Kraft Inequality](ch05/02/note.md)|- |
+|5.2|[Kraft Inequality](ch05/02/note.md)|- $`\displaystyle \sum_i D^{-l_i} \le 1`$|
+|5.3|[Optimal Codes](ch05/03/note.md)|- |
 
 
 
