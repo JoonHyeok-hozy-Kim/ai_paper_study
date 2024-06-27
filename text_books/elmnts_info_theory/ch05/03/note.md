@@ -18,9 +18,28 @@
     - $`J = \sum p_i l_i + \lambda \left( \sum D^{-l_i} - 1 \right)`$
   - Then,   
     $`\begin{aligned}
-        & \frac{\partial J}{\partial l_i} = 0 \\
+        (1) \; & \frac{\partial J}{\partial l_i} = 0 \\
         \Leftrightarrow & \; p_i -\lambda D^{-l_i}\log_e D = 0 \\
+        \Rightarrow & \; D^{-l_i} = \frac{p_i}{\lambda \log_e D} & \cdots (A) \\
+        \Rightarrow & \sum D^{-l_i} =  \sum \frac{p_i}{\lambda \log_e D} = \frac{1}{\lambda \log_e D} \\
+        \\
+        (2) \; & \frac{\partial J}{\partial \lambda} = 0 \\
+        \Leftrightarrow & \sum D^{-l_i} - 1 = 0 \\
+        \Rightarrow & \sum D^{-l_i} = 1 \\
+        \Leftrightarrow & \frac{1}{\lambda \log_e D} = 1 \\
+        \Rightarrow & \lambda = \frac{1}{\log_e D} & \cdots (B) \\
     \end{aligned}`$
+  - Plugging (B) into (A), we get
+    - $`p_i = D^{-l_i}`$.
+  - Therefore,   
+    $`\begin{aligned}
+        & l_i^\ast = -\log_D p_i \\
+        \Rightarrow & L^\ast = \sum p_i l_i^\ast = -\sum p_i \log_D p_i = H_D(X)
+    \end{aligned}`$
+- Result)
+  - The optimal codeword length is equal to the entropy $`H_D(X)`$.
+- Limit)
+  - The codeword length should be integer, while $`H_D(X)`$ may not be the one.
 
 
 
