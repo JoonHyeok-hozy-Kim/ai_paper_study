@@ -48,6 +48,7 @@
 |5.1|[Examples of Codes](ch05/01/note.md)|- Source Code : $`C`$ <br> - Expected Length : $`L(C) = El(X)`$ <br> - Non-Singularity <br> - Extension of a Code : $`C^\ast`$ <br> - Unique Decodability <br> - Prefix Code (Instantaneous Code)|
 |5.2|[Kraft Inequality](ch05/02/note.md)|- $`\displaystyle \sum_i D^{-l_i} \le 1`$ <br>- $`\displaystyle \sum_{i=1}^\infty = D^{-l_i} \le 1`$|
 |5.3|[Optimal Codes](ch05/03/note.md)|- $`L \ge H_D(X)`$ <br> - $`D`$-adic Probability Distribution|
+|5.4|[Bounds on the Optimal Code Length](ch05/04/note.md)|- $`H_D(X) \le L^\ast \lt H_D(X) + 1`$ <br> - $`\displaystyle \frac{H(X_1, X_2, \cdots, X_n)}{n} \le L_n^\ast \lt \frac{H(X_1, X_2, \cdots, X_n)}{n} +\frac{1}{n}`$ <br> - If the stochastic process is stationary, $`L_n^\ast \rightarrow H(\mathcal{X})`$ : entropy rate <br> - $`H(p) + D(p\|\|q) \le E_p l(X) \lt H(p) + D(p\|\|q) + 1`$|
 
 
 
