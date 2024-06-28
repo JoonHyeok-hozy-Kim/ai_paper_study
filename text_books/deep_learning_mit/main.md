@@ -89,6 +89,8 @@
 |7.2|[Norm Penalties as Constrained Optimization](ch07/02/note.md)|- Explicit Constraints instead of Penalties|
 |7.3|[Regularization and Under-Constrained Problems](ch07/03/note.md)|- Regularization Guarantees Closed Form Solution|
 |7.4|[Dataset Augmentation](ch07/04/note.md)|- Dataset Augmentation for Classification Problem|
+|7.5|[Noise Robustness](ch07/05/note.md)|- Injecting noise to the hidden units <br> - Injecting noise to weights <br> - Label Smoothing : Injecting noise at the output targets|
+|7.6|[Semi-Supervised Learning](ch07/06/note.md)|- |
 
 
 
