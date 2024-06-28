@@ -18,18 +18,6 @@
   - *Salakhutdinov and Hinton (2008)* describe a method for learning the [kernel function](../../ch05/07/note.md#concept-kernel) of a kernel machine used for regression, in which the usage of unlabeled examples for modeling $`P(\mathbf{x})`$ improves $`P(\mathbf{y|x})`$ quite significantly. 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 <br>
 
 * [Back to Deep Learning MIT](../../main.md)

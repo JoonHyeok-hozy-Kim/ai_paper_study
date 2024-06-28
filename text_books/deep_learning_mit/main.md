@@ -91,6 +91,7 @@
 |7.4|[Dataset Augmentation](ch07/04/note.md)|- Dataset Augmentation for Classification Problem|
 |7.5|[Noise Robustness](ch07/05/note.md)|- Injecting noise to the hidden units <br> - Injecting noise to weights <br> - Label Smoothing : Injecting noise at the output targets|
 |7.6|[Semi-Supervised Learning](ch07/06/note.md)|- |
+|7.7|[Multi-Task Learning](ch07/07/note.md)|- |
 
 
 
