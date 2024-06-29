@@ -116,10 +116,6 @@
 
 <br><br>
 
-### Concept) 
-
-<br>
-
 ### Concept) Regularization
 - Def.)
   - Regularization is any modification we make to a learning algorithm that is intended to **reduce its generalization error** but **not its training error**.

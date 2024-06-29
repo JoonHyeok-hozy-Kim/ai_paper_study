@@ -108,7 +108,7 @@
    - Meaning)
      - $`\alpha\rightarrow 0 \Rightarrow \tilde{w}\rightarrow w^\ast`$.
        - i.e.) The effect of the weight decay diminishes.
-2. $`\tilde{w} = Q(\Lambda + \alpha I) \Lambda Q^\top w^\ast`$
+2. $`\tilde{w} = Q(\Lambda + \alpha I)^{-1} \Lambda Q^\top w^\ast`$
    - Derivation)
      - Recall that the [Hessian matrix](../../ch04/03/note.md#concept-hessian-matrix) $`H`$ is real and symmetric.
      - Thus, we can [eigendecompose](../../ch02/07/note.md#concept-eigendecomposition) it as
@@ -121,7 +121,7 @@
          \tilde{w} &= (H+\alpha I)^{-1}Hw^\ast \\
          &= (Q\Lambda Q^\top +\alpha I)^{-1} Q\Lambda Q^\top w^\ast \\
          &= (Q (\Lambda + \alpha I) Q^\top)^{-1} Q\Lambda Q^\top w^\ast & \because QQ^\top = I \\
-         &= Q(\Lambda + \alpha I) \Lambda Q^\top w^\ast & \because Q^{-1} = Q^\top
+         &= Q(\Lambda + \alpha I)^{-1} \Lambda Q^\top w^\ast & \because Q^{-1} = Q^\top
        \end{aligned}`$
     - Meaning)
       - Each component of $`w^\ast`$ aligned with the $`i`$-th eigenvector of $`H`$ is rescaled by a factor of $`\frac{\lambda_i}{\lambda_i + \alpha}`$.
