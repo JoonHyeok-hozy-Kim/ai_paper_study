@@ -233,9 +233,7 @@
 <br>
 
 ### Analysis 7.1.2.3) Comparison with L2 Regularization
-1. The $`L^1`$ regularization results in more **sparse** solutions.
-   - Concept) Sparsity
-     - Some parameters have an optimal value of zero.
+1. The $`L^1`$ regularization results in more [sparse](../10/note.md#concept-sparsity) solutions.
    - Why?)
      - [Recall that the solution](#analysis-7112-quadratic-approximation-to-the-objective-function) of the $`L^2`$ regularization was given by 
        - $`\tilde{w} = Q(\Lambda + \alpha I) \Lambda Q^\top w^\ast`$
