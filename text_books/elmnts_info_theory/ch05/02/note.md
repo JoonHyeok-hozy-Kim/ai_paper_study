@@ -21,15 +21,17 @@
   - And the no codeword is an ancestor of any other codeword on the tree.
     - Hence, each codeword eliminates its descendants as possible codewords.
   - Put $`l_{\max}`$ : the length of the longest codeword of the set of codewords.
-  - Then, a codeword at level $`l_i`$ has $`D^{l_{\max} - l_i}`$ descendants at level $`l_{\max}`$.
+  - Then, a codeword at level $`l_i`$ has $`D^{l_{\max} - l_i}`$ descendant leaves at level $`l_{\max}`$.
     - Why?)   
-      $`\begin{aligned}
-        D   \textrm{ descendants} &\textrm{ at level } l_{i+1} \\
-        D^2 \textrm{ descendants} &\textrm{ at level } l_{i+2} \\
-        D^3 \textrm{ descendants} &\textrm{ at level } l_{i+3} \\
-        &\vdots \\
-        D^{l_{\max} - i} \textrm{ descendants} &\textrm{ at level } l_{\max} \\
-      \end{aligned}`$
+      $`\begin{matrix}
+        1 &\textrm{ descendant leaf(itself)} \textrm{ at level } &l_{\max} \\
+        D   &\textrm{ descendant leaves} \textrm{ at level } &l_{\max} - 1 \\
+        D^2 &\textrm{ descendant leaves} \textrm{ at level } &l_{\max} - 2 \\
+        &\vdots& \\
+        D^{l_{\max} - l_i} &\textrm{ descendant leaves} \textrm{ at level } &l_{i} \\
+        &\vdots& \\
+        D^{l_{\max}} &\textrm{ descendant leaves} \textrm{ at level } &l_{0} \\
+      \end{matrix}`$
   - Also, these descendant sets must be **disjoint**.
     - e.g.) In the above image, the set of $`0`$'s descendants and that of $`10`$ are disjoint.
   - Hence, summing over all the codewords,
