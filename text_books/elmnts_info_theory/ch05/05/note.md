@@ -12,21 +12,17 @@
     - $`\sum D^{-l_i} \le 1`$
   - Conversely, given a set of codeword lengths that satisfy this [inequality](../02/note.md#theorem-521-kraft-inequality), it is possible to construct a **uniquely decodable** code with these codeword lengths.
 - pf.)
-  - Consider $`C^k`$, the $`k`$-th extension of the code.
-    - i.e.) the code formed by the concatenation of $`k`$ repetitions of the given **uniquely decodable** code $`C`$
-  - By the definition of **unique decodability**, the $`k`$th extension of the code is [nonsingular](../01/note.md#concept-non-singularity).
-    - i.e.) It has a different string mapped to itself.
-  - Since there are only $`D^n`$ different $`D`$-ary strings of length $`n`$, **unique decodability** implies that the number of code sequences of length $`n`$ in $`C^k`$ must be no greater than $`D^n`$.
-  - Let $`l(x)`$ be the codeword lengths of the symbols $`x\in\mathcal{X}`$
-  - Then
-
-
-
-
-
-
-
-
+  - Let
+    - $`C`$ : a **uniquely decodable** code
+    - $`C^k`$, the $`k`$-th extension of the code.
+      - i.e.) the code formed by the concatenation of $`k`$ repetitions of $`C`$
+  - Consider the concept of **unique decodability**.
+    - By the definition of **unique decodability**, $`C^k`$ is [nonsingular](../01/note.md#concept-non-singularity).
+      - i.e.) It has a distinct string mapped to $`C^k`$.
+    - Since there are only $`D^n`$ different $`D`$-ary strings of length $`n`$, **unique decodability** implies that the number of code sequences of length $`n`$ in $`C^k`$ must be no greater than $`D^n`$.
+  - Let $`l(x)`$ be the **codeword lengths** of the symbols $`x_i\in\mathcal{X}`$
+  - Then the length of the code sequence for $`C^k`$ is
+    - $`\displaystyle l(x_1,x_2, \cdots, x_k) = \sum_{i=1}^k l(x_i)`$
 
 
 
