@@ -2,13 +2,17 @@
 
 # 7.11 Bagging and Other Ensemble Methods
 
+### Concept) Model Averaging Strategy (Ensemble Model)
+- Desc.)
+  - Train several different models separately
+  - Have all of the models vote on the output for test examples
+- cf.) Ensemble Models : Techniques employing the Model Averaging Strategy
+
+<br>
+
 ### Concept) Bagging (Bootstrap Aggregating)
 - Desc.)
-  - A technique for reducing generalization error by **combining several models**
-    - How?) Model Averaging Strategy
-      - Train several different models separately
-      - Have all of the models vote on the output for test examples
-        - cf.) Ensemble Models : Techniques employing the Model Averaging Strategy
+  - A technique for reducing generalization error by [combining several models](#concept-model-averaging-strategy-ensemble-model)
     - Why does this work?)
       - Different models usually do not make all the same errors on the test set.
       - e.g.)
