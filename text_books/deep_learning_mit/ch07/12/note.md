@@ -46,8 +46,9 @@
 
 - e.g.)    
   |Network|Graphic|Desc.|
-  |:-:|:-:|:-:|
+  |:-:|:-|:-|
   |Underlying Base Network|<img src="images/002.png">|- Two input units $`x_1, x_2`$ <br> - Two output units $`h_1, h_2`$|
+  |Dropout Network|<img src="images/003.png">|- Two input units $`x_1, x_2`$ <br> - Two output units $`h_1, h_2`$|
 
 - Comparison with [Bagging](../11/note.md#concept-bagging-bootstrap-aggregating))
   - 
