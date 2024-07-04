@@ -81,15 +81,40 @@
   - Approximate the inference with sampling, by averaging together the output from many masks. 
     - Even 10-20 masks are often sufficient to obtain good performance.
   - Using Geometric Mean by *Warde-Farley et al. (2014)*
-    - The geometric mean of multiple probability distributions is not guaranteed to be a probability distribution.
-    - To guarantee that the result is a probability distribution, we impose the requirement that none of the sub-models assigns probability $`0`$ to any event, and we re-normalize the resulting distribution.
-    - The **unnormalized probability distribution** defined directly by the geometric mean is given by
-      - $`\displaystyle \tilde{p}_{\textrm{ensemble}}(y|x) = \sqrt[^{2^d}]{\prod_\mu p(y|x,\mu)}`$
-        - where $`d`$ is the number of units that may be dropped.
-    - For simplicity, use a uniform distribution over $`\mu`$
-      - cf.) Non-uniform distributions are also possible.
-    - Re-normalize the ensemble to make predictions.
-      - $`\displaystyle p_{\textrm{ensemble}}(y|x) = \frac{\tilde{p}_{\textrm{ensemble}}(y|x)}{\sum_y \tilde{p}_{\textrm{ensemble}}(y|x)}`$
+    - Settings)
+      - To guarantee that the result is a probability distribution, we impose the requirement that none of the sub-models assigns probability $`0`$ to any event, and we re-normalize the resulting distribution.
+        - why?) The geometric mean of multiple probability distributions is not guaranteed to be a probability distribution.
+      - The **unnormalized probability distribution** defined directly by the geometric mean is given by
+        - $`\displaystyle \tilde{p}_{\textrm{ensemble}}(y|x) = \sqrt[^{2^d}]{\prod_\mu p(y|x,\mu)}`$
+          - where $`d`$ is the number of units that may be dropped.
+      - For simplicity, use a uniform distribution over $`\mu`$
+        - cf.) Non-uniform distributions are also possible.
+    - Procedures)
+      - Get $`\tilde{p}_{\textrm{ensemble}}(y|x)`$ for each $`(y, \mu)`$
+      - Re-normalize the ensemble to make predictions.
+        - $`\displaystyle p_{\textrm{ensemble}}(y|x) = \frac{\tilde{p}_{\textrm{ensemble}}(y|x)}{\sum_{y'} \tilde{p}_{\textrm{ensemble}}(y'|x)}`$
+          - Concept) **Weight Scaling Inference Rule**
+            - Desc.)
+              - We are trying to approximate $`p_{\textrm{ensemble}}`$ by evaluating $`p(y|x)`$ in the $`i`$-th model
+                - where
+                  - the model has all units
+                  - the weights going out of unit $`i`$ is multiplied by the probability of including the unit $`i`$
+              - The motivation for this approach is to capture the right expected value of the output from that unit.
+              - This approach is called the **weight scaling inference rule**.
+            - e.g.)
+              - [Recall](#structure) that we usually assign $`0.5`$ for the inclusion probability of the input units.
+              - Then the **weight scaling rule** usually amounts to dividing the weights by 2 at the end of training, and then using the model as usual.
+              - Another way to achieve the same result is to multiply the states of the units by 2 during training. 
+              - Either way, the goal is to make sure that the **expected total input to a unit at test time** is roughly the same as the **expected total input to that unit at train time**, even though **half the units at train time are missing on average**.
+            - Props.)
+              - For many classes of models that do not have nonlinear hidden units, the weight scaling inference rule is **exact**.
+                - e.g.) A Softmax regression classifier with $`n`$ input variables represented by the vector $`v`$.
+                  - $`P(\mathbf{y}=y|\mathbf{v}) = \textrm{softmax}\left(W^\top \mathbf{v} + b\right)_y`$
+                  - Then the family of sub-models by element-wise multiplication of the input with a binary vector $`d`$ goes as
+                    - $`P(\mathbf{y}=y|\mathbf{v};d) = \textrm{softmax}\left(W^\top (d\odot \mathbf{v}) + b\right)_y`$
+                  - The ensemble predictor is defined by re-normalizing the geometric mean over all ensemble members’ predictions:
+                    - $`\displaystyle P_{\textrm{ensemble}}(\mathbf{y}=y|v) = \frac{\tilde{P}_{\textrm{ensemble}}(\mathbf{y}=y|\mathbf{v})}{\sum_{y'} \tilde{P}_{\textrm{ensemble}}(\mathbf{y}=y'|\mathbf{v})}`$
+                      - where $`\displaystyle\tilde{P}_{\textrm{ensemble}}(\mathbf{y}=y|\mathbf{v}) = \sqrt[^{2^n}]{\prod_{d\in\{0,1\}^n} P(\mathbf{y}=y|\mathbf{v};d)}`$
 
 
 
