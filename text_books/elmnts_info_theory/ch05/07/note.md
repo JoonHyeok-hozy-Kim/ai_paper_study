@@ -18,7 +18,7 @@
 
 <br>
 
-### Prop.2) Huffman coding for weighted codewords.
+### Prop.2) Huffman coding for weighted codewords
 - Recall that Huffman's algorithm minimizes $`\sum p_i l_i`$ where $`\sum p_i = 1`$.
 - However, the algorithm can be applied to any set of numbers $`p_i \ge 0`$.
   - In this case, the Huffman code minimizes the sum of weighted code lengths $`\sum w_i l_i`$, not the average code lengths.
