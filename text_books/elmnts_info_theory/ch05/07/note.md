@@ -29,8 +29,8 @@
   |:-:|:-:|
   |1|5|
   |2|5|
-  |3|5|
-  |4|5|
+  |3|4|
+  |4|4|
   - Desc.)
     - Instead of the probability $`p_i`$, the weight $`w_i`$ is given.
     - And $`\sum w_i > 1`$
@@ -39,10 +39,86 @@
  ![](images/001.png)
   - Then the result shows the minimum weighted sum of 36.
 
+<br><br>
+
+### Prop.3) Slice Code (Alphabetic Code)
+- Recall the [relation between the Huffman code and the 20 questions](#prop1-equivalence-of-source-coding-and-20-questions).
+  - Huffman code was equivalent to asking question as below.
+    - Settings)
+      - $`\mathcal{X} = \{1,2,3,\cdots,m\}`$ : the symbols
+    - Question)
+      - "Is $`X\in A, \exists A \subseteq \mathcal{X}`$?"`$
+        - e.g.) "Is $`X=3 \vee X=4`$?"
+- To setup a slice question, We want to give more restrictions.
+  - For $`\mathcal{X} = \{1,2,3,\cdots,m\}`$
+    - the elements of $`\mathcal{X}`$ are ordered so that $`p_1\ge p_2\ge \cdots \ge p_m`$.
+  - Questions are restricted to
+    - "Is $`X \gt a, \exists a \le m`$?"
+      - i.e.) **Slicing** the elements into sets of the forms $`\{x:x\gt a\}`$ and $`\{x:x\lt a\}`$. 
+- Using the slice questions and the following condition we can derive another optimal code of slice code.
+  - Additional Condition) By [Lemma 5.8.1](../08/note.md#Lemma581)
+    - The codeword lengths are taken as $`l_1 \le l_2 \le \cdots \le l_m`$
+- Slice code is different from the Huffman code.
+  - In Slice code, each bit of the code splits the tree into sets of the form $`\{x:x\gt a\}`$ and $`\{x:x\lt a\}`$.
+
+#### Example 5.7.2)
+|Symbol|Slice Code|
+|:-:|:-:|
+|1|00|
+|2|01|
+|3|10|
+|4|110|
+|5|111|
 
 
+<br><br>
+
+### Prop.4) Shannon code
+- Recall the codeword length of $`\displaystyle \left\lceil \log\frac{1}{p_i} \right\rceil`$.
+  - cf) [Theorem 5.4.1](../04/note.md#theorem-541-bounds-on-the-optimal-code-length)
+- Codeword with this property is called the Shannon coding.
+- Shannon code may be much worse than the optimal code for some particular symbol.
+  - e.g.)
+    - Consider two symbols.   
+      |Symbol|Probability|
+      |:-:|:-:|
+      |1|0.9999|
+      |2|0.0001|
+    - Then using codeword lengths of $`\displaystyle \left\lceil \log\frac{1}{p_i} \right\rceil`$ gives codeword lengths of 1 bit and 14 bits.
+      - Why?)   
+        $`\begin{cases}
+            \log\frac{1}{0.9999} \approx 0.000144276718044 & \Rightarrow \left\lceil \log\frac{1}{0.9999} \right\rceil = 1 \\
+            \log\frac{1}{0.0001} \approx 13.28771237954945 & \Rightarrow \left\lceil \log\frac{1}{0.0001} \right\rceil = 14 \\
+        \end{cases}`$
+    - On the other hand, the optimal codeword length is obviously 1bit for both symbol : 0 and 1.
+- The optimal code is not always less than the Shannon code.
+  - i.e.) Individual symbol of Shannon code can be less than the optimal code.
+  - e.g.)
+    - Consider a random variable $`X`$ with distribution $`\left(\frac{1}{3}, \frac{1}{3}, \frac{1}{4}, \frac{1}{12}\right)`$
+    - Then the Huffman coding procedure results in codeword lengths of $`(2,2,2,2)`$ or $`(1,2,3,3)`$ depending on where one puts the merged probabilities.
+    - Both of them achieve the same expected codeword length.   
+      $`\begin{cases}
+        2\times\frac{1}{3}+ 2\times\frac{1}{3}+ 2\times\frac{1}{4}+ 2\times\frac{1}{12} = \frac{8+8+6+2}{12} = 2 \\
+        1\times\frac{1}{3}+ 2\times\frac{1}{3}+ 3\times\frac{1}{4}+ 3\times\frac{1}{12} = \frac{4+8+9+3}{12} = 2 \\
+      \end{cases}`$
+    - The third symbol of the Huffman codes $`(1,2,3,3)`$ is $`3`$.
+    - However, if we used the Shannon coding, the third symbol would have the length of $`\left\lceil \log\frac{1}{1/4} \right\rceil = 2`$
+- Although either the Shannon code or the Huffman code can be shorter for individual symbols, **the Huffman code is shorter on average**.
 
 
+<br><br>
+
+### Prop.5) Fano code
+- How to code)
+  - Order the probabilities in decreasing order.
+  - Find $`k`$ s.t. $`\displaystyle \left| \sum_{i=1}^k p_i - \sum_{i=k+1}^m p_i \right|`$ is minimized.
+  - This point divides the source symbols into two sets of almost equal probability.
+  - Assign 
+    - 0 for the first bit of the upper set
+    - 1 for the first bit of the lower set
+  - Repeat the above process for each subset.
+- Props.)
+  - Sub-optimal code where $`L(C) \le H(X) + 2`$
 
 
 
