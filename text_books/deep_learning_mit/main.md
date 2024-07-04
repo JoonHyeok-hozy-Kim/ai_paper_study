@@ -96,7 +96,7 @@
 |7.9|[Parameter Tying and Parameter Sharing](ch07/09/note.md)|- |
 |7.10|[Sparse Representations](ch07/10/note.md)|- Sparsity <br> - Orthogonal Matching Pursuit (OMP-k)|
 |7.11|[Bagging and Other Ensemble Methods](ch07/11/note.md)|- Bagging (Bootstrap Aggregating), Model Averaging Strategy <br> - Boosting|
-|7.12|[Dropout](ch07/12/note.md)|- |
+|7.12|[Dropout](ch07/12/note.md)|- Comparison with Bagging <br> - Inference|
 
 
 
