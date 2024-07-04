@@ -34,7 +34,7 @@
        - Combine the symbols 4 and 5 into a single source symbol 00X, with a probability assignment 0.30.   
          |Symbol|Codeword c|p(c)|
          |:-:|:-:|:-:|
-         |(4, 5)|00X|0.30|
+         |4<br>5|000<br>001|0.30|
          |1|-|0.25|
          |2|-|0.25|
          |3|-|0.2|
@@ -43,22 +43,22 @@
        - Combine the symbols 2 and 3 into a single symbol 1X, with a probability assignment 0.45.   
          |Symbol|Codeword c|p(c)|
          |:-:|:-:|:-:|
-         |(2, 3)|1X|0.45|
-         |(4, 5)|00X|0.30|
+         |2<br>3|10<br>11|0.45|
+         |4<br>5|000<br>001|0.30|
          |1|-|0.25|
     3. 1 and (4,5) are the least likely symbols.
        - Assign the next longest symbols to 1 and (4,5) with equal lengths : 0X
        - Combine the symbols 1 and (4,5) into a single symbol 0X, with a probability assignment 0.55.   
          |Symbol|Codeword c|p(c)|
          |:-:|:-:|:-:|
-         |(1, (4, 5))|0X|0.55|
-         |(2, 3)|1X|0.45|
+         |1<br>4<br>5|01<br>000<br>001|0.55|
+         |2<br>3|10<br>11|0.45|
     4. (1,4,5) and (2,3) are the final two symbols.
        - Assign the next longest symbols to (1,4,5) and (2,3) with equal lengths : X
        - Combine the symbols (1,4,5) and (2,3) into a single symbol X, with a probability assignment 1.00.   
          |Symbol|Codeword c|p(c)|
          |:-:|:-:|:-:|
-         |((2, 3), (1, (4, 5)))|X|1.00|
+         |1<br>2<br>3<br>4<br>5|01<br>10<br>11<br>000<br>001|1.00|
 
 <br><br>
 
@@ -73,14 +73,14 @@
      - Assign the longest symbol to 3,4,5 and combine the probabilities.   
        |Symbol|Codeword c|p(c)|
        |:-:|:-:|:-:|
-       |(3, 4, 5)|0X|0.5|
+       |3<br>4<br>5<b4>|00<br>01<br>02|0.5|
        |1|-|0.25|
        |2|-|0.25|
   2. (3,4,5), 1, 2 are the least likely three symbols.
      - Assign the longest symbol to (3,4,5), 1, 2 and combine the probabilities.   
        |Symbol|Codeword c|p(c)|
        |:-:|:-:|:-:|
-       |((3, 4, 5), 1, 2)|X|1.00|
+       |1<br>2<br>3<br>4<br>5<b4>|10<br>20<br>00<br>01<br>02|0.5|
 
 <br><br>
 
