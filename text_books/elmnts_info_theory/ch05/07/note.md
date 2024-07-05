@@ -90,6 +90,7 @@
             \log\frac{1}{0.9999} \approx 0.000144276718044 & \Rightarrow \left\lceil \log\frac{1}{0.9999} \right\rceil = 1 \\
             \log\frac{1}{0.0001} \approx 13.28771237954945 & \Rightarrow \left\lceil \log\frac{1}{0.0001} \right\rceil = 14 \\
         \end{cases}`$
+        - Refer to [this script](ShannonCode.py) for the calculation.
     - On the other hand, the optimal codeword length is obviously 1bit for both symbol : 0 and 1.
 - The optimal code is not always less than the Shannon code.
   - i.e.) Individual symbol of Shannon code can be less than the optimal code.

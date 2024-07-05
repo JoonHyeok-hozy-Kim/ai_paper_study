@@ -97,7 +97,7 @@
 |7.10|[Sparse Representations](ch07/10/note.md)|- Sparsity <br> - Orthogonal Matching Pursuit (OMP-k)|
 |7.11|[Bagging and Other Ensemble Methods](ch07/11/note.md)|- Bagging (Bootstrap Aggregating), Model Averaging Strategy <br> - Boosting|
 |7.12|[Dropout](ch07/12/note.md)|- Comparison with Bagging <br> - Inference : Weight Scaling Inference Rule <br> - Fast Dropout, Dropout Boosting, DropConnect|
-|7.13|[Adversarial Training](ch07/13/note.md)|- Adversarial Example|
+|7.13|[Adversarial Training](ch07/13/note.md)|- Adversarial Example <br> - Virtual Adversarial Example|
 |7.14|[Tangent Distance, Tangent Prop, and Manifold Tangent Classifier](ch07/14/note.md)|- |
 
 
