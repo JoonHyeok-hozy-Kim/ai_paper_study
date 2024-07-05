@@ -2,7 +2,7 @@
 
 # 5.5 Kraft Inequality for Uniquely Decodable Codes
 
-### Theorem 5.5.1) MacMillan
+### Theorem 5.5.1) McMillan Inequality
 - Ideation)
   - The [previous bound](../04/note.md#theorem-541-bounds-on-the-optimal-code-length) is based on [Theorem 5.3.1](../03/note.md#theorem-531-lower-bound-for-the-expected-length-of-instantaneous-codeword) which assumes the codewords to be [instantaneous](../01/note.md#concept-prefix-code-instantaneous-code).
   - However, [instantaneous](../01/note.md#concept-prefix-code-instantaneous-code) is a strict assumption.

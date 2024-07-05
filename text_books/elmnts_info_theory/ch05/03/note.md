@@ -2,11 +2,18 @@
 
 # 5.3 Optimal Codes
 
+### Concept) Optimal Code
+- Def.)
+  - A code is optimal if $`\sum p_i l_i`$ is minimal.
+
+<br>
+
 ### Problem) Finding the Prefix Code with the Minimum Expected Length
 - Objective)
   - Recall that the [Kraft Inequality](../02/note.md#theorem-521-kraft-inequality) provided a sufficient condition for the existence of a codeword set with the specified set of codeword lengths.
-  - We now consider the problem of finding **the prefix code with the minimum expected length**.
-    - Or, finding the [D-adic distribution](#concept-d-adic-probability-distribution) closest to the distribution of $`X`$.
+  - We now consider the problem of finding the [optimal code](#concept-optimal-code).
+    - i.e) **the prefix code with the minimum expected length**.
+      - Or, finding the [D-adic distribution](#concept-d-adic-probability-distribution) closest to the distribution of $`X`$.
 - Problem)
   - Finding the set of lengths $`l_1, l_2, \cdots, l_m`$ satisfying...
     - the [Kraft Inequality](../02/note.md#theorem-521-kraft-inequality)

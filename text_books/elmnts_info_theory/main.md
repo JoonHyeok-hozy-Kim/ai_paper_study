@@ -49,9 +49,10 @@
 |5.2|[Kraft Inequality](ch05/02/note.md)|- $`\displaystyle \sum_i D^{-l_i} \le 1`$ <br>- $`\displaystyle \sum_{i=1}^\infty = D^{-l_i} \le 1`$|
 |5.3|[Optimal Codes](ch05/03/note.md)|- $`L \ge H_D(X)`$ <br> - $`D`$-adic Probability Distribution|
 |5.4|[Bounds on the Optimal Code Length](ch05/04/note.md)|- $`H_D(X) \le L^\ast \lt H_D(X) + 1`$ <br> - $`\displaystyle \frac{H(X_1, X_2, \cdots, X_n)}{n} \le L_n^\ast \lt \frac{H(X_1, X_2, \cdots, X_n)}{n} +\frac{1}{n}`$ <br> - If the stochastic process is stationary, $`L_n^\ast \rightarrow H(\mathcal{X})`$ : entropy rate <br> - $`H(p) + D(p\|\|q) \le E_p l(X) \lt H(p) + D(p\|\|q) + 1`$|
-|5.5|[Kraft Inequality for Uniquely Decodable Codes](ch05/05/note.md)|- |
+|5.5|[Kraft Inequality for Uniquely Decodable Codes](ch05/05/note.md)|- McMillan Inequality|
 |5.6|[Huffman Codes](ch05/06/note.md)|- Examples) Binary Code, Ternary Code, Dummy Code|
 |5.7|[Some Comments on Huffman Codes](ch05/07/note.md)|- Equivalence of Source Coding and 20 Questions <br> - Huffman coding for weighted codewords <br> - Slice Code (Alphabetic Code) <br> - Shannon code <br> - Fano code|
+|5.8|[Optimality of Huffman Codes](ch05/08/note.md)|- |
 
 
 
