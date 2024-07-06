@@ -89,15 +89,64 @@
       |$`p_{m-1} + p_m`$|$`w_{m-1}'`$|$`l_{m-1}'`$|
   - We want to show that the optimal code for $`\mathbf{p}`$ can be obtained by extending the optimal code for $`\mathbf{p}'`$.
     - Procedure)
-      - a) Expand an optimal code for $`\mathbf{p}'`$ to construct a code for $`\mathbf{p}`$.
-      - b) Condense an optimal canonical code for $`\mathbf{p}`$ to construct a code for the [Huffman reduction](#concept-huffman-reduction) $`\mathbf{p}'`$.
+      - a) Expand $`C^\ast_{m-1}(\mathbf{p}')`$ to construct a code for $`\mathbf{p}`$.
+      - b) Condense $`C^\ast_m (p)`$ to construct a code for the [Huffman reduction](#concept-huffman-reduction) $`\mathbf{p}'`$.
       - c) Compare the average codeword lengths for the two codes.
-    - a) Expand an optimal code for $`\mathbf{p}'`$ to construct a code for $`\mathbf{p}`$.
-      - Take the codeword in $`C^\ast_{m-1}(\mathbf{p}')`$ corresponding to weight $`p_{m-1}+p_m`$.
-        - i.e.) the codeword for symbol $`m-1`$
-      - Extend it by adding $`\begin{cases} 0 \\ 1 \end{cases}`$ to form a codeword for symbol $`\begin{cases} m-1 \\ m \end{cases}`$.
-      - Denote the new code as $`C_m(\mathbf{p})`$.
-      - 
+    - a) Expand $`C^\ast_{m-1}(\mathbf{p}')`$, to construct a code for $`\mathbf{p}`$.
+      - Extend $`w_{m-1}`$ by adding $`\begin{cases} 0 \\ 1 \end{cases}`$ to form a codeword for symbol $`\begin{cases} m-1 \\ m \end{cases}`$.
+      - Denoting the new code as $`C_m(\mathbf{p})`$, it may look like...
+        |Probability|Codeword|Length|Desc.|
+        |:-:|:-:|:-:|:-:|
+        |$`p_1`$|$`w_1'`$|$`l_1'`$||
+        |$`p_2`$|$`w_2'`$|$`l_2'`$||
+        |$`\vdots`$|$`\vdots`$|$`\vdots`$||
+        |$`p_{m-2}`$|$`w_{m-2}'`$|$`l_{m-2}'`$||
+        |$`p_{m-1} `$|$`w_{m-1}'0`$|$`l_{m-1}'+1`$|0 added to $`w_{m-1}'`$|
+        |$`p_m`$|$`w_{m-1}'1`$|$`l_{m-1}'+1`$|1 added to $`w_{m-1}'`$|
+      - Then the average length of $`C_m(\mathbf{p})`$ goes   
+        $`\begin{aligned}
+          L(\mathbf{p}) &= \sum_{i=1}^{m-2} p_i l_i' + p_{m-1}(l_{m-1}'+1) + p_m(l_{m-1}'+1) \\
+          &= \sum_{i=1}^{m-2} p_i l_i' + (p_{m-1} + p_m)l_{m-1}' + (p_{m-1} + p_m) \\
+          &= L^\ast(\mathbf{p}') + (p_{m-1} + p_m)
+        \end{aligned}`$
+        - where $`L^\ast(\mathbf{p}')`$ is the average length of $`C^\ast_{m-1}(\mathbf{p}')`$
+      - Thus,   
+        $`L(\mathbf{p}) - L^\ast(\mathbf{p}') = p_{m-1} + p_m \; \cdots (A)`$
+    - b) Condense $`C^\ast_m (p)`$ to construct a code for the [Huffman reduction](#concept-huffman-reduction) $`\mathbf{p}'`$.
+      - Similarly, condense $`C^\ast_m (p)`$ by dropping the last digits of $`w_{m-1}`$ and $`w_m`$.
+        - They will be identical after the drop, so merge the probabilities $`p_{m-1}`$ and $`p_m`$.
+      - Denoting the new code as $`C_{m-1}(\mathbf{p}')`$, it may look like
+        |Probability|Codeword|Length|Desc.|
+        |:-:|:-:|:-:|:-:|
+        |$`p_1`$|$`w_1`$|$`l_1`$||
+        |$`p_2`$|$`w_2`$|$`l_2`$||
+        |$`\vdots`$|$`\vdots`$|$`\vdots`$||
+        |$`p_{m-2}`$|$`w_{m-2}`$|$`l_{m-2}`$||
+        |$`p_{m-1} + p_m`$|$`\hat{w_{m-1}}`$|$`l_{m-1}-1`$|Last digit dropped and probabilities summed.|
+      - Then the average length of $`C_m(\mathbf{p}')`$ goes     
+        $`\begin{aligned}
+          L(\mathbf{p}') &= \sum_{i=1}^{m-2} p_i l_i + (p_{m-1} + p_m) (l_{m-1}-1) \\
+          &= \sum_{i=1}^{m-2} p_i l_i + p_{m-1} l_{m-1} + p_m l_{m-1} - (p_{m-1} + p_m) \\
+          &= \sum_{i=1}^{m-2} p_i l_i + p_{m-1} l_{m-1} + p_m l_{m} - (p_{m-1} + p_m) & \because l_{m-1} = l_m \\
+          &= L^\ast(\mathbf{p}) - (p_{m-1} + p_m)
+        \end{aligned}`$
+        - where $`L^\ast(\mathbf{p})`$ is the average length of $`C^\ast_m (p)`$
+      - Thus,   
+        $`L^\ast(\mathbf{p}) - L(\mathbf{p}') = p_{m-1} + p_m \; \cdots (B)`$
+    - c) Compare the average codeword lengths for the two codes.
+      - From $`(A) \textrm{ and } (B)`$ we get
+        - $`p_{m-1} + p_m = L(\mathbf{p}) - L^\ast(\mathbf{p}') = L^\ast(\mathbf{p}) - L(\mathbf{p}')`$
+      - Thus,   
+        - $`(L(\mathbf{p}') - L^\ast(\mathbf{p}')) + (L(\mathbf{p}) - L^\ast(\mathbf{p})) = 0 \; \cdots (C)`$
+      - Since $`L^\ast(\mathbf{p}')`$ and $`L^\ast(\mathbf{p})`$ are optimal codes by assumption,
+        - we have $`\begin{cases} L(\mathbf{p}') - L^\ast(\mathbf{p}') \ge 0 \\ L(\mathbf{p}) - L^\ast(\mathbf{p}) \ge 0 \\ \end{cases} \; \cdots (D)`$
+      - By $`(C) \textrm{ and } (D), \begin{cases} L(\mathbf{p}') = L^\ast(\mathbf{p}') \\ L(\mathbf{p}) = L^\ast(\mathbf{p}) \\ \end{cases}`$
+        - i.e.)
+          - The extension of the optimal code for $`\mathbf{p}'`$ is optimal for $`\mathbf{p}`$
+          - The condensation of the optimal code for $`\mathbf{p}`$ is optimal for $`\mathbf{p}'`$.
+  - Consequently, if we start with an optimal code for $`\mathbf{p}'`$ with $`m − 1`$ symbols and construct a code for $`m`$ symbols by extending the codeword corresponding to $`p_{m−1} + p_m`$, the new code is also optimal.
+  - Therefore, starting with a code for two elements, in which case the optimal code is obvious, we can by induction extend this result to prove the theorem.
+  - Without the loss of generality, we can prove for the $`D`$-ary alphabet case.
 
 
 
