@@ -100,6 +100,13 @@
 |7.13|[Adversarial Training](ch07/13/note.md)|- Adversarial Example <br> - Virtual Adversarial Example|
 |7.14|[Tangent Distance, Tangent Prop, and Manifold Tangent Classifier](ch07/14/note.md)|- Tangent Distance Algorithm <br> - Tangent Propagation Algorithm <br> - Manifold Tangent Classifier (Autoencoder)|
 
+<br>
+
+## 8. Optimization for Training Deep Models
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|8.1|[How Learning Differs from Pure Optimization](ch08/01/note.md)|- |
+
 
 
 
