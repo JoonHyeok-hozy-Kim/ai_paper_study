@@ -71,14 +71,22 @@
     - $`\mathbf{p}'`$ : the [Huffman reduced](#concept-huffman-reduction) probability mass function for an alphabet of size $`m-1`$ 
       - where $`\mathbf{p}' = \underbrace{(p_1, p_2, \cdots, p_{m-2}, p_{m-1} + p_m)}_{m-1}`$
     - $`C^\ast_m (p)`$ : the [canonical](#concept-canonical-code) optimal code for $`\mathbf{p}`$
+      |Probability|Codeword|Length|
+      |:-:|:-:|:-:|
+      |$`p_1`$|$`w_1`$|$`l_1`$|
+      |$`p_2`$|$`w_2`$|$`l_2`$|
+      |$`\vdots`$|$`\vdots`$|$`\vdots`$|
+      |$`p_{m-2}`$|$`w_{m-2}`$|$`l_{m-2}`$|
+      |$`p_{m-1} `$|$`w_{m-1}`$|$`l_{m-1}`$|
+      |$`p_m`$|$`w_{m}`$|$`l_{m}`$|
     - $`C^\ast_{m-1}(\mathbf{p}')`$ : an optimal code for $`\mathbf{p}'`$   
       |Probability|Codeword|Length|
       |:-:|:-:|:-:|
-      |$`p_1`$|$`w_1'`$|$`l_1'$`|
-      |$`p_2`$|$`w_2'`$|$`l_2'$`|
-      |$`\vdots`$|$`\vdots`$|$`\vdots$`|
-      |$`p_{m-2}`$|$`w_{m-2}'`$|$`l_{m-2}'$`|
-      |$`p_{m-1} + p_m`$|$`w_{m-1}'`$|$`l_{m-1}'$`|
+      |$`p_1`$|$`w_1'`$|$`l_1'`$|
+      |$`p_2`$|$`w_2'`$|$`l_2'`$|
+      |$`\vdots`$|$`\vdots`$|$`\vdots`$|
+      |$`p_{m-2}`$|$`w_{m-2}'`$|$`l_{m-2}'`$|
+      |$`p_{m-1} + p_m`$|$`w_{m-1}'`$|$`l_{m-1}'`$|
   - We want to show that the optimal code for $`\mathbf{p}`$ can be obtained by extending the optimal code for $`\mathbf{p}'`$.
     - Procedure)
       - a) Expand an optimal code for $`\mathbf{p}'`$ to construct a code for $`\mathbf{p}`$.
