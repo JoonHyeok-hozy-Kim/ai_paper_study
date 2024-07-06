@@ -105,7 +105,7 @@
 ## 8. Optimization for Training Deep Models
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|8.1|[How Learning Differs from Pure Optimization](ch08/01/note.md)|- Empirical Risk Minimization|
+|8.1|[How Learning Differs from Pure Optimization](ch08/01/note.md)|- Empirical Risk Minimization <br> - Surrogate Loss Function|
 
 
 
