@@ -86,6 +86,9 @@
     - Typically the early stopping criterion is based on the true underlying loss function, not the **surrogate loss function**.
     - Thus, training often halts while the surrogate loss function still has large derivatives.
 
+<br><br>
+
+## 8.1.3 Batch and Minibatch Algorithms
 
 
 <br>

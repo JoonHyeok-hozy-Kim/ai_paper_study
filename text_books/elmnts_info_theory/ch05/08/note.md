@@ -40,16 +40,56 @@
       - This does not change the expected length, $`\sum p_i l_i`$. 
       - Thus, the codewords for the two lowest-probability source symbols have maximal length and agree in all but the last bit.
 
+<br>
 
+### Concept) Canonical Code
+- Def.)
+  - An optimal code that satisfies the properties of [Lemma 5.8.1](#lemma-581).
 
+<br>
 
+### Concept) Huffman Reduction
+- Def.)
+  - For
+    - $`\mathbf{p} = \underbrace{(p_1, p_2, \cdots, p_m)}_m`$ : a probability mass function for an alphabet of size $`m`$
+      - such that $`p_1 \ge p_2 \ge \cdots \ge p_m`$.
+  - the **Huffman reduction** is defined as
+    - $`\mathbf{p}' = \underbrace{(p_1, p_2, \cdots, p_{m-2}, p_{m-1} + p_m)}_{m-1}`$ : the probability mass function over an alphabet of size $`m-1`$
 
+<br>
 
-
-
-
-
-
+### Theorem 5.8.1) 
+- Theorem)
+  - Huffman coding is optimal.
+    - i.e.) 
+      - For a Huffman code $`C^\ast`$, $`L(C^\ast) \le L(C')`$
+        - where $`C'`$ is any uniquely decodable code.
+- pf.)
+  - Let
+    - $`\mathbf{p}`$ : a probability mass function for an alphabet of size $`m`$
+      - where $`\mathbf{p} = \underbrace{(p_1, p_2, \cdots, p_m)}_m`$
+    - $`\mathbf{p}'`$ : the [Huffman reduced](#concept-huffman-reduction) probability mass function for an alphabet of size $`m-1`$ 
+      - where $`\mathbf{p}' = \underbrace{(p_1, p_2, \cdots, p_{m-2}, p_{m-1} + p_m)}_{m-1}`$
+    - $`C^\ast_m (p)`$ : the [canonical](#concept-canonical-code) optimal code for $`\mathbf{p}`$
+    - $`C^\ast_{m-1}(\mathbf{p}')`$ : an optimal code for $`\mathbf{p}'`$   
+      |Probability|Codeword|Length|
+      |:-:|:-:|:-:|
+      |$`p_1`$|$`w_1'`$|$`l_1'$`|
+      |$`p_2`$|$`w_2'`$|$`l_2'$`|
+      |$`\vdots`$|$`\vdots`$|$`\vdots$`|
+      |$`p_{m-2}`$|$`w_{m-2}'`$|$`l_{m-2}'$`|
+      |$`p_{m-1} + p_m`$|$`w_{m-1}'`$|$`l_{m-1}'$`|
+  - We want to show that the optimal code for $`\mathbf{p}`$ can be obtained by extending the optimal code for $`\mathbf{p}'`$.
+    - Procedure)
+      - a) Expand an optimal code for $`\mathbf{p}'`$ to construct a code for $`\mathbf{p}`$.
+      - b) Condense an optimal canonical code for $`\mathbf{p}`$ to construct a code for the [Huffman reduction](#concept-huffman-reduction) $`\mathbf{p}'`$.
+      - c) Compare the average codeword lengths for the two codes.
+    - a) Expand an optimal code for $`\mathbf{p}'`$ to construct a code for $`\mathbf{p}`$.
+      - Take the codeword in $`C^\ast_{m-1}(\mathbf{p}')`$ corresponding to weight $`p_{m-1}+p_m`$.
+        - i.e.) the codeword for symbol $`m-1`$
+      - Extend it by adding $`\begin{cases} 0 \\ 1 \end{cases}`$ to form a codeword for symbol $`\begin{cases} m-1 \\ m \end{cases}`$.
+      - Denote the new code as $`C_m(\mathbf{p})`$.
+      - 
 
 
 

@@ -52,7 +52,7 @@
 |5.5|[Kraft Inequality for Uniquely Decodable Codes](ch05/05/note.md)|- McMillan Inequality|
 |5.6|[Huffman Codes](ch05/06/note.md)|- Examples) Binary Code, Ternary Code, Dummy Code|
 |5.7|[Some Comments on Huffman Codes](ch05/07/note.md)|- Equivalence of Source Coding and 20 Questions <br> - Huffman coding for weighted codewords <br> - Slice Code (Alphabetic Code) <br> - Shannon code <br> - Fano code|
-|5.8|[Optimality of Huffman Codes](ch05/08/note.md)|- |
+|5.8|[Optimality of Huffman Codes](ch05/08/note.md)|- Canonical Code <br> - Huffman Reduction|
 
 
 
