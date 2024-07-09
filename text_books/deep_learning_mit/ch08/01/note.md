@@ -89,6 +89,68 @@
 <br><br>
 
 ## 8.1.3 Batch and Minibatch Algorithms
+- Prop.)
+  - The objective functions of ML algorithms usually decomposes as a sum over the training examples.
+    - why?) They use **only a subset** of the terms of the full cost function for computing each update to the parameters.
+    - e.g) Maximum Likelihood estimation
+      - $`\displaystyle \theta_{ML} = \arg\max_\theta \sum_{i=1}^m \log p_{\textrm{model}} \left( x^{(i)}, y^{(i)}; \theta \right)`$
+        - Maximizing this sum is equivalent to maximizing the **expectation** over the empirical distribution defined by the training set:
+          - $`J(\theta) = \mathbb{E}_{\mathbf{x, y}\sim\hat{p}_{\textrm{data}}} \log p_{\textrm{model}} \left( x, y; \theta \right)`$
+    - Efficiency
+      - e.g.) Consider the problem of getting the gradient as
+        - $`\nabla_\theta J(\theta) = \mathbb{E}_{\mathbf{x, y}\sim\hat{p}_{\textrm{data}}} \nabla_\theta \log p_{\textrm{model}} \left( x, y; \theta \right)`$
+          - Consider that the sample standard error of the mean was $`\sigma/\sqrt{n}`$.
+          - Thus, if we compare the training set of sizes $`\begin{cases} n_1 = 100 \\ n_2 = 10000 \end{cases}`$, $`n_2`$ requires 100 times more computation for reducing the standard error of the mean only by a factor of 10.
+
+<br>
+
+#### Concept) Batch Gradient Method (Deterministic Gradient Method) 
+- Def.)
+  - Optimization algorithms that use the entire training set.
+
+<br>
+
+#### Concept) Stochastic Gradient Method (Online Gradient Method)
+- Def.)
+  - Optimization algorithms that use only a single example at a time.
+  - The term **online** is usually reserved for the case where the examples are drawn from a stream of continually created examples rather than from a fixed-size training set over which several passes are made.
+
+<br>
+
+### Tech.) Factors for Setting Minibatch Sizes
+- Larger batches provide a more accurate estimate of the gradient.
+  - But the returns are NOT linear.
+- Multicore architectures are usually underutilized by extremely **small batches**. 
+  - This motivates using some absolute **minimum** batch size, below which there is no reduction in the time to process a minibatch.
+- If all examples in the batch are to be processed in parallel (as is typically the case), then the amount of memory scales with the batch size. 
+  - For many hardware setups this is the limiting factor in batch size.
+- Some kinds of hardware achieve better runtime with specific sizes of arrays. 
+  - GPU
+    - it is common for power of 2 batch sizes to offer better runtime. 
+    - Typical power of 2 batch sizes range from 32 to 256, with 16 sometimes being attempted for large models.
+- Small batches can offer a [regularizing](../../main.md/#7-regularization-for-deep-learning) effect, perhaps due to the **noise** they add to the learning process. 
+  - Generalization error is often best for a batch size of 1. 
+  - Training with such a **small batch size** might require a **small learning rate** to maintain stability due to the high variance in the estimate of the gradient. 
+  - The total runtime can be very high due to the need to make more steps, both because of the reduced learning rate and because it takes more steps to observe the entire training set.
+
+<br>
+
+### Prop.) Sensitivity to Sampling Errors
+- Some algorithms are more sensitive to sampling error than others.
+  - Why?)
+    - Some use information that is difficult to estimate accurately with few samples.
+    - Some use information in ways that amplify sampling errors more.
+  - e.g.)
+    - Methods that compute updates based only on the gradient $`\mathbf{g}`$ are usually relatively robust and can handle smaller batch sizes like 100.
+    - Second-order methods, which use also the Hessian matrix $`H`$ and compute updates such as $`H^{−1}\mathbf{g}`$, typically require much larger batch sizes like 10,000.
+      - These large batch sizes are required to minimize fluctuations in the estimates of $`H^{−1}\mathbf{g}`$.
+      - If $`H`$ is estimated perfectly but has a poor condition number, the multiplication by $`H^{-1}`$ amplifies pre-existing estimation errors in $`\mathbf{g}`$.
+        - Thus, very small change in the estimate of $`\mathbf{g}`$ can cause large changes in the update $`H^{-1}\mathbf{g}`$
+- Minibatches must be selected randomly.
+  - why?)
+    - Computing an **unbiased estimate** of the expected gradient from a set of samples requires that those **samples be independent**.
+    - We also wish for two subsequent gradient estimates to be independent from each other, so two subsequent minibatches of examples should also be independent from each other.
+  - In case of large dataset
 
 
 <br>
