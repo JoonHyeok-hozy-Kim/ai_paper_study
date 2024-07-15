@@ -150,7 +150,10 @@
   - why?)
     - Computing an **unbiased estimate** of the expected gradient from a set of samples requires that those **samples be independent**.
     - We also wish for two subsequent gradient estimates to be independent from each other, so two subsequent minibatches of examples should also be independent from each other.
-  - In case of large dataset
+- We can compute entire separate updates over different examples in parallel.
+  - i.e.)
+    - Simultaneously computing the update that minimize $`J(X_1)`$, we can compute update for other minibatches $`X_2, X_3, \cdots`$ and so on.
+- **Minibatch Stochastic Gradient Descent** follows the gradient of the true generalization error so long as no examples are repeated.
 
 
 <br>

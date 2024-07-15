@@ -106,6 +106,7 @@
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
 |8.1|[How Learning Differs from Pure Optimization](ch08/01/note.md)|- Empirical Risk Minimization <br> - Surrogate Loss Function <br> - Batch Gradient Method (Deterministic Gradient Method) |
+|8.2|[Challenges in Neural Network Optimization](ch08/02/note.md)|- |
 
 
 
