@@ -92,19 +92,19 @@
 <br><br>
 
 ### Corollary 5.10.2)
-
-
-
-
-<br><br>
-
-
-
-
-
-
-
-
+- Theorem)
+  - For non-dyadic probability mass functions,
+    - $`E \left[ \textrm{sgn}(l(X) - l'(X)) \right] \le 1`$
+      - where
+        - $`\displaystyle l(x) = \log\frac{1}{p(x)}`$
+        - $`l'(x)`$ is any other code for the source
+- pf.)
+  - In [Theorem 5.10.2](#theorem-5102)'s pf., we have shown that   
+    $`\begin{aligned}
+      \textrm{Pr}\left(l(X) \lt l'(X)\right) - \textrm{Pr}\left(l(X) \gt l'(X)\right)
+        &= E \left[ \textrm{sgn}(l(X) - l'(X)) \right] \\
+        &\le 0
+    \end{aligned}`$
 
 
 <br>
