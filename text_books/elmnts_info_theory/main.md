@@ -54,6 +54,7 @@
 |5.7|[Some Comments on Huffman Codes](ch05/07/note.md)|- Equivalence of Source Coding and 20 Questions <br> - Huffman coding for weighted codewords <br> - Slice Code (Alphabetic Code) <br> - Shannon code <br> - Fano code|
 |5.8|[Optimality of Huffman Codes](ch05/08/note.md)|- Canonical Code <br> - Huffman Reduction|
 |5.9|[Shannon-Fano-Elias Coding](ch05/09/note.md)|- |
+|5.10|[Competitive Optimality of the Shannon Code](ch05/09/note.md)|- |
 
 
 
