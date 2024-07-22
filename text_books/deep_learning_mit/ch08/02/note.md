@@ -164,11 +164,33 @@
 <br>
 
 ## 8.2.6 Inexact Gradients
-
+- Desc.)
+  - Most optimization algorithms are designed with the assumption that we have access to the exact gradient or Hessian matrix.
+  - In practice, we usually only have a **noisy or even biased estimate** of these quantities.
+    - Why?)
+      - Reliance on sampling-based estimates
+        - e.g) a minibatch of training examples to compute the gradient.
+      - Sometimes the objective function we want to minimize is intractable.
+        - When the objective function is intractable, typically its gradient is intractable as well.
+        - In such cases we can only **approximate** the gradient.
 
 <br>
 
 ## 8.2.7 Poor Correspondence between Local and Global Structure
+- Desc.)
+  - What if improvements in local does not point toward the global optimum?
+    - Previous problems and solutions were related to issues happening at a single point $`\theta`$.
+      - e.g.) $`\theta`$ is at a saddle point.
+    - Even though we somehow overcame those difficulties and found local optima, this does now guarantee the direction to the global optimum.
+    - Moreover, neural network sdo not even arrive at a critical point of any kind in practice.
+      - e.g.)
+        - Consider a loss function $`J(\theta) = -\log p(y| x;\theta)`$.
+        - This may lack a global minimum point.
+        - Instead, it may asymptotically approach some value as the model becomes more confident.
+          - e.g.) Classification problem with $`p(y|x) \in [0,1]`$ estimating $`y \in \{0, 1\}`$ provided by a [softmax function](../../ch04/01/note.md#softmax-function).
+            - Then $`p(y|x)`$ can become arbitrarily close to 0 or 1, but cannot reach the exact value of them respectively.
+    - Many existing research directions are aimed at **finding good initial points** for problems that have difficult global structure
+      - rather than developing algorithms that use non-local moves.
 
 
 <br>
@@ -177,20 +199,6 @@
 
 
 <br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <br>
