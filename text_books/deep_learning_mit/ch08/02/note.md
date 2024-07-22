@@ -193,14 +193,6 @@
       - rather than developing algorithms that use non-local moves.
 
 
-<br>
-
-## 8.2.8 Theoretical Limits of Optimization
-
-
-<br>
-
-
-<br>
+<br><br>
 
 * [Back to Deep Learning MIT](../../main.md)

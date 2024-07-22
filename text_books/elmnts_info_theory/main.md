@@ -55,6 +55,7 @@
 |5.8|[Optimality of Huffman Codes](ch05/08/note.md)|- Canonical Code <br> - Huffman Reduction|
 |5.9|[Shannon-Fano-Elias Coding](ch05/09/note.md)|- |
 |5.10|[Competitive Optimality of the Shannon Code](ch05/10/note.md)|- |
+|5.11|[Generation of Discrete Distributions from Fair Coins](ch05/11/note.md)|- |
 
 
 
