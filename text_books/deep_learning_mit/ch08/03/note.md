@@ -32,7 +32,7 @@
       - $`\displaystyle \sum_{k=1}^\infty \epsilon_k = \infty \wedge \sum_{k=1}^\infty \epsilon_k^2 \lt \infty`$
       - How to implement this?)
         - Decay the learning rate linearly until iteration $`\tau`$:
-          - $`\epsilon_k = (1-\alpha)\epsilon_0` + \alpha \epsilon_\tau$
+          - $`\epsilon_k = (1-\alpha)\epsilon_0` + \alpha \epsilon_\tau`$
             - where $`\alpha = \frac{k}{\tau}`$
         - e.g.) Linear schedule
           - We should set $`\epsilon_0, \epsilon_\tau, \textrm{ and } \tau`$.
@@ -43,14 +43,14 @@
                 - Why?)
                   - If it is too large, the learning curve will show violent oscillations, with the cost function often increasing significantly. 
                     - Gentle oscillations are fine, especially if training with a stochastic cost function such as the cost function arising from the use of dropout. 
-                  - If the learning rate is too low, learning proceeds slowly, and if the initial learning rate is too low, learning may become stuck with a high cost value.
-                  - Typically, the optimal initial learning rate, in terms of total training time and the final cost value, is higher than the learning rate that yields the best performance after the first 100 iterations or so.
-
-
-
-
-
-
+                    - If the learning rate is too low, learning proceeds slowly, and if the initial learning rate is too low, learning may become stuck with a high cost value.
+                    - Typically, the optimal initial learning rate, in terms of total training time and the final cost value, is higher than the learning rate that yields the best performance after the first 100 iterations or so.
+- Props.)
+  - Computation time per update does not grow with the number of training examples.
+    - For a large enough dataset, SGD may converge to within some fixed tolerance of its final test set error before it has processed the entire training set.
+  - Convergence rate measurement using the **excess error** $`J(\theta) - \min_\theta J(\theta)`$
+    - In case of convex problem, the excess error is $`\displaystyle O\left(\frac{1}{\sqrt{k}}\right)`$ after $`k`$ iterations.
+      - cf.) For the strongly convex case, it is $`\displaystyle O\left(\frac{1}{k}\right)`$
 
 
 
