@@ -24,7 +24,7 @@
         - $`\theta \leftarrow \theta - \epsilon\hat{g}`$
     - `end while`
 - Desc.)
-  - Gradually decrease the learning rate $`\epsilon_k`$ at iteration $`k`$.
+  - Gradually decrease the **learning rate** $`\epsilon_k`$ at iteration $`k`$.
     - Why doing this?)
       - The SGD gradient estimator introduces a source of noise (the random sampling of m training examples) that does not vanish even when we arrive at a minimum.
         - cf.) For the batch gradient descents can reach 0 gradient, so the fixed learning rate is applicable.
@@ -32,8 +32,19 @@
       - $`\displaystyle \sum_{k=1}^\infty \epsilon_k = \infty \wedge \sum_{k=1}^\infty \epsilon_k^2 \lt \infty`$
       - How to implement this?)
         - Decay the learning rate linearly until iteration $`\tau`$:
-          - $`\epsilon`$
-
+          - $`\epsilon_k = (1-\alpha)\epsilon_0` + \alpha \epsilon_\tau$
+            - where $`\alpha = \frac{k}{\tau}`$
+        - e.g.) Linear schedule
+          - We should set $`\epsilon_0, \epsilon_\tau, \textrm{ and } \tau`$.
+            - $`\tau`$ may be set to the number of iterations required to make a few hundred passes through the training set.
+            - $`\epsilon_\tau`$ should be set to roughly 1% of the value of $`\epsilon_0`$.
+            - $`\epsilon_0`$ should be chosen arbitrarily.
+              - Monitor the first several iterations and use a learning rate that is higher than the best-performing learning rate at this time, but not so high that it causes severe instability.
+                - Why?)
+                  - If it is too large, the learning curve will show violent oscillations, with the cost function often increasing significantly. 
+                    - Gentle oscillations are fine, especially if training with a stochastic cost function such as the cost function arising from the use of dropout. 
+                  - If the learning rate is too low, learning proceeds slowly, and if the initial learning rate is too low, learning may become stuck with a high cost value.
+                  - Typically, the optimal initial learning rate, in terms of total training time and the final cost value, is higher than the learning rate that yields the best performance after the first 100 iterations or so.
 
 
 
