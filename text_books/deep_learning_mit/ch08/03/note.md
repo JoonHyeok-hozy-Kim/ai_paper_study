@@ -51,6 +51,10 @@
   - Convergence rate measurement using the **excess error** $`J(\theta) - \min_\theta J(\theta)`$
     - In case of convex problem, the excess error is $`\displaystyle O\left(\frac{1}{\sqrt{k}}\right)`$ after $`k`$ iterations.
       - cf.) For the strongly convex case, it is $`\displaystyle O\left(\frac{1}{k}\right)`$
+      - cf.) The Cramer-Rao bound states that generalization error cannot decrease faster than $`\displaystyle O\left(\frac{1}{k}\right)`$.
+      - cf.) Bottou and Bousquet (2008) argue that it therefore may not be worthwhile to pursue an optimization algorithm that converges faster than $`\displaystyle O\left(\frac{1}{k}\right)`$.
+        - Why?)
+          - Faster convergence presumably corresponds to overfitting
 
 
 
