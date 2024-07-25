@@ -83,8 +83,82 @@
         \theta &\leftarrow \theta + v
       \end{aligned}`$
     - Desc.)
-      - 
+      - The velocity $`v`$ accumulates the gradient elements $`\nabla_\theta\left( \frac{1}{m}\sum_{i=1}^m L \left( f(x^{(i)} ; \theta), y^{(i)} \right) \right)`$.
+      - The hyperparameter $`\alpha \in [0,1)`$ determines how quickly the contributions of previous gradients exponentially decay.
+        - The larger $`\alpha`$ is relative to the learning rate $`\epsilon`$.
+          - The more previous gradients affect the current direction.
+- Algorithm) Stochastic Gradient Descent with Momentum
+  - Input Hyperparameters)
+    - $`\epsilon`$ : the learning rate
+    - $`\alpha`$ : the momentum parameter
+  - Input Parameters)
+    - $`\theta`$ : initial parameter (vector)
+    - $`v`$ : initial velocity
+  - Procedures)
+    - `while` stopping criterion not met `do`
+      - Sample a minibatch of $`m`$ examples from the training set $`\{x^{(1)}, \cdots, x^{(m)}\}`$ with corresponding targets $`y^{(i)}`$.
+      - Compute gradient estimate:
+        - $`\displaystyle g \leftarrow \frac{1}{m} \nabla_\theta \sum_{i=1}^m L \left( f(x^{(i)} ; \theta), y^{(i)} \right)`$.
+      - Compute velocity update :
+        - $`v \leftarrow \alpha v - \epsilon g`$.
+      - Apply update:
+        - $`\theta \leftarrow \theta + v`$
+    - `end while`
+- Props.)
+  - Momentum aims primarily to solve two problems:
+    1. [Poor conditioning of the Hessian matrix](../02/note.md#821-ill-conditioning)
+       - How?)
+         - Momentum correctly traverses the canyon lengthwise, while gradient steps waste time moving back and forth across the narrow axis of the canyon.   
+           |Graphics|Desc.|
+           |:-:|:-|
+           |![](images/001.png)|At each step along the way, we draw an arrow indicating the step  that gradient descent would take at that point. We can see that a poorly conditioned  quadratic objective looks like a long, narrow valley or canyon with steep sides.|
+    2. [Variance in the stochastic gradient](../02/note.md#826-inexact-gradients)
+  - The size of the step depends on how large and how aligned a sequence of gradients are.
+    - Recall that in SGD, the size of the step was $`\epsilon g`$, the norm of the gradient multiplied by the learning rate.
+    - The step size is largest when many successive gradients point in exactly the same direction.
+    - If the momentum algorithm always observes gradient $`g`$, then it will accelerate in the direction of $`-g`$, until reaching a terminal velocity where the size of each step is $`\displaystyle \frac{\epsilon||g||}{1-\alpha}`$.
+  - How to choose $`\alpha`$?
+    - e.g.) $`\alpha = 0.9 \Rightarrow \frac{1}{1-\alpha} = 10`$
+    - Common values of $`\alpha`$ used in practice include $`0.5, 0.9, \textrm{ and } 0.99`$.
+    - Like $`\epsilon`$, $`\alpha`$ may also be adapted over time.
 
+<br><br>
+
+## 8.3.3 Nesterov Momentum
+- Desc.)
+  - A variant of [the momentum algorithm](#concept-the-method-of-momentum)
+- Update Rule)   
+  $`\begin{aligned}
+    v &\leftarrow \alpha v - \epsilon\nabla_\theta\left[ \frac{1}{m}\sum_{i=1}^m L\left( f(x^
+    {(i)}; \theta + \alpha v), y^{(i)} \right) \right] \\
+    \theta &\leftarrow \theta + v \\
+  \end{aligned}`$
+  - Desc.)
+    - The difference between Nesterov momentum and standard momentum is where the gradient is evaluated.
+      - With Nesterov momentum, the gradient is evaluated after the current velocity is applied.
+      - Thus one can interpret Nesterov momentum as attempting to add a **correction factor** to the standard method of momentum.
+- Algorithm) Stochastic Gradient Descent with Momentum
+  - Input Hyperparameters)
+    - $`\epsilon`$ : the learning rate
+    - $`\alpha`$ : the momentum parameter
+  - Input Parameters)
+    - $`\theta`$ : initial parameter (vector)
+    - $`v`$ : initial velocity
+  - Procedures)
+    - `while` stopping criterion not met `do`
+      - Sample a minibatch of $`m`$ examples from the training set $`\{x^{(1)}, \cdots, x^{(m)}\}`$ with corresponding targets $`y^{(i)}`$.
+      - Apply interim update:
+        - $`\tilde{\theta} \leftarrow \theta + \alpha v`$
+      - Compute gradient at interim point:
+        - $`\displaystyle g \leftarrow \frac{1}{m} \nabla_{\tilde{\theta}} \sum_{i=1}^m L \left( f(x^{(i)} ; \tilde{\theta}), y^{(i)} \right)`$.
+      - Compute velocity update :
+        - $`v \leftarrow \alpha v - \epsilon g`$.
+      - Apply update:
+        - $`\theta \leftarrow \theta + v`$
+    - `end while`
+- Prop.)
+  - In the **convex** batch gradient case, Nesterov momentum brings the rate of convergence of the excess error from $`\displaystyle O\left(\frac{1}{k}\right)`$ to $`\displaystyle O\left(\frac{1}{k^2}\right)`$
+  - Unfortunately, in the stochastic gradient case, Nesterov momentum does not improve the rate of convergence.
 
 
 <br>
