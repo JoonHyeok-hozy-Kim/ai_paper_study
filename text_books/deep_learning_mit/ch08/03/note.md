@@ -52,6 +52,34 @@
     - In case of convex problem, the excess error is $`\displaystyle O\left(\frac{1}{\sqrt{k}}\right)`$ after $`k`$ iterations.
       - cf.) For the strongly convex case, it is $`\displaystyle O\left(\frac{1}{k}\right)`$
 
+<br><br>
+
+## 8.3.2 Momentum
+### Concept) The Method of Momentum
+- Desc.)
+  - An optimization technique faster than [SGD](#831-stochastic-gradient-descent) when...
+    - in the face of high curvature
+    - gradients are small but consistent
+    - gradients are noisy
+  - It accumulates an exponentially decaying mo**ving average of past gradients** and continues to move in their direction.
+- Key Concept)
+  - Momentum
+    - cf.) In physics, $`(\textrm{Momentum}) = (\textrm{Mass}) \times (\textrm{Velocity})`$.
+      - In this method, we assume the unit mass, so $`(\textrm{Momentum}) = (\textrm{Velocity})`$.
+  - Velocity $`v`$
+    - Def.)
+      - The direction and speed at which the parameters move through parameter space.
+    - Props.)
+      - The velocity is set to an exponentially decaying average of the negative gradient.
+  - Updating Rule)
+    - Rule)   
+      $`\begin{aligned}
+        v &\leftarrow \alpha v - \epsilon\nabla_\theta\left( \frac{1}{m}\sum_{i=1}^m L
+        \left( f(x^{(i)} ; \theta), y^{(i)} \right) \right), & \alpha \in [0,1) \\
+        \theta &\leftarrow \theta + v
+      \end{aligned}`$
+    - Desc.)
+      - 
 
 
 
