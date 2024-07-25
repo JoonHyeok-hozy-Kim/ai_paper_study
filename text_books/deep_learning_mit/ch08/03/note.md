@@ -20,7 +20,7 @@
       - Sample a minibatch of $`m`$ examples from the training set $`\{x^{(1)}, \cdots, x^{(m)}\}`$ with corresponding targets $`h^{(i)}`$.
       - Compute gradient estimate as
         - $`\displaystyle\hat{g} \leftarrow \hat{g} + \frac{1}{m}\nabla_\theta \sum_{i=1}^m L\left( f(x^{(i)};\theta), y^{(i)}\right)`$.
-      - Apply update as
+      - Apply update as:
         - $`\theta \leftarrow \theta - \epsilon\hat{g}`$
     - `end while`
 - Desc.)
@@ -32,7 +32,7 @@
       - $`\displaystyle \sum_{k=1}^\infty \epsilon_k = \infty \wedge \sum_{k=1}^\infty \epsilon_k^2 \lt \infty`$
       - How to implement this?)
         - Decay the learning rate linearly until iteration $`\tau`$:
-          - $`\epsilon_k = (1-\alpha)\epsilon_0` + \alpha \epsilon_\tau`$
+          - $`\epsilon_k = (1-\alpha)\epsilon_0 + \alpha \epsilon_\tau`$
             - where $`\alpha = \frac{k}{\tau}`$
         - e.g.) Linear schedule
           - We should set $`\epsilon_0, \epsilon_\tau, \textrm{ and } \tau`$.
