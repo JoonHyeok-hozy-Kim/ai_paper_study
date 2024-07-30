@@ -107,7 +107,7 @@
 |:-:|:------|:-------|
 |8.1|[How Learning Differs from Pure Optimization](ch08/01/note.md)|- Empirical Risk Minimization <br> - Surrogate Loss Function <br> - Batch Gradient Method (Deterministic Gradient Method) |
 |8.2|[Challenges in Neural Network Optimization](ch08/02/note.md)|- Ill-Conditioning<br> - Local Minima : Model Identifiability, Weight Space Symmetry<br> - Plateaus, Saddle Points and Other Flat Regions<br> - Cliffs and Exploding Gradients : Gradient Clipping Heuristic <br> - Long-Term Dependencies : Vanishing / Exploding Gradient Problem<br> - Inexact Gradients<br> - Poor Correspondence between Local and Global Structure<br> - Theoretical Limits of Optimization|
-|8.3|[Basic Algorithms](ch08/03/note.md)|- Stochastic Gradient Descent|
+|8.3|[Basic Algorithms](ch08/03/note.md)|- Stochastic Gradient Descent Algorithm <br> - Momentum, Nesterov Momentum|
 
 
 
