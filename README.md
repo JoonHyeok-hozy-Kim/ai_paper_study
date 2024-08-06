@@ -6,8 +6,6 @@
 * [Statistics](./math/statistics/main.md)
 * [Linear Algebra](./math/linear_algebra/main.md)
 
-[AJ Temp](ajiv.md)
-
 <br>
 
 ## Textbook Study
