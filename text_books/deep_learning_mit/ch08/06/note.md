@@ -47,7 +47,10 @@ Application of second-order methods to the training of deep networks.
             - $`\theta^\ast = \theta_0 - \left[H(f(\theta_0)) + \alpha I \right]^{-1}\nabla_\theta J(\theta_0)`$
               - An approximations to Newton’s method, such as the Levenberg–Marquardt algorithm
               - It works fairly well as long as the negative eigenvalues of the Hessian are still relatively close to zero.
-
+- Drawback)
+  - Immense computational cost.
+    - For $`k`$ pararmeters, the Newton's method should calculate the inversion of $`k\times k`$ Hessian matrix with computational complexity of $`O(k^3)`$.
+    - Also, since the parameters will change with every update, the inverse Hessian has to be computed at every training iteration.
 
 
 
