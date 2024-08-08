@@ -110,7 +110,7 @@
 |8.3|[Basic Algorithms](ch08/03/note.md)|- Stochastic Gradient Descent Algorithm <br> - Momentum, Nesterov Momentum|
 |8.4|[Parameter Initialization Strategies](ch08/04/note.md)|- Weight / Bias Initialization Heuristics|
 |8.5|[Algorithms with Adaptive Learning Rates](ch08/05/note.md)|- AdaGrad, RMSProp, Adam|
-|8.6|[Approximate Second-Order Methods](ch08/07/note.md)|- Newton's Method|
+|8.6|[Approximate Second-Order Methods](ch08/06/note.md)|- Newton's Method|
 
 
 <br><br>
