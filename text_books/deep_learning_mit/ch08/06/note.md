@@ -52,9 +52,15 @@ Application of second-order methods to the training of deep networks.
     - For $`k`$ pararmeters, the Newton's method should calculate the inversion of $`k\times k`$ Hessian matrix with computational complexity of $`O(k^3)`$.
     - Also, since the parameters will change with every update, the inverse Hessian has to be computed at every training iteration.
 
+<br><br>
+
+## 8.6.2 Conjugate Gradients
+- Def.)
+  - A method to efficiently avoid the calculation of the inverse Hessian by iteratively descending conjugate directions.
+  - 
 
 
-
+## 8.6.3 BFGS
 
 
 <br>
