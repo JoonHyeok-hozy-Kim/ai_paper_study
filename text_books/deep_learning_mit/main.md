@@ -113,18 +113,12 @@
 |8.6|[Approximate Second-Order Methods](ch08/06/note.md)|- Newton's Method <BR> - Conjugate Gradient (TBD) <br> - Broyden–Fletcher–Goldfarb–Shanno (BFGS) Algorithm (TBD)|
 |8.7|[Optimization Strategies and Meta-Algorithms](ch08/07/note.md)|- Batch Normalization (TBD) <BR> - Coordinate Descent (TBD)<BR> - Polyak Averaging (TBD)<BR> - Supervised Pretraining (TBD)<BR> - Designing Models to Aid Optimization (TBD)<BR> - Continuation Methods and Curriculum Learning (TBD)|
 
+<br>
 
-
-
-
-
-
-
-
-
-
-
-
+## 9. Convolutional Networks
+|No.|Chapter|Keywords|
+|:-:|:------|:-------|
+|9.1|[The Convolution Operation](ch09/01/note.md)|- Convolution, Flipping Kernel, Cross-Correlation|
 
 
 
