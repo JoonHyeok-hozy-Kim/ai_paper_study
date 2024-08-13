@@ -118,7 +118,8 @@
 ## 9. Convolutional Networks
 |No.|Chapter|Keywords|
 |:-:|:------|:-------|
-|9.1|[The Convolution Operation](ch09/01/note.md)|- Convolution, Flipping Kernel, Cross-Correlation|
+|9.1|[The Convolution Operation](ch09/01/note.md)|- Convolution, Flipping Kernel, Cross-Correlation <br> - Convolution Neural Netowrks (CNN)|
+|9.2|[Motivation](ch09/02/note.md)|- |
 
 
 

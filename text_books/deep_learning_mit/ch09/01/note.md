@@ -41,7 +41,11 @@
     |Graphic|
     |:-:|
     |<img src="images/001.png" width="600px">|
-
+- Prop.)
+  - Convolution usually corresponds to a very sparse matrix.
+    - Why?) 
+      - The kernel is usually much smaller than the input image.
+  - Any neural network algorithm that works with matrix multiplication and does not depend on specific properties of the matrix structure should work with convolution, without requiring any further changes to the neural network.
 
 
 <br>
@@ -53,17 +57,6 @@
 - e.g.)
   - time series data
   - 2D image data
-
-
-
-
-
-
-
-
-
-
-
 
 
 <br>
