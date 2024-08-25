@@ -60,12 +60,6 @@ Then the Bayes Optimal Classifier is the value $`v_j \in V`$, for which $`\displ
 
 
 
-
-
-
-
-
-
 <br>
 
 * [Back to Machine Learning Tom Mitchell Main](../../main.md)
