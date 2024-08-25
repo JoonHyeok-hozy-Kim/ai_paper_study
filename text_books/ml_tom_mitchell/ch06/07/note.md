@@ -4,9 +4,9 @@
 
 #### Def.)
 Let $H$ be a hypothesis space and $V$ the example set.   
-Then the Bayes Optimal Classifier is the value $v_j \in V$, for which $P(v_j|D) = \sum_{h_i \in H} P(v_j|h_i)P(h_i|D)$ is maximum.
+Then the Bayes Optimal Classifier is the value $`v_j \in V`$, for which $`\displaystyle P(v_j|D) = \sum_{h_i \in H} P(v_j|h_i)P(h_i|D)`$ is maximum.
 - i.e.)
-  - $argmax_{v_j \in V} P(v_j|D) \equiv argmax_{v_j \in V} \sum_{h_i \in H} P(v_j|h_i)P(h_i|D)$
+  - $`\displaystyle\arg\max_{v_j \in V} P(v_j|D) \equiv \displaystyle\arg\max_{v_j \in V} \sum_{h_i \in H} P(v_j|h_i)P(h_i|D)`$
 
 <br>
 
