@@ -4,9 +4,10 @@
 
 ### Concept) Naive Bayes Classifier
 - Settings)
-  - Assume that each instance $x$ is described by a conjunction of attribute values, $a_1, a_2, \cdots, a_n$.
-  - Also, the target function $f(x)$ can take on any value from some finite set $V$.
-  - The tuple of attribute values $\langle a_1, a_2, \cdots, a_n \rangle$ describes,
+  - Assume that each instance $x$ is described by a conjunction of attribute values, $`a_1, a_2, \cdots, a_n`$.
+    - i.e.) $`a_1 \wedge a_2 \wedge \cdots \wedge a_n`$
+  - Also, the target function $`f(x)`$ can take on any value from some finite set $`V`$.
+  - The tuple of attribute values $`\langle a_1, a_2, \cdots, a_n \rangle`$ describes,
     - a set of training examples of the target function
     - a new instance that will be estimated.
 - Idea)
