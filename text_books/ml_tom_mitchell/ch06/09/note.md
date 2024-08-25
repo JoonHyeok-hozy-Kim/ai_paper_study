@@ -43,7 +43,7 @@ Predict the target value (yes or no) of the target concept $PlayTennis$ for the 
 
 #### Solution)
 - The naive Bayesian Classifier, $v_{NB}$ goes...
-  - $`\begin{array}{ll} v_{NB} &= \displaystyle\arg\max_{v_j \in \lbrace yes,no \rbrace} P(v_j) \prod_i P(a_i|v_j) \\&= \displaystyle\arg\max_{v_j \in \lbrace yes,no \rbrace} P(v_j) \left[ P(Outlook=sunny|v_j)\cdot P(Temperature=cool|v_j)\cdot  P(Humidity=high|v_j)\cdot  P(Wind=strong|v_j)\cdot\right] \end{array}`$
+  - $`\begin{array}{ll} v_{NB} &= \displaystyle\arg\max_{v_j \in \lbrace yes,no \rbrace} P(v_j) \prod_i P(a_i|v_j) \\&= \displaystyle\arg\max_{v_j \in \lbrace yes,no \rbrace} P(v_j) \left[ P(Outlook=sunny|v_j)\cdot P(Temperature=cool|v_j)\cdot  P(Humidity=high|v_j)\cdot  P(Wind=strong|v_j)\right] \end{array}`$
 - Let's count the frequencies.
   - Case 1) $v_j = yes$
     - $P(PlayTennis=yes) = \frac{9}{14}$
