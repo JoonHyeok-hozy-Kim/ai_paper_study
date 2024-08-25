@@ -12,8 +12,10 @@
           - the number of bits required to encode message i using code C
         - Notation)
           - $L_C(i)$
-  - $h_{MAP}$ can be modified to a similar shape with $L_C(i)$.
-    - $`\begin{array}{ll} h_{MAP} &= argmax_{h \in H} P(D|h)P(h) \\&= argmax_{h \in H} \log_2{P(D|h)}\log_2{P(h)} \\&= argmin_{h\in H} -\log_2{P(D|h)} -\log_2{P(h)} \end{array}`$
+  - $h_{MAP}$ can be modified to a similar shape with $L_C(i)$.   
+    $`\begin{array}{ll} h_{MAP} &= \displaystyle\arg\max_{h \in H} P(D|h)P(h) \\
+    &= \displaystyle\arg\max_{h \in H} \log_2{P(D|h)}\log_2{P(h)} \\
+    &= \displaystyle\arg\min_{h\in H} -\log_2{P(D|h)} -\log_2{P(h)} \end{array}`$
   - Can we apply MDL to choosing a hypothesis?
 
 <br>
