@@ -21,11 +21,11 @@
 <br>
 
 #### Def.) Minimum Description Length (MDL) Principle
-$h_{MAP} = argmax_{h \in H} L_{C_H}(h) + L_{C_{D|h}}(D|h)$
-- where $C_H$ and ${C_{D|h}}$ are the optimal encodings for $H$ and for $D$ given $h$, respectively.
+$`h_{MAP} = \displaystyle\arg\max_{h \in H} L_{C_H}(h) + L_{C_{D|h}}(D|h)`$
+- where $`C_H`$ and $`{C_{D|h}}`$ are the optimal encodings for $`H`$ and for $`D`$ given $`h`$, respectively.
 
 - How?)
-  - Recall that $h_{MAP} = argmin_{h\in H} -\log_2{P(D|h)} -\log_2{P(h)}$ 
+  - Recall that $h_{MAP} = \displaystyle\arg\min_{h\in H} -\log_2{P(D|h)} -\log_2{P(h)}$ 
     - $-\log_2{P(h)}$
       - the description length of $h$ under the optimal encoding for the hypothesis space $H$. 
         - i.e.) the size of the description of hypothesis $h$ using this optimal representation.
@@ -35,7 +35,7 @@ $h_{MAP} = argmax_{h \in H} L_{C_H}(h) + L_{C_{D|h}}(D|h)$
       - the description length of the training data $D$ given hypothesis $h$, under its optimal encoding.
         - $L_{C_{D|h}}(D|h) = -\log_2{P(D|h)}$
           - where ${C_{D|h}}$ is the optimal code for describing data $D$ assuming that both the sender and receiver know the hypothesis $h$.
-  - Therefore, $h_{MAP} = argmax_{h \in H} L_{C_H}(h) + L_{C_{D|h}}(D|h)$
+  - Therefore, $h_{MAP} = \displaystyle\arg\max_{h \in H} L_{C_H}(h) + L_{C_{D|h}}(D|h)$
     - where $C_H$ and ${C_{D|h}}$ are the optimal encodings for $H$ and for $D$ given $h$, respectively. 
 
 #### Props.)
