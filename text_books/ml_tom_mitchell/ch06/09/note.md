@@ -11,13 +11,15 @@
     - a set of training examples of the target function
     - a new instance that will be estimated.
 - Idea)
-  - Recall the Maximum A Posteriori Hypothesis (MAP).
-    - $`\begin{array}{ll} v_{MAP} &=argmax_{v_j \in V} P(v_j|a_1, \cdots, a_n) \\&=argmax_{v_j \in V} \frac{P(a_1, \cdots, a_n|v_j)P(v_j)}{P(a_1, \cdots, a_n)} \\&=argmax_{v_j \in V} P(a_1, \cdots, a_n|v_j)P(v_j) \end{array}`$
+  - Recall the Maximum A Posteriori Hypothesis (MAP).   
+    $`\begin{array}{ll} v_{MAP} &=\displaystyle\arg\max_{v_j \in V} P(v_j|a_1, \cdots, a_n) \\
+    &=\displaystyle\arg\max_{v_j \in V} \frac{P(a_1, \cdots, a_n|v_j)P(v_j)}{P(a_1, \cdots, a_n)} \\
+    &=\displaystyle\arg\max_{v_j \in V} P(a_1, \cdots, a_n|v_j)P(v_j) \end{array}`$
   - But the problem is that we do not know $P(a_1, \cdots, a_n|v_j)$
   - What if we further assume that the attribute values are conditionally independent given the target value.
-    - i.e.) $P(a_1, a_2, \cdots, a_n|v_j) = \prod_i P(a_i|v_j)$
-- Derivation)
-  - $`\begin{array}{ll} v_{NB} &=argmax_{v_j \in V} P(a_1, \cdots, a_n|v_j)P(v_j) \\&=argmax_{v_j \in V} P(v_j) \prod_i P(a_i|v_j) \end{array}`$
+    - i.e.) $`\displaystyle P(a_1, a_2, \cdots, a_n|v_j) = \prod_i P(a_i|v_j)`$
+- Derivation)   
+  $`\begin{array}{ll} v_{NB} &=\displaystyle\arg\max_{v_j \in V} P(a_1, \cdots, a_n|v_j)P(v_j) \\&=\displaystyle\arg\max_{v_j \in V} P(v_j) \prod_i P(a_i|v_j) \end{array}`$
     - where $v_{NB}$ denotes the target value output by the naive Bayes classifier.
   - How to get $P(a_i|v_j), \forall i$
     - Count the frequencies of an attribute $a_i$ appeared in training examples with the target value $v_j$.
@@ -41,7 +43,7 @@ Predict the target value (yes or no) of the target concept $PlayTennis$ for the 
 
 #### Solution)
 - The naive Bayesian Classifier, $v_{NB}$ goes...
-  - $`\begin{array}{ll} v_{NB} &= argmax_{v_j \in \lbrace yes,no \rbrace} P(v_j) \prod_i P(a_i|v_j) \\&= argmax_{v_j \in \lbrace yes,no \rbrace} P(v_j) \left[ P(Outlook=sunny|v_j)\cdot P(Temperature=cool|v_j)\cdot  P(Humidity=high|v_j)\cdot  P(Wind=strong|v_j)\cdot\right] \end{array}`$
+  - $`\begin{array}{ll} v_{NB} &= \displaystyle\arg\max_{v_j \in \lbrace yes,no \rbrace} P(v_j) \prod_i P(a_i|v_j) \\&= \displaystyle\arg\max_{v_j \in \lbrace yes,no \rbrace} P(v_j) \left[ P(Outlook=sunny|v_j)\cdot P(Temperature=cool|v_j)\cdot  P(Humidity=high|v_j)\cdot  P(Wind=strong|v_j)\cdot\right] \end{array}`$
 - Let's count the frequencies.
   - Case 1) $v_j = yes$
     - $P(PlayTennis=yes) = \frac{9}{14}$
