@@ -29,8 +29,8 @@ Then the Bayes Optimal Classifier is the value $`v_j \in V`$, for which $`\displ
 - Solution) Bayes Optimal Classifier
   - Choose $v_j \in V$ that maximizes $P(v_j|D) = \sum_{h_i \in H} P(v_j|h_i)P(h_i|D)$.
   - Then,
-    - $P(\oplus|D) = \sum_{i=1}^3 P(\oplus|h_i)P(h_i|D) = 0.4 \times 1 + 0.3 \times 0 + 0.3 \times 0 = 0.4$
-    - $P(\ominus|D) = \sum_{i=1}^3 P(\ominus|h_i)P(h_i|D) = 0.4 \times 0 + 0.3 \times 1 + 0.3 \times 1 = 0.6$
+    - $`\displaystyle P(\oplus|D) = \sum_{i=1}^3 P(\oplus|h_i)P(h_i|D) = 0.4 \times 1 + 0.3 \times 0 + 0.3 \times 0 = 0.4`$
+    - $`\displaystyle P(\ominus|D) = \sum_{i=1}^3 P(\ominus|h_i)P(h_i|D) = 0.4 \times 0 + 0.3 \times 1 + 0.3 \times 1 = 0.6`$
   - Therefore, choose $\ominus$.
     - i.e.) $\displaystyle\arg\max_{v_j \in V} P(v_j|D)=\ominus$
 
