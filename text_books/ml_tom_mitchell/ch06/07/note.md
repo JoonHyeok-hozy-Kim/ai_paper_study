@@ -32,7 +32,7 @@ Then the Bayes Optimal Classifier is the value $`v_j \in V`$, for which $`\displ
     - $P(\oplus|D) = \sum_{i=1}^3 P(\oplus|h_i)P(h_i|D) = 0.4 \times 1 + 0.3 \times 0 + 0.3 \times 0 = 0.4$
     - $P(\ominus|D) = \sum_{i=1}^3 P(\ominus|h_i)P(h_i|D) = 0.4 \times 0 + 0.3 \times 1 + 0.3 \times 1 = 0.6$
   - Therefore, choose $\ominus$.
-    - i.e.) $argmax_{v_j \in V} P(v_j|D)=\ominus$
+    - i.e.) $\displaystyle\arg\max_{v_j \in V} P(v_j|D)=\ominus$
 
 <br>
 
@@ -51,9 +51,9 @@ Then the Bayes Optimal Classifier is the value $`v_j \in V`$, for which $`\displ
 - Bayes Optimal Classifier can be quite costly to apply.
   - why?)
     - It computes the posterior probability for every hypothesis in $H$.
-      - $P(h|D), \forall h \in H$ 
+      - $`P(h|D), \forall h \in H`$ 
     - Then, it combines the predictions of each hypothesis to classify each new instance.
-      - $\sum_{h_i \in H} P(v|h_i)P(h_i|D), \forall v \in V$
+      - $`\displaystyle\sum_{h_i \in H} P(v|h_i)P(h_i|D), \forall v \in V`$
   - Alternative Solution)
     - [Gibbs Algorithm](../08/note.md#68-gibbs-algorithm)
 
