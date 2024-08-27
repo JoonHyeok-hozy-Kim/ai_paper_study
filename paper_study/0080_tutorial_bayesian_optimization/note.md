@@ -17,7 +17,7 @@
           - $`d`$ is not too large
           - Typically, $`d\le 20`$ in most successful applications of BayesOpt.
         - The feasible set $`A`$ is a simple set, in which it is easy to assess membership.
-          - Typically $`A`$ is a hyper-rectangle $`\{x\in\mathbb{R}^d : a_i \le x_i \le b_i\}`$ or the $`d\textrm{-dimensional simplex } \{x\in\mathbb{R}^d : \displaystyle\sum_i x_i = 1\}`$
+          - Typically $`A`$ is a hyper-rectangle $`\{x\in\mathbb{R}^d : a_i \le x_i \le b_i\}`$ or the $`d\textrm{-dimensional simplex } \{x\in\mathbb{R}^d : \sum_i x_i = 1\}`$
 
 
 
