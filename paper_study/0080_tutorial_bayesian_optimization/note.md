@@ -18,6 +18,12 @@
           - Typically, $`d\le 20`$ in most successful applications of BayesOpt.
         - The feasible set $`A`$ is a simple set, in which it is easy to assess membership.
           - Typically $`A`$ is a hyper-rectangle $`\{x\in\mathbb{R}^d : a_i \le x_i \le b_i\}`$ or the $`d\textrm{-dimensional simplex } \{x\in\mathbb{R}^d : \sum_i x_i = 1\}`$
+        - The objective function $`f`$ is continuous.
+          - This will typically be required to model $`f`$ using Gaussian process regression.
+        - $`f`$ is “expensive to evaluate”
+          - i.e.) Each evaluation takes a substantial amount of time or monetary/opportunity cost
+        - $`f`$ is a “black box.”
+          - i.e.) $`f`$ lacks known special structure like concavity or linearity that would make it easy to optimize using techniques that leverage such structure to improve efficiency.
 
 
 
