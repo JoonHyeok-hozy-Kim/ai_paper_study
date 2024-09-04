@@ -12,7 +12,7 @@
 - Def.)
   - A class of machine-learning-based optimization methods focused on solving the problem
     - $`\displaystyle\max_{x\in A} f(x)`$
-      - where the feasible set and objective function typically have the following properties:
+      - where the feasible set $`A`$ and objective function $`f`$ typically have the following properties:
         - The input $`x\in \mathbb{R}^d`$
           - $`d`$ is not too large
           - Typically, $`d\le 20`$ in most successful applications of BayesOpt.
@@ -24,6 +24,13 @@
           - i.e.) Each evaluation takes a substantial amount of time or monetary/opportunity cost
         - $`f`$ is a “black box.”
           - i.e.) $`f`$ lacks known special structure like concavity or linearity that would make it easy to optimize using techniques that leverage such structure to improve efficiency.
+        - Derivative Free
+          - When evaluating $`f`$, we observe only $`f(x)`$.
+            - No first- or second-order derivatives are available.
+              - Thus, we cannot use
+                - gradient descent
+                - Newton's methods
+                - quasi-Newton methods
 
 
 
