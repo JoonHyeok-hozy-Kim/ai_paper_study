@@ -27,10 +27,12 @@
         - Derivative Free
           - When evaluating $`f`$, we observe only $`f(x)`$.
             - No first- or second-order derivatives are available.
-              - Thus, we cannot use
+              - Thus, we **cannot** use
                 - gradient descent
                 - Newton's methods
                 - quasi-Newton methods
+        - Assume that $`f(x)`$ is observed **WITHOUT** noise.
+        - Our goal is to find a **global** rather than local optimum.
 
 
 
