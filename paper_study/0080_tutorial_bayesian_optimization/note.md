@@ -83,6 +83,10 @@
 |![](images/002.png)|
 |- The expected improvement acquisition function that corresponds to this posterior. <br> - Value 0 at points that have previously been evaluated.|
 
+<br>
+
+## 3. Gaussian Process (GP) Regression
+
 
 
 ---
