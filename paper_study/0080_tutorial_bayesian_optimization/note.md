@@ -116,6 +116,23 @@
         - $`f(x_{1:k})=[f(x_1), f(x_2), \cdots, f(x_k)]`$
         - $`\mu_0(x_{1:k})=[\mu_0(x_1), \mu_0(x_2), \cdots, \mu_0(x_k)]`$
         - $`\Sigma_0(x_{1:k})=[\Sigma_0(x_1, x_1), \Sigma_0(x_1, x_2), \cdots, \Sigma_0(x_1, x_k) ; \cdots ; \Sigma_0(x_k, x_1), \Sigma_0(x_k, x_2), \cdots, \Sigma_0(x_k, x_k)]`$
+  - Posterior Probability Distribution
+    - Desc.)
+      - the conditional distribution of $`f(x)`$ given some previous observations
+    - Derivation)
+      - Suppose we observe $`f(x_{1:n})`$ without noise for some $`n`$.
+      - Our goal is to infer the value of $`f(x)`$ at some new point $`x`$.
+      - Put $`k=n+1`$ and $`x_k=x`$.
+      - Then the conditional distribution of $`f(x)`$ given these observations can be derived using Bayes' rule as follows:
+        - $`f(x)|f(x_{1:n})\sim\text{Normal}(\mu_n(x), \sigma^2(x))`$
+          - where
+            - $`\mu_n(x) = \Sigma_0(x,x_{1:n})\Sigma_0(x_{1:n},x_{1:n})^{-1}\left( f(x_{1:n}) - \mu_0(x_{1:n}) \right) +\mu_0(x)`$ : the posterior mean
+            - $`\sigma^2_n(x) = \Sigma_0(x,x) - \Sigma_0(x,x_{1:n})\Sigma_0(x_{1:n},x_{1:n})^{-1}\Sigma_0(x_{1:n}, x)`$ : the posterior variance
+    - Analysis)
+      - The Posterior Mean : $`\mu_n(x)`$
+        - A weighted average between the prior $`\mu_0(x)`$ and an estimate based on the data $`f(x_{1:n})`$, with a weight that depends on the kernel.
+      - The Posterior Variance : $`\mu_n(x)`$
+        - The prior covariance $`\Sigma_0(x,x)`$ less a term that corresponds to the variance removed by observing $`f(x_{1:n})`$.
 
 
 ---
