@@ -37,7 +37,7 @@
 <br>
 
 ## 2. Overview of BayesOpt
-### Algorithm 1) Basic pseudo-cod for Bayesian optimization
+### Algorithm 1) Basic pseudo-code for Bayesian optimization
 - Algorithm)
   - Place a Gaussian process prior on $`f`$
   - Observe $`f`$ at $`n_0`$ points according to an initial space-filling experimental design.
