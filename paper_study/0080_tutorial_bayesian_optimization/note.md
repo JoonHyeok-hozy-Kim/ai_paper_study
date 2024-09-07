@@ -86,7 +86,36 @@
 <br>
 
 ## 3. Gaussian Process (GP) Regression
-
+### Concept) Gaussian Process Regression
+- Desc.)
+  - A Bayesian statistical approach for **modeling functions**
+  - Here, the brief introduction is provided.
+    - For more complete treatment, refer to Rasmussen, C. and Williams, C. (2006). *Gaussian Processes for Machine Learning.*
+- Model)
+  - $`f:\mathbb{R}^d\rightarrow\mathbb{R}`$
+    - $`[f(x_1), f(x_2), \cdots, f(x_k)]`$ : $`f`$'s values at a finite collection of points $`x_1, x_2,\cdots, x_k\in\mathbb{R}^d`$ in a vector.
+      - Assumptions)
+        - They were drawn at random by nature from some **prior probability distribution**.
+        - GP Regression takes this prior distribution to be multivariate normal with...
+          - **Mean Vector**
+            - How to construct?)
+              - Evaluate a mean function $`\mu_0`$ at each $`x_i`$.
+                - e.g.) Mean Function
+                  - d
+          - **Covariance Matrix**
+            - How to construct?)
+              - Evaluation a **covariance function** or **kernel** $`\Sigma_0`$ at each pair of point $`x_i, x_j`$.
+                - $`x_i, x_j`$ are closer $`\rightarrow`$ They have a larger positive correlation.
+                - The kernel must be chosen to make the covariance matrix be positive semi-definite, regardless of the collection of points chosen.
+                - e.g.) Kernel
+                  - d
+  - The resulting prior distribution on $`[f(x_1), f(x_2), \cdots, f(x_k)]`$
+    - $`\displaystyle f(x_{1:k})\sim \textrm{Normal}(\mu_0(x_{1:k}), \Sigma_0(x_{1:k}, x_{1:k}))`$ 
+      - where
+        - $`x_{1:k}=x_1,x_2,\cdots, x_k`$
+        - $`f(x_{1:k})=[f(x_1), f(x_2), \cdots, f(x_k)]`$
+        - $`\mu_0(x_{1:k})=[\mu_0(x_1), \mu_0(x_2), \cdots, \mu_0(x_k)]`$
+        - $`\Sigma_0(x_{1:k})=[\Sigma_0(x_1, x_1), \Sigma_0(x_1, x_2), \cdots, \Sigma_0(x_1, x_k) ; \cdots ; \Sigma_0(x_k, x_1), \Sigma_0(x_k, x_2), \cdots, \Sigma_0(x_k, x_k)]`$
 
 
 ---
