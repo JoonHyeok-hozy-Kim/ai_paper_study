@@ -177,6 +177,11 @@
           - $`\alpha_{1:d}`$ are the parameters of the kernel.
     - Prop.)
       - Varying parameters creates different beliefs about how quickly $`f(x)`$ changes with $`x`$.
+    - e.g.)
+      ||
+      |:-|
+      |![](images/003.png)|
+      |- Random functions with a 1-dimensional input drawn from a Gaussian process prior with a power exponential kernel with different values of $`\alpha_1`$ <br> - $`\alpha_1`$ decreasing from left to right.|
   - **Matern Kernel**
     - Model)
       - $`\displaystyle \Sigma_0(x,x') = \alpha_0\frac{2^{1-\nu}}{\Gamma(\nu)}\left(\sqrt{2\nu}||x-x'||\right)^\nu K_\nu \left(\sqrt{2\nu}||x-x'||\right)`$
