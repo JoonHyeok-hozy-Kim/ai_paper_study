@@ -5,9 +5,9 @@
 ### Peter I. Frazier
 * [Read Paper](../paper_pdfs/240827%20A%20Tutorial%20on%20Bayesian%20Optimization.pdf)
 
----
+<br><br>
 
-## 1. Introduction
+# 1. Introduction
 ### Concept) Bayesian Optimization (BayesOpt)
 - Def.)
   - A class of machine-learning-based optimization methods focused on solving the problem
@@ -36,7 +36,7 @@
 
 <br>
 
-## 2. Overview of BayesOpt
+# 2. Overview of BayesOpt
 ### Algorithm 1) Basic pseudo-code for Bayesian optimization
 - Algorithm)
   - Place a Gaussian process prior on $`f`$
@@ -85,7 +85,7 @@
 
 <br>
 
-## 3. Gaussian Process (GP) Regression
+# 3. Gaussian Process (GP) Regression
 ### Concept) Gaussian Process Regression
 - Desc.)
   - A Bayesian statistical approach for **modeling functions**
@@ -147,7 +147,7 @@
 
 <br>
 
-### 3.1 Choosing a Mean Function and Kernel
+## 3.1 Choosing a Mean Function and Kernel
 #### Concept) Types of Mean Function
 - **Constant Value Mean Function**
   - Model)
@@ -190,6 +190,47 @@
           - $`\nu`$ : a parameter
 
 <br>
+
+## 3.2 Choosing Hyperparameters
+### Concept) Hyperparameter
+- Desc.)
+  - Prior Hyperparameters
+    - The parameters contained in the [mean function](#concept-types-of-mean-function) and the [kernel function](#concept-kernel-functions)
+- Notation)
+  - $`\eta`$ : the vector with hyperparameters
+    - e.g.) [Matern kernel](#concept-kernel-functions) and a [constant mean function](#concept-types-of-mean-function).
+      - $`\eta = (\alpha_{0:d}, \nu, \mu)`$
+
+### Concept) Approaches for Choosing Hyperparameters
+1. [Maximum Likelihood Estimate (MLE)](#concept-maximum-likelihood-estimate-mle)
+2. [Maximum A Posteriori (MAP)](#concept-maximum-a-posteriori-map)
+3. [Fully Bayesian Approach](#concept-fully-bayesian-approach)
+
+#### Concept) Maximum Likelihood Estimate (MLE)
+- Desc.)
+  - Given observations $`f(x_{1:n})`$, we calculate the likelihood of these observations under the prior $`P(f(x_{1:n})|\eta)`$.
+  - Here, we modified the notation to indicate its dependence on $`\eta`$.
+  - This likelihood is a multivariate normal density.
+- Model)
+  - $`\displaystyle \hat{\eta} = \arg\max_\eta P(f(x_{1:n})|\eta)`$
+
+
+#### Concept) Maximum A Posteriori (MAP)
+- Desc.)
+  - Assume that the hyperparameters $`\eta`$ were themselves chosen from a prior $`P(\eta)`$.
+  - Then estimate $`\eta`$ byt the maximum a posteriori (MAP) estimate
+    - i.e.) the value of $`\eta`$ that maximizes the posterior.
+- Model)   
+  $`\begin{aligned}
+    \hat{\eta} &= \arg\max_\eta P(\eta|f(x_{1:n})) \\
+    &= 
+  \end{aligned}`$
+
+
+#### Concept) Fully Bayesian Approach
+- Desc.)
+  - 
+
 
 
 ---
