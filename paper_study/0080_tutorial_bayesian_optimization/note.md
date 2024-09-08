@@ -145,6 +145,47 @@
         - Then the eigenvalues of $`\Sigma_0(x_{1:n},x_{1:n})`$ may be closer to 0.
         - By adding a small positive number, we can make it closer to positive-definite.
 
+<br>
+
+### 3.1 Choosing a Mean Function and Kernel
+#### Concept) Types of Mean Function
+- **Constant Value Mean Function**
+  - Model)
+    - $`\mu_0(x) = \mu \in\mathbb{R}`$
+  - Prop.)
+    - The most common choice for the mean function.
+- **Non-Constant Mean Function**
+  - Model)
+    - $`\displaystyle \mu_0(x) = \mu + \sum_{i=1}^p \beta_i \Psi_i(x)`$
+      - where $`\Psi_i`$ is a parametric function and often a low-order polynomial in $`x`$.
+  - Prop.)
+    - When to use.)
+      - $`f`$ is believed to have a trend or some application-specific parametric structure.
+
+#### Concept) Kernel Functions
+- Props.)
+  - Points that are closer in the input space are more strongly correlated.
+    - i.e.)
+      - $`||x-x'|| \lt ||x-x''|| \Rightarrow \Sigma_0(x,x') \gt \Sigma_0(x,x'')`$
+  - Kernels are required to be positive semi-definite functions.
+- Types)
+  - **Power Exponential Kernel (Gaussian Kernel)**
+    - Model)
+      - $`\Sigma_0(x,x') = \alpha_0 \exp(-||x-x'||^2)`$
+        - where
+          - $`\displaystyle ||x-x'||^2 = \sum_{i=1}^d \alpha_i (x_i-x_i')^2`$
+          - $`\alpha_{1:d}`$ are the parameters of the kernel.
+    - Prop.)
+      - Varying parameters creates different beliefs about how quickly $`f(x)`$ changes with $`x`$.
+  - **Matern Kernel**
+    - Model)
+      - $`\displaystyle \Sigma_0(x,x') = \alpha_0\frac{2^{1-\nu}}{\Gamma(\nu)}\left(\sqrt{2\nu}||x-x'||\right)^\nu K_\nu \left(\sqrt{2\nu}||x-x'||\right)`$
+        - where
+          - $`K_\nu`$ : the modified Bessel function
+          - $`\nu`$ : a parameter
+
+<br>
+
 
 ---
 * [Back to Main](../../README.md)
