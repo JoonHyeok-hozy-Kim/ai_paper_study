@@ -91,6 +91,8 @@
   - A Bayesian statistical approach for **modeling functions**
   - Here, the brief introduction is provided.
     - For more complete treatment, refer to Rasmussen, C. and Williams, C. (2006). *Gaussian Processes for Machine Learning.*
+- Goal)
+  - Using the prior distribution observed by the previous data, derive the posterior probability distribution of the new data.
 - Model)
   - $`f:\mathbb{R}^d\rightarrow\mathbb{R}`$
     - $`[f(x_1), f(x_2), \cdots, f(x_k)]`$ : $`f`$'s values at a finite collection of points $`x_1, x_2,\cdots, x_k\in\mathbb{R}^d`$ in a vector.
@@ -104,7 +106,7 @@
                   - d
           - **Covariance Matrix**
             - How to construct?)
-              - Evaluation a **covariance function** or **kernel** $`\Sigma_0`$ at each pair of point $`x_i, x_j`$.
+              - Evaluate a **covariance function** or **kernel** $`\Sigma_0`$ at each pair of point $`x_i, x_j`$.
                 - $`x_i, x_j`$ are closer $`\rightarrow`$ They have a larger positive correlation.
                 - The kernel must be chosen to make the covariance matrix be positive semi-definite, regardless of the collection of points chosen.
                 - e.g.) Kernel
@@ -131,8 +133,17 @@
     - Analysis)
       - The Posterior Mean : $`\mu_n(x)`$
         - A weighted average between the prior $`\mu_0(x)`$ and an estimate based on the data $`f(x_{1:n})`$, with a weight that depends on the kernel.
-      - The Posterior Variance : $`\mu_n(x)`$
+      - The Posterior Variance : $`\sigma^2_n(x)`$
         - The prior covariance $`\Sigma_0(x,x)`$ less a term that corresponds to the variance removed by observing $`f(x_{1:n})`$.
+- cf.)
+  - How to speed up the algorithm.)
+    - Rather than computing **posterior means** $`(\mu_n(x))`$ and **variances** $`(\sigma_n^2(x))`$ directly using the equation above and matrix inversion, it is typically faster and more numerically stable to use a **Cholesky decomposition** and then solve a linear system of equations.
+  - How to improve the numerical stability of this approach.)
+    - Add small positive number like $`10^{-6}`$ to each element of the diagonal of $`\Sigma_0(x_{1:n},x_{1:n})`$.
+      - Why?)
+        - Consider the case that $`x_{1:n}`$ contains two or more points that are close together.
+        - Then the eigenvalues of $`\Sigma_0(x_{1:n},x_{1:n})`$ may be closer to 0.
+        - By adding a small positive number, we can make it closer to positive-definite.
 
 
 ---
