@@ -213,6 +213,9 @@
   - This likelihood is a multivariate normal density.
 - Model)
   - $`\displaystyle \hat{\eta} = \arg\max_\eta P(f(x_{1:n})|\eta)`$
+- Prop.)
+  - **MLE** is a special case of the [MAP](#concept-maximum-a-posteriori-map).
+    - Refer to [MAP](#concept-maximum-a-posteriori-map) for more description.
 
 
 #### Concept) Maximum A Posteriori (MAP)
@@ -221,15 +224,41 @@
   - Then estimate $`\eta`$ byt the maximum a posteriori (MAP) estimate
     - i.e.) the value of $`\eta`$ that maximizes the posterior.
 - Model)   
-  $`\begin{aligned}
-    \hat{\eta} &= \arg\max_\eta P(\eta|f(x_{1:n})) \\
-    &= 
-  \end{aligned}`$
+  - $`\displaystyle \hat{\eta} = \arg\max_\eta P(\eta|f(x_{1:n})) = \arg\max_\eta P(f(x_{1:n})|\eta)P(\eta)`$
+- Prop.)
+  - Comparison with [MLE](#concept-maximum-likelihood-estimate-mle)
+    - [MLE](#concept-maximum-likelihood-estimate-mle) is a special case of the **MAP**
+      - if we take the prior on the hyperparameters $`P(\eta)`$ to be the probability distribution that has constant density over the domain of $`\eta`$.
+    - The **MAP** is useful than [MLE](#concept-maximum-likelihood-estimate-mle) 
+      - Why?) 
+        - [MLE](#concept-maximum-likelihood-estimate-mle) sometimes estimates unreasonable hyperparameter values
+          - e.g.) hyperparameter values corresponding to functions that vary too quickly or too slowly.
+      - How?) 
+        - Choose a prior that puts more weight on hyperparameter values that are reasonable for a particular problem.
+          - e.g.) Prior with...
+            - Uniform Distribution
+              - It prevents estimates from falling outside of some pre-specified range
+            - Normal Distribution
+              - It suggests estimates to fall near some nominal value without setting a hard cutoff.
+            - Log-Normal Distribution / Truncated Normal Distribution
+              - It provides a similar suggestions for positive parameters.
 
 
 #### Concept) Fully Bayesian Approach
 - Desc.)
-  - 
+  - Target is to compute the posterior distribution on $`f(x)`$ marginalizing over all possible values of the hyperparameters.
+- Model)
+  - Ideal
+    - $`\displaystyle P(f(x) = y|f(x_{1:n})) = \int P(f(x) = y|f(x_{1:n}), \eta) P(\eta|f(x_{1:n})) d\eta`$
+      - However, this integral is intractable...
+  - Actual (Approximation)
+    - $`\displaystyle P(f(x) = y|f(x_{1:n})) \approx \frac{1}{J}\sum_{j=1}^J P(f(x) = y|f(x_{1:n}), \eta = \hat{\eta_j})`$
+      - where $`(\hat{n_j}: j=1,\cdots, J)`$ are sampled from $`P(\eta|f(x_{1:n}))`$ via an MCMC method.
+        - e.g.) Slice Sampling
+- Prop.)
+  - [MAP](#concept-maximum-a-posteriori-map) can  be seen as an approximation to fully Bayesian inference.
+    - If we approximate the posterior $`P(\eta|f(x_{1:n}))`$ by a point mass at the $`\eta`$ that maximizes the posterior density, 
+      - then inference with [MAP](#concept-maximum-a-posteriori-map) recovers the Ideal model above.
 
 
 
