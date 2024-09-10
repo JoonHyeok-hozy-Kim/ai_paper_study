@@ -39,12 +39,12 @@
 # 2. Overview of BayesOpt
 ### Algorithm 1) Basic pseudo-code for Bayesian optimization
 - Algorithm)
-  - Place a Gaussian process prior on $`f`$
+  - Place a [Gaussian process](#3-gaussian-process-gp-regression) prior on $`f`$
   - Observe $`f`$ at $`n_0`$ points according to an initial space-filling experimental design.
   - Set $`n = n_0`$
   - `while` $`n\le N`$ `do`
     - Update the posterior probability distribution on $`f`$ using all available data.
-    - Let $`x_n`$ be a maximizer of the acquisition function over $`x`$,
+    - Let $`x_n`$ be a maximizer of the [acquisition function](#4-acquisition-function) over $`x`$,
       - where the acquisition function is computed using the current posterior distribution.
     - Observe $`y_n = f(x_n)`$.
     - Increment $`n`$.
@@ -102,15 +102,13 @@
           - **Mean Vector**
             - How to construct?)
               - Evaluate a mean function $`\mu_0`$ at each $`x_i`$.
-                - e.g.) Mean Function
-                  - d
+                - e.g.) [Mean Function](#concept-types-of-mean-function)
           - **Covariance Matrix**
             - How to construct?)
               - Evaluate a **covariance function** or **kernel** $`\Sigma_0`$ at each pair of point $`x_i, x_j`$.
                 - $`x_i, x_j`$ are closer $`\rightarrow`$ They have a larger positive correlation.
                 - The kernel must be chosen to make the covariance matrix be positive semi-definite, regardless of the collection of points chosen.
-                - e.g.) Kernel
-                  - d
+                - e.g.) [Kernel Function](#concept-kernel-functions)
   - The resulting prior distribution on $`[f(x_1), f(x_2), \cdots, f(x_k)]`$
     - $`\displaystyle f(x_{1:k})\sim \textrm{Normal}(\mu_0(x_{1:k}), \Sigma_0(x_{1:k}, x_{1:k}))`$ 
       - where
@@ -259,6 +257,49 @@
   - [MAP](#concept-maximum-a-posteriori-map) can  be seen as an approximation to fully Bayesian inference.
     - If we approximate the posterior $`P(\eta|f(x_{1:n}))`$ by a point mass at the $`\eta`$ that maximizes the posterior density, 
       - then inference with [MAP](#concept-maximum-a-posteriori-map) recovers the Ideal model above.
+
+
+<br><br>
+
+# 4. Acquisition Function
+#### Assumptions) Types of Settings Covered
+- [The Standard Problem : noise-free evaluation](#concept-bayesian-optimization-bayesopt)
+- Noisy Evaluation
+- Parallel Evaluation
+- Derivative Observations
+- Other "exotic" Extensions
+
+#### Models) Types of Acquisition Functions Covered
+- [Expected Improvement](#41-expected-improvement)
+- Knowledge Gradient
+- Entropy Search
+- Predictive Entropy Search
+
+<br>
+
+## 4.1 Expected Improvement
+- Ideation) A Thought Experiment
+  - Suppose we are using [Algorithm 1](#algorithm-1-basic-pseudo-code-for-bayesian-optimization) to solve [the noise free standard problem](#concept-bayesian-optimization-bayesopt).
+  - Assumptions)
+    - Notations)
+      - $`x_n`$ indicate the point sampled at iteration $`n`$
+      - $`y_n`$ indicate the observed value at iteration $`n`$
+    - We may only return a solution that we have evaluated as our final solution to [the standard problem](#concept-bayesian-optimization-bayesopt).
+    - For the moment that we have no evaluations left to make, we must return a solution based on those we have already performed.
+  - Then the optimal choice is the previously evaluated point with the largest observed value.
+    - Why?) We observe $`f`$ without noise!
+  - Let $`\displaystyle f_n^* = \max_{m\le n} f(x_m)`$ be the value of the optimal point $`x_m`$.
+    - where $`n`$ is the number of times we have evaluated $`f`$ thus far.
+  - Now, suppose we have one additional evaluation to perform and we can perform it anywhere.
+    - i.e.) If we evaluate at $`x`$, we will observe $`f(x)`$.
+  - In this case the value of the best observed point is $`\begin{cases} f(x) & \text{if } f(x) \ge f_n^* \\ f_n^* & \text{if } f(x) \le f_n^* \end{cases}`$
+  - Then the improvement will be $`[f(x) - f_n^*]^+ = \begin{cases} f(x) - f_n^* & \text{if } f(x) \ge f_n^* \\ 0 & \text{otherwise.} \end{cases}`$
+    - where $`a^+ = \max(a, 0)`$
+  - Although we want to choose $`x`$ that maximizes $`[f(x) - f_n^*]^+`$,
+    - $`f(x)`$ is unknown until after the evaluation.
+  - Thus, we take the expected value of the improvement and choose $`x`$ that maximize it.
+    - i.e.) $`EI_n(x) = E_n\left[ [f(x) - f_n^*]^+ \right]`$
+      - where $`E_n[\cdot] = E[\cdot|x_{1:n}, y_{1:n}]`$ indicates the expectation taken under the posterior distribution given evaluations of $`f`$ at $`x_1, ... , x_n`$.
 
 
 
