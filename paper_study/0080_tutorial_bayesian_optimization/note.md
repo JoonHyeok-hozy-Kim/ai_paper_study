@@ -296,10 +296,31 @@
   - Then the improvement will be $`[f(x) - f_n^*]^+ = \begin{cases} f(x) - f_n^* & \text{if } f(x) \ge f_n^* \\ 0 & \text{otherwise.} \end{cases}`$
     - where $`a^+ = \max(a, 0)`$
   - Although we want to choose $`x`$ that maximizes $`[f(x) - f_n^*]^+`$,
-    - $`f(x)`$ is unknown until after the evaluation.
+    - $`f(x)`$ is unknown until we evaluate it.
   - Thus, we take the expected value of the improvement and choose $`x`$ that maximize it.
     - i.e.) $`EI_n(x) = E_n\left[ [f(x) - f_n^*]^+ \right]`$
-      - where $`E_n[\cdot] = E[\cdot|x_{1:n}, y_{1:n}]`$ indicates the expectation taken under the posterior distribution given evaluations of $`f`$ at $`x_1, ... , x_n`$.
+      - where $`E_n[\cdot] = E[\cdot|x_{1:n}, y_{1:n}]`$ indicates the expectation taken under the **posterior distribution** given evaluations of $`f`$ at $`x_1, ... , x_n`$.
+        - Recall that this [posterior probability distribution](#concept-gaussian-process-regression) was given by:
+          - $`f(x)|f(x_{1:n})\sim\text{Normal}(\mu_n(x), \sigma^2(x))`$
+- Closed Form Solution for the **Expected Improvement**
+  - Jones et al. (1998) or Clark (1961)
+    - Using the integration by parts, we can derive
+      - $`\displaystyle EI_n(x) = [\Delta_n(x)]^+ + \sigma_n(x)\;\varphi\left(\frac{\Delta_n(x)}{\sigma_n(x)}\right) - |\Delta_n(x)|\;\Phi\left(\frac{\Delta_n(x)}{\sigma_n(x)}\right)`$
+        - where $`\Delta_n(x) := \mu_n(x) - f_n^*`$ is the expected difference in quality between the proposed point $`x`$ and the previous best.
+- Optimization) Efficient Global Optimization
+  - The **expected improvement** algorithm then evaluates at the point with the largest expected improvement:
+    - $`x_{n+1} = \arg\max EI_n(x)`$
+  - There are variety of approaches for solving the above.
+    - e.g.) Using first- and second-order derivatives
+      - Recall that this was not applicable to $`f`$.
+      - However, $`EI_n(x)`$ is inexpensive to evaluate.
+    - e.g.) L-BFGS-B 
+- Analysis)
+  - $`EI_n(x)`$'s trade-off between the quality $`(\Delta_n(x))`$ and the uncertainty $`(\sigma_n(x))`$
+    ||
+    |:-|
+    |<img src="images/004.png" width="400px">|
+    |- Blue (Red) indicates the smaller (larger) values of $`EI_n(x)`$|
 
 
 
