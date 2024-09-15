@@ -349,8 +349,10 @@
       - $`\widehat{x^*}`$ satisfies $`\displaystyle\mu_n(\widehat{x^*}) = \max_{x'} \mu_n(x') =: \mu_n^*`$
         - Here, $`\mu_n^*`$ is the conditional expected value.
 
-#### 3. Knowledge Gradient
-- Ideation)
+<br>
+
+### Concept) Knowledge Gradient
+#### Ideation) Knowledge Gradient
   - In [risk neutrality](#2-risk-neutrality-berger-2013), we derived $`\mu_n^*`$, which is the largest $`\mu_n(x)`$ from $`n`$ samples.
   - Suppose we have one more example $`x_{n+1}`$.
   - Then, we would obtain a new posterior distribution with posterior mean $`\mu_{n+1}(x)`$.
@@ -359,11 +361,44 @@
   - Then, the increase in conditional expected solution value due to sampling $`x`$ would be
     - $`\mu_{n+1}^* - \mu_{n}^*`$
   - This quantity is unknown before we actually sample $`x_{n+1}`$.
-  - However, we can compute the expected value given the observations at $`x_1, x_2, \cdots, x_n`$.
-    - We call this the knowledge gradient.
-- Def.)
-  - $`\text{KG}_n(x) := E_n\left[ \mu_{n+1}^* - \mu_n^* | x_{n+1} = x \right]`$
+  - However, we can compute **the expected value given the observations** at $`x_1, x_2, \cdots, x_n`$.
+    - We call this the **knowledge gradient**.
 
+#### Def.) Knowledge Gradient
+- $`\text{KG}_n(x) := E_n\left[ \mu_{n+1}^* - \mu_n^* | x_{n+1} = x \right]`$
+
+#### Props.) Knowledge Gradient
+  - Using the knowledge gradient as our acquisition function, the algorithm leads us to sample at the point with the largest $`KG_n(x)`$
+
+<br>
+
+#### Algorithm 2) Simulation-based computation of the knowledge-gradient factor
+- Algorithm)
+  - Let $`\displaystyle \mu_n^* = \max_{x'} \mu_n(x')`$ : Use nonlinear opt'n method!
+  - `for` $`j=1`$ to $`J`$: `do`
+    - Generate $`y_{n+1}\sim\text{Normal}(\mu_n(x), \sigma_n^2(x))`$.
+    - Set $`\mu_{n+1}(x'; x, y_{n+1})`$ to the posterior mean at $`x'`$.
+      - i.e.) Use $`\mu_n(x) = \Sigma_0(x,x_{1:n})\Sigma_0(x_{1:n},x_{1:n})^{-1}\left( f(x_{1:n}) - \mu_0(x_{1:n}) \right) +\mu_0(x)`$ 
+        - where
+          - $`f(x)|f(x_{1:n})\sim\text{Normal}(\mu_n(x), \sigma^2(x))`$
+          - $`\sigma^2_n(x) = \Sigma_0(x,x) - \Sigma_0(x,x_{1:n})\Sigma_0(x_{1:n},x_{1:n})^{-1}\Sigma_0(x_{1:n}, x)`$
+      - with $`(x, y_{n+1})`$ as the last observation.
+    - Calculate $`\displaystyle \mu_{n+1}^* = \max_{x'} \mu_{n+1} (x'; x, y_{n+1})`$ : Use nonlinear opt'n method!
+    - $`\Delta^{(j)} = \mu_{n+1}^* - \mu_{n}^*`$
+  - `end for`
+  - Estimate $`\text{KG}_n(x)`$ by $`\displaystyle \frac{1}{J}\sum_{j=1}^J \Delta^{(j)}`$
+- Desc.)
+  - In each loop,
+    1. Simulate one possible value for the observation $`y_{n+1}`$.
+       - where $`y_{n+1}`$ my result from taking evaluation $`n+1`$ at a designated $`x`$.
+    2. Assuming $`y_{n+1}`$ is the actual observation, compute the maximum of the new posterior mean $`\mu_{n+1}^*`$
+    3. Get $`\Delta^{(j)} = \mu_{n+1}^* - \mu_{n}^*`$ which will later be used to calculate $`\text{KG}_n(x)`$.
+  - Get $`\text{KG}_n(x)`$ by averaging the $`J`$ number of simulated $`\Delta`$s.
+- Prop.)
+  - A derivative-free simulation-based optimization method to optimize the KG acquisition function.
+    - However, optimizing noisy simulation-based functions without access to derivatives is challenging.
+    - Frazier et al. (2009) proposed discretizing the feasible set $`A`$ and calculating (10) exactly using properties of the normal distribution. 
+      - This works well for low-dimensional problems but becomes computationally burdensome in higher dimensions.
 
 
 ---
