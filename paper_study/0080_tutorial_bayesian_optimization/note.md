@@ -373,8 +373,10 @@
 <br>
 
 #### Algorithm 2) Simulation-based computation of the knowledge-gradient factor
+- Input Parameters)
+  - $`J`$ : the number of replications
 - Algorithm)
-  - Let $`\displaystyle \mu_n^* = \max_{x'} \mu_n(x')`$ : Use nonlinear opt'n method!
+  - Let $`\displaystyle \mu_n^* = \max_{x'} \mu_n(x')`$ : Use nonlinear opt'n method! (e.g. L-BFGS)
   - `for` $`j=1`$ to $`J`$: `do`
     - Generate $`y_{n+1}\sim\text{Normal}(\mu_n(x), \sigma_n^2(x))`$.
     - Set $`\mu_{n+1}(x'; x, y_{n+1})`$ to the posterior mean at $`x'`$.
@@ -383,7 +385,7 @@
           - $`f(x)|f(x_{1:n})\sim\text{Normal}(\mu_n(x), \sigma^2(x))`$
           - $`\sigma^2_n(x) = \Sigma_0(x,x) - \Sigma_0(x,x_{1:n})\Sigma_0(x_{1:n},x_{1:n})^{-1}\Sigma_0(x_{1:n}, x)`$
       - with $`(x, y_{n+1})`$ as the last observation.
-    - Calculate $`\displaystyle \mu_{n+1}^* = \max_{x'} \mu_{n+1} (x'; x, y_{n+1})`$ : Use nonlinear opt'n method!
+    - Calculate $`\displaystyle \mu_{n+1}^* = \max_{x'} \mu_{n+1} (x'; x, y_{n+1})`$ : Use nonlinear opt'n method! (e.g. L-BFGS)
     - $`\Delta^{(j)} = \mu_{n+1}^* - \mu_{n}^*`$
   - `end for`
   - Estimate $`\text{KG}_n(x)`$ by $`\displaystyle \frac{1}{J}\sum_{j=1}^J \Delta^{(j)}`$
@@ -399,6 +401,61 @@
     - However, optimizing noisy simulation-based functions without access to derivatives is challenging.
     - Frazier et al. (2009) proposed discretizing the feasible set $`A`$ and calculating (10) exactly using properties of the normal distribution. 
       - This works well for low-dimensional problems but becomes computationally burdensome in higher dimensions.
+
+<br>
+
+#### Algorithm 3) Multistart Stochastic Gradient Ascent based KG Finder
+- Ideation)
+  - Recall that [Algorithm 1](#algorithm-1-basic-pseudo-code-for-bayesian-optimization) had the challenge with dimensionality.
+- Input Parameters)
+  - $`R`$ : the number of starts
+  - $`T`$ : the number of iterations for each pass of gradient ascent
+  - $`a`$ : the parameter determining the step-size sequence
+  - $`J`$ : the number of replications
+    - cf.) Suggested inputs : $`R=10, T=10^2, a=4, J=10^3`$
+- Algorithm)
+  - `for` $`r=1`$ to $`R`$ `do`
+    - Choose $`x_0^{(r)}`$ uniformly at random from $`A`$.
+    - `for` $t=1`$ to $`T`$ `do`
+      - Let 
+        - $`G`$ : the stochastic gradient estimate of $`\nabla \text{KG}_n(x_{t-1}^{\left(r\right)})`$ from [Algorithm 4](#algorithm-4-simulation-of-unbiased-stochastic-gradients).
+        - $`\alpha_t = \frac{a}{a+t}`$
+      - $`x_t^{(r)} = x_{t-1}^{(r)} + \alpha_t G`$
+    - `end for`
+    - Estimate $`\text{KG}_n(x_T^{(r)})`$ using [Algorithm 2](#algorithm-2-simulation-based-computation-of-the-knowledge-gradient-factor) and $`J`$ replications.
+  - `end for`
+  - `return` the $`x_T^{(r)}`$ with the largest estimated value of $`\text{KG}_n(x_T^{(r)})`$
+- Desc.)
+  - Each starting point is indexed by $`r`$.
+    - The sequence of iterates $`x_t^{(r)}`$ is indexed by $`t`$.
+      - This sequence converges to a local optimum of the KG acquisition function.
+      - $`G`$ is a random variable whose expected value is equal to the **gradient** of the KG acquisition function w.r.t. where we sample.
+        - Consider that $`\nabla`$ refers to taking the gradient w.r.t. $`x`$.
+        - $`G`$ is evaluated at the current iterate $`x_{t-1}^{(r)}`$
+        - $`G`$ is calculated via [Algorithm 4](#algorithm-4-simulation-of-unbiased-stochastic-gradients). 
+      - $`\alpha_t`$ decreases overtime.
+
+<br>
+
+#### Algorithm 4) Simulation of Unbiased Stochastic Gradients
+- Ideation)
+  - d
+- Algorithm)
+  - `for` $`j=1`$ to $`J`$ `do`
+    - Generate $`Z\sim\text{Normal}(0,1)`$.
+    - $`y_{n+1} = \mu_n(x) + \sigma_n(x)Z \; (\because y_{n+1}\sim\text{Normal}(\mu_n(x), \sigma_n^2(x)))`$
+    - Let $`\mu_{n+1}(x'; x, y_{n+1}) = \mu_{n+1}(x'; x, \mu_n(x) + \sigma_n(x)Z)`$ be the posterior mean at $`x'`$ computed... 
+      - via $`f(x)|f(x_{1:n})\sim\text{Normal}(\mu_n(x), \sigma^2(x))`$
+        - where
+          - $`\mu_n(x) = \Sigma_0(x,x_{1:n})\Sigma_0(x_{1:n},x_{1:n})^{-1}\left( f(x_{1:n}) - \mu_0(x_{1:n}) \right) +\mu_0(x)`$ : the posterior mean
+          - $`\sigma^2_n(x) = \Sigma_0(x,x) - \Sigma_0(x,x_{1:n})\Sigma_0(x_{1:n},x_{1:n})^{-1}\Sigma_0(x_{1:n}, x)`$ : the posterior variance
+      - with $`(x, y_{n+1})`$ as the last observation.
+    - Solve $`\displaystyle \max_{x'} \mu_{n+1}(x'; x, y_{n+1})`$.
+      - Use methods such as L-BFGS.
+      - Let $`\widehat{x^*}`$ be the maximizing $`x'`$.
+    - Let $`G^{(j)}`$ be the gradient of $`\mu_{n+1}(\widehat{x^*}; x, \mu_n(x) + \sigma_n(x)Z)`$ w.r.t. $`x`$ holding $`\widehat{x^*}`$ fixed.
+  - `end for`
+  - Estimate $`\nabla\text{KG}_n(x)`$ by $`\displaystyle G = \frac{1}{J}\sum_{j=1}^J G^{(j)}`$
 
 
 ---
