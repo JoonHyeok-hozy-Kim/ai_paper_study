@@ -305,8 +305,11 @@
 - Closed Form Solution for the **Expected Improvement**
   - Jones et al. (1998) or Clark (1961)
     - Using the integration by parts, we can derive
-      - $`\displaystyle EI_n(x) = [\Delta_n(x)]^+ + \sigma_n(x)\;\varphi\left(\frac{\Delta_n(x)}{\sigma_n(x)}\right) - |\Delta_n(x)|\;\Phi\left(\frac{\Delta_n(x)}{\sigma_n(x)}\right)`$
-        - where $`\Delta_n(x) := \mu_n(x) - f_n^*`$ is the expected difference in quality between the proposed point $`x`$ and the previous best.
+      - $`\displaystyle EI_n(x) = [\Delta_n(x)]^+ + \sigma_n(x)\;\varphi\left(\frac{\Delta_n(x)}{\sigma_n(x)}\right) - \vert\Delta_n(x)\vert\;\Phi\left(\frac{\Delta_n(x)}{\sigma_n(x)}\right)`$
+        - where 
+          - $`\Delta_n(x) := \mu_n(x) - f_n^*`$ is the expected difference in quality between the proposed point $`x`$ and the previous best.
+            - Thus, high $`\Delta_n(x)`$ denotes the high performance (quality) of the model.
+              - cf.) $`\sigma_n(x)`$ denotes the std. deviation, which is the uncertainty of the model.
 - Optimization) Efficient Global Optimization
   - The **expected improvement** algorithm then evaluates at the point with the largest expected improvement:
     - $`x_{n+1} = \arg\max EI_n(x)`$
@@ -321,6 +324,45 @@
     |:-|
     |<img src="images/004.png" width="400px">|
     |- Blue (Red) indicates the smaller (larger) values of $`EI_n(x)`$|
+  - **Expected Improvement**  is reasonable when 
+    - evaluations are noise-free
+    - the decision-maker wants to minimize the risk of low performance.
+      - Why?)
+        - It returns a previously evaluated point as our final solution.
+
+
+<br>
+
+## 4.2. Knowledge Gradient
+### Assumptions)
+#### 1. Not Previously Evaluated Value)
+- The decision-maker is allowed to return any solution she likes, even if it has **not** been previously evaluated.
+  - i.e.) Taking the risk!
+  - cf.) Recall that [Expected Improvement](#41-expected-improvement) returned the previously evaluated point as the final solution!
+
+#### 2. Risk Neutrality (Berger, 2013)
+- i.e.) We value a random outcome $`X`$ according to its expected value.
+- e.g.)
+  - Suppose we sampled $`n`$ examples.
+  - Then, the solution that we would choose to stop is $`f(\widehat{x^*})`$
+    - where 
+      - $`\widehat{x^*}`$ satisfies $`\displaystyle\mu_n(\widehat{x^*}) = \max_{x'} \mu_n(x') =: \mu_n^*`$
+        - Here, $`\mu_n^*`$ is the conditional expected value.
+
+#### 3. Knowledge Gradient
+- Ideation)
+  - In [risk neutrality](#2-risk-neutrality-berger-2013), we derived $`\mu_n^*`$, which is the largest $`\mu_n(x)`$ from $`n`$ samples.
+  - Suppose we have one more example $`x_{n+1}`$.
+  - Then, we would obtain a new posterior distribution with posterior mean $`\mu_{n+1}(x)`$.
+  - If this sample is the final one and we have to report the final solution, the expected value under the new posterior distribution would be
+    - $`\displaystyle \mu_{n+1}^* := \max_{x'} \mu_{n+1}(x')`$
+  - Then, the increase in conditional expected solution value due to sampling $`x`$ would be
+    - $`\mu_{n+1}^* - \mu_{n}^*`$
+  - This quantity is unknown before we actually sample $`x_{n+1}`$.
+  - However, we can compute the expected value given the observations at $`x_1, x_2, \cdots, x_n`$.
+    - We call this the knowledge gradient.
+- Def.)
+  - $`\text{KG}_n(x) := E_n\left[ \mu_{n+1}^* - \mu_n^* | x_{n+1} = x \right]`$
 
 
 
