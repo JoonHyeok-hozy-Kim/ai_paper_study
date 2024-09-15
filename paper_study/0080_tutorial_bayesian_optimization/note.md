@@ -164,14 +164,14 @@
 - Props.)
   - Points that are closer in the input space are more strongly correlated.
     - i.e.)
-      - $`||x-x'|| \lt ||x-x''|| \Rightarrow \Sigma_0(x,x') \gt \Sigma_0(x,x'')`$
+      - $`\Vert x-x'\Vert  \lt \Vert x-x''\Vert  \Rightarrow \Sigma_0(x,x') \gt \Sigma_0(x,x'')`$
   - Kernels are required to be positive semi-definite functions.
 - Types)
   - **Power Exponential Kernel (Gaussian Kernel)**
     - Model)
-      - $`\Sigma_0(x,x') = \alpha_0 \exp(-||x-x'||^2)`$
+      - $`\Sigma_0(x,x') = \alpha_0 \exp(-\Vert x-x'\Vert ^2)`$
         - where
-          - $`\displaystyle ||x-x'||^2 = \sum_{i=1}^d \alpha_i (x_i-x_i')^2`$
+          - $`\displaystyle \Vert x-x'\Vert ^2 = \sum_{i=1}^d \alpha_i (x_i-x_i')^2`$
           - $`\alpha_{1:d}`$ are the parameters of the kernel.
     - Prop.)
       - Varying parameters creates different beliefs about how quickly $`f(x)`$ changes with $`x`$.
@@ -182,7 +182,7 @@
       |- Random functions with a 1-dimensional input drawn from a Gaussian process prior with a power exponential kernel with different values of $`\alpha_1`$ <br> - $`\alpha_1`$ decreasing from left to right.|
   - **Matern Kernel**
     - Model)
-      - $`\displaystyle \Sigma_0(x,x') = \alpha_0\frac{2^{1-\nu}}{\Gamma(\nu)}\left(\sqrt{2\nu}||x-x'||\right)^\nu K_\nu \left(\sqrt{2\nu}||x-x'||\right)`$
+      - $`\displaystyle \Sigma_0(x,x') = \alpha_0\frac{2^{1-\nu}}{\Gamma(\nu)}\left(\sqrt{2\nu}\Vert x-x'\Vert \right)^\nu K_\nu \left(\sqrt{2\nu}\Vert x-x'\Vert \right)`$
         - where
           - $`K_\nu`$ : the modified Bessel function
           - $`\nu`$ : a parameter
