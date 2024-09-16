@@ -439,7 +439,13 @@
 
 #### Algorithm 4) Simulation of Unbiased Stochastic Gradients
 - Ideation)
-  - d
+  - We can exchange gradient and expectation under sufficient regularity conditions.   
+    $`\begin{aligned}
+      \nabla \text{KG}_n(x) 
+      &= \nabla E_n\left[ \mu_{n+1}^* - \mu_n^* | x_{n+1} = x \right] \\
+      &= E_n\left[ \nabla (\mu_{n+1}^* - \mu_n^*) | x_{n+1} = x \right] \\
+      &= E_n\left[ \nabla \mu_{n+1}^* | x_{n+1} = x \right] & \because \frac{\partial \mu_n^*}{\partial x} = 0 \\
+    \end{aligned}`$
 - Algorithm)
   - `for` $`j=1`$ to $`J`$ `do`
     - Generate $`Z\sim\text{Normal}(0,1)`$.
