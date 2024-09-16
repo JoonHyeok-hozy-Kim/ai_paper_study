@@ -438,14 +438,6 @@
 <br>
 
 #### Algorithm 4) Simulation of Unbiased Stochastic Gradients
-- Ideation)
-  - We can exchange gradient and expectation under sufficient regularity conditions.   
-    $`\begin{aligned}
-      \nabla \text{KG}_n(x) 
-      &= \nabla E_n\left[ \mu_{n+1}^* - \mu_n^* | x_{n+1} = x \right] \\
-      &= E_n\left[ \nabla (\mu_{n+1}^* - \mu_n^*) | x_{n+1} = x \right] \\
-      &= E_n\left[ \nabla \mu_{n+1}^* | x_{n+1} = x \right] & \because \frac{\partial \mu_n^*}{\partial x} = 0 \\
-    \end{aligned}`$
 - Algorithm)
   - `for` $`j=1`$ to $`J`$ `do`
     - Generate $`Z\sim\text{Normal}(0,1)`$.
@@ -462,6 +454,37 @@
     - Let $`G^{(j)}`$ be the gradient of $`\mu_{n+1}(\widehat{x^*}; x, \mu_n(x) + \sigma_n(x)Z)`$ w.r.t. $`x`$ holding $`\widehat{x^*}`$ fixed.
   - `end for`
   - Estimate $`\nabla\text{KG}_n(x)`$ by $`\displaystyle G = \frac{1}{J}\sum_{j=1}^J G^{(j)}`$
+- Desc.)
+  - The goal of this algorithm is to compute $`\nabla\text{KG}_n(x)`$, the stochastic gradient.
+  - Infinitesimal Perturbation Analysis)
+    - We can exchange gradient and expectation under sufficient regularity conditions.   
+      $`\begin{aligned}
+        \nabla \text{KG}_n(x) 
+        &= \nabla E_n\left[ \mu_{n+1}^* - \mu_n^* | x_{n+1} = x \right] \\
+        &= E_n\left[ \nabla (\mu_{n+1}^* - \mu_n^*) | x_{n+1} = x \right] \\
+        &= E_n\left[ \nabla \mu_{n+1}^* | x_{n+1} = x \right] & \because \frac{\partial \mu_n^*}{\partial x} = 0 \\
+      \end{aligned}`$
+    - Thus, it is sufficient to sample $`\nabla\mu_{n+1}^*`$ to construct a stochastic gradient $`(\nabla\text{KG})`$.
+  - Now consider $`\mu_{n+1}^*`$.
+    - Recall that $`\displaystyle \mu_{n+1}^* = \max_{x'} \mu_{n+1}(x'; x, y_{n+1}) = \max_{x'} \mu_{n+1}(x'; x, \mu_n(x) + \sigma_n(x)Z)`$.
+      - i.e.) $`\mu_{n+1}^*`$ is a maximum over collection of functions of $`x`$.
+    - The envelope theorem (Milgrom and Segal, 2002) tells us (under sufficient regularity conditions) that the gradient with respect to $`x`$ of a maximum of a collection of functions of $`x`$ is given simply by 
+      - (1) first finding the maximum in this collection, 
+      - (2) and then differentiating this single function with respect to $`x`$.
+    - The algorithm implements this by
+      - (1) letting $`\widehat{x^*}`$ be the $`x'`$ maximizing $`\mu_{n+1}(x'; x, \mu_n(x)+\sigma_n(x)Z)`$
+      - (2) Calculating $`\nabla\mu_{n+1}(\widehat{x^*}; x, \mu_n(x)+\sigma_n(x)Z)`$ w.r.t. $`x`$ holding $`\widehat{x^*}`$ fixed.
+        - i.e.) $`\displaystyle\nabla\max_{x'}\mu_{n+1}(x';x,\mu_n(x)+\sigma_n(x)Z) = \nabla\mu_{n+1}(\widehat{x^*}; x, \mu_n(x)+\sigma_n(x)Z)`$
+
+<br>
+
+#### Prop.) Knowledge Gradient
+- KG acquisition considers the posterior over $`f`$'s full domain and how the sample will change that posterior.
+  - cf.) [Expected Improvement](#41-expected-improvement) considered only the posterior at the point sampled!
+- KG places a positive value on measurements that cause the maximum of the posterior mean to improve, even if the value at the sampled point is not better than the previous best point.
+  - This provides a **small** performance benefit in the [standard BayesOpt problem with noise-free evaluations](#2-overview-of-bayesopt).
+  - This provides **substantial** performance improvements in problems with noise, multi-fidelity observations,derivative observations, the need to integrate over environmental conditions, and other more exotic problem features.
+
 
 
 ---
