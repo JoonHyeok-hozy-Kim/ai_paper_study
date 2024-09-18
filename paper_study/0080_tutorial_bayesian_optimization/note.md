@@ -271,9 +271,10 @@
 
 #### Models) Types of Acquisition Functions Covered
 - [Expected Improvement](#41-expected-improvement)
-- Knowledge Gradient
+- [Knowledge Gradient](#42-knowledge-gradient)
 - Entropy Search
 - Predictive Entropy Search
+- Multi-Step Optimal Acquisition Functions
 
 <br>
 
@@ -485,7 +486,50 @@
   - This provides a **small** performance benefit in the [standard BayesOpt problem with noise-free evaluations](#2-overview-of-bayesopt).
   - This provides **substantial** performance improvements in problems with noise, multi-fidelity observations,derivative observations, the need to integrate over environmental conditions, and other more exotic problem features.
 
+<br><br>
 
+## 4.3 Entropy Search and Predictive Entropy Search
+### Concept) Entropy Search (ES) Acquisition Function
+- Desc.)
+  - It values the information we have about the location of the global maximum according to its differential **entropy**.
+  - ES seeks the point to evaluate that causes the largest decrease in differential entropy.
+    - where the differential entropy of a continuous probability distribution $`p(x)`$ is
+      - $`\displaystyle \int p(x)\log(p(x))dx`$
+- Derivation)
+  - Let $`x^*`$ be the global optimum of $`f`$.
+    - Then the posterior distribution on $`f`$ at time $`n`$ induces a probability distribution for $`x^*`$.
+    - If the domain $`A`$ is finite, then we could represent $`f`$ over its domain by a vector : $`f(x) : x\in A`$.
+      - $`x^*`$ would correspond to the largest element in this vector.
+      - The distribution of this vector under the time-$`n`$ posterior distribution would be multivariate normal.
+      - And this multivariate normal distribution would imply the distribution of $`x^*`$.
+    - When $`A`$ is continuous, $`x^*`$ is a random variable whose distribution is implied by the Gaussian process posterior on $`f`$.
+  - $`H(P_n(x^*))`$ : the entropy of the time-$`n`$ posterior distribution on $`x^*`$.
+    - Then $`H(P_n(x^*|x, f(x)))`$ represents the entropy of what the time-$`(n+1)`$ posterior distribution on $`x^*`$ will be if we observe at $`x`$ and see $`f(x)`$.
+    - Thus, the entropy reduction due to sampling $`x`$ can be written as:
+      - $`\text{ES}_n(x) = H(P_n(x^*)) - E_{f(x)}[H(P_n(x^*| f(x)))]`$
+        - Continuous Case:
+          - $`\displaystyle\int\varphi(y;\mu_n(x), \sigma^2(x)) H(P_n(x^*|f(x) = y))dy`$
+            - where $`\varphi(y; \mu_n(x), \sigma_n^2(x))`$ is the normal density with mean $`\mu_n(x)`$ and variance $`\sigma_n^2(x)`$.
+- Limit)
+  - While ES can be computed and optimized approximately (Hennig and Schuler, 2012), doing so is challenging because...
+    1. the entropy of the maximizer of a Gaussian process is not available in closed form
+    2. we must calculate this entropy for a large number of $`y`$ to approximate the expectation $`E_{f(x)}[H(P_n(x^*| f(x)))]`$
+    3. we must then optimize this hard-to-evaluate function
+  - Sol.) [PES](#concept-predictive-entropy-search-pes-acquisition-function)
+
+<br>
+
+### Concept) Predictive Entropy Search (PES) Acquisition Function
+- Desc.)
+  - It seeks the same point as the [ES acquisition function](#concept-entropy-search-es-acquisition-function), but uses a reformulation of the entropy reduction objective based on [mutual information](../../text_books/elmnts_info_theory/ch02/03/note.md#concept-mutual-information).
+  - It is influenced by how the measurement changes the posterior over the whole domain, and not just on whether it improves over an incumbent solution at the point sampled.
+    - Similar to [ES](#concept-entropy-search-es-acquisition-function) and [KG](#42-knowledge-gradient)
+    - This is useful when deciding where to sample in exotic problems, and it is here that [ES](#concept-entropy-search-es-acquisition-function) and PES can provide substantial value relative to [EI](#41-expected-improvement).
+- Derivation)
+  - The reduction in the entropy of $`x^*`$ due to measuring $`f(x)`$ is equal to the mutual information between $`f(x)`$ and $`x^*`$.
+    - i.e.) $`\text{PES}_n(X) = \text{ES}_n(x) = H(P_n(f(x))) - E_{x^*}[H(P_n(f(x)|x^*))]`$
+  - Then, unlike [ES](#concept-entropy-search-es-acquisition-function), $`H(P_n(f(x)))`$ can be computed in closed form.
+  - Still, $`E_{x^*}[H(P_n(f(x)|x^*))]`$ should be approximated.
 
 ---
 * [Back to Main](../../README.md)
