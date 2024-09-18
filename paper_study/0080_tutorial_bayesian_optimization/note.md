@@ -272,9 +272,9 @@
 #### Models) Types of Acquisition Functions Covered
 - [Expected Improvement](#41-expected-improvement)
 - [Knowledge Gradient](#42-knowledge-gradient)
-- Entropy Search
-- Predictive Entropy Search
-- Multi-Step Optimal Acquisition Functions
+- [Entropy Search](#concept-entropy-search-es-acquisition-function)
+- [Predictive Entropy Search](#concept-predictive-entropy-search-pes-acquisition-function)
+- [Multi-Step Optimal Acquisition Functions](#44-multi-step-optimal-acquisition-functions)
 
 <br>
 
@@ -530,6 +530,24 @@
     - i.e.) $`\text{PES}_n(X) = \text{ES}_n(x) = H(P_n(f(x))) - E_{x^*}[H(P_n(f(x)|x^*))]`$
   - Then, unlike [ES](#concept-entropy-search-es-acquisition-function), $`H(P_n(f(x)))`$ can be computed in closed form.
   - Still, $`E_{x^*}[H(P_n(f(x)|x^*))]`$ should be approximated.
+
+<br><br>
+
+## 4.4 Multi-Step Optimal Acquisition Functions
+- Ideation)
+  - Similarities in the previous models)
+    - Recall that the EI, KG, ES, and PES were sequential decision-making problem.
+      - Why?)
+        - We sequentially choose $`x_n`$ and observe $`y_n=f(x_n)`$ with the choice of $`x_n`$ depending on all past observations.
+    - At the end of the observations, we then receive a reward that might be equal to the value of the best point observed
+      - EI : $`\displaystyle\max_{m\le N} f(x_m)`$
+      - KG : $`f(\widehat{x^*})`$
+      - ES/PES : the entropy of the posterior distribution on $`x^*`$.
+    - By construction, the EI, KG, ES, and PES acquisition functions are optimal when $`N = n + 1`$.
+    - However, they are no longer optimal when $`N\gt n+1`$.
+  - In principle, it is possible to compute a multi-step optimal acquisition function that would maximize expected reward for general $`N`$ via stochastic dynamic programming (Dynkin and Yushkevich, 1979), 
+  - But the so-called curse of dimensionality (Powell, 2007) makes it extremely challenging to compute this multi-step optimal acquisition function in practice.
+
 
 ---
 * [Back to Main](../../README.md)
