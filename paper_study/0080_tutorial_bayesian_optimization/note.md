@@ -548,6 +548,11 @@
   - In principle, it is possible to compute a multi-step optimal acquisition function that would maximize expected reward for general $`N`$ via stochastic dynamic programming (Dynkin and Yushkevich, 1979), 
   - But the so-called curse of dimensionality (Powell, 2007) makes it extremely challenging to compute this multi-step optimal acquisition function in practice.
 
+<br><br>
+
+# 5. Exotic Bayesian Optimization
+
+
 
 ---
 * [Back to Main](../../README.md)
