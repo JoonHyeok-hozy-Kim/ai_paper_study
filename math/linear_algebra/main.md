@@ -48,7 +48,7 @@
 |Note|Chapter|Keywords|
 |:-:|:------|:-------|
 |[01-02](./mit1806/notes/0102.md)|The Geometry of Linear Equations<br>Elimination with Matrices|Column/Row Picture of the Multiplication btwn Matrix and Vector |
-|[03-04](./mit1806/notes/0304.md)|Multiplication and Inverse Matrices<br>Factorization into A = LU|Column/Row Picture of the Matrix Multiplication, Blocks|
+|[03-04](./mit1806/notes/0304.md)|Multiplication and Inverse Matrices<br>Factorization into A = LU|Column/Row Picture of the Matrix Multiplication, Blocks <br> Factorization $`A = LU  `$|
 
 
 
