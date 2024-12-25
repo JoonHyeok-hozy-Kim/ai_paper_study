@@ -38,13 +38,17 @@
 |:-:|:------|:-------|
 |4.1|[Subspaces](./elementary_lin_alg/ch04/01/note.md)|- Subspace, Closure, Zero/Nonzero Subspace <br> - Null Space, Column Space, Row Space|
 
+<br>
 
 ---
+
+<br><br>
 
 # MIT 18.06 Linear Algebra
 |Note|Chapter|Keywords|
 |:-:|:------|:-------|
 |[01-02](./mit1806/notes/0102.md)|The Geometry of Linear Equations<br>Elimination with Matrices|Column/Row Picture of the Multiplication btwn Matrix and Vector |
+|[03-04](./mit1806/notes/0102.md)|Multiplication and Inverse Matrices<br>Factorization into A = LU|Column/Row Picture of the Matrix Multiplication|
 
 
 
