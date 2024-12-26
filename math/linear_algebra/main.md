@@ -47,8 +47,9 @@
 # MIT 18.06 Linear Algebra
 |Note|Chapter|Keywords|
 |:-:|:------|:-------|
-|[01-02](./mit1806/notes/0102.md)|The Geometry of Linear Equations<br>Elimination with Matrices|Column/Row Picture of the Multiplication btwn Matrix and Vector |
-|[03-04](./mit1806/notes/0304.md)|Multiplication and Inverse Matrices<br>Factorization into A = LU|Column/Row Picture of the Matrix Multiplication, Blocks <br> Factorization $`A = LU  `$|
+|[01-02](./mit1806/notes/0102.md)|1. The Geometry of Linear Equations<br>2. Elimination with Matrices|- Column/Row Picture of the Multiplication btwn Matrix and Vector |
+|[03-04](./mit1806/notes/0304.md)|3. Multiplication and Inverse Matrices<br> 4. Factorization into A = LU|- Column/Row Picture of the Matrix Multiplication, Blocks <br> - Factorization $`A = LU  `$|
+|[05-06](./mit1806/notes/0304.md)|5. Transposes, Permutations, Spaces $`R^n`$<br> 6. Column Space and Nullspace|- |
 
 
 
