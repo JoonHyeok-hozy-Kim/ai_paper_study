@@ -50,7 +50,7 @@
 |[01-02](./mit1806/notes/0102.md)|1. The Geometry of Linear Equations<br>2. Elimination with Matrices|- Column/Row Picture of the Multiplication btwn Matrix and Vector |
 |[03-04](./mit1806/notes/0304.md)|3. Multiplication and Inverse Matrices<br> 4. Factorization into A = LU|- Column/Row Picture of the Matrix Multiplication, Blocks <br> - Factorization $`A = LU  `$|
 |[05-06](./mit1806/notes/0506.md)|5. Transposes, Permutations, Spaces $`R^n`$<br> 6. Column Space and Nullspace|- Permutation : $`PA=LU`$ <br> - Column Space, Null Space|
-|[07-08](./mit1806/notes/0304.md)|7. Solving Ax = 0: Pivot Variables, Special Solutions <br> 8. Solving Ax = b: Row Reduced Form R|- Reduced Row Echelon Form (RREF)|
+|[07-08](./mit1806/notes/0304.md)|7. Solving Ax = 0: Pivot Variables, Special Solutions <br> 8. Solving Ax = b: Row Reduced Form R|- Reduced Row Echelon Form (RREF) <br> - Solution of $`A\mathbf{x} = \mathbf{b}`$|
 
 
 
