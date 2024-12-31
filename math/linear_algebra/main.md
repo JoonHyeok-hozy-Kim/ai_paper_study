@@ -54,6 +54,7 @@
 |[09-10](./mit1806/notes/0910.md)|9. Independence, Basis, and Dimension <br> 10. The Four Fundamental Subspaces|- Column Space, Row Space, Null Space, Transpose Null Space|
 |[11-12](./mit1806/notes/1112.md)|11. Matrix Spaces; Rank 1; Small World Graphs <br> 12. Graphs, Networks, Incidence Matrices|- Vector Space of Matrices|
 |[14-15](./mit1806/notes/1415.md)|14. Orthogonal Vectors and Subspaces <br> 15. Projections onto Subspaces|- Orthogonality <br> - Projection, Projection Matrix|
+|[16-17](./mit1806/notes/1617.md)|16. Projection Matrices and Least Squares / 17. Orthogonal Matrices and Gram-Schmidt|- |
 
 
 
