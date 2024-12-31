@@ -53,6 +53,8 @@
 |[07-08](./mit1806/notes/0708.md)|7. Solving Ax = 0: Pivot Variables, Special Solutions <br> 8. Solving Ax = b: Row Reduced Form R|- Reduced Row Echelon Form (RREF) <br> - Solution of $`A\mathbf{x} = \mathbf{b}`$|
 |[09-10](./mit1806/notes/0910.md)|9. Independence, Basis, and Dimension <br> 10. The Four Fundamental Subspaces|- Column Space, Row Space, Null Space, Transpose Null Space|
 |[11-12](./mit1806/notes/1112.md)|11. Matrix Spaces; Rank 1; Small World Graphs <br> 12. Graphs, Networks, Incidence Matrices|- Vector Space of Matrices|
+|[14-15](./mit1806/notes/1415.md)|14. Orthogonal Vectors and Subspaces <br> 15. Projections onto Subspaces|- Orthogonality <br> - Projection, Projection Matrix|
+
 
 
 
