@@ -55,6 +55,7 @@
 |[11-12](./mit1806/notes/1112.md)|11. Matrix Spaces; Rank 1; Small World Graphs <br> 12. Graphs, Networks, Incidence Matrices|- Vector Space of Matrices|
 |[14-15](./mit1806/notes/1415.md)|14. Orthogonal Vectors and Subspaces <br> 15. Projections onto Subspaces|- Orthogonality <br> - Projection, Projection Matrix|
 |[16-17](./mit1806/notes/1617.md)|16. Projection Matrices and Least Squares / 17. Orthogonal Matrices and Gram-Schmidt|- Linear Regression <br> - Orthonormal Vectors <br> - Orthogonal Basis, Orthogonal Matrix <br> - Gram-Schmidth Process|
+|[18-19](./mit1806/notes/1819.md)|18. Properties of Determinants / 19. Determinant Formulas and Cofactors|- |
 
 
 
