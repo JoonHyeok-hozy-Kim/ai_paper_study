@@ -56,7 +56,10 @@
 |[14-15](./mit1806/notes/1415.md)|14. Orthogonal Vectors and Subspaces <br> 15. Projections onto Subspaces|- Orthogonality <br> - Projection, Projection Matrix|
 |[16-17](./mit1806/notes/1617.md)|16. Projection Matrices and Least Squares / 17. Orthogonal Matrices and Gram-Schmidt|- Linear Regression <br> - Orthonormal Vectors <br> - Orthogonal Basis, Orthogonal Matrix <br> - Gram-Schmidth Process|
 |[18-19](./mit1806/notes/1819.md)|18. Properties of Determinants / 19. Determinant Formulas and Cofactors|- |
-|[20-21](./mit1806/notes/2021.md)||- |
+|[20-21](./mit1806/notes/2021.md)|20. Cramer's Rule, Inverse Matrix, and Volume <br> 21. Eigenvalues and Eigenvectors|- |
+|[22-23](./mit1806/notes/2223.md)|22. Diagonalization and Powers of A <br> 23. Differential Equations and exp(At)|- $`A = S \Lambda S^{-1}`$|
+|[24](./mit1806/notes/24.md)|24. Markov Matrices; Fourier Series|- |
+|[25-26](./mit1806/notes/2526.md)|25. Symmetric Matrices and Positive Definiteness <br> 26. Complex Matrices; Fast Fourier Transform|- $`A = Q\Lambda Q^\top`$ <br> - Hermitian $`A^H`$ <br> - Fast Fourier Transformation (FFT)|
 
 
 
