@@ -60,7 +60,8 @@
 |[22-23](./mit1806/notes/2223.md)|22. Diagonalization and Powers of A <br> 23. Differential Equations and exp(At)|- $`A = S \Lambda S^{-1}`$|
 |[24](./mit1806/notes/24.md)|24. Markov Matrices; Fourier Series|- |
 |[25-26](./mit1806/notes/2526.md)|25. Symmetric Matrices and Positive Definiteness <br> 26. Complex Matrices; Fast Fourier Transform|- $`A = Q\Lambda Q^\top`$ <br> - Hermitian $`A^H`$ <br> - Fast Fourier Transformation (FFT)|
-|[27-28](./mit1806/notes/2526.md)|27. Positive Definite Matrices and Minima <br> 28. Similar Matrices and Jordan Form|- |
+|[27-28](./mit1806/notes/2728.md)|27. Positive Definite Matrices and Minima <br> 28. Similar Matrices and Jordan Form|- |
+|[29](./mit1806/notes/2900.md)|29. Singular Value Decomposition|- |
 
 
 
