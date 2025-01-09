@@ -62,6 +62,7 @@
 |[25-26](./mit1806/notes/2526.md)|25. Symmetric Matrices and Positive Definiteness <br> 26. Complex Matrices; Fast Fourier Transform|- $`A = Q\Lambda Q^\top`$ <br> - Hermitian $`A^H`$ <br> - Fast Fourier Transformation (FFT)|
 |[27-28](./mit1806/notes/2728.md)|27. Positive Definite Matrices and Minima <br> 28. Similar Matrices and Jordan Form|- |
 |[29](./mit1806/notes/2900.md)|29. Singular Value Decomposition|- |
+|[30](./mit1806/notes/3000.md)|30. Linear Transformations and Their Matrices|- |
 
 
 
