@@ -63,6 +63,8 @@
 |[27-28](./mit1806/notes/2728.md)|27. Positive Definite Matrices and Minima <br> 28. Similar Matrices and Jordan Form|- |
 |[29](./mit1806/notes/2900.md)|29. Singular Value Decomposition|- |
 |[30](./mit1806/notes/3000.md)|30. Linear Transformations and Their Matrices|- |
+|[31](./mit1806/notes/3100.md)|31. Change of Basis; Image Compression|- |
+|[33](./mit1806/notes/3300.md)|33. Left and Right Inverses; Pseudoinverse|- |
 
 
 
